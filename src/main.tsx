@@ -1,13 +1,9 @@
-import { createRoot } from 'react-dom/client';
-import React from 'react';
-import './global.css';
+import { createRoot } from 'react-dom/client'
 
-const root = createRoot(document.getElementById('root')!);
+import React from 'react'
 
-root.render(
-    <React.StrictMode>
+import './global.css'
 
-    </React.StrictMode>
-)
+const root = createRoot(document.getElementById('root')!)
 
-
+root.render(<React.StrictMode></React.StrictMode>)

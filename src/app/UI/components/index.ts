@@ -1,4 +1,6 @@
 export * from './Button/Button'
 export * from './Input/TextInput'
+export * from './Input/SelectComponent'
+export * from './Input/SearchInput'
 export * from './breadcrumbs/Breadcrumb'
 export * from './footer/Footer'

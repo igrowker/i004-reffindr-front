@@ -1,6 +1,6 @@
 import { InputProps } from '@/types'
 
-export const Input: React.FC<InputProps> = ({
+export const InputForm: React.FC<InputProps> = ({
   id,
   type,
   className,

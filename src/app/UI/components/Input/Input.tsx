@@ -13,7 +13,7 @@ export const Input: React.FC<InputProps> = ({
     <input
       id={id}
       type={type}
-      className={className}
+      className={`w-full rounded-md border border-gray-300 p-2 text-base focus:border-blue-500 focus:outline-none ${className}`}
       placeholder={placeholder}
       value={value}
       onChange={onChange}

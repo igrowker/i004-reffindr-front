@@ -43,15 +43,16 @@ const Card: React.FC<CardProps> = ({
         <p style={styles.description}>{isOpen ? description : description.substring(0, 100) + '...'}</p>
 
         {/* Botón para expandir o colapsar la descripción */}
-        <button onClick={toggleDescription} style={styles.button}>
-          {isOpen ? 'Ver menos' : 'Ver más'}
-        </button>
+
 
         <div style={styles.tags}>
           {tags.map((tag, index) => (
             <span key={index} style={styles.tag}>{tag}</span>
           ))}
         </div>
+                  <button onClick={toggleDescription} style={styles.button}>
+            {isOpen ? 'Ver menos' : 'Ver más'}
+          </button>
       </div>
     </div>
   );
@@ -132,14 +133,13 @@ const styles = {
 
 export default Card;
 
-
 // <Card
-// title="Casa Corral"
+// title="Apartamento en Recoleta"
 // price={55}
 // rating={3.5}
 // reviews={10}
 // location="Recoleta, C.A.B.A"
 // description="Mi querido hogar en Recoleta: el refugio perfecto para quien busca comodidad y calidez.Mi querido hogar en Recoleta: el refugio perfecto para quien busca comodidad y calidez, Mi querido hogar en Recoleta: el refugio perfecto para quien busca comodidad y calidez"
 // tags={['2 amb', 'Temporal', 'Amueblado']}
-// imageUrl="https://images.unsplash.com/photo-1609319172668-8b4f021f3b7b?q=80&w=2788&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+// imageUrl="https://images.unsplash.com/photo-1638358001317-fd7a8483641b?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 // />

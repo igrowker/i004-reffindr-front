@@ -21,7 +21,7 @@ export const LastSection = ({ items, img }: Props) => {
             <Heading wordBreak='break-word' py={2}>
               {i + 1}. {item.title}
             </Heading>
-            <Text wordBreak='break-word' py={2} pl={5}>
+            <Text wordBreak='break-word' pt={2} pb={4} pl={5}>
               {item.description}
             </Text>
           </Box>

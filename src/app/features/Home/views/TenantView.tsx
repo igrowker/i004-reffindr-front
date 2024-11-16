@@ -9,7 +9,6 @@ export const TenantView = () => {
         headLink={{
           title: 'Soy propietario',
           path: '/owner',
-          path: '/owner',
         }}
         backgroundImage='/landing-inquilinos-head.png'
         headIcon={<IoLogoInstagram size={32} />}

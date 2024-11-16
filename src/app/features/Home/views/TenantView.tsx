@@ -1,7 +1,7 @@
 import { HeadSection } from "@/app/UI/components/head-section/HeadSection"
 import { IoLogoInstagram } from 'react-icons/io5';
 
-export const HomeView = () => {
+export const TenantView = () => {
   return (
     <>
       <HeadSection

@@ -16,7 +16,7 @@ interface Props {
 export const HeadSection = ({ title, headIcon, backgroundImage, headLink }: Props) => {
 
     return (
-        <Box  bgBlendMode="multiply" bgColor="blackAlpha.600" bgImage={`url(${backgroundImage})`}>
+        <Box as="section" bgBlendMode="multiply" bgColor="blackAlpha.600" bgImage={`url(${backgroundImage})`}>
             <Flex flexDirection="column" minH="100vh" >
                 <Flex py={6} >
                     <Box px={4} >{headIcon}</Box>

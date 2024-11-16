@@ -1,3 +1,4 @@
+
 import { Box, Button, Flex, Grid, Heading, Input, Link, Text } from '@chakra-ui/react'
 import { MouseEvent, ReactNode } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
@@ -66,4 +67,5 @@ export const HeadSection = ({ title, headIcon, backgroundImage, headLink, loginB
       </Flex>
     </Box>
   )
+
 }

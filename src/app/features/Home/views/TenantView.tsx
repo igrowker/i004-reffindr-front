@@ -1,6 +1,8 @@
+
 import { IoLogoInstagram } from 'react-icons/io5'
 
 import { HeadSection } from '@/app/UI/components/head-section/HeadSection'
+
 
 export const TenantView = () => {
   return (
@@ -16,4 +18,5 @@ export const TenantView = () => {
       />
     </>
   )
+
 }

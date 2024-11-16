@@ -7,9 +7,13 @@ interface Props {
     title: string;
     headIcon: ReactNode;
     backgroundImage: string;
+    headLink: {
+        title: string;
+        path: string;
+    }
 }
 
-export const HeadSection = ({ title, headIcon, backgroundImage }: Props) => {
+export const HeadSection = ({ title, headIcon, backgroundImage, headLink }: Props) => {
 
     return (
         <Box  bgBlendMode="multiply" bgColor="blackAlpha.600" bgImage={`url(${backgroundImage})`}>
@@ -18,7 +22,7 @@ export const HeadSection = ({ title, headIcon, backgroundImage }: Props) => {
                     <Box px={4} >{headIcon}</Box>
                     <Flex px={8} justifyContent="end" flexGrow={1} gapX={8} >
                         <Link color="white" asChild variant="underline">
-                            <RouterLink to="">Soy propietario</RouterLink>
+                            <RouterLink to={headLink.path}>{headLink.title}</RouterLink>
                         </Link>
                         <Button variant="solid" colorPalette={"blue"} >
                             Iniciar sesión

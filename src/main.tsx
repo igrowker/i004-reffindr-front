@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { TenantView } from '@/app/features/Home/views/TenantView'
 import { LoginView } from '@/app/features/Login/views/LoginView'
 import { Provider } from '@/components/ui/provider'
+import { TenantView } from './app/features/Home/views/TenantView'
 
 const root = createRoot(document.getElementById('root')!)
 

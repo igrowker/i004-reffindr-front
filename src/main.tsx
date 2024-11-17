@@ -2,9 +2,10 @@ import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
+import { TenantView } from '@/app/features/Home/views/TenantView'
 import { LoginView } from '@/app/features/Login/views/LoginView'
+import { RegisterView } from '@/app/features/Register/views/RegisterView'
 import { Provider } from '@/components/ui/provider'
-import { TenantView } from './app/features/Home/views/TenantView'
 
 const root = createRoot(document.getElementById('root')!)
 
@@ -15,6 +16,7 @@ root.render(
         <Routes>
           <Route path='/tenantview' element={<TenantView />} />
           <Route path='/login' element={<LoginView />} />
+          <Route path='/register' element={<RegisterView />} />
         </Routes>
       </BrowserRouter>
     </Provider>

@@ -3,8 +3,9 @@ import { useState } from 'react'
 import { FaFacebook, FaGoogle, FaTimes } from 'react-icons/fa'
 
 import { Field } from '@/components/ui/field'
+import { onCloseProps } from '@/types'
 
-export const LoginView = () => {
+export const LoginView = ({ onclose }: onCloseProps) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -14,10 +15,14 @@ export const LoginView = () => {
     console.log('Password:', password)
   }
 
+  const handleClose = () => {
+    onclose()
+  }
+
   return (
-    <Box minH='100vh' display='flex' alignItems='center' justifyContent='center' bg='gray.100'>
-      <Fieldset.Root paddingY={10} maxW='sm' mx='auto' mt={5} bg='white' boxShadow='md' paddingX={10}>
-        <IconButton bottom={8} left={8} alignSelf={'end'} size={'xs'}>
+    <Box bg='gray.100' top={100} left={250} width={'30rem'}>
+      <Fieldset.Root paddingY={10} bg='white' boxShadow='md' paddingX={10} fontSize={'xl'}>
+        <IconButton bottom={8} left={8} alignSelf={'end'} size={'xs'} onClick={handleClose}>
           <FaTimes />
         </IconButton>
         <Stack textAlign={'center'} mt={-7}>
@@ -27,34 +32,43 @@ export const LoginView = () => {
           <Fieldset.HelperText fontWeight={'medium'}>Completa los siguientes campos:</Fieldset.HelperText>
         </Stack>
 
-        <Fieldset.Content>
-          <Field label='Email*' mb={4}>
-            <Input
-              type='email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder='Correo Electrónico'
-              borderColor='black'
-            />
-          </Field>
+        <Fieldset.Content mb={5}>
+          <Text fontSize={'xl'}>Email*</Text>
+          <Input
+            type='email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder='Correo Electrónico'
+            borderColor='black'
+            fontSize={'xl'}
+          />
 
-          <Field label='Contraseña*' mb={4}>
-            <Input
-              type='password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder='Contraseña'
-              borderColor='black'
-            />
-          </Field>
+          <Text fontSize={'xl'}> Contraseña*</Text>
+          <Input
+            type='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder='Contraseña'
+            borderColor='black'
+            fontSize={'xl'}
+          />
         </Fieldset.Content>
 
         <Stack gap={4} mb={4}>
-          <Button type='submit' w='full' borderColor='black' borderWidth='1px' bg={'#146EB4'} onClick={handleLogin}>
+          <Button
+            fontSize={'xl'}
+            type='submit'
+            w='full'
+            borderColor='black'
+            borderWidth='1px'
+            bg={'#146EB4'}
+            onClick={handleLogin}
+          >
             Iniciar Sesión
           </Button>
 
           <Button
+            fontSize={'xl'}
             colorScheme='red'
             w='full'
             bg='white'
@@ -67,7 +81,15 @@ export const LoginView = () => {
             Iniciar sesión con Google
           </Button>
 
-          <Button w='full' bg='white' color='black' borderWidth='1px' borderColor='black' onClick={handleLogin}>
+          <Button
+            fontSize={'xl'}
+            w='full'
+            bg='white'
+            color='black'
+            borderWidth='1px'
+            borderColor='black'
+            onClick={handleLogin}
+          >
             <FaFacebook />
             Iniciar sesión con Facebook
           </Button>

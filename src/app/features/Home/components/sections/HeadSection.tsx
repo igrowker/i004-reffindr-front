@@ -3,6 +3,7 @@ import { ReactNode, useState } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 
 import LoginView from '@/app/features/Login/views/LoginView'
+import { RegisterView } from '@/app/features/Register/views/RegisterView'
 
 interface Props {
   title: string
@@ -16,9 +17,16 @@ interface Props {
 
 export const HeadSection = ({ title, headIcon, backgroundImage, headLink }: Props) => {
   const [showLogin, setShowLogin] = useState(false)
+  const [showRegister, setShowRegister] = useState(false)
 
   const handleShowLogin = () => {
     setShowLogin(!showLogin)
+    setShowRegister(false)
+  }
+
+  const handleShowRegister = () => {
+    setShowRegister(!showRegister)
+    setShowLogin(false)
   }
 
   return (
@@ -32,9 +40,16 @@ export const HeadSection = ({ title, headIcon, backgroundImage, headLink }: Prop
       >
         {showLogin && (
           <Center position='absolute' top='15%' left='50%' transform='translate(-50%, -50%)' zIndex='10'>
-            <LoginView onclose={handleShowLogin} />
+            <LoginView onclose={handleShowLogin} onShowRegister={handleShowRegister} />
           </Center>
         )}
+
+         {showRegister && (
+          <Center position='absolute' top='15%' left='50%' transform='translate(-50%, -50%)' zIndex='10'>
+            <RegisterView onclose={handleShowRegister} onShowLogin={handleShowLogin} />
+          </Center>
+        )}
+
         <Flex px={6} flexDirection='column' minH='100vh'>
           <Flex py={6}>
             <Box>{headIcon}</Box>

@@ -2,10 +2,9 @@ import { Box, Button, Fieldset, IconButton, Input, Link, Stack, Text } from '@ch
 import { useState } from 'react'
 import { FaFacebook, FaGoogle, FaTimes } from 'react-icons/fa'
 
-import { Field } from '@/components/ui/field'
-import { onCloseProps } from '@/types'
+import { onProps } from '@/types'
 
-export const LoginView = ({ onclose }: onCloseProps) => {
+export const LoginView = ({ onclose, onShowRegister }: onProps) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -16,11 +15,19 @@ export const LoginView = ({ onclose }: onCloseProps) => {
   }
 
   const handleClose = () => {
+    if (onclose){
     onclose()
+    }
+  }
+
+  const handleShowRegister = () => {
+    if (onShowRegister){
+    onShowRegister()
+    }
   }
 
   return (
-    <Box bg='gray.100' top={100} left={250} width={'30rem'}>
+    <Box bg='gray.100' top={100} left={250} width={'30rem'} border={'10px'} borderColor={'red'} borderRadius='full'>
       <Fieldset.Root paddingY={10} bg='white' boxShadow='md' paddingX={10} fontSize={'xl'}>
         <IconButton bottom={8} left={8} alignSelf={'end'} size={'xs'} onClick={handleClose}>
           <FaTimes />
@@ -29,7 +36,7 @@ export const LoginView = ({ onclose }: onCloseProps) => {
           <Fieldset.Legend fontSize='4xl' fontWeight={'bold'} mb={4}>
             Iniciar sesión
           </Fieldset.Legend>
-          <Fieldset.HelperText fontWeight={'medium'}>Completa los siguientes campos:</Fieldset.HelperText>
+          <Fieldset.HelperText  fontSize={'md'} fontWeight={'medium'}>Completa los siguientes campos:</Fieldset.HelperText>
         </Stack>
 
         <Fieldset.Content mb={5}>
@@ -102,7 +109,7 @@ export const LoginView = ({ onclose }: onCloseProps) => {
 
           <Stack flexDirection={'row'}>
             <Text>¿No tienes cuenta?</Text>
-            <Link fontWeight={'bold'} textDecoration={'underline'} href='#'>
+            <Link fontWeight={'bold'} textDecoration={'underline'} href='#' onClick={handleShowRegister}>
               Regístrate
             </Link>
           </Stack>

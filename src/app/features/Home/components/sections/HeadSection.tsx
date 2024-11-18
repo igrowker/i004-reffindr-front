@@ -3,6 +3,7 @@ import { ReactNode, useState } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 
 import LoginView from '@/app/features/Login/views/LoginView'
+import { LogoComponent } from '@/app/UI/components/Logo/LogoComponent'
 
 interface Props {
   title: string
@@ -14,7 +15,7 @@ interface Props {
   }
 }
 
-export const HeadSection = ({ title, headIcon, backgroundImage, headLink }: Props) => {
+export const HeadSection = ({ title, backgroundImage, headLink }: Props) => {
   const [showLogin, setShowLogin] = useState(false)
 
   const handleShowLogin = () => {
@@ -36,8 +37,10 @@ export const HeadSection = ({ title, headIcon, backgroundImage, headLink }: Prop
           </Center>
         )}
         <Flex px={6} flexDirection='column' minH='100vh'>
-          <Flex py={6}>
-            <Box>{headIcon}</Box>
+          <Flex py={6} alignItems='center'>
+            <Box>
+              <LogoComponent src={'/src/assets/logos-svg/logoblanco.svg'} />
+            </Box>
             <Flex justifyContent='end' flexGrow={1} gapX={5}>
               <Link fontSize={{ base: 'xs', sm: 'md' }} color='white' asChild variant='underline'>
                 <RouterLink to={headLink.path}>{headLink.title}</RouterLink>

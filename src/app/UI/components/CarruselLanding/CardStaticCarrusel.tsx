@@ -1,11 +1,10 @@
-import { Box, Text, Flex } from '@chakra-ui/react'
+import { Box, Flex, Text } from '@chakra-ui/react'
+import { useState } from 'react'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
-
 
 import { Button } from '@/components/ui/button'
 
 import { CardCarrusel } from './CardCarrusel'
-import { useState } from 'react'
 
 export const CardStaticCarrusel = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -36,14 +35,13 @@ export const CardStaticCarrusel = () => {
         image: 'public/AvatarImage1.png',
       },
       userName: 'Carlos Ramírez',
-      userRole: 'Inversionista',
+      userRole: 'Inquilino',
     },
     {
       description:
         'La experiencia con Reffindr ha sido increíble. La plataforma me ayudó a encontrar al inquilino ideal para mi departamento en tiempo récord. Es fácil de usar y muy eficiente.',
       avatar: {
         image: 'public/AvatarImage4.png',
-       
       },
       userName: 'Andrea Núñez',
       userRole: 'Propietaria',
@@ -55,64 +53,50 @@ export const CardStaticCarrusel = () => {
         image: 'public/AvatarImage1.png',
       },
       userName: 'Luis Mendoza',
-      userRole: 'Empresario',
+      userRole: 'Inquilino',
     },
   ]
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCurrentIndex((prevIndex: number) => (prevIndex + 1) % users.length)
-  //   }, 4000)
-
-  //   return () => clearInterval(interval)
-  // }, [users.length])
-
-  const  handlePrev = () => {
-    setCurrentIndex((prevIndex: number) => (prevIndex === 0 ? users.length - 1 : prevIndex - 1)) 
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex: number) => (prevIndex === 0 ? users.length - 1 : prevIndex - 1))
   }
   const handleNext = () => {
     setCurrentIndex((prevIndex: number) => (prevIndex + 1) % users.length)
   }
 
   return (
-    <Flex ml={'20rem'} border={'none'}>
+    <Flex p={20} pl={100} border={'none'}  >
       <Flex gap='2' flexDir={'column'}>
-        <Text fontSize={48} fontWeight={'bold'}>
+        <Text fontSize={52} fontWeight={'bold'} >
           Más de 140 mil personas eligen{''} <Text color={'#146EB4'}>Reffindr</Text>
         </Text>
-        <Text fontSize={32}>
+        <Text fontSize={42} width={'30rem'}>
           Nuestros clientes nos eligen por la transparencia y simplicidad en el proceso de alquiler.{' '}
         </Text>
-        <Flex justifyContent='flex-start'>
-        <Button background={'#146EB4'} borderRadius={'full'} onClick={handlePrev}>
-          <MdKeyboardArrowLeft />
-        </Button>
-        <Button background={'#146EB4'} borderRadius={'full'} onClick={handleNext}>
-          <MdKeyboardArrowRight />
-        </Button>
-      </Flex>
+        <Flex justifyContent='flex-end' p={5} gap={5}>
+          <Button background={'#146EB4'} borderRadius={'full'} onClick={handlePrev}>
+            <MdKeyboardArrowLeft />
+          </Button>
+          <Button background={'#146EB4'} borderRadius={'full'} onClick={handleNext}>
+            <MdKeyboardArrowRight />
+          </Button>
+        </Flex>
       </Flex>
 
-
-      <Flex
-        overflow="hidden"
-        position="relative"
-        width="100%"
-        maxWidth="1000px"
-        mx="auto"
-      >
+      <Flex overflow='hidden' position='relative' width='100%' maxWidth='70rem' mx='auto'>
         <Flex
           transform={`translateX(-${currentIndex * 15}%)`}
-          transition="transform 0.5s ease-in-out"
+          transition='transform 0.5s ease-in-out'
           width={`${users.length * 100}%`}
-          gap={'2'}
+          gap={'5'}
         >
           {users.map((user, index) => (
-            <Box key={index} flex="none" width='max-content'>
+            <Box key={index} flex='none' width='max-content'>
               <CardCarrusel
                 description={user.description}
                 avatar={user.avatar.image}
                 userName={user.userName}
+                userRole={user.userRole}
               />
             </Box>
           ))}

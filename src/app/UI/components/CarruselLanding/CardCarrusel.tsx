@@ -1,21 +1,36 @@
 import { Card } from '@chakra-ui/react'
-import { Avatar, Circle, Float, Stack, Text } from '@chakra-ui/react'
+import { Avatar, Box, Circle, Float, Image, Stack, Text } from '@chakra-ui/react'
 
-export const CardCarrusel = ({ description, avatar, userName }: { description: string, avatar: string, userName: string }) => {
-  const inicials = userName.split(' ').map((name) => name.charAt(0)).join('')
+export const CardCarrusel = ({
+  description,
+  avatar,
+  userName,
+  userRole,
+}: {
+  description: string
+  avatar: string
+  userName: string
+  userRole: string
+}) => {
+  const inicials = userName
+    .split(' ')
+    .map((name) => name.charAt(0))
+    .join('')
 
   return (
-    <Card.Root width='350px' height='600px' background={'#EDF2F7'}>
+    <Card.Root width='400px' height='650px' background={'#EDF2F7'}>
       <Card.Body gap='2'>
         <Card.Title mt='2'>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <img src='public/Quotation_Marks.svg' alt='Vector Icon' style={{ width: '60px', height: '60px' }} />
-          </div>
+          <Box p={2}>
+            <Image src='public/Quotation_Marks.svg' />
+          </Box>
         </Card.Title>
-        <Card.Description>{description}</Card.Description>
+        <Card.Description p={3} fontSize={'20px'} fontWeight={'medium'}>
+          {description}
+        </Card.Description>
       </Card.Body>
       <Card.Footer justifyContent='flex-strat'>
-        <Avatar.Root colorPalette='green' variant='subtle'>
+        <Avatar.Root colorPalette='green' variant='subtle' size={'2xl'} mb={10}>
           <Avatar.Image src={avatar} />
           <Avatar.Fallback>{inicials}</Avatar.Fallback>
           <Float placement='bottom-end' offsetX='1' offsetY='1'>
@@ -23,9 +38,11 @@ export const CardCarrusel = ({ description, avatar, userName }: { description: s
           </Float>
         </Avatar.Root>
         <Stack gap='0'>
-          <Text fontWeight='medium'>{userName}</Text>
+          <Text fontWeight='medium' fontSize={'2xl'}>
+            {userName}
+          </Text>
           <Text color='#146EB4' textStyle='sm' textDecoration={'underline'}>
-            Propietario
+            {userRole}
           </Text>
         </Stack>
       </Card.Footer>

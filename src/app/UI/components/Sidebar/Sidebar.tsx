@@ -7,8 +7,7 @@ import { IoSettingsOutline } from 'react-icons/io5'
 import { LuMessageSquare } from 'react-icons/lu'
 import { RxExit } from 'react-icons/rx'
 
-import logo from '@/assets/logo.png'
-
+import { LogoComponent } from '../Logo/LogoComponent'
 import { ButtonIconComponent } from './ButtonIconComponent'
 import { SelectorTypeComponent } from './SelectorTypeComponent'
 
@@ -25,8 +24,8 @@ const Sidebar = () => {
       flexDirection='column'
       justifyContent='space-around'
     >
-      <Box flexBasis='20%' mb={6} display='flex' justifyContent='center'>
-        <img src={logo} alt='Logo' width='120px' />
+      <Box display='flex' justifyContent='center'>
+        <LogoComponent src='src/assets/logos-svg/logonegro.svg' />
       </Box>
 
       <Box flexBasis='10%'>

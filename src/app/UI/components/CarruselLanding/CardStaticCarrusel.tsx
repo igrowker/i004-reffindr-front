@@ -5,8 +5,10 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
 import { Button } from '@/components/ui/button'
 
 import { CardCarrusel } from './CardCarrusel'
+import { useState } from 'react'
 
 export const CardStaticCarrusel = () => {
+  const [currentIndex, setCurrentIndex] = useState(0)
 
   const users = [
     {
@@ -57,6 +59,21 @@ export const CardStaticCarrusel = () => {
     },
   ]
 
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentIndex((prevIndex: number) => (prevIndex + 1) % users.length)
+  //   }, 4000)
+
+  //   return () => clearInterval(interval)
+  // }, [users.length])
+
+  const  handlePrev = () => {
+    setCurrentIndex((prevIndex: number) => (prevIndex === 0 ? users.length - 1 : prevIndex - 1)) 
+  }
+  const handleNext = () => {
+    setCurrentIndex((prevIndex: number) => (prevIndex + 1) % users.length)
+  }
+
   return (
     <Flex ml={'20rem'} border={'none'}>
       <Flex gap='2' flexDir={'column'}>
@@ -67,22 +84,39 @@ export const CardStaticCarrusel = () => {
           Nuestros clientes nos eligen por la transparencia y simplicidad en el proceso de alquiler.{' '}
         </Text>
         <Flex justifyContent='flex-start'>
-        <Button background={'#146EB4'} borderRadius={'full'}>
+        <Button background={'#146EB4'} borderRadius={'full'} onClick={handlePrev}>
           <MdKeyboardArrowLeft />
         </Button>
-        <Button background={'#146EB4'} borderRadius={'full'}>
+        <Button background={'#146EB4'} borderRadius={'full'} onClick={handleNext}>
           <MdKeyboardArrowRight />
         </Button>
       </Flex>
       </Flex>
 
 
-      <Flex flexGrow={1} py={6} overflow={'auto'}>
+      <Flex
+        overflow="hidden"
+        position="relative"
+        width="100%"
+        maxWidth="1000px"
+        mx="auto"
+      >
+        <Flex
+          transform={`translateX(-${currentIndex * 15}%)`}
+          transition="transform 0.5s ease-in-out"
+          width={`${users.length * 100}%`}
+          gap={'2'}
+        >
           {users.map((user, index) => (
-            <Box key={index} px={2}>
-              <CardCarrusel description={user.description} avatar={user.avatar.image} userName={user.userName}/>
+            <Box key={index} flex="none" width='max-content'>
+              <CardCarrusel
+                description={user.description}
+                avatar={user.avatar.image}
+                userName={user.userName}
+              />
             </Box>
           ))}
+        </Flex>
       </Flex>
     </Flex>
   )

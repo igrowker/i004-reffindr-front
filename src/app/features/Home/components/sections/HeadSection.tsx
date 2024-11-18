@@ -37,7 +37,7 @@ export const HeadSection = ({ title, backgroundImage, headLink }: Props) => {
           </Center>
         )}
         <Flex px={6} flexDirection='column' minH='100vh'>
-          <Flex py={6}>
+          <Flex py={6} alignItems='center'>
             <Box>
               <LogoComponent src={'/src/assets/logos-svg/logoblanco.svg'} />
             </Box>

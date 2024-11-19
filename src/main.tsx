@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Provider } from '@/components/ui/provider'
 
 import { HomePage } from './app/features/Home/pages/HomePage'
+import './i18n'
 
 const root = createRoot(document.getElementById('root')!)
 

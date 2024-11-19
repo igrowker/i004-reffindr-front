@@ -2,9 +2,9 @@ import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import { LoginView } from '@/app/features/Login/views/LoginView'
 import { Provider } from '@/components/ui/provider'
-import { TenantView } from './app/features/Home/views/TenantView'
+
+import { HomePage } from './app/features/Home/pages/HomePage'
 
 const root = createRoot(document.getElementById('root')!)
 
@@ -13,8 +13,7 @@ root.render(
     <Provider forcedTheme='light'>
       <BrowserRouter future={{ v7_relativeSplatPath: true, v7_startTransition: true }}>
         <Routes>
-          <Route path='/tenantview' element={<TenantView />} />
-          <Route path='/login' element={<LoginView />} />
+          <Route path='/' element={<HomePage />} />
         </Routes>
       </BrowserRouter>
     </Provider>

@@ -1,6 +1,9 @@
 import { IoLogoInstagram } from 'react-icons/io5'
 
 import { HeadSection, LastSection } from '@/app/features/Home/components/'
+import { CardStaticCarrusel } from '@/app/UI/components/CarruselLanding/CardStaticCarrusel'
+
+import { SectionGrid } from '../components/sections/SectionGrid'
 
 export const TenantView = () => {
   return (
@@ -14,8 +17,13 @@ export const TenantView = () => {
         headIcon={<IoLogoInstagram size={32} />}
         title='Encontrá tu hogar sin &#10; intermediarios'
       />
+
+      <SectionGrid />
+
+      <CardStaticCarrusel />
+
       <LastSection
-        img={"/Pexels_Photo_by_Kindel_Media.png"}
+        img={'/Pexels_Photo_by_Kindel_Media.png'}
         items={[
           {
             title: 'Mirá el catalogo de las propiedades',

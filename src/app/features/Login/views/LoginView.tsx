@@ -15,20 +15,20 @@ export const LoginView = ({ onclose, onShowRegister }: onProps) => {
   }
 
   const handleClose = () => {
-    if (onclose){
-    onclose()
+    if (onclose) {
+      onclose()
     }
   }
 
   const handleShowRegister = () => {
-    if (onShowRegister){
-    onShowRegister()
+    if (onShowRegister) {
+      onShowRegister()
     }
   }
 
   return (
-    <Box bg='gray.100' top={100} left={250} width={'30rem'} border={'10px'} borderColor={'red'} borderRadius='full'>
-      <Fieldset.Root paddingY={10} bg='white' boxShadow='md' paddingX={10} fontSize={'xl'}>
+    <Box bg='gray.100' border={'10px'} borderColor={'red'} borderRadius='full'>
+      <Fieldset.Root rounded='md' paddingY={10} bg='white' boxShadow='md' paddingX={10} fontSize={'xl'}>
         <IconButton bottom={8} left={8} alignSelf={'end'} size={'xs'} onClick={handleClose}>
           <FaTimes />
         </IconButton>
@@ -36,36 +36,48 @@ export const LoginView = ({ onclose, onShowRegister }: onProps) => {
           <Fieldset.Legend fontSize='4xl' fontWeight={'bold'} mb={4}>
             Iniciar sesión
           </Fieldset.Legend>
-          <Fieldset.HelperText  fontSize={'md'} fontWeight={'medium'}>Completa los siguientes campos:</Fieldset.HelperText>
+          <Fieldset.HelperText fontSize={'md'} fontWeight={'medium'}>
+            Completa los siguientes campos:
+          </Fieldset.HelperText>
         </Stack>
 
-        <Fieldset.Content mb={5}>
-          <Text fontSize={'xl'}>Email*</Text>
-          <Input
-            type='email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder='Correo Electrónico'
-            borderColor='black'
-            fontSize={'xl'}
-          />
-
-          <Text fontSize={'xl'}> Contraseña*</Text>
-          <Input
-            type='password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder='Contraseña'
-            borderColor='black'
-            fontSize={'xl'}
-          />
+        <Fieldset.Content gap={2}>
+          <Box>
+            <Text mb={2} fontSize={{ base: 'medium', md: 'xl' }}>
+              Email
+            </Text>
+            <Input
+              type='email'
+              value={email}
+              size={{ base: 'sm', '2xl': 'md' }}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder='Correo Electrónico'
+              borderColor='black'
+              fontSize={{ base: 'medium', '2xl': 'xl' }}
+            />
+          </Box>
+          <Box>
+            <Text mb={2} fontSize={{ base: 'medium', md: 'xl' }}>
+              Contraseña
+            </Text>
+            <Input
+              type='password'
+              value={email}
+              size={{ base: 'sm', '2xl': 'md' }}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder='Contraseña'
+              borderColor='black'
+              fontSize={{ base: 'medium', '2xl': 'xl' }}
+            />
+          </Box>
         </Fieldset.Content>
 
         <Stack gap={4} mb={4}>
           <Button
-            fontSize={'xl'}
+            fontSize={{ base: 'medium', '2xl': 'xl' }}
             type='submit'
             w='full'
+            size={{ base: 'sm', '2xl': 'md' }}
             borderColor='black'
             borderWidth='1px'
             bg={'#146EB4'}
@@ -75,9 +87,10 @@ export const LoginView = ({ onclose, onShowRegister }: onProps) => {
           </Button>
 
           <Button
-            fontSize={'xl'}
+            fontSize={{ base: 'medium', '2xl': 'xl' }}
             colorScheme='red'
             w='full'
+            size={{ base: 'sm', '2xl': 'md' }}
             bg='white'
             color='black'
             borderWidth='1px'
@@ -89,9 +102,10 @@ export const LoginView = ({ onclose, onShowRegister }: onProps) => {
           </Button>
 
           <Button
-            fontSize={'xl'}
+            fontSize={{ base: 'medium', '2xl': 'xl' }}
             w='full'
             bg='white'
+            size={{ base: 'sm', '2xl': 'md' }}
             color='black'
             borderWidth='1px'
             borderColor='black'
@@ -102,7 +116,7 @@ export const LoginView = ({ onclose, onShowRegister }: onProps) => {
           </Button>
         </Stack>
 
-        <Stack direction='column' align='center' gap={3} mt={3}>
+        <Stack fontSize={{ base: 'medium', '2xl': 'xl' }} direction='column' align='center' gap={3} mt={3}>
           <Link href='#' textDecoration={'underline'}>
             ¿Olvidaste tu contraseña?
           </Link>

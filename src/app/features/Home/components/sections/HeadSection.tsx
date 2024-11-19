@@ -1,10 +1,10 @@
-import { Box, Button, Center, Flex, Grid, Heading, Input, Link, Text } from '@chakra-ui/react'
+import { Box, Button, Center, Flex, Grid, Heading, Link, Text } from '@chakra-ui/react'
 import { ReactNode, useState } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 
 import LoginView from '@/app/features/Login/views/LoginView'
-import { LogoComponent } from '@/app/UI/components/Logo/LogoComponent'
 import { RegisterView } from '@/app/features/Register/views/RegisterView'
+import { LogoComponent } from '@/app/UI/components/Logo/LogoComponent'
 
 interface Props {
   title: string
@@ -40,19 +40,19 @@ export const HeadSection = ({ title, backgroundImage, headLink }: Props) => {
         bgImage={`url(${backgroundImage})`}
       >
         {showLogin && (
-          <Center position='absolute' top='15%' left='50%' transform='translate(-50%, -50%)' zIndex='10'>
+          <Center position='fixed' top='50%' left='50%' transform='translate(-50%, -50%)' zIndex='10'>
             <LoginView onclose={handleShowLogin} onShowRegister={handleShowRegister} />
           </Center>
         )}
 
-         {showRegister && (
+        {showRegister && (
           <Center position='absolute' top='15%' left='50%' transform='translate(-50%, -50%)' zIndex='10'>
             <RegisterView onclose={handleShowRegister} onShowLogin={handleShowLogin} />
           </Center>
         )}
 
         <Flex px={6} flexDirection='column' minH='100vh'>
-          <Flex py={6} alignItems='center'>
+          <Flex alignItems='center'>
             <Box>
               <LogoComponent src={'/src/assets/logos-svg/logoblanco.svg'} />
             </Box>
@@ -62,6 +62,16 @@ export const HeadSection = ({ title, backgroundImage, headLink }: Props) => {
               </Link>
               <Button onClick={handleShowLogin} size={{ base: 'xs', sm: 'md' }} variant='solid' colorPalette={'blue'}>
                 Iniciar sesión
+              </Button>
+              <Button
+                onClick={handleShowRegister}
+                size={{ base: 'xs', sm: 'md' }}
+                variant='outline'
+                color='white'
+                _hover={{ color: 'blackAlpha.800' }}
+                colorPalette={'white'}
+              >
+                Registrarse
               </Button>
             </Flex>
           </Flex>
@@ -74,18 +84,7 @@ export const HeadSection = ({ title, backgroundImage, headLink }: Props) => {
               Nuestra plataforma conecta a inquilinos y propietarios, eliminando &#10; la necesidad de intermediarios y
               las comisiones elevadas.
             </Text>
-            <Flex gapX={6}>
-              <Input
-                variant={'subtle'}
-                colorPalette='blue'
-                bg={'white'}
-                placeholder='Email'
-                size={{ base: 'xs', sm: 'md' }}
-              />
-              <Button variant='solid' colorPalette='blue' size={{ base: 'xs', sm: 'md' }}>
-                Registrate
-              </Button>
-            </Flex>
+            
           </Grid>
         </Flex>
       </Box>

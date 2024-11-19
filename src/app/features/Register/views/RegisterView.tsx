@@ -1,10 +1,12 @@
 import { Box, Button, Fieldset, IconButton, Input, Link, Stack, Text } from '@chakra-ui/react'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { FaFacebook, FaGoogle, FaTimes } from 'react-icons/fa'
 
 import { onProps } from '@/types'
 
 export const RegisterView = ({ onclose, onShowLogin }: onProps) => {
+  const { t } = useTranslation()
   const [name, setName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
@@ -39,23 +41,23 @@ export const RegisterView = ({ onclose, onShowLogin }: onProps) => {
           </IconButton>
           <Stack textAlign={'center'} mt={-7}>
             <Fieldset.Legend fontSize='4xl' fontWeight={'bold'} mb={4}>
-              Regístrate
+              {t('register')}
             </Fieldset.Legend>
             <Fieldset.HelperText fontSize={'md'} fontWeight={'medium'}>
-              Completa los siguientes campos:
+              {t('completeFields')}
             </Fieldset.HelperText>
           </Stack>
 
           <Fieldset.Content gap={2}>
             <Box>
               <Text mb={2} fontSize={{ base: 'medium', md: 'xl' }}>
-                Nombre*
+                {t('name')}
               </Text>
               <Input
                 type='text'
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder='Nombre'
+                placeholder={t('name')}
                 borderColor='black'
                 fontSize={'xl'}
                 size={{ base: 'sm', '2xl': 'md' }}
@@ -63,14 +65,14 @@ export const RegisterView = ({ onclose, onShowLogin }: onProps) => {
             </Box>
             <Box>
               <Text mb={2} fontSize={{ base: 'medium', md: 'xl' }}>
-                Apellido*
+                {t('surname')}
               </Text>
               <Input
                 fontSize={{ base: 'medium', md: 'xl' }}
                 type='text'
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                placeholder='Apellido'
+                placeholder={t('surname')}
                 borderColor='black'
                 size={{ base: 'sm', '2xl': 'md' }}
               />
@@ -78,14 +80,14 @@ export const RegisterView = ({ onclose, onShowLogin }: onProps) => {
 
             <Box>
               <Text mb={2} fontSize={{ base: 'medium', md: 'xl' }}>
-                Email*
+                {t('email')}
               </Text>
               <Input
                 fontSize={{ base: 'medium', md: 'xl' }}
                 type='email'
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder='Correo Electrónico'
+                placeholder={t('emailPlaceholder')}
                 borderColor='black'
                 size={{ base: 'sm', '2xl': 'md' }}
               />
@@ -93,14 +95,14 @@ export const RegisterView = ({ onclose, onShowLogin }: onProps) => {
 
             <Box>
               <Text mb={2} fontSize={{ base: 'medium', md: 'xl' }}>
-                Contraseña*
+                {t('password')}
               </Text>
               <Input
                 fontSize={{ base: 'medium', md: 'xl' }}
                 type='password'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder='Contraseña'
+                placeholder={t('passwordPlaceholder')}
                 borderColor='black'
                 size={{ base: 'sm', '2xl': 'md' }}
               />
@@ -116,7 +118,7 @@ export const RegisterView = ({ onclose, onShowLogin }: onProps) => {
               bg={'#146EB4'}
               onClick={handleRegister}
             >
-              Regístrate
+              {t('register')}
             </Button>
 
             <Button
@@ -130,7 +132,7 @@ export const RegisterView = ({ onclose, onShowLogin }: onProps) => {
               onClick={handleRegister}
             >
               <FaGoogle />
-              Regístrate con Google
+              {t('registerWithGoogle')}
             </Button>
 
             <Button
@@ -143,15 +145,15 @@ export const RegisterView = ({ onclose, onShowLogin }: onProps) => {
               onClick={handleRegister}
             >
               <FaFacebook />
-              Regístrate con Facebook
+              {t('registerWithFacebook')}
             </Button>
           </Stack>
 
           <Stack fontSize={{ base: 'medium', '2xl': 'xl' }} direction='column' align='center' gap={3} mt={3}>
             <Stack flexDirection={'row'}>
-              <Text>¿Ya tienes cuenta?</Text>
+              <Text>{t('haveAccount')}</Text>
               <Link fontWeight={'bold'} textDecoration={'underline'} href='#' onClick={handleShowLogin}>
-                Inicia Sesión
+                {t('login')}
               </Link>
             </Stack>
           </Stack>

@@ -4,6 +4,7 @@ import { HeadSection, LastSection } from '@/app/features/Home/components/'
 import { CardStaticCarrusel } from '@/app/UI/components/CarruselLanding/CardStaticCarrusel'
 
 import { SectionGrid } from '../components/sections/SectionGrid'
+import Footer from '@/app/UI/components/footer/Footer'
 
 export const TenantView = () => {
   return (
@@ -40,6 +41,7 @@ export const TenantView = () => {
           },
         ]}
       />
+      <Footer/>
     </>
   )
 }

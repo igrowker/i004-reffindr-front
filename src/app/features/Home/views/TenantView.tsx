@@ -14,6 +14,7 @@ export const TenantView = () => {
         headIcon={<IoLogoInstagram size={32} />}
         title='Encontrá tu hogar sin &#10; intermediarios'
       />
+      
       <LastSection
         img={"/Pexels_Photo_by_Kindel_Media.png"}
         items={[

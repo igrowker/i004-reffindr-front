@@ -1,5 +1,5 @@
 
-import { Box, Button, Flex, Grid, Heading, Input, Link, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, Grid, Heading, Link, Text } from '@chakra-ui/react'
 import { MouseEvent, ReactNode } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 
@@ -40,6 +40,16 @@ export const HeadSection = ({ title, headIcon, backgroundImage, headLink, loginB
             >
               Iniciar sesión
             </Button>
+            <Button
+              onClick={(e) => loginBtn?.onClick(e)}
+              size={{ base: 'xs', sm: 'md' }}
+              variant='outline'
+              color="white"
+              _hover={{color: 'blackAlpha.800'}}
+              colorPalette={"white"}
+            >
+              Registrarse
+            </Button>
           </Flex>
         </Flex>
         <Grid gapY={10} whiteSpace={'pre-line'} placeContent='center' flexGrow={1}>
@@ -51,18 +61,7 @@ export const HeadSection = ({ title, headIcon, backgroundImage, headLink, loginB
             Nuestra plataforma conecta a inquilinos y propietarios, eliminando &#10; la necesidad de intermediarios y
             las comisiones elevadas.
           </Text>
-          <Flex gapX={6}>
-            <Input
-              variant={'subtle'}
-              colorPalette='blue'
-              bg={'white'}
-              placeholder='Email'
-              size={{ base: 'xs', sm: 'md' }}
-            />
-            <Button variant='solid' colorPalette='blue' size={{ base: 'xs', sm: 'md' }}>
-              Registrate
-            </Button>
-          </Flex>
+          
         </Grid>
       </Flex>
     </Box>

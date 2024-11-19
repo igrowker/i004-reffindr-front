@@ -7,17 +7,10 @@ interface Props {
 
 export const LastSection = ({ items, img }: Props) => {
   return (
-    <Flex
-      minH={'100vh'}
-      alignItems={'center'}
-      flexDirection={{ lg: 'row', base: 'column' }}
-      justifyContent='center'
-      p={4}
-      gap={20}
-    >
+    <Flex alignItems={'center'} flexDirection={{ lg: 'row', base: 'column' }} justifyContent='center' p={4} gap={20}>
       <Box minW={260} maxW={500}>
         {items.map((item, i) => (
-          <Box divideY={'2px'}>
+          <Box divideY={'2px'} fontSize={'xl'}>
             <Heading wordBreak='break-word' py={2}>
               {i + 1}. {item.title}
             </Heading>
@@ -27,7 +20,7 @@ export const LastSection = ({ items, img }: Props) => {
           </Box>
         ))}
       </Box>
-      <Image aspectRatio={4 / 3} h={300} w={500} rounded={'4xl'} src={img} />
+      <Image aspectRatio={4 / 3} h={400} w={600} rounded={'4xl'} src={img} />
     </Flex>
   )
 }

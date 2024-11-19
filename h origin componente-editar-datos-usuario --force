@@ -1,0 +1,41 @@
+[33m93f1f8a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mcomponente-editar-datos-usuario[m[33m, [m[1;31morigin/componente-editar-datos-usuario[m[33m)[m Elimine subcarpeta repetida
+[33m6f71bcf[m[33m ([m[1;31morigin/develop[m[33m, [m[1;31morigin/HEAD[m[33m)[m Merge pull request #57 from igrowker/feature/sidebart-component
+[33m62e92db[m sidebar component
+[33m399be17[m Merge pull request #56 from igrowker/last_section_landing
+[33m6734817[m padding fixed
+[33m4bb7540[m Responsive bugs fixed
+[33mad54f71[m Merge branch 'develop' into last_section_landing
+[33m4006e40[m last-selection created
+[33m30beeb1[m Merge pull request #55 from igrowker/first_section_chakraui_adaption
+[33m0d71938[m Merge branch 'develop' into first_section_chakraui_adaption
+[33m11fa7c9[m headSection responsive, loginBtn onClick event added
+[33m0bcc153[m Merge pull request #54 from igrowker/feature/login-component
+[33meb15d70[m Implementation of the login view and updating of .prettierrc
+[33m6e4864e[m First section chakraui adaption (#52)
+[33maed1cb3[m act
+[33m2a24fe1[m Agregar componente UserProfile para editar datos de usuario
+[33m62994d1[m[33m ([m[1;31morigin/first_section_chakraui_adaption[m[33m, [m[1;32mfirst_section_chakraui_adaption[m[33m)[m propiedad headLink en HeadSection añadida
+[33mca6256e[m TenantView Created
+[33m764257b[m first section created
+[33ma3d0bcf[m Merge pull request #44 from igrowker/feature/install-chakra
+[33me094e9e[m remove components and add Chakra UI
+[33mb74300d[m Merge pull request #42 from igrowker/search_bar_issue
+[33m0147b54[m Search input creado
+[33m2846ede[m Merge pull request #40 from igrowker/breadcrumbs-footer
+[33mc5d84bc[m Merge pull request #39 from igrowker/feature/select-component
+[33m98fa9c5[m[33m ([m[1;31morigin/breadcrumbs-footer[m[33m)[m component breadcrumbs added, footer bugs fixed, responsive fixed
+[33ma5b7c3c[m Add select component
+[33m54326a5[m Add Input component with styling (#38)
+[33m0dc02d2[m Merge pull request #37 from igrowker:feature/modal
+[33m5699f65[m Add Modal component
+[33m2846792[m Merge pull request #36 from igrowker/gino-frontend
+[33mf54d3d7[m creation-footer-and-icon-Input-TextInput-components
+[33m903b74b[m Merge pull request #4 from igrowker/feature/config-files
+[33mc727db5[m add prettier trivago plugin
+[33mf049d91[m Merge pull request #3 from igrowker/feature/readme
+[33m31da892[m update the readme with the technologies and libraries used
+[33m56e7941[m Merge pull request #2 from igrowker:feature/structure
+[33mf827de0[m add project structure
+[33m8467fdd[m Merge pull request #1 from igrowker:dependencies_and_configs
+[33m8afb7e9[m dependencias instaladas, archivos configurados...
+[33m2c93680[m[33m ([m[1;31morigin/main[m[33m)[m Initial commit

@@ -27,7 +27,7 @@ export const LoginView = ({ onclose, onShowRegister }: onProps) => {
   }
 
   return (
-    <Box bg='gray.100' border={'10px'} borderColor={'red'} borderRadius='full'>
+    <Box bg='gray.100' border={'10px'}  borderRadius='full'>
       <Fieldset.Root rounded='md' paddingY={10} bg='white' boxShadow='md' paddingX={10} fontSize={'xl'}>
         <IconButton bottom={8} left={8} alignSelf={'end'} size={'xs'} onClick={handleClose}>
           <FaTimes />

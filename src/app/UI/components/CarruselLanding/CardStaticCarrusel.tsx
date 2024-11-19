@@ -12,7 +12,7 @@ export const CardStaticCarrusel = () => {
   const users = [
     {
       description:
-        'Estoy encantado con mi experiencia usando Reffindr. Necesitaba alquilar mi propiedad rápidamente, y gracias a la plataforma encontré al inquilino perfecto en pocos días. El proceso fue sencillo y ágil; en menos de lo que esperaba ya tenía todo coordinado. Definitivamente, Reffindr se ha convertido en mi recurso de confianza para encontrar inquilinos de manera rápida y eficiente. ¡Lo recomiendo sin dudar!',
+        'Estoy encantado con mi experiencia usando Reffindr. Necesitaba alquilar mi propiedad rápidamente, y gracias a la plataforma encontré al inquilino perfecto en pocos días.',
       avatar: {
         image: 'public/AvatarImage1.png',
       },
@@ -21,7 +21,7 @@ export const CardStaticCarrusel = () => {
     },
     {
       description:
-        'Reffindr superó mis expectativas. Encontré un inquilino confiable y comprometido en menos de una semana. Todo el proceso fue transparente y sencillo. ¡Gracias por esta increíble herramienta!',
+        'Reffindr superó mis expectativas. Encontré un inquilino confiable y comprometido en menos de una semana.',
       avatar: {
         image: 'public/AvatarImage2.png',
       },
@@ -65,14 +65,24 @@ export const CardStaticCarrusel = () => {
   }
 
   return (
-    <Flex p={20} pl={100} border={'none'}  >
+    <Flex
+      pl={{ base: '0', md: '20px' }}
+      pr={'17px'}
+      mx={{ base: '0', md: '10' }}
+      border={'none'}
+      alignItems={'center'}
+      flexDirection={{ base: 'column', md: 'row' }}
+      justifyContent={'space-around'}
+    >
       <Flex gap='2' flexDir={'column'}>
-        <Text fontSize={52} fontWeight={'bold'} >
-          Más de 140 mil personas eligen{''} <Text color={'#146EB4'}>Reffindr</Text>
-        </Text>
-        <Text fontSize={42} width={'30rem'}>
-          Nuestros clientes nos eligen por la transparencia y simplicidad en el proceso de alquiler.{' '}
-        </Text>
+        <Flex flexDirection={'column'} justifyContent={'center'} p={4} flexWrap={'wrap'}>
+          <Text fontSize={{ base: 'xl', sm: '2xl', md: '4xl' }} fontWeight={'bold'}>
+            Más de 140 mil personas eligen{''} <Text color={'#146EB4'}>Reffindr</Text>
+          </Text>
+          <Text fontSize={{ base: '2xl', sm: '2xl', md: '4xl' }} width={'30rem'}>
+            Nuestros clientes nos eligen por la transparencia y simplicidad en el proceso de alquiler.{' '}
+          </Text>
+        </Flex>
         <Flex justifyContent='flex-end' p={5} gap={5}>
           <Button background={'#146EB4'} borderRadius={'full'} onClick={handlePrev}>
             <MdKeyboardArrowLeft />
@@ -83,15 +93,17 @@ export const CardStaticCarrusel = () => {
         </Flex>
       </Flex>
 
-      <Flex overflow='hidden' position='relative' width='100%' maxWidth='70rem' mx='auto'>
-        <Flex
-          transform={`translateX(-${currentIndex * 15}%)`}
-          transition='transform 0.5s ease-in-out'
-          width={`${users.length * 100}%`}
-          gap={'5'}
-        >
+      <Flex
+        overflow='hidden'
+        position='relative'
+        width='100%'
+        maxWidth='70rem'
+        mx='auto'
+        flexDirection={{ base: 'column', md: 'row' }}
+      >
+        <Flex transform={`translateX(-${currentIndex * 15}%)`} transition='transform 0.5s ease-in-out' ml={5}>
           {users.map((user, index) => (
-            <Box key={index} flex='none' width='max-content'>
+            <Box p={3} key={index} flex='none' width='max-content'>
               <CardCarrusel
                 description={user.description}
                 avatar={user.avatar.image}

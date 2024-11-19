@@ -74,12 +74,12 @@ export const CardStaticCarrusel = () => {
       flexDirection={{ base: 'column', md: 'row' }}
       justifyContent={'space-around'}
     >
-      <Flex gap='2' flexDir={'column'}>
+      <Flex gap='2' flexDir={'column'} >
         <Flex flexDirection={'column'} justifyContent={'center'} p={4} flexWrap={'wrap'}>
           <Text fontSize={{ base: 'xl', sm: '2xl', md: '4xl' }} fontWeight={'bold'}>
             Más de 140 mil personas eligen{''} <Text color={'#146EB4'}>Reffindr</Text>
           </Text>
-          <Text fontSize={{ base: '2xl', sm: '2xl', md: '4xl' }} width={'30rem'}>
+          <Text fontSize={{ base: 'xl', sm: '2xl', md: '4xl' }} >
             Nuestros clientes nos eligen por la transparencia y simplicidad en el proceso de alquiler.{' '}
           </Text>
         </Flex>

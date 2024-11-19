@@ -74,12 +74,12 @@ export const CardStaticCarrusel = () => {
       flexDirection={{ base: 'column', md: 'row' }}
       justifyContent={'space-around'}
     >
-      <Flex gap='2' flexDir={'column'} >
+      <Flex gap='2' flexDir={'column'}>
         <Flex flexDirection={'column'} justifyContent={'center'} p={4} flexWrap={'wrap'}>
           <Text fontSize={{ base: 'xl', sm: '2xl', md: '4xl' }} fontWeight={'bold'}>
             Más de 140 mil personas eligen{''} <Text color={'#146EB4'}>Reffindr</Text>
           </Text>
-          <Text fontSize={{ base: 'xl', sm: '2xl', md: '4xl' }} >
+          <Text fontSize={{ base: 'xl', sm: '2xl', md: '4xl' }}>
             Nuestros clientes nos eligen por la transparencia y simplicidad en el proceso de alquiler.{' '}
           </Text>
         </Flex>
@@ -101,7 +101,10 @@ export const CardStaticCarrusel = () => {
         mx='auto'
         flexDirection={{ base: 'column', md: 'row' }}
       >
-        <Flex transform={`translateX(-${currentIndex * 15}%)`} transition='transform 0.5s ease-in-out' ml={5}>
+        <Flex
+          transform={{ base: `translateX(-${currentIndex * 85}%)`, xl: `translateX(-${currentIndex * 11}%)` }}
+          transition='transform 0.5s ease-in-out'
+        >
           {users.map((user, index) => (
             <Box p={3} key={index} flex='none' width='max-content'>
               <CardCarrusel

@@ -39,6 +39,9 @@ export const HeadSection = ({ title, backgroundImage, headLink }: Props) => {
         bgSize={'cover'}
         bgImage={`url(${backgroundImage})`}
       >
+        {(showLogin || showRegister) && (
+          <Box position='fixed' top={0} left={0} width='100%' height='100%' bgColor='blackAlpha.700' zIndex={9} />
+        )}
         {showLogin && (
           <Center position='fixed' top='50%' left='50%' transform='translate(-50%, -50%)' zIndex='10'>
             <LoginView onclose={handleShowLogin} onShowRegister={handleShowRegister} />
@@ -46,7 +49,7 @@ export const HeadSection = ({ title, backgroundImage, headLink }: Props) => {
         )}
 
         {showRegister && (
-          <Center position='absolute' top='15%' left='50%' transform='translate(-50%, -50%)' zIndex='10'>
+          <Center position='fixed' top='50%' left='50%' transform='translate(-50%, -50%)' zIndex='10'>
             <RegisterView onclose={handleShowRegister} onShowLogin={handleShowLogin} />
           </Center>
         )}
@@ -84,7 +87,6 @@ export const HeadSection = ({ title, backgroundImage, headLink }: Props) => {
               Nuestra plataforma conecta a inquilinos y propietarios, eliminando &#10; la necesidad de intermediarios y
               las comisiones elevadas.
             </Text>
-            
           </Grid>
         </Flex>
       </Box>

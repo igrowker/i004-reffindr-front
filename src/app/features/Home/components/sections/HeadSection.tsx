@@ -1,4 +1,4 @@
-import { Box, Button, Center, Flex, Grid, Heading, Input, Link, Text } from '@chakra-ui/react'
+import { Box, Button, Center, Flex, Grid, Heading, Link, Text } from '@chakra-ui/react'
 import { ReactNode, useState } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 
@@ -40,7 +40,7 @@ export const HeadSection = ({ title, backgroundImage, headLink }: Props) => {
         bgImage={`url(${backgroundImage})`}
       >
         {showLogin && (
-          <Center position='absolute' top='15%' left='50%' transform='translate(-50%, -50%)' zIndex='10'>
+          <Center position='fixed' top='50%' left='50%' transform='translate(-50%, -50%)' zIndex='10'>
             <LoginView onclose={handleShowLogin} onShowRegister={handleShowRegister} />
           </Center>
         )}
@@ -52,7 +52,7 @@ export const HeadSection = ({ title, backgroundImage, headLink }: Props) => {
         )}
 
         <Flex px={6} flexDirection='column' minH='100vh'>
-          <Flex py={6} alignItems='center'>
+          <Flex alignItems='center'>
             <Box>
               <LogoComponent src={'/src/assets/logos-svg/logoblanco.svg'} />
             </Box>
@@ -84,18 +84,7 @@ export const HeadSection = ({ title, backgroundImage, headLink }: Props) => {
               Nuestra plataforma conecta a inquilinos y propietarios, eliminando &#10; la necesidad de intermediarios y
               las comisiones elevadas.
             </Text>
-            <Flex gapX={6}>
-              <Input
-                variant={'subtle'}
-                colorPalette='blue'
-                bg={'white'}
-                placeholder='Email'
-                size={{ base: 'xs', sm: 'md' }}
-              />
-              <Button variant='solid' colorPalette='blue' size={{ base: 'xs', sm: 'md' }}>
-                Registrate
-              </Button>
-            </Flex>
+            
           </Grid>
         </Flex>
       </Box>

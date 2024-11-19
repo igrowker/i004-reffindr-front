@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 export const Support = () => {
   return (
-    <Box w={{ base: "full", md: "50%" }} display="flex" flexDirection="column" gapY={2}>
-      <Heading as="h3" fontSize="xl" fontWeight="semibold" mb="5">
+    <Box w={{ base: "full", md: "50%" }} display="flex" flexDirection="column" gapY={{base:'1', md:'2'}}>
+      <Heading as="h3" fontSize="xl" fontWeight="semibold" mb={{base:'2', md:'5'}}>
         Soporte
       </Heading>
       <Link to="#">

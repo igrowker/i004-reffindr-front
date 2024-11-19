@@ -16,13 +16,13 @@ export const Networks = () => {
         justifyContent={{ base: 'space-between', md: 'flex-start'}}
       >
         <p>Copyright © {currentYear}</p>
-        <Box display={'flex'} flexWrap={'wrap'} gap={'3'}>
+        <Box display={'flex'} flexWrap={'wrap'} gap={{base:'1', md:'5'}}>
         <Link to="https://www.instagram.com/" aria-label="Instagram">
           <Box
             bg="whiteAlpha.200"
             rounded="full"
             p="2"
-            _hover={{ bg: "gray.600" }}
+            _hover={{ bg: "whiteAlpha.400" }}
           >
             <IoLogoInstagram size={32} />
           </Box>
@@ -32,7 +32,7 @@ export const Networks = () => {
             bg="whiteAlpha.200"
             rounded="full"
             p="2"
-            _hover={{ bg: "gray.600" }}
+            _hover={{ bg: "whiteAlpha.400" }}
           >
             <IoLogoTwitter size={32} />
           </Box>
@@ -43,7 +43,7 @@ export const Networks = () => {
             bg="whiteAlpha.200"
             rounded="full"
             p="2"
-            _hover={{ bg: "gray.600" }}
+            _hover={{ bg: "whiteAlpha.400" }}
           >
             <IoLogoYoutube size={32} />
           </Box>

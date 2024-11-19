@@ -8,7 +8,7 @@ interface Props {
 export const LastSection = ({ items, img }: Props) => {
   return (
     <Flex alignItems={'center'} flexDirection={{ lg: 'row', base: 'column' }} justifyContent='center' p={4} gap={20}>
-      <Box minW={260} maxW={500}>
+      <Box minW={260} maxW={{base:'330px', md:'500'}}>
         {items.map((item, i) => (
           <Box divideY={'2px'} fontSize={'xl'}>
             <Heading wordBreak='break-word' py={2}>

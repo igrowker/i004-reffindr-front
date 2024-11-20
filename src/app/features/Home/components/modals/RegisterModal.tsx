@@ -13,6 +13,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
+import { Field } from '@/components/ui/field'
 
 interface Props {
   onShowLogin: () => void
@@ -58,58 +59,54 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
 
             <Fieldset.Content gap={2}>
               <Box>
-                <Text mb={2} fontSize={{ base: 'medium', lg: 'xl' }}>
-                  {t('name')}
-                </Text>
-                <Input
-                  type='text'
-                  value={name}
-                  size={{ base: 'md', '2xl': 'md' }}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder={t('name')}
-                  fontSize={{ base: 'medium', '2xl': 'xl' }}
-                />
+                <Field label={t('name')} required>
+                  <Input
+                    type='text'
+                    value={name}
+                    size={{ base: 'md', '2xl': 'md' }}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder={t('name')}
+                    fontSize={{ base: 'medium', '2xl': 'xl' }}
+                  />
+                </Field>
               </Box>
               <Box>
-                <Text mb={2} fontSize={{ base: 'medium', lg: 'xl' }}>
-                  {t('surname')}
-                </Text>
-                <Input
-                  type='text'
-                  fontSize={{ base: 'medium', '2xl': 'xl' }}
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                  placeholder={t('surname')}
-                  size={{ base: 'md', '2xl': 'md' }}
-                />
+                <Field label={t('surname')} required>
+                  <Input
+                    type='text'
+                    fontSize={{ base: 'medium', '2xl': 'xl' }}
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    placeholder={t('surname')}
+                    size={{ base: 'md', '2xl': 'md' }}
+                  />
+                </Field>
               </Box>
 
               <Box>
-                <Text mb={2} fontSize={{ base: 'medium', lg: 'xl' }}>
-                  {t('email')}
-                </Text>
-                <Input
-                  fontSize={{ base: 'medium', '2xl': 'xl' }}
-                  type='email'
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder={t('emailPlaceholder')}
-                  size={{ base: 'md', '2xl': 'md' }}
-                />
+                <Field label={t('email')} required>
+                  <Input
+                    fontSize={{ base: 'medium', '2xl': 'xl' }}
+                    type='email'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder={t('emailPlaceholder')}
+                    size={{ base: 'md', '2xl': 'md' }}
+                  />
+                </Field>
               </Box>
 
               <Box>
-                <Text mb={2} fontSize={{ base: 'medium', lg: 'xl' }}>
-                  {t('password')}
-                </Text>
-                <Input
-                  fontSize={{ base: 'medium', '2xl': 'xl' }}
-                  type='password'
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder={t('passwordPlaceholder')}
-                  size={{ base: 'md', '2xl': 'md' }}
-                />
+                <Field label={t('password')} required>
+                  <Input
+                    fontSize={{ base: 'medium', '2xl': 'xl' }}
+                    type='password'
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder={t('passwordPlaceholder')}
+                    size={{ base: 'md', '2xl': 'md' }}
+                  />
+                </Field>
               </Box>
             </Fieldset.Content>
 

@@ -13,6 +13,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
+import { Field } from '@/components/ui/field'
 
 interface Props {
   onShowRegister: () => void
@@ -69,9 +70,9 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
 
             <Fieldset.Content gap={2}>
               <Box>
-                <Text mb={2} fontSize={{ base: 'medium', lg: 'xl' }}>
-                  {t('email')}
-                </Text>
+                
+                <Field label={t('email')} required>
+
                 <Input
                   type='email'
                   value={email}
@@ -80,11 +81,12 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
                   placeholder={t('emailPlaceholder')}
                   fontSize={{ base: 'medium', '2xl': 'xl' }}
                 />
+                </Field>
               </Box>
               <Box>
-                <Text mb={2} fontSize={{ base: 'medium', lg: 'xl' }}>
-                  {t('password')}
-                </Text>
+                
+                <Field label={t('password')} required>
+
                 <Input
                   type='password'
                   value={password}
@@ -93,6 +95,7 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
                   placeholder={t('passwordPlaceholder')}
                   fontSize={{ base: 'medium', '2xl': 'xl' }}
                 />
+                </Field>
               </Box>
             </Fieldset.Content>
 
@@ -104,8 +107,6 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
                 variant='solid'
                 colorPalette={'blue'}
                 rounded='xs'
-                // bg={'#1e3a8a'}
-                onClick={handleLogin}
               >
                 {t('login')}
               </Button>

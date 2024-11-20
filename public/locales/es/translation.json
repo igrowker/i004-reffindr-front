@@ -1,18 +1,18 @@
 {
   "completeFields": "Completa los siguientes campos:",
   "dontHaveAccount": "¿No tienes una cuenta?",
-  "email": "Email*",
+  "email": "Email",
   "emailPlaceholder": "Correo Electrónico",
   "forgotPassword": "¿Olvidaste tu contraseña?",
   "haveAccount": "¿Ya tienes una cuenta?",
   "login": "Iniciar Sesión",
   "loginWithFacebook": "Iniciar Sesión con Facebook",
   "loginWithGoogle": "Iniciar Sesión con Google",
-  "name": "Nombre*",
-  "password": "Contraseña*",
+  "name": "Nombre",
+  "password": "Contraseña",
   "passwordPlaceholder": "Contraseña",
   "register": "Regístrate",
   "registerWithFacebook": "Registrarse con Facebook",
   "registerWithGoogle": "Registrarse con Google",
-  "surname": "Apellido*"
+  "surname": "Apellido"
 }

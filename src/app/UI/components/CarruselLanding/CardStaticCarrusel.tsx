@@ -71,7 +71,7 @@ export const CardStaticCarrusel = () => {
       mx={{ base: '0', md: '10' }}
       border={'none'}
       alignItems={'center'}
-      flexDirection={{ base: 'column', md: 'row' }}
+      flexDirection={{ base: 'column', md: 'column', xl: 'row' }}
       justifyContent={'space-around'}
     >
       <Flex gap='2' flexDir={'column'}>
@@ -112,11 +112,10 @@ export const CardStaticCarrusel = () => {
       >
         <Flex
           transform={{
-            base: `translateX(-${currentIndex * 100}%)`,
-            sm: `translateX(-${currentIndex * 50}%)`,
-            md: `translateX(-${currentIndex * 33.3}%)`,
-            lg: `translateX(-${currentIndex * 25}%)`,
-            xl: `translateX(-${currentIndex * 20}%)`,
+            base: `translateX(-${currentIndex * 99}%)`,
+            md: `translateX(-${currentIndex * 21}%)`,
+            lg: `translateX(-${currentIndex * 19}%)`,
+            xl: `translateX(-${currentIndex * 15}%)`,
           }}
           transition='transform 0.5s ease-in-out'
         >

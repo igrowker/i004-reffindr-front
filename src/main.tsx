@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Provider } from '@/components/ui/provider'
 
 import { HomePage } from './app/features/Home/pages/HomePage'
-import { CardHorizontal } from './app/UI/components/announcementView/CardHorizontal'
 import './i18n'
 
 const root = createRoot(document.getElementById('root')!)
@@ -16,7 +15,6 @@ root.render(
       <BrowserRouter future={{ v7_relativeSplatPath: true, v7_startTransition: true }}>
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/card-horizontal' element={<CardHorizontal />} />
         </Routes>
       </BrowserRouter>
     </Provider>

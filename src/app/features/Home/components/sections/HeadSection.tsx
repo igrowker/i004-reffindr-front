@@ -58,7 +58,7 @@ export const HeadSection = ({ title, backgroundImage, headLink }: Props) => {
         <Flex px={6} flexDirection='column' minH='100vh'>
           <Flex alignItems='center'>
             <Box>
-              <LogoComponent src={'/src/assets/logos-svg/logoblanco.svg'} />
+              <LogoComponent src={'assets/logos-svg/logoblanco.svg'} />
             </Box>
             <Flex justifyContent='end' flexGrow={1} gapX={5}>
               <Link fontSize={{ base: 'xs', sm: 'md' }} color='white' asChild variant='underline'>

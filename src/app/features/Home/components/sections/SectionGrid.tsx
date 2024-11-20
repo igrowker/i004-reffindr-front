@@ -1,9 +1,5 @@
 import { Box, Center, Image, SimpleGrid, Text } from '@chakra-ui/react'
 
-import image2 from '@/assets/llaveshogar.png'
-import image1 from '@/assets/parejamudanza.png'
-import image3 from '@/assets/primerhoragar.jpg'
-
 import { HeaderSectionGridComponent } from './HeaderSectionGridComponent'
 
 export const SectionGrid = () => {
@@ -31,7 +27,7 @@ export const SectionGrid = () => {
               zIndex={2}
             >
               <Box bg='transparent' rounded='lg' overflow='hidden' shadow='lg' h={{ base: '150px', md: '200px' }}>
-                <Image src={image1} alt='celebrando mudanza' objectFit='cover' w='full' h='full' />
+                <Image src='assets/parejamudanza.png' alt='celebrando mudanza' objectFit='cover' w='full' h='full' />
               </Box>
             </Box>
 
@@ -62,7 +58,7 @@ export const SectionGrid = () => {
               zIndex={2}
             >
               <Box bg='white' rounded='lg' overflow='hidden' shadow='md' h={{ base: '150px', md: '220px' }}>
-                <Image src={image2} alt='Keys' objectFit='cover' w='full' h='full' />
+                <Image src='assets/llaveshogar.png' alt='Keys' objectFit='cover' w='full' h='full' />
               </Box>
             </Box>
 
@@ -110,7 +106,7 @@ export const SectionGrid = () => {
               zIndex={1}
             >
               <Box bg='white' rounded='lg' overflow='hidden' shadow='md' h={{ base: '150px', md: '250px' }}>
-                <Image src={image3} alt='Agent' objectFit='cover' w='full' h='full' />
+                <Image src='assets/primerhoragar.jpg' alt='Agent' objectFit='cover' w='full' h='full' />
               </Box>
             </Box>
 

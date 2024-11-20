@@ -65,24 +65,14 @@ export const CardStaticCarrusel = () => {
   }
 
   return (
-    <Flex
-      pl={{ base: '0', md: '20px' }}
-      pr={'17px'}
-      mx={{ base: '0', md: '10' }}
-      border={'none'}
-      alignItems={'center'}
-      flexDirection={{ base: 'column', md: 'row' }}
-      justifyContent={'space-around'}
-    >
-      <Flex gap='2' flexDir={'column'}>
-        <Flex flexDirection={'column'} justifyContent={'center'} p={4} flexWrap={'wrap'}>
-          <Text fontSize={{ base: '2xl', md: '4xl' }} fontWeight={'bold'}>
-            Más de 140 mil personas eligen{''} <Text color={'#146EB4'}>Reffindr</Text>
-          </Text>
-          <Text fontSize={{ base: 'xl', md: '2xl' }}>
-            Nuestros clientes nos eligen por la transparencia y simplicidad en el proceso de alquiler.{' '}
-          </Text>
-        </Flex>
+    <Flex p={{base:'5', md:'24'}} pl={{base:'5', md:'100px'}} border={'none'} flexDirection={{base:'column', md:'row'}} >
+      <Flex gap='2' flexDir={'column'} >
+        <Text fontSize={{base:'2rem', md:'52px'}} fontWeight={'bold'} >
+          Más de 140 mil personas eligen <Box as={'span'} color={'#146EB4'}>Reffindr</Box>
+        </Text>
+        <Text fontSize={{base:'1.2rem', md:'42px'}} width={'full'}>
+          Nuestros clientes nos eligen por la transparencia y simplicidad en el proceso de alquiler.{' '}
+        </Text>
         <Flex justifyContent='flex-end' p={5} gap={5}>
           <Button background={'#146EB4'} borderRadius={'full'} onClick={handlePrev}>
             <MdKeyboardArrowLeft />

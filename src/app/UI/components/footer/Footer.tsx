@@ -16,7 +16,7 @@ export const Footer = () => {
     color="white"
     bg='#3182CE'
     height="341px"
-    padding="2.5rem"
+    padding={{base:'1.5rem', md:"2.5rem"}}
       >
       <Networks/>
       <Box color={'white'} display={'flex'} padding={{base:'3', md:"0"}} marginBottom={'2'}>

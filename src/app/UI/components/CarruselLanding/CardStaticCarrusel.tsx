@@ -65,14 +65,33 @@ export const CardStaticCarrusel = () => {
   }
 
   return (
-    <Flex p={{base:'5', md:'24'}} pl={{base:'5', md:'100px'}} border={'none'} flexDirection={{base:'column', md:'row'}} >
-      <Flex gap='2' flexDir={'column'} >
-        <Text fontSize={{base:'2rem', md:'52px'}} fontWeight={'bold'} >
-          Más de 140 mil personas eligen <Box as={'span'} color={'#146EB4'}>Reffindr</Box>
-        </Text>
-        <Text fontSize={{base:'1.2rem', md:'42px'}} width={'full'}>
-          Nuestros clientes nos eligen por la transparencia y simplicidad en el proceso de alquiler.{' '}
-        </Text>
+    <Flex
+      pl={{ base: '0', md: '20px' }}
+      pr={'17px'}
+      mx={{ base: '0', md: '10' }}
+      border={'none'}
+      alignItems={'center'}
+      flexDirection={{ base: 'column', md: 'row' }}
+      justifyContent={'space-around'}
+    >
+      <Flex gap='2' flexDir={'column'}>
+        <Flex
+          flexDirection={'column'}
+          justifyContent={'center'}
+          alignItems={{ base: 'center', md: 'flex-start' }}
+          p={4}
+          flexWrap={'wrap'}
+        >
+          <Text fontSize={{ base: '2xl', md: '3xl' }} fontWeight={'bold'} textAlign={{ base: 'center', md: 'left' }}>
+            Más de 140 mil personas eligen{' '}
+            <Text as='span' color={'#146EB4'}>
+              Reffindr
+            </Text>
+          </Text>
+          <Text fontSize={{ base: 'xl', md: '2xl' }} textAlign={{ base: 'center', md: 'left' }}>
+            Nuestros clientes nos eligen por la transparencia y simplicidad en el proceso de alquiler.
+          </Text>
+        </Flex>
         <Flex justifyContent='flex-end' p={5} gap={5}>
           <Button background={'#146EB4'} borderRadius={'full'} onClick={handlePrev}>
             <MdKeyboardArrowLeft />
@@ -92,11 +111,17 @@ export const CardStaticCarrusel = () => {
         flexDirection={{ base: 'column', md: 'row' }}
       >
         <Flex
-          transform={{ base: `translateX(-${currentIndex * 85}%)`, xl: `translateX(-${currentIndex * 11}%)` }}
+          transform={{
+            base: `translateX(-${currentIndex * 100}%)`,
+            sm: `translateX(-${currentIndex * 50}%)`,
+            md: `translateX(-${currentIndex * 33.3}%)`,
+            lg: `translateX(-${currentIndex * 25}%)`,
+            xl: `translateX(-${currentIndex * 20}%)`,
+          }}
           transition='transform 0.5s ease-in-out'
         >
           {users.map((user, index) => (
-            <Box p={3} key={index} flex='none' width='max-content'>
+            <Box p={3} key={index} flex='none' width={{ base: '100%', md: 'max-content' }}>
               <CardCarrusel
                 description={user.description}
                 avatar={user.avatar.image}

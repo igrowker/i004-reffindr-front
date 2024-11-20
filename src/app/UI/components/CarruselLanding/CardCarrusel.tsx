@@ -18,7 +18,7 @@ export const CardCarrusel = ({
     .join('')
 
   return (
-    <Card.Root width={{base:'360px', md:'420px'}} height={{base:'520px', md:'650px'}} background={'#EDF2F7'} overflow={{base:'scroll', md:'hidden'}}>
+    <Card.Root width={{ base: '350px', md: '350px' }} height={{ base: '520px', md: '550px' }} background={'#EDF2F7'}>
       <Card.Body gap='2'>
         <Card.Title mt='2'>
           <Box ml={2}>

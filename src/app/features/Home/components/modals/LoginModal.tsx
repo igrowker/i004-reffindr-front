@@ -20,7 +20,7 @@ interface Props {
   onOpenChange: () => void
 }
 
-export const LoginModal = ({  onShowRegister, isOpen, onOpenChange }: Props) => {
+export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
   const { t } = useTranslation()
 
   const [email, setEmail] = useState('')
@@ -31,8 +31,6 @@ export const LoginModal = ({  onShowRegister, isOpen, onOpenChange }: Props) => 
     console.log('Email:', email)
     console.log('Password:', password)
   }
-
- 
 
   const handleShowRegister = () => {
     if (onShowRegister) {

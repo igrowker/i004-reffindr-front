@@ -38,12 +38,7 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
     >
       <DialogBackdrop />
       <DialogTrigger asChild>
-        <Button
-          size={{ base: 'xs', sm: 'md' }}
-          variant='outline'
-          bg={'white'}
-          colorPalette={'bg'}
-        >
+        <Button size={{ base: 'xs', sm: 'md' }} variant='outline' bg={'white'} colorPalette={'bg'}>
           Registrarse
         </Button>
       </DialogTrigger>

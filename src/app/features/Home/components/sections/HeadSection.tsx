@@ -38,6 +38,7 @@ export const HeadSection = ({ title, backgroundImage, headLink }: Props) => {
         bgRepeat='no-repeat'
         bgSize={'cover'}
         bgImage={`url(${backgroundImage})`}
+        backgroundPosition={'center'}
       >
         {(showLogin || showRegister) && (
           <Box position='fixed' top={0} left={0} width='100%' height='100%' bgColor='blackAlpha.700' zIndex={9} />

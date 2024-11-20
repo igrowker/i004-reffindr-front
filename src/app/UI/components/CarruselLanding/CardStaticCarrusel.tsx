@@ -12,7 +12,7 @@ export const CardStaticCarrusel = () => {
   const users = [
     {
       description:
-        'Estoy encantado con mi experiencia usando Reffindr. Necesitaba alquilar mi propiedad rápidamente, y gracias a la plataforma encontré al inquilino perfecto en pocos días. El proceso fue sencillo y ágil; en menos de lo que esperaba ya tenía todo coordinado. Definitivamente, Reffindr se ha convertido en mi recurso de confianza para encontrar inquilinos de manera rápida y eficiente. ¡Lo recomiendo sin dudar!',
+        'Estoy encantado con mi experiencia usando Reffindr. Necesitaba alquilar mi propiedad rápidamente, y gracias a la plataforma encontré al inquilino perfecto en pocos días.',
       avatar: {
         image: 'public/AvatarImage1.png',
       },
@@ -21,7 +21,7 @@ export const CardStaticCarrusel = () => {
     },
     {
       description:
-        'Reffindr superó mis expectativas. Encontré un inquilino confiable y comprometido en menos de una semana. Todo el proceso fue transparente y sencillo. ¡Gracias por esta increíble herramienta!',
+        'Reffindr superó mis expectativas. Encontré un inquilino confiable y comprometido en menos de una semana.',
       avatar: {
         image: 'public/AvatarImage2.png',
       },
@@ -65,14 +65,33 @@ export const CardStaticCarrusel = () => {
   }
 
   return (
-    <Flex p={{base:'5', md:'24'}} pl={{base:'5', md:'100px'}} border={'none'} flexDirection={{base:'column', md:'row'}} >
-      <Flex gap='2' flexDir={'column'} >
-        <Text fontSize={{base:'2rem', md:'52px'}} fontWeight={'bold'} >
-          Más de 140 mil personas eligen <Box as={'span'} color={'#146EB4'}>Reffindr</Box>
-        </Text>
-        <Text fontSize={{base:'1.2rem', md:'42px'}} width={'full'}>
-          Nuestros clientes nos eligen por la transparencia y simplicidad en el proceso de alquiler.{' '}
-        </Text>
+    <Flex
+      pl={{ base: '0', md: '20px' }}
+      pr={'17px'}
+      mx={{ base: '0', md: '10' }}
+      border={'none'}
+      alignItems={'center'}
+      flexDirection={{ base: 'column', md: 'row' }}
+      justifyContent={'space-around'}
+    >
+      <Flex gap='2' flexDir={'column'}>
+        <Flex
+          flexDirection={'column'}
+          justifyContent={'center'}
+          alignItems={{ base: 'center', md: 'flex-start' }}
+          p={4}
+          flexWrap={'wrap'}
+        >
+          <Text fontSize={{ base: '2xl', md: '3xl' }} fontWeight={'bold'} textAlign={{ base: 'center', md: 'left' }}>
+            Más de 140 mil personas eligen{' '}
+            <Text as='span' color={'#146EB4'}>
+              Reffindr
+            </Text>
+          </Text>
+          <Text fontSize={{ base: 'xl', md: '2xl' }} textAlign={{ base: 'center', md: 'left' }}>
+            Nuestros clientes nos eligen por la transparencia y simplicidad en el proceso de alquiler.
+          </Text>
+        </Flex>
         <Flex justifyContent='flex-end' p={5} gap={5}>
           <Button background={'#146EB4'} borderRadius={'full'} onClick={handlePrev}>
             <MdKeyboardArrowLeft />
@@ -83,15 +102,26 @@ export const CardStaticCarrusel = () => {
         </Flex>
       </Flex>
 
-      <Flex overflow='hidden' position='relative' width='100%' maxWidth='70rem' mx='auto'>
+      <Flex
+        overflow='hidden'
+        position='relative'
+        width='100%'
+        maxWidth='70rem'
+        mx='auto'
+        flexDirection={{ base: 'column', md: 'row' }}
+      >
         <Flex
-          transform={`translateX(-${currentIndex * 15}%)`}
+          transform={{
+            base: `translateX(-${currentIndex * 100}%)`,
+            sm: `translateX(-${currentIndex * 50}%)`,
+            md: `translateX(-${currentIndex * 33.3}%)`,
+            lg: `translateX(-${currentIndex * 25}%)`,
+            xl: `translateX(-${currentIndex * 20}%)`,
+          }}
           transition='transform 0.5s ease-in-out'
-          width={`${users.length * 100}%`}
-          gap={'5'}
         >
           {users.map((user, index) => (
-            <Box key={index} flex='none' width='max-content'>
+            <Box p={3} key={index} flex='none' width={{ base: '100%', md: 'max-content' }}>
               <CardCarrusel
                 description={user.description}
                 avatar={user.avatar.image}

@@ -1,5 +1,5 @@
 import { Badge, Box, Button, Card, Flex, IconButton, Image, Text } from '@chakra-ui/react'
-import { FaRegHeart } from 'react-icons/fa'
+import { CiHeart } from 'react-icons/ci'
 import { IoChevronForwardSharp } from 'react-icons/io5'
 import { RiMapPin2Line } from 'react-icons/ri'
 
@@ -33,13 +33,13 @@ export const CardReuComponent = ({
       boxShadow={isActive ? '0px 10px 20px rgba(38, 80, 204, 0.4)' : '0px 4px 8px rgba(0, 0, 0, 0.1)'}
       transition='box-shadow 0.3s ease-in-out'
     >
-      <Image src={image} alt={title} h='200px' objectFit='cover' />
+      <Image src={image} alt={title} h='200px' objectFit='cover' borderRadius='0' />
       <Card.Body gap='1'>
         <Flex alignItems='center' gap='2'>
           <Card.Title>{title}</Card.Title>
-          <IconButton aria-label='Call support' ml='auto' rounded='full' bg='blue.400' _hover={{ bg: 'blue.600' }}>
-            <FaRegHeart />
-          </IconButton>
+          <IconButton aria-label='Call support' ml='auto' rounded='full' bg='transparent' color='black'>
+              <CiHeart />
+            </IconButton>
         </Flex>
 
         <Text textStyle='2xl' fontWeight='medium' letterSpacing='tight' mt='2'>

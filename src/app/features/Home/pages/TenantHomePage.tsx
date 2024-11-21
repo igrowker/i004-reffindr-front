@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { CardReuComponent } from '@/app/UI/components/CardInfo/CardReuComponent'
 
 import Sidebar from '../../../UI/components/Sidebar/Sidebar'
+import { SearchWithFiltersAndNotification } from '@/app/UI/components/search/Search'
 
 const data = [
   {
@@ -77,7 +78,10 @@ export const TenantHomePage = () => {
       <Box>
         <Sidebar />
       </Box>
-      <Box flex='1' bg='gray.50' p='2' overflowY='auto'>
+      <Box flex='1' bg='#EDF2F7' p='2' overflowY='auto'>
+      <Box  h={'16'} m={'3'}>
+          <SearchWithFiltersAndNotification/>
+        </Box>
         <Flex gap='4' flexWrap='wrap' justifyContent='center' alignItems='start'>
           {data.map((item) => (
             <Box

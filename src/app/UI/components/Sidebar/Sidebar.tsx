@@ -20,7 +20,7 @@ const Sidebar = () => {
     <Flex
       w={sidebarWidth}
       h='100vh'
-      bg='#EDF2F7'
+      bg='white'
       px={8}
       display='flex'
       flexDirection='column'
@@ -42,7 +42,7 @@ const Sidebar = () => {
 
       <Box flexBasis='50%'>
         <VStack gap={2} align='stretch'>
-          <ButtonIconComponent icon={<FiHome />} text='Inicio' />
+          <ButtonIconComponent icon={<FiHome />} text='Inicio'/>
           <ButtonIconComponent icon={<CgProfile />} text='Perfil' />
           <ButtonIconComponent icon={<FaRegHeart />} text='Favoritos' />
           <ButtonIconComponent icon={<IoMdHelp />} text='Ayuda' />

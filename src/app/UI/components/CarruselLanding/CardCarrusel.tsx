@@ -18,14 +18,14 @@ export const CardCarrusel = ({
     .join('')
 
   return (
-    <Card.Root width={{base:'360px', md:'420px'}} height={{base:'520px', md:'650px'}} background={'#EDF2F7'} overflow={{base:'scroll', md:'hidden'}}>
+    <Card.Root width={{ base: '350px', md: '350px' }} height={{ base: '520px', md: '550px' }} background={'#EDF2F7'}>
       <Card.Body gap='2'>
         <Card.Title mt='2'>
-          <Box p={2}>
+          <Box ml={2}>
             <Image src='public/Quotation_Marks.svg' />
           </Box>
         </Card.Title>
-        <Card.Description p={3} fontSize={'20px'} fontWeight={'medium'}>
+        <Card.Description p={3} fontWeight={'medium'} fontSize={'1rem'}>
           {description}
         </Card.Description>
       </Card.Body>

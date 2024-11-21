@@ -1,14 +1,14 @@
 import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react'
-
 interface Props {
   items: { title: string; description: string }[]
   img: string
 }
 
 export const LastSection = ({ items, img }: Props) => {
+
   return (
-    <Flex alignItems={'center'} flexDirection={{ lg: 'row', base: 'column' }} justifyContent='center' p={5} gap={20} marginBottom={{md:'10'}}>
-      <Box minW={260} maxW={{base:'330px', md:'500px'}}>
+    <Flex alignItems={'center'} flexDirection={{ lg: 'row', base: 'column' }} justifyContent='space-around' p={4} gap={20}>
+      <Box minW={260} maxW={500}>
         {items.map((item, i) => (
           <Box divideY={'2px'} fontSize={'xl'}>
             <Heading wordBreak='break-word' py={2}>

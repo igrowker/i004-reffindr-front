@@ -11,3 +11,4 @@ export type CardHorizontalProps = {
   badges: string[]
   description: string
 }
+

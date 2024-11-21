@@ -1,14 +1,16 @@
 import { Box, Center, Image, SimpleGrid, Text } from '@chakra-ui/react'
-
+import { useTranslation } from 'react-i18next'
 import { HeaderSectionGridComponent } from './HeaderSectionGridComponent'
 
 export const SectionGrid = () => {
+  const { t } = useTranslation()
+
   return (
     <Box bg='white' py={12} px={6}>
       <HeaderSectionGridComponent
-        title='Los mejores valorados aplicarán a tu propiedad'
+        title={t('landing.section-grid.header-title')}
         highlight='valorados'
-        description='Te mostraremos los mejores tres candidatos aplicados a tu propiedad, siendo pre-filtrados anteriormente.'
+        description={t('landing.section-grid.header-description')}
       />
       <Center>
         <Box
@@ -44,7 +46,7 @@ export const SectionGrid = () => {
                     95%
                   </Text>
                   <Text color='gray.600' textAlign='left'>
-                    de satisfacción con nuestro servicio
+                    {t('landing.section-grid.box1-description')}
                   </Text>
                 </Box>
               </Box>
@@ -72,10 +74,10 @@ export const SectionGrid = () => {
               <Box bg='#3182CE' rounded='lg' shadow='md' p={6} h={{ base: '200px', md: '200px' }}>
                 <Box display='flex' flexDirection='column' justifyContent='flex-end' alignItems='center' h='full'>
                   <Text fontSize={{ base: '3xl', md: '4xl' }} fontWeight='bold' color='white'>
-                    23 Años
+                  {t('landing.section-grid.box2-title')}
                   </Text>
                   <Text color='white' textAlign='center'>
-                    de experiencia en el mercado
+                  {t('landing.section-grid.box2-description')}
                   </Text>
                 </Box>
               </Box>
@@ -91,9 +93,11 @@ export const SectionGrid = () => {
               <Box bg='#3182CE' rounded='lg' shadow='md' p={6} color='white' h={{ base: '150px', md: '200px' }}>
                 <Box display='flex' flexDirection='column' justifyContent='flex-end' h='full'>
                   <Text fontSize='3xl' fontWeight='bold'>
-                    +1000
+                  {t('landing.section-grid.box3-title')}
                   </Text>
-                  <Text>Propiedades alquiladas</Text>
+                  <Text>
+                  {t('landing.section-grid.box3-description')}
+                  </Text>
                 </Box>
               </Box>
             </Box>
@@ -120,9 +124,11 @@ export const SectionGrid = () => {
               <Box bg='gray.900' rounded='lg' shadow='md' p={6} color='white' h={{ base: '150px', md: '230px' }}>
                 <Box display='flex' flexDirection='column' justifyContent='flex-end' alignItems='center' h='full'>
                   <Text fontSize='3xl' fontWeight='bold'>
-                    24hr
+                  {t('landing.section-grid.box4-title')}
                   </Text>
-                  <Text textAlign='center'>Atención al cliente disponible</Text>
+                  <Text textAlign='center'>
+                  {t('landing.section-grid.box4-description')}
+                  </Text>
                 </Box>
               </Box>
             </Box>
@@ -137,10 +143,10 @@ export const SectionGrid = () => {
               <Box bg='#EDF2F7' rounded='lg' shadow='md' p={6} h={{ base: '150px', md: '200px' }}>
                 <Box display='flex' flexDirection='column' justifyContent='flex-end' h='full'>
                   <Text fontSize='3xl' fontWeight='bold'>
-                    +15.000
+                  {t('landing.section-grid.box5-title')}
                   </Text>
                   <Text color='gray.600' textAlign='left'>
-                    usuarios registrados
+                  {t('landing.section-grid.box5-description')}
                   </Text>
                 </Box>
               </Box>

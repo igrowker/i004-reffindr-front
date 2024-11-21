@@ -1,23 +1,26 @@
 import { Box, Heading } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export const Support = () => {
+  const { t } = useTranslation()
+
   return (
     <Box w={{ base: "full", md: "50%" }} display="flex" flexDirection="column" gapY={{base:'1', md:'2'}}>
       <Heading as="h3" fontSize="xl" fontWeight="semibold" mb={{base:'2', md:'5'}}>
-        Soporte
+        {t('landing.footer.support.title')}
       </Heading>
       <Link to="#">
-        Centro de atención
+      {t('landing.footer.support.link-1')}
       </Link>
       <Link to="#" color="white">
-        Términos de servicios
+        {t('landing.footer.support.link-2')}
       </Link>
       <Link to="#" color="white">
-        Legal
+        {t('landing.footer.support.link-3')}
       </Link>
       <Link to="#" color="white">
-        Política de privacidad
+        {t('landing.footer.support.link-4')}
       </Link>
     </Box>
   );

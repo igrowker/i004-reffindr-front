@@ -1,59 +1,57 @@
 import { Box, Flex, Text } from '@chakra-ui/react'
 import { useState } from 'react'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
+import { useTranslation } from 'react-i18next'
 
 import { Button } from '@/components/ui/button'
 
 import { CardCarrusel } from './CardCarrusel'
 
 export const CardStaticCarrusel = () => {
+  const { t } = useTranslation()
+
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const users = [
     {
-      description:
-        'Estoy encantado con mi experiencia usando Reffindr. Necesitaba alquilar mi propiedad rápidamente, y gracias a la plataforma encontré al inquilino perfecto en pocos días.',
+      description: t('landing.card-static-carrusel.array-user.description-1'),
       avatar: {
         image: 'public/AvatarImage1.png',
       },
-      userName: 'Lautaro Fazzito',
-      userRole: 'Propietario',
+      userName: t('landing.card-static-carrusel.array-user.name-1'),
+      userRole: t('landing.card-static-carrusel.array-user.role-1'),
     },
     {
-      description:
-        'Reffindr superó mis expectativas. Encontré un inquilino confiable y comprometido en menos de una semana.',
+      description: t('landing.card-static-carrusel.array-user.description-2'),
       avatar: {
         image: 'public/AvatarImage2.png',
       },
-      userName: 'María José López',
-      userRole: 'Propietaria',
+      userName: t('landing.card-static-carrusel.array-user.name-2'),
+      userRole: t('landing.card-static-carrusel.array-user.role-2'),
     },
     {
-      description:
-        'Soy dueño de varias propiedades y Reffindr se ha convertido en mi aliado número uno para alquilarlas. El soporte al cliente es excepcional y el sistema muy intuitivo. Lo recomiendo 100%.',
+      description: t('landing.card-static-carrusel.array-user.description-3'),
       avatar: {
         image: 'public/AvatarImage1.png',
       },
-      userName: 'Carlos Ramírez',
-      userRole: 'Inquilino',
+      userName: t('landing.card-static-carrusel.array-user.name-3'),
+      userRole: t('landing.card-static-carrusel.array-user.role-3'),
     },
     {
-      description:
-        'La experiencia con Reffindr ha sido increíble. La plataforma me ayudó a encontrar al inquilino ideal para mi departamento en tiempo récord. Es fácil de usar y muy eficiente.',
+      description: t('landing.card-static-carrusel.array-user.description-4'),
       avatar: {
         image: 'public/AvatarImage4.png',
       },
-      userName: 'Andrea Núñez',
-      userRole: 'Propietaria',
+      userName: t('landing.card-static-carrusel.array-user.name-4'),
+      userRole: t('landing.card-static-carrusel.array-user.role-4'),
     },
     {
-      description:
-        'Nunca pensé que alquilar una propiedad podría ser tan sencillo. Gracias a Reffindr, tengo más tiempo para dedicar a otras actividades porque encontré al inquilino perfecto rápidamente.',
+      description: t('landing.card-static-carrusel.array-user.description-5'),
       avatar: {
         image: 'public/AvatarImage1.png',
       },
-      userName: 'Luis Mendoza',
-      userRole: 'Inquilino',
+      userName: t('landing.card-static-carrusel.array-user.name-5'),
+      userRole: t('landing.card-static-carrusel.array-user.role-5'),
     },
   ]
 
@@ -83,13 +81,13 @@ export const CardStaticCarrusel = () => {
           flexWrap={'wrap'}
         >
           <Text fontSize={{ base: '2xl', md: '3xl' }} fontWeight={'bold'} textAlign={{ base: 'center', md: 'left' }}>
-            Más de 140 mil personas eligen{' '}
+            {t('landing.card-static-carrusel.title')}
             <Text as='span' color={'#146EB4'}>
-              Reffindr
+            {t('landing.card-static-carrusel.title-2')}
             </Text>
           </Text>
           <Text fontSize={{ base: 'xl', md: '2xl' }} textAlign={{ base: 'center', md: 'left' }}>
-            Nuestros clientes nos eligen por la transparencia y simplicidad en el proceso de alquiler.
+          {t('landing.card-static-carrusel.description')}
           </Text>
         </Flex>
         <Flex justifyContent='flex-end' p={5} gap={5}>

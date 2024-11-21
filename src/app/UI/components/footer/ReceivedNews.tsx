@@ -1,8 +1,11 @@
 import { InputGroup } from "@/components/ui/input-group";
 import { Box, Heading, Input } from "@chakra-ui/react";
 import { FiSend } from "react-icons/fi";
+import { useTranslation } from "react-i18next";
 
 export const ReceivedNews = () => {
+  const { t } = useTranslation()
+
   return (
     <Box
       w={{ base: "10/12", lg: "1/2" }}
@@ -11,7 +14,7 @@ export const ReceivedNews = () => {
       gapY="5"
     >
       <Heading as='h3' fontWeight='semibold' fontSize='xl' w={{ base: "full", lg: "8/12" }}>
-        Recibí las novedades de propiedades
+        {t('landing.footer.received-news.title')}
       </Heading>
       <Box
         position="relative"
@@ -20,7 +23,7 @@ export const ReceivedNews = () => {
         <InputGroup>
           <Input
             type="text"
-            placeholder="Escribí tu email"
+            placeholder= {t('landing.footer.received-news.input-placeholder')}
             borderRadius="lg"
             height="40px"
             fontSize="sm"

@@ -1,5 +1,5 @@
 import { IoLogoInstagram } from 'react-icons/io5'
-
+import { useTranslation } from 'react-i18next'
 import { HeadSection, LastSection } from '@/app/features/Home/components/'
 import { CardStaticCarrusel } from '@/app/UI/components/CarruselLanding/CardStaticCarrusel'
 
@@ -7,16 +7,18 @@ import { SectionGrid } from '../components/sections/SectionGrid'
 import Footer from '@/app/UI/components/footer/Footer'
 
 export const TenantView = () => {
+  const { t } = useTranslation()
+
   return (
     <>
       <HeadSection
         headLink={{
-          title: 'Soy propietario',
+          title: t('landing.tenant-view.HeadSection.owner'),
           path: '/owner',
         }}
         backgroundImage='/landing-inquilinos-head.png'
         headIcon={<IoLogoInstagram size={32} />}
-        title='Encontrá tu hogar sin &#10; intermediarios'
+        title={t('landing.tenant-view.HeadSection.title')}
       />
 
       <SectionGrid />
@@ -27,17 +29,16 @@ export const TenantView = () => {
         img={'/Pexels_Photo_by_Kindel_Media.png'}
         items={[
           {
-            title: 'Mirá el catalogo de las propiedades',
-            description: 'Una vez completado el formulario, se mostrarán los hogares a los que aplica tu perfil',
+            title: t('landing.tenant-view.last-section.title-1'),
+            description: t('landing.tenant-view.last-section.description-1')
           },
           {
-            title: 'Postulate a las propiedades que más te gusten',
-            description:
-              'Si cumpliste los requisitos, te seleccionará el inquilino saliente entre los mejores candidatos',
+            title: t('landing.tenant-view.last-section.title-2'),
+            description: t('landing.tenant-view.last-section.description-2')
           },
           {
-            title: 'Fuiste seleccionado por el inquilino',
-            description: 'Te podrás conectar con el propietario para concretar tu alquiler o venta de tu nuevo hogar. ',
+            title: t('landing.tenant-view.last-section.title-3'),
+            description: t('landing.tenant-view.last-section.description-3')
           },
         ]}
       />

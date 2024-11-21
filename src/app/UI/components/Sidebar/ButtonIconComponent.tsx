@@ -11,10 +11,12 @@ export const ButtonIconComponent = ({ icon, text, onClick }: ButtonIconProps) =>
     <Button
       size='sm'
       colorScheme='teal'
+      border='1px solid'
+      borderColor='gray.300'
       variant='solid'
       color='black'
       bg='white'
-      _hover={{ bg: 'gray.100' }}
+      _hover={{ borderColor: '#1E3A8A' }}
       display='flex'
       alignItems='center'
       justifyContent='flex-start'

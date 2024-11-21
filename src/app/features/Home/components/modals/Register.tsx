@@ -21,7 +21,7 @@ interface Props {
   onOpenChange?: ((details: { open: boolean }) => void) | undefined
 }
 
-export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
+export const Register = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
   const { t } = useTranslation()
   const [name, setName] = useState('')
   const [lastName, setLastName] = useState('')
@@ -30,7 +30,7 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
 
   return (
     <DialogRoot
-      size={"sm"}
+      size={'sm'}
       open={isOpen}
       onOpenChange={onOpenChange}
       lazyMount

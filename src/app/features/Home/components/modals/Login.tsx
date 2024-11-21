@@ -21,7 +21,7 @@ interface Props {
   onOpenChange: () => void
 }
 
-export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
+export const Login = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
   const { t } = useTranslation()
 
   const [email, setEmail] = useState('')
@@ -42,7 +42,6 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
   return (
     <DialogRoot
       size='xs'
-      
       open={isOpen}
       onOpenChange={onOpenChange}
       lazyMount
@@ -56,7 +55,7 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
           Iniciar sesión
         </Button>
       </DialogTrigger>
-      <DialogContent  rounded='sm'>
+      <DialogContent rounded='sm'>
         <DialogHeader>
           <DialogTitle textAlign='center' fontSize='4xl' fontWeight={'bold'} mb={4}>
             {t('login')}

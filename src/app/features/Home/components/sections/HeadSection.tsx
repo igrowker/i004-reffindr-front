@@ -1,11 +1,11 @@
 import { Box, Flex, Grid, Heading, Link, Text } from '@chakra-ui/react'
 import { ReactNode, useCallback, useState } from 'react'
-import { Link as RouterLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { Link as RouterLink } from 'react-router-dom'
 
 import { LogoComponent } from '@/app/UI/components/Logo/LogoComponent'
 
-import { LoginModal, RegisterModal } from '../'
+import { Login, Register } from '../'
 
 interface Props {
   title: string
@@ -52,12 +52,12 @@ export const HeadSection = ({ title, backgroundImage, headLink }: Props) => {
                 <RouterLink to={headLink.path}>{headLink.title}</RouterLink>
               </Link>
 
-              <LoginModal
+              <Login
                 isOpen={showLogin}
                 onOpenChange={() => setShowLogin((prev) => !prev)}
                 onShowRegister={handleShowRegister}
               />
-              <RegisterModal
+              <Register
                 onShowLogin={handleShowLogin}
                 isOpen={showRegister}
                 onOpenChange={() => setShowRegister((prev) => !prev)}
@@ -70,7 +70,7 @@ export const HeadSection = ({ title, backgroundImage, headLink }: Props) => {
             </Heading>
 
             <Text textAlign='center' color='whiteAlpha.800'>
-            {t('landing.headSection.text')}
+              {t('landing.headSection.text')}
             </Text>
           </Grid>
         </Flex>

@@ -11,6 +11,8 @@ export const ButtonIconComponent = ({ icon, text, onClick }: ButtonIconProps) =>
     <Button
       size='sm'
       colorScheme='teal'
+      border='1px solid'
+      borderColor='gray.300'
       variant='solid'
       color='black'
       border={'solid 1px #d3d2d2'}

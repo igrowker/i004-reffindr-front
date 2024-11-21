@@ -17,15 +17,7 @@ const Sidebar = () => {
   const sidebarWidth = useBreakpointValue({ base: '277px' })
 
   return (
-    <Flex
-      w={sidebarWidth}
-      h='100vh'
-      bg='white'
-      px={8}
-      display='flex'
-      flexDirection='column'
-      justifyContent='space-around'
-    >
+    <Flex w={sidebarWidth} h='100vh' px={8} display='flex' flexDirection='column' justifyContent='space-around'>
       <Box display='flex' justifyContent='center' mb={5} mt={5}>
         <LogoComponent src='assets/logos-svg/logoazul.svg' />
       </Box>

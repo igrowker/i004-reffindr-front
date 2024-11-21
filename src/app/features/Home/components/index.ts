@@ -1,2 +1,6 @@
 export * from './sections/HeadSection'
 export * from './sections/LastSection'
+export * from './sections/HeaderSectionGridComponent'
+export * from './sections/SectionGrid'
+export * from './modals/LoginModal'
+export * from './modals/RegisterModal'

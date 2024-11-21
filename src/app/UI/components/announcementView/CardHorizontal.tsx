@@ -2,7 +2,14 @@ import { Badge, Box, Card, HStack, Image, Text } from '@chakra-ui/react'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 
 import { Button } from '@/components/ui/button'
-import { CardHorizontalProps } from '@/types'
+
+type CardHorizontalProps = {
+  title: string
+  price: string
+  location: string
+  badges: string[]
+  description: string
+}
 
 export const CardHorizontal: React.FC<CardHorizontalProps> = ({ title, price, location, badges, description }) => (
   <Box mx={8} my={4}>

@@ -1,11 +1,11 @@
-import { Box, Button, Center, Flex, Grid, Heading, Link, Text } from '@chakra-ui/react'
-import { ReactNode, useState } from 'react'
+import { Box, Flex, Grid, Heading, Link, Text } from '@chakra-ui/react'
+import { ReactNode, useCallback, useState } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
-import LoginView from '@/app/features/Login/views/LoginView'
-import { RegisterView } from '@/app/features/Register/views/RegisterView'
 import { LogoComponent } from '@/app/UI/components/Logo/LogoComponent'
+
+import { LoginModal, RegisterModal } from '../'
 
 interface Props {
   title: string
@@ -23,15 +23,15 @@ export const HeadSection = ({ title, backgroundImage, headLink }: Props) => {
   const [showLogin, setShowLogin] = useState(false)
   const [showRegister, setShowRegister] = useState(false)
 
-  const handleShowLogin = () => {
+  const handleShowLogin = useCallback(() => {
     setShowLogin(!showLogin)
     setShowRegister(false)
-  }
+  }, [showLogin])
 
-  const handleShowRegister = () => {
+  const handleShowRegister = useCallback(() => {
     setShowRegister(!showRegister)
     setShowLogin(false)
-  }
+  }, [showRegister])
 
   return (
     <>
@@ -41,23 +41,7 @@ export const HeadSection = ({ title, backgroundImage, headLink }: Props) => {
         bgRepeat='no-repeat'
         bgSize={'cover'}
         bgImage={`url(${backgroundImage})`}
-        backgroundPosition={'center'}
       >
-        {(showLogin || showRegister) && (
-          <Box position='fixed' top={0} left={0} width='100%' height='100%' bgColor='blackAlpha.700' zIndex={9} />
-        )}
-        {showLogin && (
-          <Center position='fixed' top='50%' left='50%' transform='translate(-50%, -50%)' zIndex='10'>
-            <LoginView onclose={handleShowLogin} onShowRegister={handleShowRegister} />
-          </Center>
-        )}
-
-        {showRegister && (
-          <Center position='fixed' top='50%' left='50%' transform='translate(-50%, -50%)' zIndex='10'>
-            <RegisterView onclose={handleShowRegister} onShowLogin={handleShowLogin} />
-          </Center>
-        )}
-
         <Flex px={6} flexDirection='column' minH='100vh'>
           <Flex alignItems='center'>
             <Box>
@@ -67,19 +51,17 @@ export const HeadSection = ({ title, backgroundImage, headLink }: Props) => {
               <Link fontSize={{ base: 'xs', sm: 'md' }} color='white' asChild variant='underline'>
                 <RouterLink to={headLink.path}>{headLink.title}</RouterLink>
               </Link>
-              <Button onClick={handleShowLogin} size={{ base: 'xs', sm: 'md' }} variant='solid' colorPalette={'blue'}>
-                {t('landing.headSection.button-login')}
-              </Button>
-              <Button
-                onClick={handleShowRegister}
-                size={{ base: 'xs', sm: 'md' }}
-                variant='outline'
-                color='white'
-                _hover={{ color: 'blackAlpha.800' }}
-                colorPalette={'white'}
-              >
-                {t('landing.headSection.button-register')}
-              </Button>
+
+              <LoginModal
+                isOpen={showLogin}
+                onOpenChange={() => setShowLogin((prev) => !prev)}
+                onShowRegister={handleShowRegister}
+              />
+              <RegisterModal
+                onShowLogin={handleShowLogin}
+                isOpen={showRegister}
+                onOpenChange={() => setShowRegister((prev) => !prev)}
+              />
             </Flex>
           </Flex>
           <Grid gapY={10} whiteSpace={'pre-line'} placeContent='center' flexGrow={1}>

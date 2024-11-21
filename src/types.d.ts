@@ -1,14 +1,15 @@
-export type onProps = {
-  onclose?: () => void
-  onShowRegister?: () => void
-  onShowLogin?: () => void
+export interface User {
+  id: string
+  name: string
+  surname: string
+  email: string
 }
 
-export type CardHorizontalProps = {
-  title: string
+export interface Property {
+  id: string
+  owner_id: string
+  address: string
   price: string
-  location: string
-  badges: string[]
   description: string
+  requirenments: string
 }
-

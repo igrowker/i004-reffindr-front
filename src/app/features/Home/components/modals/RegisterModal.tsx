@@ -30,6 +30,7 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
 
   return (
     <DialogRoot
+      size={"sm"}
       open={isOpen}
       onOpenChange={onOpenChange}
       lazyMount

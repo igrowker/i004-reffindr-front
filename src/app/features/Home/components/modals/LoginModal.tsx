@@ -41,6 +41,8 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
 
   return (
     <DialogRoot
+      size='xs'
+      
       open={isOpen}
       onOpenChange={onOpenChange}
       lazyMount
@@ -54,7 +56,7 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
           Iniciar sesión
         </Button>
       </DialogTrigger>
-      <DialogContent rounded='sm'>
+      <DialogContent  rounded='sm'>
         <DialogHeader>
           <DialogTitle textAlign='center' fontSize='4xl' fontWeight={'bold'} mb={4}>
             {t('login')}
@@ -70,31 +72,27 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
 
             <Fieldset.Content gap={2}>
               <Box>
-                
                 <Field label={t('email')} required>
-
-                <Input
-                  type='email'
-                  value={email}
-                  size={{ base: 'md', '2xl': 'md' }}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder={t('emailPlaceholder')}
-                  fontSize={{ base: 'medium', '2xl': 'xl' }}
-                />
+                  <Input
+                    type='email'
+                    value={email}
+                    size={{ base: 'md', '2xl': 'md' }}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder={t('emailPlaceholder')}
+                    fontSize={{ base: 'medium', '2xl': 'xl' }}
+                  />
                 </Field>
               </Box>
               <Box>
-                
                 <Field label={t('password')} required>
-
-                <Input
-                  type='password'
-                  value={password}
-                  size={{ base: 'md', '2xl': 'md' }}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder={t('passwordPlaceholder')}
-                  fontSize={{ base: 'medium', '2xl': 'xl' }}
-                />
+                  <Input
+                    type='password'
+                    value={password}
+                    size={{ base: 'md', '2xl': 'md' }}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder={t('passwordPlaceholder')}
+                    fontSize={{ base: 'medium', '2xl': 'xl' }}
+                  />
                 </Field>
               </Box>
             </Fieldset.Content>

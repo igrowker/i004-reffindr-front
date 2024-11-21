@@ -1,11 +1,11 @@
 import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react'
-
 interface Props {
   items: { title: string; description: string }[]
   img: string
 }
 
 export const LastSection = ({ items, img }: Props) => {
+
   return (
     <Flex alignItems={'center'} flexDirection={{ lg: 'row', base: 'column' }} justifyContent='space-around' p={4} gap={20}>
       <Box minW={260} maxW={500}>

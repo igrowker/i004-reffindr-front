@@ -1,6 +1,7 @@
 import { Box, Button, Center, Flex, Grid, Heading, Link, Text } from '@chakra-ui/react'
 import { ReactNode, useState } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 import LoginView from '@/app/features/Login/views/LoginView'
 import { RegisterView } from '@/app/features/Register/views/RegisterView'
@@ -17,6 +18,8 @@ interface Props {
 }
 
 export const HeadSection = ({ title, backgroundImage, headLink }: Props) => {
+  const { t } = useTranslation()
+
   const [showLogin, setShowLogin] = useState(false)
   const [showRegister, setShowRegister] = useState(false)
 
@@ -65,7 +68,7 @@ export const HeadSection = ({ title, backgroundImage, headLink }: Props) => {
                 <RouterLink to={headLink.path}>{headLink.title}</RouterLink>
               </Link>
               <Button onClick={handleShowLogin} size={{ base: 'xs', sm: 'md' }} variant='solid' colorPalette={'blue'}>
-                Iniciar sesión
+                {t('landing.headSection.button-login')}
               </Button>
               <Button
                 onClick={handleShowRegister}
@@ -75,7 +78,7 @@ export const HeadSection = ({ title, backgroundImage, headLink }: Props) => {
                 _hover={{ color: 'blackAlpha.800' }}
                 colorPalette={'white'}
               >
-                Registrarse
+                {t('landing.headSection.button-register')}
               </Button>
             </Flex>
           </Flex>
@@ -85,8 +88,7 @@ export const HeadSection = ({ title, backgroundImage, headLink }: Props) => {
             </Heading>
 
             <Text textAlign='center' color='whiteAlpha.800'>
-              Nuestra plataforma conecta a inquilinos y propietarios, eliminando &#10; la necesidad de intermediarios y
-              las comisiones elevadas.
+            {t('landing.headSection.text')}
             </Text>
           </Grid>
         </Flex>

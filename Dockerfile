@@ -1,62 +1,51 @@
-# Use node image for base image for all stages.
+# Etapa base
 FROM node:20.15.0-alpine as base
-
-# Set working directory for all build stages.
 WORKDIR /usr/src/app
 
 ################################################################################
-# Create a stage for installing production dependecies.
+# Etapa de dependencias
 FROM base as deps
 
-# Download dependencies as a separate step to take advantage of Docker's caching.
-# Leverage a cache mount to /root/.npm to speed up subsequent builds.
-# Leverage bind mounts to package.json and package-lock.json to avoid having to copy them
-# into this layer.
-RUN --mount=type=bind,source=package.json,target=package.json \
-    --mount=type=bind,source=package-lock.json,target=package-lock.json \
-    --mount=type=cache,target=/root/.npm \
-    npm ci --omit=dev
-
-################################################################################
-# Create a stage for building the application.
-FROM deps as build
-
-# Download additional development dependencies before building, as some projects require
-# "devDependencies" to be installed to build. If you don't need this, remove this step.
+# Instalar todas las dependencias (producción y desarrollo) para construir el proyecto.
 RUN --mount=type=bind,source=package.json,target=package.json \
     --mount=type=bind,source=package-lock.json,target=package-lock.json \
     --mount=type=cache,target=/root/.npm \
     npm ci
 
-# Copy the rest of the source files into the image.
+################################################################################
+# Etapa de construcción
+FROM deps as build
+
+# Copiar los archivos del proyecto.
 COPY . .
-# Run the build script.
-RUN npm run build
+
+# Ejecutar el script de construcción.
+RUN npm run build || cat /usr/src/app/npm-debug.log
 
 ################################################################################
-# Create a new stage to run the application with minimal runtime dependencies
-# where the necessary files are copied from the build stage.
+# Etapa final (para producción)
 FROM base as final
 
-# Use production node environment by default.
+# Configurar el entorno de producción.
 ENV NODE_ENV production
 
-# Copy package.json so that package manager commands can be used.
+# Copiar `package.json` para que el contenedor pueda usar los comandos del gestor de paquetes.
 COPY package.json .
 
-# Copy the production dependencies from the deps stage and also
-# the built application from the build stage into the image.
+# Copiar las dependencias de producción desde la etapa de dependencias.
 COPY --from=deps /usr/src/app/node_modules ./node_modules
+
+# Copiar los archivos generados en la etapa de construcción.
 COPY --from=build /usr/src/app/dist ./dist
 
-# Instala globalmente el paquete serve en el contenedor, usada para servir archivos estáticos.
+# Instalar globalmente `serve` para servir los archivos estáticos.
 RUN npm install -g serve
 
-# Run the application as a non-root user.
+# Ejecutar la aplicación como un usuario no root.
 USER node
 
-# Expose the port that the application listens on.
+# Exponer el puerto en el que escucha la aplicación.
 EXPOSE 5173
 
-# Run the application.
+# Comando por defecto para ejecutar la aplicación.
 CMD ["serve", "-s", "dist", "-l", "5173"]

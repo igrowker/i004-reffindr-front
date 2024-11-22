@@ -8,51 +8,45 @@ import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from '@/components/ui/me
 
 export const SearchWithFiltersAndNotification = () => {
   return (
-    <HStack gap="6" width="full" align="center" bg={'white'} py={'1'} px={'2'}>
+    <HStack gap='6' width='full' align='center' bg={'white'} py={'1'} px={'2'}>
       {/* este es mi inputt de búsqueda */}
-      <Box position="relative" width={'50%'}>
+      <Box position='relative' width={'50%'}>
         <Input
-          placeholder="Buscar"
+          placeholder='Buscar'
           variant={'outline'}
-          pr="40px"
+          pr='40px'
           _placeholder={{ color: 'black.500' }}
           _hover={{ borderColor: 'black.400' }}
         />
 
-        <Box
-          position="absolute"
-          right="1px"
-          top="50%"
-          transform="translateY(-50%)"
-          pointerEvents="none">
-          <IoSearchCircleSharp color="blue" size="38px" /> {/*cono search*/}
+        <Box position='absolute' right='1px' top='50%' transform='translateY(-50%)' pointerEvents='none'>
+          <IoSearchCircleSharp color='blue' size='38px' /> {/*cono search*/}
         </Box>
       </Box>
 
-        <Box position='absolute' right='1px' top='50%' transform='translateY(-50%)' pointerEvents='none'>
-          <IoSearchCircleSharp color='#1E3A8A' size='38px' /> {/*cono search*/}
-        </Box>
+      <Box position='absolute' right='1px' top='50%' transform='translateY(-50%)' pointerEvents='none'>
+        <IoSearchCircleSharp color='#1E3A8A' size='38px' /> {/*cono search*/}
       </Box>
 
       {/* este es mi menu de filtros*/}
       <Box width={'50%'} display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
-      <MenuRoot>
-        <MenuTrigger asChild>
-          <Button variant='outline' size='sm' display='flex' alignItems='center' gap='8px'  borderColor="gray.300">
-            Filtros
-            <FaSortAmountDownAlt size='16px' color='black' />
-          </Button>
-        </MenuTrigger>
-        <MenuContent>
-          <MenuItem value='new-txt'>Menor precio</MenuItem>
-          <MenuItem value='new-file'>Mayor precio</MenuItem>
-        </MenuContent>
-      </MenuRoot>
+        <MenuRoot>
+          <MenuTrigger asChild>
+            <Button variant='outline' size='sm' display='flex' alignItems='center' gap='8px' borderColor='gray.300'>
+              Filtros
+              <FaSortAmountDownAlt size='16px' color='black' />
+            </Button>
+          </MenuTrigger>
+          <MenuContent>
+            <MenuItem value='new-txt'>Menor precio</MenuItem>
+            <MenuItem value='new-file'>Mayor precio</MenuItem>
+          </MenuContent>
+        </MenuRoot>
 
-      {/* Íeste es mi icono de  notificacion */}
-      <Icon fontSize="24px" color="gray.700" cursor="pointer">
-        <IoMdNotificationsOutline />
-      </Icon>
+        {/* Íeste es mi icono de  notificacion */}
+        <Icon fontSize='24px' color='gray.700' cursor='pointer'>
+          <IoMdNotificationsOutline />
+        </Icon>
       </Box>
     </HStack>
   )

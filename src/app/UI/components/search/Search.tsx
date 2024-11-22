@@ -24,9 +24,9 @@ export const SearchWithFiltersAndNotification = () => {
         </Box>
       </Box>
 
-      <Box position='absolute' right='1px' top='50%' transform='translateY(-50%)' pointerEvents='none'>
-        <IoSearchCircleSharp color='#1E3A8A' size='38px' /> {/*cono search*/}
-      </Box>
+        <Box position='absolute' right='1px' top='50%' transform='translateY(-50%)' pointerEvents='none'>
+          <IoSearchCircleSharp color='#1E3A8A' size='38px' /> {/*cono search*/}
+        </Box>
 
       {/* este es mi menu de filtros*/}
       <Box width={'50%'} display={'flex'} alignItems={'center'} justifyContent={'space-between'}>

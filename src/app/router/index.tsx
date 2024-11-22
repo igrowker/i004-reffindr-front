@@ -1,7 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom'
 
 import { HomePage } from '../features/Home/pages/HomePage'
-import { SearchWithFiltersAndNotification } from '../UI/components/search/Search'
+// import { SearchWithFiltersAndNotification } from '../UI/components/search/Search'
+import PropertyDetails from '../UI/components/PropertyDetails/PropertyDetails'
 
 export const router = createBrowserRouter([
   {
@@ -10,6 +11,6 @@ export const router = createBrowserRouter([
   },
   {
     path: '/tests',
-    element: <SearchWithFiltersAndNotification />,
+    element: <PropertyDetails />,
   },
 ])

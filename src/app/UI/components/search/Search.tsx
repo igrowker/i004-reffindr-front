@@ -28,6 +28,8 @@ export const SearchWithFiltersAndNotification = () => {
           <IoSearchCircleSharp color='#1E3A8A' size='38px' /> {/*cono search*/}
         </Box>
 
+
+
       {/* este es mi menu de filtros*/}
       <Box width={'50%'} display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
         <MenuRoot>

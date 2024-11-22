@@ -3,8 +3,8 @@ import { createRoot } from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
 
 import { Provider } from '@/components/ui/provider'
+import { router } from '@/router'
 
-import { router } from './app/router'
 import './i18n'
 
 const root = createRoot(document.getElementById('root')!)
@@ -12,7 +12,7 @@ const root = createRoot(document.getElementById('root')!)
 root.render(
   <React.StrictMode>
     <Provider forcedTheme='light'>
-      <RouterProvider router={router} />
+      <RouterProvider router={router} future={{ v7_startTransition: true }} />
     </Provider>
   </React.StrictMode>
 )

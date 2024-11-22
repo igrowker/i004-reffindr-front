@@ -6,7 +6,8 @@ import { Provider } from '@/components/ui/provider'
 
 import { HomePage } from './app/features/Home/pages/HomePage'
 import './i18n'
-import { ViewEditProfile } from './app/UI/components/ViewEditProfile/ViewEditProfile'
+
+import { TenantHomePage } from './app/features/Home/pages/TenantHomePage'
 
 const root = createRoot(document.getElementById('root')!)
 
@@ -16,7 +17,7 @@ root.render(
       <BrowserRouter future={{ v7_relativeSplatPath: true, v7_startTransition: true }}>
         <Routes>
           <Route path='/' element={<HomePage />} />
-          <Route path='/viewEditProfile' element={<ViewEditProfile/>}/>
+          <Route path='/tenantHome' element={<TenantHomePage/>}/>
         </Routes>
       </BrowserRouter>
     </Provider>

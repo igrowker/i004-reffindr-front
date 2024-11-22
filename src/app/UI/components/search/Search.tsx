@@ -8,18 +8,26 @@ import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from '@/components/ui/me
 
 export const SearchWithFiltersAndNotification = () => {
   return (
-    <HStack bg='white' shadow='sm' py='2' px='4' maxW='1000px' width='100%' mx='auto' align='center' justify='space-between'>
+    <HStack gap="6" width="full" align="center" bg={'white'} py={'1'} px={'2'}>
       {/* este es mi inputt de búsqueda */}
-      <Box position='relative' width='300px'>
+      <Box position="relative" width={'50%'}>
         <Input
-          placeholder='Buscar'
-          pr='40px'
-          border="1px solid"
-          borderColor="gray.300"
-          borderRadius="md"
-          _placeholder={{ color: 'gray.500' }}
-          _hover={{ borderColor: 'gray.400' }}
+          placeholder="Buscar"
+          variant={'outline'}
+          pr="40px"
+          _placeholder={{ color: 'black.500' }}
+          _hover={{ borderColor: 'black.400' }}
         />
+
+        <Box
+          position="absolute"
+          right="1px"
+          top="50%"
+          transform="translateY(-50%)"
+          pointerEvents="none">
+          <IoSearchCircleSharp color="blue" size="38px" /> {/*cono search*/}
+        </Box>
+      </Box>
 
         <Box position='absolute' right='1px' top='50%' transform='translateY(-50%)' pointerEvents='none'>
           <IoSearchCircleSharp color='#1E3A8A' size='38px' /> {/*cono search*/}
@@ -27,6 +35,7 @@ export const SearchWithFiltersAndNotification = () => {
       </Box>
 
       {/* este es mi menu de filtros*/}
+      <Box width={'50%'} display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
       <MenuRoot>
         <MenuTrigger asChild>
           <Button variant='outline' size='sm' display='flex' alignItems='center' gap='8px'  borderColor="gray.300">
@@ -44,6 +53,7 @@ export const SearchWithFiltersAndNotification = () => {
       <Icon fontSize="24px" color="gray.700" cursor="pointer">
         <IoMdNotificationsOutline />
       </Icon>
+      </Box>
     </HStack>
   )
 }

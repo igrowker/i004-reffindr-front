@@ -2,9 +2,8 @@ import { Box, Flex } from '@chakra-ui/react'
 import { useState } from 'react'
 
 import { CardReuComponent } from '@/app/UI/components/CardInfo/CardReuComponent'
-import { InfoBar, InfoBarProps } from '@/app/UI/components/Informationbar/InfoBar'
+import Sidebar from '../../../UI/components/Sidebar/Sidebar'
 import { SearchWithFiltersAndNotification } from '@/app/UI/components/search/Search'
-import Sidebar from '@/app/UI/components/Sidebar/Sidebar'
 
 const data = [
   {
@@ -81,8 +80,8 @@ export const TenantHomePage = () => {
         <Sidebar />
       </Box>
       <Box flex='1' bg='#EDF2F7' p='2' overflowY='auto'>
-        <Box  mt='4' mb='12'>
-          <SearchWithFiltersAndNotification />
+      <Box  h={'16'} m={'3'}>
+          <SearchWithFiltersAndNotification/>
         </Box>
         <Flex gap='4' flexWrap='wrap' justifyContent='center' alignItems='start'>
           {data.map((item) => (

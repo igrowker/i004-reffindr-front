@@ -1,5 +1,5 @@
 import { HStack } from '@chakra-ui/react'
-import { Flex } from '@chakra-ui/react'
+import { Flex, Text } from '@chakra-ui/react'
 import { Input } from '@chakra-ui/react'
 import { HiUpload } from 'react-icons/hi'
 import { ImFilePicture } from 'react-icons/im'
@@ -71,7 +71,11 @@ const PropertyDetails = () => {
       </Flex>
 
       <Flex margin={4} gap={4}>
-      <Field label='Código Postal:' width={'30%'} labelStyles={{ marginBottom: '2', fontWeight: 'bold', fontSize: '16px' }}>
+        <Field
+          label='Código Postal:'
+          width={'30%'}
+          labelStyles={{ marginBottom: '2', fontWeight: 'bold', fontSize: '16px' }}
+        >
           <Input placeholder='Escribe el código postal' type='string' name='codigoPostal' />
         </Field>
         <CustomSelect
@@ -84,6 +88,10 @@ const PropertyDetails = () => {
         />
       </Flex>
 
+      <Text fontWeight={'bold'} fontSize={'16px'} margin={4} gap={4}>
+        Operación:
+      </Text>
+
       <Flex margin={4} gap={4}>
         <RadioGroup defaultValue='1'>
           <HStack gap='6'>
@@ -94,7 +102,9 @@ const PropertyDetails = () => {
       </Flex>
 
       <Flex justifyContent={'flex-end'} margin={4} gap={4}>
-        <Button width={'40'}>Siguiente</Button>
+        <Button width={'40'} background={'#1E3A8A'}>
+          Siguiente
+        </Button>
       </Flex>
     </Flex>
   )

@@ -5,7 +5,7 @@ export const authLogin = async (email: string, password: string): Promise<string
 
   try {
     const response = await httpClient.post('/auth/login', body)
-    return response.data
+    return response.data.token
   } catch (error: any) {
     if (error.response) {
       throw new Error(error.response.data.message)

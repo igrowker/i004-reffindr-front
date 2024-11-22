@@ -14,6 +14,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { Field } from '@/components/ui/field'
+import { useLogin } from '@/hooks/useLogin'
 
 interface Props {
   onShowRegister: () => void
@@ -23,14 +24,14 @@ interface Props {
 
 export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
   const { t } = useTranslation()
+  const { login } = useLogin()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleLogin = () => {
-    // logica
-    console.log('Email:', email)
-    console.log('Password:', password)
+  const handleLogin = async () => {
+    await login(email, password)
+    console.log('Login OK')
   }
 
   const handleShowRegister = () => {
@@ -42,7 +43,6 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
   return (
     <DialogRoot
       size='xs'
-      
       open={isOpen}
       onOpenChange={onOpenChange}
       lazyMount
@@ -56,7 +56,7 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
           Iniciar sesión
         </Button>
       </DialogTrigger>
-      <DialogContent  rounded='sm'>
+      <DialogContent rounded='sm'>
         <DialogHeader>
           <DialogTitle textAlign='center' fontSize='4xl' fontWeight={'bold'} mb={4}>
             {t('login')}
@@ -76,8 +76,8 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
                   <Input
                     type='email'
                     value={email}
-                    size={{ base: 'md', '2xl': 'md' }}
                     onChange={(e) => setEmail(e.target.value)}
+                    size={{ base: 'md', '2xl': 'md' }}
                     placeholder={t('emailPlaceholder')}
                     fontSize={{ base: 'medium', '2xl': 'xl' }}
                   />
@@ -88,8 +88,8 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
                   <Input
                     type='password'
                     value={password}
-                    size={{ base: 'md', '2xl': 'md' }}
                     onChange={(e) => setPassword(e.target.value)}
+                    size={{ base: 'md', '2xl': 'md' }}
                     placeholder={t('passwordPlaceholder')}
                     fontSize={{ base: 'medium', '2xl': 'xl' }}
                   />
@@ -105,6 +105,7 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
                 variant='solid'
                 colorPalette={'blue'}
                 rounded='xs'
+                onClick={handleLogin}
               >
                 {t('login')}
               </Button>

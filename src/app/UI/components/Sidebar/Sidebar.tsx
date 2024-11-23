@@ -34,7 +34,7 @@ const Sidebar = () => {
 
       <Box flexBasis='50%'>
         <VStack gap={2} align='stretch'>
-          <ButtonIconComponent icon={<FiHome />} text='Inicio' />
+          <ButtonIconComponent icon={<FiHome />} text='Inicio'/>
           <ButtonIconComponent icon={<CgProfile />} text='Perfil' />
           <ButtonIconComponent icon={<FaRegHeart />} text='Favoritos' />
           <ButtonIconComponent icon={<IoMdHelp />} text='Ayuda' />

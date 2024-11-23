@@ -71,15 +71,19 @@ jobs:
         id: version
         run: echo "::set-output name=version::$(date +'%Y.%m.%d')-${GITHUB_SHA::8}"
 
-      - name: Build and Push Docker Image
+      - name: Build Docker Image with Multiple Tags
         uses: docker/build-push-action@v6
         with:
-          push: true
+          push: false
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}:dev
             ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}:${{ steps.version.outputs.version }}
           cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}:buildcache
           cache-to: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}:buildcache,mode=max
+
+      - name: Push Docker Image with Dev Tag
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}:dev
 
       - name: Scan Docker image
         uses: anchore/scan-action@v3

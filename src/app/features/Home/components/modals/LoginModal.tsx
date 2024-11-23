@@ -39,7 +39,7 @@ const validate = (values: { email: string; password: string }) => {
 
 export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
   const { t } = useTranslation()
-  const { login } = useLogin()
+  const { login, errors: loginErrors } = useLogin()
 
   const { formState, errors, handleInputChange, handleSubmit } = useForm({ email: '', password: '' }, validate)
 
@@ -114,6 +114,7 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
                 </Field>
               </Box>
             </Fieldset.Content>
+            {loginErrors && loginErrors.map((error) => <Text color='red.500'>{error}</Text>)}
 
             <Stack gap={4} mb={4}>
               <Button

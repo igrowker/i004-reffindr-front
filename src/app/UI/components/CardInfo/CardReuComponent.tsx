@@ -1,7 +1,9 @@
-import { Badge, Box, Button, Card, Flex, IconButton, Image, Text } from '@chakra-ui/react'
-import { FaRegHeart } from 'react-icons/fa'
+import { Badge, Box, Button, Card, Flex, HStack, IconButton, Image, Text } from '@chakra-ui/react'
+import { CiHeart } from 'react-icons/ci'
 import { IoChevronForwardSharp } from 'react-icons/io5'
 import { RiMapPin2Line } from 'react-icons/ri'
+
+import { Rating } from '@/components/ui/rating'
 
 interface CardReuProps {
   title: string
@@ -12,6 +14,9 @@ interface CardReuProps {
   features: string[]
   isActive: boolean
   maxW: string
+  showRating?: boolean
+  setRating?: (value: number) => void
+  rating?: number
 }
 
 export const CardReuComponent = ({
@@ -23,6 +28,9 @@ export const CardReuComponent = ({
   features,
   isActive,
   maxW,
+  showRating = false,
+  setRating,
+  rating,
 }: CardReuProps) => {
   return (
     <Card.Root
@@ -33,14 +41,27 @@ export const CardReuComponent = ({
       boxShadow={isActive ? '0px 10px 20px rgba(38, 80, 204, 0.4)' : '0px 4px 8px rgba(0, 0, 0, 0.1)'}
       transition='box-shadow 0.3s ease-in-out'
     >
-      <Image src={image} alt={title} h='200px' objectFit='cover' />
+      <Image src={image} alt={title} h='200px' objectFit='cover' borderRadius='0' />
       <Card.Body gap='1'>
         <Flex alignItems='center' gap='2'>
           <Card.Title>{title}</Card.Title>
-          <IconButton aria-label='Call support' ml='auto' rounded='full' bg='blue.400' _hover={{ bg: 'blue.600' }}>
-            <FaRegHeart />
+
+          <IconButton aria-label='Call support' ml='auto' rounded='full' bg='transparent' color='black'>
+            <CiHeart />
           </IconButton>
         </Flex>
+
+        {showRating && (
+          <HStack>
+            <Rating allowHalf defaultValue={rating} onValueChange={({ value }) => setRating && setRating(value)} />
+            <Flex alignItems='center' gap='1'>
+              <Text>
+                {rating} <span>Star</span>
+              </Text>{' '}
+              <Text></Text>10 reviews
+            </Flex>
+          </HStack>
+        )}
 
         <Text textStyle='2xl' fontWeight='medium' letterSpacing='tight' mt='2'>
           {price}

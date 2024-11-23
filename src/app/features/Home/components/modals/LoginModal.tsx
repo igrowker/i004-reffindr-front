@@ -1,5 +1,4 @@
 import { Box, Button, Fieldset, Input, Link, Stack, Text } from '@chakra-ui/react'
-import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FaFacebook, FaGoogle } from 'react-icons/fa'
 
@@ -14,6 +13,8 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { Field } from '@/components/ui/field'
+import { useForm } from '@/hooks/useForm'
+import { useLogin } from '@/hooks/useLogin'
 
 interface Props {
   onShowRegister: () => void
@@ -21,16 +22,30 @@ interface Props {
   onOpenChange: () => void
 }
 
+const validate = (values: { email: string; password: string }) => {
+  const errors: { email: string | null; password: string | null } = { email: null, password: null }
+  if (!values.email) {
+    errors.email = 'Email is required'
+  } else if (!/\S+@\S+\.\S+/.test(values.email)) {
+    errors.email = 'Email address is invalid'
+  }
+  if (!values.password) {
+    errors.password = 'Password is required'
+  } else if (values.password.length <= 3) {
+    errors.password = 'Password must be longer than 3 characters'
+  }
+  return errors
+}
+
 export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
   const { t } = useTranslation()
+  const { login } = useLogin()
 
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const { formState, errors, handleInputChange, handleSubmit } = useForm({ email: '', password: '' }, validate)
 
-  const handleLogin = () => {
-    // logica
-    console.log('Email:', email)
-    console.log('Password:', password)
+  const handleLogin = async () => {
+    await login(formState.email, formState.password)
+    console.log('Login OK')
   }
 
   const handleShowRegister = () => {
@@ -42,7 +57,6 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
   return (
     <DialogRoot
       size='xs'
-      
       open={isOpen}
       onOpenChange={onOpenChange}
       lazyMount
@@ -56,7 +70,7 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
           Iniciar sesión
         </Button>
       </DialogTrigger>
-      <DialogContent  rounded='sm'>
+      <DialogContent rounded='sm'>
         <DialogHeader>
           <DialogTitle textAlign='center' fontSize='4xl' fontWeight={'bold'} mb={4}>
             {t('login')}
@@ -75,24 +89,28 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
                 <Field label={t('email')} required>
                   <Input
                     type='email'
-                    value={email}
+                    name='email'
+                    value={formState.email}
+                    onChange={handleInputChange}
                     size={{ base: 'md', '2xl': 'md' }}
-                    onChange={(e) => setEmail(e.target.value)}
                     placeholder={t('emailPlaceholder')}
                     fontSize={{ base: 'medium', '2xl': 'xl' }}
                   />
+                  {errors.email && <Text color='red.500'>{errors.email}</Text>}
                 </Field>
               </Box>
               <Box>
                 <Field label={t('password')} required>
                   <Input
                     type='password'
-                    value={password}
+                    name='password'
+                    value={formState.password}
+                    onChange={handleInputChange}
                     size={{ base: 'md', '2xl': 'md' }}
-                    onChange={(e) => setPassword(e.target.value)}
                     placeholder={t('passwordPlaceholder')}
                     fontSize={{ base: 'medium', '2xl': 'xl' }}
                   />
+                  {errors.password && <Text color='red.500'>{errors.password}</Text>}
                 </Field>
               </Box>
             </Fieldset.Content>
@@ -105,6 +123,7 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
                 variant='solid'
                 colorPalette={'blue'}
                 rounded='xs'
+                onClick={() => handleSubmit(handleLogin)}
               >
                 {t('login')}
               </Button>

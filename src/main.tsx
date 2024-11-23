@@ -1,24 +1,18 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { RouterProvider } from 'react-router-dom'
 
 import { Provider } from '@/components/ui/provider'
+import { router } from '@/router'
 
-import { HomePage } from './app/features/Home/pages/HomePage'
 import './i18n'
-import { ViewEditProfile } from './app/UI/components/ViewEditProfile/ViewEditProfile'
 
 const root = createRoot(document.getElementById('root')!)
 
 root.render(
   <React.StrictMode>
     <Provider forcedTheme='light'>
-      <BrowserRouter future={{ v7_relativeSplatPath: true, v7_startTransition: true }}>
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/viewEditProfile' element={<ViewEditProfile/>}/>
-        </Routes>
-      </BrowserRouter>
+      <RouterProvider router={router} future={{ v7_startTransition: true }} />
     </Provider>
   </React.StrictMode>
 )

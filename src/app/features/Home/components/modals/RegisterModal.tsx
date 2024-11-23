@@ -14,6 +14,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { Field } from '@/components/ui/field'
+import { useRegister } from '@/hooks/useRegister'
 
 interface Props {
   onShowLogin: () => void
@@ -28,9 +29,16 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const { register } = useRegister()
+  // const roleId = 1
+
+  const handleRegisterSubmit = async () => {
+    await register(1, name, lastName, email, password)
+  }
+
   return (
     <DialogRoot
-      size={"sm"}
+      size={'sm'}
       open={isOpen}
       onOpenChange={onOpenChange}
       lazyMount
@@ -62,6 +70,7 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
               <Box>
                 <Field label={t('name')} required>
                   <Input
+                    name='name'
                     type='text'
                     value={name}
                     size={{ base: 'md', '2xl': 'md' }}
@@ -74,6 +83,7 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
               <Box>
                 <Field label={t('surname')} required>
                   <Input
+                    name='lastName'
                     type='text'
                     fontSize={{ base: 'medium', '2xl': 'xl' }}
                     value={lastName}
@@ -87,6 +97,7 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
               <Box>
                 <Field label={t('email')} required>
                   <Input
+                    name='email'
                     fontSize={{ base: 'medium', '2xl': 'xl' }}
                     type='email'
                     value={email}
@@ -100,6 +111,7 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
               <Box>
                 <Field label={t('password')} required>
                   <Input
+                    name='password'
                     fontSize={{ base: 'medium', '2xl': 'xl' }}
                     type='password'
                     value={password}
@@ -119,8 +131,9 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
                 variant='solid'
                 colorPalette={'blue'}
                 rounded='xs'
+                onClick={() => handleRegisterSubmit()}
               >
-                {t('login')}
+                {t('register')}
               </Button>
 
               <Button

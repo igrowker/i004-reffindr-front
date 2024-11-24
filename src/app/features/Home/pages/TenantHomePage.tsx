@@ -2,8 +2,9 @@ import { Box, Flex } from '@chakra-ui/react'
 import { useState } from 'react'
 
 import { CardReuComponent } from '@/app/UI/components/CardInfo/CardReuComponent'
-import Sidebar from '../../../UI/components/Sidebar/Sidebar'
 import { SearchWithFiltersAndNotification } from '@/app/UI/components/search/Search'
+import { InfoBar, InfoBarProps } from '@/app/UI/components/Informationbar/InfoBar'
+import Sidebar from '@/app/UI/components/Sidebar/Sidebar'
 
 const data = [
   {

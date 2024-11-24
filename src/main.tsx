@@ -1,9 +1,9 @@
-import ' @/i18n'
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
 
 import { Provider } from '@/components/ui/provider'
+import '@/i18n'
 import { router } from '@/router'
 
 const root = createRoot(document.getElementById('root')!)

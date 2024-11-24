@@ -12,6 +12,22 @@
 - **Axios**: Cliente HTTP para realizar peticiones a una API externa.
 - **React Router**: Enrutador para la navegación entre las distintas rutas de la aplicación.
 - **ESLint & Prettier**: Configuración de linters y formateadores para mantener un código limpio y consistente.
+- **Docker**: Plataforma para desarrollar, enviar y ejecutar aplicaciones en contenedores.
+
+## Instalación y Uso
+
+### Desarrollo Local
+
+1. Clona el repositorio y navega al directorio del proyecto.
+2. Ejecuta `npm install` para instalar todas las dependencias.
+3. Usa `npm run dev` para iniciar la aplicación en modo desarrollo.
+4. Usa `npm run build` para construir la aplicación para producción.
+
+### Usando Docker
+
+1. Asegúrate de tener Docker instalado en tu sistema.
+2. Ejecuta `docker compose up --build` para construir y iniciar la aplicación.
+3. Tu aplicación estará disponible en http://localhost:5173.
 
 ## Scripts Disponibles
 
@@ -19,13 +35,6 @@
 - `build`: Realiza la compilación de TypeScript y construye la aplicación para producción.
 - `lint`: Ejecuta ESLint para asegurar que el código sigue las normas de estilo establecidas.
 - `preview`: Visualiza una versión de la aplicación construida (previa a producción).
-
-## Instalación y Uso
-
-1. Clona el repositorio y navega al directorio del proyecto.
-2. Ejecuta `npm install` para instalar todas las dependencias.
-3. Usa `npm run dev` para iniciar la aplicación en modo desarrollo.
-4. Usa `npm run build` para construir la aplicación para producción.
 
 ## Estructura del Proyecto
 
@@ -41,6 +50,28 @@
 - **@types/react** y **@types/react-dom**: Tipos para React.
 - **@typescript-eslint/eslint-plugin** y **@typescript-eslint/parser**: Integración de ESLint con TypeScript.
 - **prettier-plugin-tailwindcss**: Formatea el código de acuerdo con la configuración de TailwindCSS.
+
+## Despliegue en la Nube
+
+Para desplegar tu aplicación en la nube usando Docker:
+
+1. Construye tu imagen:
+
+`docker build -t myapp .`
+
+Si tu proveedor de nube usa una arquitectura de CPU diferente (por ejemplo, estás en una Mac M1 y tu proveedor de nube es amd64), construye la imagen para esa plataforma:
+
+`docker build --platform=linux/amd64 -t myapp .`
+
+2. Sube la imagen a tu registro:
+
+`docker push myregistry.com/myapp`
+
+Consulta la [documentación de introducción](https://docs.docker.com/go/get-started-sharing/) de Docker para más detalles sobre la construcción y subida de imágenes.
+
+## Referencias
+
+- [Guía de Node.js de Docker](https://docs.docker.com/language/nodejs/)
 
 ## Licencia
 

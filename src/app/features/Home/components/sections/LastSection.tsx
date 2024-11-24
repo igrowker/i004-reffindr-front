@@ -10,7 +10,7 @@ export const LastSection = ({ items, img }: Props) => {
     <Flex alignItems={'center'} flexDirection={{ lg: 'row', base: 'column' }} justifyContent='space-around' p={4} gap={20}>
       <Box minW={260} maxW={500}>
         {items.map((item, i) => (
-          <Box divideY={'2px'} fontSize={'xl'}>
+          <Box key={i} divideY={'2px'} fontSize={'xl'}>
             <Heading wordBreak='break-word' py={2}>
               {i + 1}. {item.title}
             </Heading>

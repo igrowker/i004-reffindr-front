@@ -1,7 +1,7 @@
+import { HomePage } from '@/app/features/Home/pages/HomePage'
+import { MyRatingProfile } from '@/app/UI/components/profile/MyRatingProfile'
 import { createBrowserRouter } from 'react-router-dom'
 
-import { HomePage } from '@/app/features/Home/pages/HomePage'
-import { PropertyCharacteristic } from '@/app/UI/components/PropertyCharacteristic/PropertyCharacteristic'
 
 export const router = createBrowserRouter(
   [
@@ -11,7 +11,7 @@ export const router = createBrowserRouter(
     },
     {
       path: '/tests',
-      element: <PropertyCharacteristic />,
+      element: <MyRatingProfile />
     },
   ],
   {

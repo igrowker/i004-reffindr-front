@@ -1,15 +1,32 @@
+import { useEffect, useState } from 'react'
+
 import { authLogin } from '@/services/authService'
 
 export const useLogin = () => {
+  const [errorsMessage, setErrorsMessage] = useState<string[] | null>(null)
+
   const login = async (email: string, password: string) => {
-    try {
-      const token = await authLogin(email, password)
-      sessionStorage.setItem('token', token)
-      console.log('Token:', token)
-    } catch (error: any) {
-      throw new Error(error.message)
+    const response = await authLogin(email, password)
+
+    if (response.hasErrors) {
+      setErrorsMessage(response.errors)
+      console.log('Errors:', response.errors)
+      return
     }
+    setErrorsMessage(null)
+    sessionStorage.setItem('token', response.data?.token!)
+    console.log('Token:', response.data?.token)
   }
 
-  return { login }
+  useEffect(() => {
+    if (errorsMessage) {
+      const timer = setTimeout(() => {
+        setErrorsMessage(null)
+      }, 4000)
+
+      return () => clearTimeout(timer)
+    }
+  }, [errorsMessage])
+
+  return { login, errorsMessage }
 }

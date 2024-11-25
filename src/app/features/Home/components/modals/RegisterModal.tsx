@@ -1,5 +1,4 @@
 import { Box, Button, Fieldset, Input, Link, Stack, Text } from '@chakra-ui/react'
-import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FaFacebook, FaGoogle } from 'react-icons/fa'
 
@@ -14,7 +13,9 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { Field } from '@/components/ui/field'
-import { useRegister } from '@/hooks/useRegister'
+import { useRegister } from '@/hooks/useAuth'
+import { useForm } from '@/hooks/useForm'
+import { validateRegister } from '@/utils/validate'
 
 interface Props {
   onShowLogin: () => void
@@ -24,18 +25,16 @@ interface Props {
 
 export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
   const { t } = useTranslation()
-  const [name, setName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const { register, errorsMessage } = useRegister()
 
-  const { register } = useRegister()
-  // const roleId = 1
+  const { formState, errors, handleInputChange, handleSubmit } = useForm(
+    { name: '', lastName: '', email: '', password: '' },
+    validateRegister
+  )
 
   const handleRegisterSubmit = async () => {
-    await register(1, name, lastName, email, password)
+    await register(1, formState.name, formState.lastName, formState.email, formState.password)
   }
-
   return (
     <DialogRoot
       size={'sm'}
@@ -72,12 +71,13 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
                   <Input
                     name='name'
                     type='text'
-                    value={name}
+                    value={formState.name ?? ''}
                     size={{ base: 'md', '2xl': 'md' }}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={handleInputChange}
                     placeholder={t('name')}
                     fontSize={{ base: 'medium', '2xl': 'xl' }}
                   />
+                  {errors.name && <Text color='red.500'>{errors.name}</Text>}
                 </Field>
               </Box>
               <Box>
@@ -86,11 +86,12 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
                     name='lastName'
                     type='text'
                     fontSize={{ base: 'medium', '2xl': 'xl' }}
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
+                    value={formState.lastName}
+                    onChange={handleInputChange}
                     placeholder={t('surname')}
                     size={{ base: 'md', '2xl': 'md' }}
                   />
+                  {errors.lastName && <Text color='red.500'>{errors.lastName}</Text>}
                 </Field>
               </Box>
 
@@ -100,11 +101,12 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
                     name='email'
                     fontSize={{ base: 'medium', '2xl': 'xl' }}
                     type='email'
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    value={formState.email}
+                    onChange={handleInputChange}
                     placeholder={t('emailPlaceholder')}
                     size={{ base: 'md', '2xl': 'md' }}
                   />
+                  {errors.email && <Text color='red.500'>{errors.email}</Text>}
                 </Field>
               </Box>
 
@@ -114,14 +116,21 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
                     name='password'
                     fontSize={{ base: 'medium', '2xl': 'xl' }}
                     type='password'
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={formState.password}
+                    onChange={handleInputChange}
                     placeholder={t('passwordPlaceholder')}
                     size={{ base: 'md', '2xl': 'md' }}
                   />
+                  {errors.password && <Text color='red.500'>{errors.password}</Text>}
                 </Field>
               </Box>
             </Fieldset.Content>
+            {errorsMessage &&
+              errorsMessage.map((error, index) => (
+                <Text key={index} color='red.500'>
+                  {error}
+                </Text>
+              ))}
 
             <Stack gap={4} mb={4}>
               <Button
@@ -131,7 +140,7 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
                 variant='solid'
                 colorPalette={'blue'}
                 rounded='xs'
-                onClick={() => handleRegisterSubmit()}
+                onClick={() => handleSubmit(handleRegisterSubmit)}
               >
                 {t('register')}
               </Button>

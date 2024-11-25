@@ -12,6 +12,11 @@ interface LoginResponse {
   token: string
 }
 
+interface RegisterResponse {
+  email: string
+  token: string
+}
+
 export const authLogin = async (email: string, password: string): Promise<IBaseResponse<LoginResponse>> => {
   const body = { email, password }
 
@@ -37,20 +42,21 @@ export const authRegister = async (
   lastName: string,
   email: string,
   password: string
-): Promise<{ msg: string }[] | null> => {
+): Promise<IBaseResponse<RegisterResponse>> => {
   const body = { roleId, name, lastName, email, password }
 
   try {
-    await httpClient.post('/auth/register', body)
-
-    return null
+    const response = await httpClient.post('/auth/register', body)
+    return response.data
   } catch (error: unknown) {
-    const err = error as AxiosError<{ errors: { msg: string }[] }>
-
-    console.log(error)
-    if (err.response?.data.errors) {
-      return err.response?.data.errors!
+    const err = error as AxiosError<IBaseResponse<RegisterResponse>>
+    if (err.response) {
+      return err.response.data
     }
-    return [{ msg: 'Error desconocido' }]
+    return {
+      errors: ['No se pudo conectar con el servidor. Por favor, intentelo más tarde.'],
+      hasErrors: true,
+      statusCode: 500,
+    }
   }
 }

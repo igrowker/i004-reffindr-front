@@ -13,8 +13,9 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { Field } from '@/components/ui/field'
+import { useLogin } from '@/hooks/useAuth'
 import { useForm } from '@/hooks/useForm'
-import { useLogin } from '@/hooks/useLogin'
+import { validateLogin } from '@/utils/validate'
 
 interface Props {
   onShowRegister: () => void
@@ -22,26 +23,11 @@ interface Props {
   onOpenChange: () => void
 }
 
-const validate = (values: { email: string; password: string }) => {
-  const errors: { email: string | null; password: string | null } = { email: null, password: null }
-  if (!values.email) {
-    errors.email = 'Email is required'
-  } else if (!/\S+@\S+\.\S+/.test(values.email)) {
-    errors.email = 'Email address is invalid'
-  }
-  if (!values.password) {
-    errors.password = 'Password is required'
-  } else if (values.password.length <= 3) {
-    errors.password = 'Password must be longer than 3 characters'
-  }
-  return errors
-}
-
 export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
   const { t } = useTranslation()
   const { login, errorsMessage } = useLogin()
 
-  const { formState, errors, handleInputChange, handleSubmit } = useForm({ email: '', password: '' }, validate)
+  const { formState, errors, handleInputChange, handleSubmit } = useForm({ email: '', password: '' }, validateLogin)
 
   const handleLogin = async () => {
     await login(formState.email, formState.password)

@@ -48,5 +48,15 @@ export const useRegister = () => {
     console.log('Token:', response.data?.token)
   }
 
+  useEffect(() => {
+    if (errorsMessage) {
+      const timer = setTimeout(() => {
+        setErrorsMessage(null)
+      }, 4000)
+
+      return () => clearTimeout(timer)
+    }
+  }, [errorsMessage])
+
   return { register, errorsMessage }
 }

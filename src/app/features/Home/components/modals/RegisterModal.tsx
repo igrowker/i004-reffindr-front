@@ -2,6 +2,7 @@ import { Box, Button, Fieldset, Input, Link, Stack, Text } from '@chakra-ui/reac
 import { useTranslation } from 'react-i18next'
 import { FaFacebook, FaGoogle } from 'react-icons/fa'
 
+import { ErrorPopover } from '@/app/UI/components/Popover/Popover'
 import {
   DialogBackdrop,
   DialogBody,
@@ -125,12 +126,11 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
                 </Field>
               </Box>
             </Fieldset.Content>
-            {errorsMessage &&
-              errorsMessage.map((error, index) => (
-                <Text key={index} color='red.500'>
-                  {error}
-                </Text>
-              ))}
+            {errorsMessage && (
+              <Box position={'absolute'} top={150} left={-4}>
+                <ErrorPopover errorsMessage={errorsMessage} />
+              </Box>
+            )}
 
             <Stack gap={4} mb={4}>
               <Button

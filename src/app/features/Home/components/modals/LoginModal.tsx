@@ -2,6 +2,7 @@ import { Box, Button, Fieldset, Input, Link, Stack, Text } from '@chakra-ui/reac
 import { useTranslation } from 'react-i18next'
 import { FaFacebook, FaGoogle } from 'react-icons/fa'
 
+import { ErrorPopover } from '@/app/UI/components/Popover/Popover'
 import {
   DialogBackdrop,
   DialogBody,
@@ -100,7 +101,8 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
                 </Field>
               </Box>
             </Fieldset.Content>
-            {errorsMessage && errorsMessage.map((error) => <Text color='red.500'>{error}</Text>)}
+
+            {errorsMessage && <ErrorPopover errorsMessage={errorsMessage} />}
 
             <Stack gap={4} mb={4}>
               <Button

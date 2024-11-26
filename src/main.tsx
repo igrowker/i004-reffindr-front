@@ -11,7 +11,7 @@ const root = createRoot(document.getElementById('root')!)
 root.render(
   <React.StrictMode>
     <Provider forcedTheme='light'>
-      <RouterProvider router={router} />
+      <RouterProvider router={router}  />
     </Provider>
   </React.StrictMode>
 )

@@ -3,6 +3,7 @@ import { Button, Flex, SimpleGrid, Text, Textarea } from '@chakra-ui/react'
 import CustomSelect from '@/app/UI/components/CustomSelect/CustomSelect'
 import { MenuAnnouncement } from '@/app/UI/components/MenuAnnouncement/MenuAnnouncement'
 import { Checkbox } from '@/components/ui/checkbox'
+import { Link } from 'react-router-dom'
 
 export const PropertyCharacteristic = () => {
   const options = [
@@ -18,6 +19,8 @@ export const PropertyCharacteristic = () => {
   ]
 
   return (
+    <>
+    <Link to="hola mundo">home</Link>
     <Flex height='100vh' alignItems='center' direction={'column'} w={'full'}>
       <Flex direction='column' width={{ base: '90%', md: '80%', lg: '60%' }}>
         <MenuAnnouncement />
@@ -80,5 +83,7 @@ export const PropertyCharacteristic = () => {
         </Flex>
       </Flex>
     </Flex>
+    </>
+    
   )
 }

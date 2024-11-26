@@ -3,7 +3,6 @@ import { CgProfile } from 'react-icons/cg'
 import { FaRegHeart } from 'react-icons/fa6'
 import { FiHome } from 'react-icons/fi'
 import { IoMdHelp } from 'react-icons/io'
-import { IoSettingsOutline } from 'react-icons/io5'
 import { LuMessageSquare } from 'react-icons/lu'
 import { RxExit } from 'react-icons/rx'
 
@@ -17,9 +16,20 @@ const Sidebar = () => {
   const sidebarWidth = useBreakpointValue({ base: '277px' })
 
   return (
-    <Flex w={sidebarWidth} h='100vh' px={8} display='flex' flexDirection='column' justifyContent='space-around'>
+    <Flex
+      w={sidebarWidth}
+      flexShrink={0}
+      position='sticky'
+      top={0}
+      h='100vh'
+      borderRight={"1px solid #ddd"}
+      px={8}
+      display='flex'
+      flexDirection='column'
+      justifyContent='space-around'
+    >
       <Box display='flex' justifyContent='center' mb={5} mt={5}>
-        <LogoComponent src='assets/logos-svg/logoazul.svg' />
+        <LogoComponent src='/assets/logos-svg/logoazul.svg' />
       </Box>
       <Box display='flex' justifyContent='center' alignItems='center' gap='2' mb={5}>
         <Avatar size='lg' name='Sage' src='https://bit.ly/sage-adebayo' />
@@ -34,7 +44,7 @@ const Sidebar = () => {
 
       <Box flexBasis='50%'>
         <VStack gap={2} align='stretch'>
-          <ButtonIconComponent icon={<FiHome />} text='Inicio'/>
+          <ButtonIconComponent icon={<FiHome />} text='Inicio' />
           <ButtonIconComponent icon={<CgProfile />} text='Perfil' />
           <ButtonIconComponent icon={<FaRegHeart />} text='Favoritos' />
           <ButtonIconComponent icon={<IoMdHelp />} text='Ayuda' />
@@ -44,7 +54,6 @@ const Sidebar = () => {
 
       <Box flexBasis='20%'>
         <VStack gap={6} align='stretch'>
-          <ButtonIconComponent icon={<IoSettingsOutline />} text='Configuración' />
           <ButtonIconComponent icon={<RxExit />} text='Cerrar Sesión' />
         </VStack>
       </Box>

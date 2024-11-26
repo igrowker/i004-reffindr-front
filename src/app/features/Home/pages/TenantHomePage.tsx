@@ -77,15 +77,8 @@ export const TenantHomePage = () => {
   const [selectedCard, setSelectedCard] = useState<InfoBarProps | null>(null)
 
   return (
-    <Flex h='100vh'>
-      <Box>
-        <Sidebar />
-      </Box>
-      <Box flex='1' bg='#EDF2F7' p='2' overflowY='auto'>
-        <Box h={'16'} m={'3'}>
-          <SearchWithFiltersAndNotification />
-        </Box>
-        <Flex gap='4' flexWrap='wrap' justifyContent='center' alignItems='start'>
+      
+        <Flex gap='4' flexWrap='wrap' >
           {data.map((item) => (
             <Box
               key={item.id}
@@ -103,8 +96,5 @@ export const TenantHomePage = () => {
             </Box>
           ))}
         </Flex>
-      </Box>
-      {openRightBar && selectedCard && <InfoBar {...selectedCard} />}
-    </Flex>
   )
 }

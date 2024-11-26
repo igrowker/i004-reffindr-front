@@ -8,7 +8,7 @@ import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from '@/components/ui/me
 
 export const SearchWithFiltersAndNotification = () => {
   return (
-    <HStack gap='6' width='full' align='center' bg={'white'} py={'1'} px={'2'}>
+    <HStack gap='6' width='full' align='center' bg={'white'} mb={2} py={2} px={2}>
       {/* este es mi inputt de búsqueda */}
       <Box position='relative' width={'50%'}>
         <Input
@@ -19,14 +19,12 @@ export const SearchWithFiltersAndNotification = () => {
           _hover={{ borderColor: 'black.400' }}
         />
 
-        <Box position='absolute' right='1px' top='50%' transform='translateY(-50%)' pointerEvents='none'>
-          <IoSearchCircleSharp color='blue' size='38px' /> {/*cono search*/}
-        </Box>
-      </Box>
-
+        
         <Box position='absolute' right='1px' top='50%' transform='translateY(-50%)' pointerEvents='none'>
           <IoSearchCircleSharp color='#1E3A8A' size='38px' /> {/*cono search*/}
         </Box>
+      </Box>
+
 
 
 

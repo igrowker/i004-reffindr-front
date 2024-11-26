@@ -1,11 +1,6 @@
 import { Box, Flex } from '@chakra-ui/react'
-import { useState } from 'react'
 
 import { CardReuComponent } from '@/app/UI/components/CardInfo/CardReuComponent'
-import { InfoBar, InfoBarProps } from '@/app/UI/components/Informationbar/InfoBar'
-import { SearchWithFiltersAndNotification } from '@/app/UI/components/search/Search'
-
-import Sidebar from '../../../UI/components/Sidebar/Sidebar'
 
 const data = [
   {
@@ -71,30 +66,16 @@ const data = [
   },
 ]
 
-export const TenantHomePage = () => {
-  const [openRightBar, setOpenRightBar] = useState(false)
-  const [activeCardId, setActiveCardId] = useState<number | null>(null)
-  const [selectedCard, setSelectedCard] = useState<InfoBarProps | null>(null)
-
+export const TenantHome = () => {
   return (
-      
-        <Flex gap='4' flexWrap='wrap' >
+    <Flex h='100vh'>
+      <Box flex='1' bg='#EDF2F7' p='2' overflowY='auto'>
+        <Flex gap='4' flexWrap='wrap' justifyContent='center' alignItems='start'>
           {data.map((item) => (
-            <Box
-              key={item.id}
-              onMouseEnter={() => {
-                setOpenRightBar(true)
-                setActiveCardId(item.id)
-                setSelectedCard(item)
-              }}
-              onMouseLeave={() => {
-                // setOpenRightBar(false)
-                setActiveCardId(null)
-              }}
-            >
-              <CardReuComponent {...item} isActive={activeCardId === item.id} maxW={openRightBar ? '300px' : '350px'} />
-            </Box>
+            <CardReuComponent {...item} key={item.id} maxW='350px' />
           ))}
         </Flex>
+      </Box>
+    </Flex>
   )
 }

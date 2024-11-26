@@ -12,7 +12,6 @@ interface CardReuProps {
   price: number
   location: string
   features: string[]
-  maxW: string
   showRating?: boolean
   setRating?: (value: number) => void
   rating?: number
@@ -25,14 +24,12 @@ export const CardReuComponent = ({
   location,
   image,
   features,
-  maxW,
   showRating = false,
   setRating,
   rating,
 }: CardReuProps) => {
   return (
     <Card.Root
-      maxW={maxW}
       overflow='hidden'
       shadow='md'
       borderRadius='lg'

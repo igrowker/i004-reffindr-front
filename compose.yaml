@@ -7,12 +7,12 @@ services:
     ports:
       - 5173:5173
 
-# The commented out section below is an example of how to define a PostgreSQL
-# database that your application can use. `depends_on` tells Docker Compose to
-# start the database before your application. The `db-data` volume persists the
-# database data between container restarts. The `db-password` secret is used
-# to set the database password. You must create `db/password.txt` and add
-# a password of your choosing to it before running `docker-compose up`.
+# La sección comentada a continuación es un ejemplo de cómo definir una base de datos PostgreSQL
+# que tu aplicación puede usar. `depends_on` le dice a Docker Compose que
+# inicie la base de datos antes que tu aplicación. El volumen `db-data` persiste
+# los datos de la base de datos entre reinicios del contenedor. El secreto `db-password` se utiliza
+# para establecer la contraseña de la base de datos. Debes crear `db/password.txt` y agregar
+# una contraseña de tu elección antes de ejecutar `docker compose up`.
 #     depends_on:
 #       db:
 #         condition: service_healthy
@@ -29,6 +29,11 @@ services:
 #       - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
 #     expose:
 #       - 5432
+#     healthcheck:
+#       test: [ "CMD", "pg_isready" ]
+#       interval: 10s
+#       timeout: 5s
+#       retries: 5
 # volumes:
 #   db-data:
 # secrets:

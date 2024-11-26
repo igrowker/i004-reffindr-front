@@ -1,6 +1,7 @@
 import { Box, Flex } from '@chakra-ui/react'
-
 import { CardReuComponent } from '@/app/UI/components/CardInfo/CardReuComponent'
+
+
 
 const data = [
   {
@@ -66,16 +67,19 @@ const data = [
   },
 ]
 
-export const TenantHome = () => {
+export const TenantHomePage = () => {
+ 
+
   return (
-    <Flex h='100vh'>
-      <Box flex='1' bg='#EDF2F7' p='2' overflowY='auto'>
-        <Flex gap='4' flexWrap='wrap' justifyContent='center' alignItems='start'>
+      
+        <Flex gap='4' flexWrap='wrap' >
           {data.map((item) => (
-            <CardReuComponent {...item} key={item.id} maxW='350px' />
+            <Box
+              key={item.id}
+            >
+              <CardReuComponent {...item}  />
+            </Box>
           ))}
         </Flex>
-      </Box>
-    </Flex>
   )
 }

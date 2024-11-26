@@ -1,8 +1,7 @@
 import { Box, Flex } from '@chakra-ui/react'
-import { useState } from 'react'
-
 import { CardReuComponent } from '@/app/UI/components/CardInfo/CardReuComponent'
-import { InfoBarProps } from '@/app/UI/components/Informationbar/InfoBar'
+
+
 
 const data = [
   {
@@ -69,28 +68,18 @@ const data = [
 ]
 
 export const TenantHomePage = () => {
-  const [openRightBar, setOpenRightBar] = useState(false)
-  const [activeCardId, setActiveCardId] = useState<number | null>(null)
-  const [/* selectedCard */, setSelectedCard] = useState<InfoBarProps | null>(null)
+ 
 
   return (
-    <Flex gap='4' flexWrap='wrap'>
-      {data.map((item) => (
-        <Box
-          key={item.id}
-          onMouseEnter={() => {
-            setOpenRightBar(true)
-            setActiveCardId(item.id)
-            setSelectedCard(item)
-          }}
-          onMouseLeave={() => {
-            // setOpenRightBar(false)
-            setActiveCardId(null)
-          }}
-        >
-          <CardReuComponent {...item} isActive={activeCardId === item.id} maxW={openRightBar ? '300px' : '350px'} />
-        </Box>
-      ))}
-    </Flex>
+      
+        <Flex gap='4' flexWrap='wrap' >
+          {data.map((item) => (
+            <Box
+              key={item.id}
+            >
+              <CardReuComponent {...item}  />
+            </Box>
+          ))}
+        </Flex>
   )
 }

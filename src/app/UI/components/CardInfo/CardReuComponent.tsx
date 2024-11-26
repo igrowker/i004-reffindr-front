@@ -12,7 +12,6 @@ interface CardReuProps {
   price: number
   location: string
   features: string[]
-  isActive: boolean
   maxW: string
   showRating?: boolean
   setRating?: (value: number) => void
@@ -26,7 +25,6 @@ export const CardReuComponent = ({
   location,
   image,
   features,
-  isActive,
   maxW,
   showRating = false,
   setRating,
@@ -38,8 +36,9 @@ export const CardReuComponent = ({
       overflow='hidden'
       shadow='md'
       borderRadius='lg'
-      boxShadow={isActive ? '0px 10px 20px rgba(38, 80, 204, 0.4)' : '0px 4px 8px rgba(0, 0, 0, 0.1)'}
+      boxShadow=  '0px 4px 8px rgba(0, 0, 0, 0.1)'
       transition='box-shadow 0.3s ease-in-out'
+      _hover={{ boxShadow: '0px 10px 20px rgba(38, 80, 204, 0.4)' }}
     >
       <Image src={image} alt={title} h='200px' objectFit='cover' borderRadius='0' />
       <Card.Body gap='1'>

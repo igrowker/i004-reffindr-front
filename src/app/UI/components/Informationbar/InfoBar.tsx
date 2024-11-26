@@ -12,11 +12,11 @@ export interface InfoBarProps {
   description: string
 }
 
-export const InfoBar = ({ id, title, image, price, location, features, description }: InfoBarProps) => {
+export const  InfoBar = ({ id, title, image, price, location, features, description }: InfoBarProps) => {
   const sidebarWidth = useBreakpointValue({ base: '277px' })
 
   return (
-    <Box mt='20'>
+    <Box  mt='20'>
       <Card.Root key={id} maxW='sm' overflow='hidden' h='100%' w={sidebarWidth} borderRadius='0'>
         <Image src={image} alt='Hogar' h='200px' objectFit='cover' borderRadius='0' />
         <Card.Body gap='2'>

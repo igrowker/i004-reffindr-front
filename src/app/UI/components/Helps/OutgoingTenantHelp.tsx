@@ -1,7 +1,6 @@
 import { Fieldset, Text } from "@chakra-ui/react"
 import { Field } from "@/components/ui/field"
 import {
-  NativeSelectField,
   NativeSelectRoot,
 } from "@/components/ui/native-select"
 

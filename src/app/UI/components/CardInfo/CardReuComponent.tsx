@@ -15,6 +15,7 @@ interface CardReuProps {
   showRating?: boolean
   setRating?: (value: number) => void
   rating?: number
+  maxW?: string
 }
 
 export const CardReuComponent = ({
@@ -27,13 +28,15 @@ export const CardReuComponent = ({
   showRating = false,
   setRating,
   rating,
+  maxW
 }: CardReuProps) => {
   return (
     <Card.Root
+      maxW={maxW}
       overflow='hidden'
       shadow='md'
       borderRadius='lg'
-      boxShadow=  '0px 4px 8px rgba(0, 0, 0, 0.1)'
+      boxShadow='0px 4px 8px rgba(0, 0, 0, 0.1)'
       transition='box-shadow 0.3s ease-in-out'
       _hover={{ boxShadow: '0px 10px 20px rgba(38, 80, 204, 0.4)' }}
     >

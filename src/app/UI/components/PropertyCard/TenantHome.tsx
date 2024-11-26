@@ -77,7 +77,7 @@ export const TenantHomePage = () => {
             <Box
               key={item.id}
             >
-              <CardReuComponent {...item}  />
+              <CardReuComponent maxW="300px" {...item}  />
             </Box>
           ))}
         </Flex>

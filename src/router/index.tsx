@@ -1,3 +1,6 @@
+import { HomePage } from '@/app/features/Home/pages/HomePage'
+import { OutgoingTenantHelp } from '@/app/UI/components/Helps/OutgoingTenantHelp'
+import { MyRatingProfile } from '@/app/UI/components/profile/MyRatingProfile'
 import { createBrowserRouter } from 'react-router-dom'
 
 import { HomePage } from '@/app/features/Home/pages/HomePage'

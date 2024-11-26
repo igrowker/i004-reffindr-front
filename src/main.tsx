@@ -3,9 +3,8 @@ import { createRoot } from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
 
 import { Provider } from '@/components/ui/provider'
+import '@/i18n'
 import { router } from '@/router'
-
-import './i18n'
 
 const root = createRoot(document.getElementById('root')!)
 

@@ -5,6 +5,7 @@ import { FiHome } from 'react-icons/fi'
 import { IoMdHelp } from 'react-icons/io'
 import { LuMessageSquare } from 'react-icons/lu'
 import { RxExit } from 'react-icons/rx'
+import { Link } from 'react-router-dom'
 
 import { Avatar } from '@/components/ui/avatar'
 
@@ -14,7 +15,7 @@ import { SelectorTypeComponent } from './SelectorTypeComponent'
 
 const Sidebar = () => {
   const sidebarWidth = useBreakpointValue({ base: '277px' })
-
+  // useLocation
   return (
     <Flex
       w={sidebarWidth}
@@ -22,7 +23,7 @@ const Sidebar = () => {
       position='sticky'
       top={0}
       h='100vh'
-      borderRight={"1px solid #ddd"}
+      borderRight={'1px solid #ddd'}
       px={8}
       display='flex'
       flexDirection='column'
@@ -44,8 +45,12 @@ const Sidebar = () => {
 
       <Box flexBasis='50%'>
         <VStack gap={2} align='stretch'>
-          <ButtonIconComponent icon={<FiHome />} text='Inicio' />
-          <ButtonIconComponent icon={<CgProfile />} text='Perfil' />
+          <Link to='home'>
+            <ButtonIconComponent icon={<FiHome />} text='Inicio' />
+          </Link>
+          <Link to='perfil'>
+            <ButtonIconComponent icon={<CgProfile />} text='Perfil' />
+          </Link>
           <ButtonIconComponent icon={<FaRegHeart />} text='Favoritos' />
           <ButtonIconComponent icon={<IoMdHelp />} text='Ayuda' />
           <ButtonIconComponent icon={<LuMessageSquare />} text='Mensajes' />

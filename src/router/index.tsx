@@ -9,14 +9,17 @@ import { TenantHomePage } from '@/app/UI/components/PropertyCard/TenantHome'
 import { ExpandedDetails } from '@/app/UI/components/ViewExpandedDetails/ExpandedDetails'
 import { HomeLayout } from '@/layouts/HomeLayout'
 
+import { PrivateRoute, PublicRoute } from './privateRoutes'
+
 export const router = createBrowserRouter([
   {
     path: '/inquilinos',
-    element: <HomePage />,
+    element: <PublicRoute element={<HomePage />} />,
   },
   {
     path: '/',
-    element: <HomeLayout />,
+    element: <PrivateRoute element={<HomeLayout />} />,
+
     children: [
       {
         path: 'home',

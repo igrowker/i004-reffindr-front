@@ -48,7 +48,13 @@ export const useRegister = () => {
       return
     }
     setErrorsMessage(null)
-    sessionStorage.setItem('token', response.data?.token!)
+
+    const token = response.data?.token
+    if (token) {
+      sessionStorage.setItem('token', token)
+    } else {
+      console.error('Token is undefined')
+    }
   }
 
   useEffect(() => {

@@ -6,16 +6,24 @@ import { IoMdHelp } from 'react-icons/io'
 import { LuMessageSquare } from 'react-icons/lu'
 import { RxExit } from 'react-icons/rx'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import { Avatar } from '@/components/ui/avatar'
+import { authLogout } from '@/services/authService'
 
+import { Language } from '../ButtonLanguage/Language'
 import { LogoComponent } from '../Logo/LogoComponent'
 import { ButtonIconComponent } from './ButtonIconComponent'
 import { SelectorTypeComponent } from './SelectorTypeComponent'
-import { Language } from '../ButtonLanguage/Language'
 
 const Sidebar = () => {
   const sidebarWidth = useBreakpointValue({ base: '277px' })
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    authLogout()
+    navigate('/inquilinos')
+  }
   // useLocation
   return (
     <Flex
@@ -53,7 +61,7 @@ const Sidebar = () => {
             <ButtonIconComponent icon={<CgProfile />} text='Perfil' />
           </Link>
           <Link to='favoritos'>
-          <ButtonIconComponent icon={<FaRegHeart />} text='Favoritos' />
+            <ButtonIconComponent icon={<FaRegHeart />} text='Favoritos' />
           </Link>
           <Link to='help'>
             <ButtonIconComponent icon={<IoMdHelp />} text='Ayuda' />
@@ -67,7 +75,7 @@ const Sidebar = () => {
 
       <Box flexBasis='20%'>
         <VStack gap={6} align='stretch'>
-          <ButtonIconComponent icon={<RxExit />} text='Cerrar Sesión' />
+          <ButtonIconComponent onClick={handleLogout} icon={<RxExit />} text='Cerrar Sesión' />
         </VStack>
       </Box>
     </Flex>

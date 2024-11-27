@@ -32,7 +32,6 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
 
   const handleLogin = async () => {
     await login(formState.email, formState.password)
-    console.log('Login OK')
   }
 
   const handleShowRegister = () => {

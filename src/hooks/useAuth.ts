@@ -10,7 +10,7 @@ export const useLogin = () => {
 
   const login = async (email: string, password: string) => {
     const response = await authLogin(email, password)
-    navigate('/')
+    navigate('/home')
 
     if (response.hasErrors) {
       setErrorsMessage(response.errors)
@@ -48,7 +48,6 @@ export const useRegister = () => {
     }
     setErrorsMessage(null)
     sessionStorage.setItem('token', response.data?.token!)
-    console.log('Token:', response.data?.token)
   }
 
   useEffect(() => {

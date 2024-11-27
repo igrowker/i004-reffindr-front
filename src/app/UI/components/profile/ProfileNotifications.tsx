@@ -1,7 +1,5 @@
-
+import { Flex } from '@chakra-ui/react'
 
 export const ProfileNotifications = () => {
-  return (
-    <div>ProfileNotifications</div>
-  )
+  return <Flex>ProfileNotifications</Flex>
 }

@@ -70,9 +70,9 @@ export const CardReuComponent = ({
             <Rating allowHalf defaultValue={rating} onValueChange={({ value }) => setRating && setRating(value)} />
             <Flex alignItems='center' gap='1'>
               <Text>
-                {rating} <span>Star</span>
-              </Text>{' '}
-              <Text></Text>10 reviews
+                {rating} <Box as={'span'}>Star</Box>
+              </Text>
+              <Text>10 reviews</Text>
             </Flex>
           </HStack>
         )}
@@ -80,21 +80,22 @@ export const CardReuComponent = ({
         <Text textStyle='2xl' fontWeight='medium' letterSpacing='tight' mt='2'>
           {price}
         </Text>
-        <Text letterSpacing='tight' mt='2'>
+        <Box letterSpacing='tight' mt='2'>
           <Flex alignItems='center' gap='2'>
             <RiMapPin2Line />
             {location}
           </Flex>
-        </Text>
+        </Box>
         <Box display='flex' gap='2'>
-          {features.map((feature) => (
-            <Badge variant='solid' bg='#3182CE' size='md'>
+          {features.map((feature, index) => (
+            <Badge key={index} variant='solid' bg='#3182CE' size='md'>
               {feature}
             </Badge>
           ))}
         </Box>
 
-        <Card.Description>
+        <Card.Title as='h3'>{title}</Card.Title>
+        <Card.Description as='span'>
           <Text lineClamp='2'>{description}</Text>
         </Card.Description>
       </Card.Body>

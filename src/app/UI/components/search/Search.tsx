@@ -1,4 +1,4 @@
-import { Box, HStack, Icon, Input } from '@chakra-ui/react'
+import { Box, HStack, Input } from '@chakra-ui/react'
 import { FaSortAmountDownAlt } from 'react-icons/fa'
 import { IoMdNotificationsOutline } from 'react-icons/io'
 import { IoSearchCircleSharp } from 'react-icons/io5'
@@ -39,10 +39,7 @@ export const SearchWithFiltersAndNotification = () => {
           </MenuContent>
         </MenuRoot>
 
-        {/* Íeste es mi icono de  notificacion */}
-        <Icon fontSize='24px' color='gray.700' cursor='pointer'>
-          <IoMdNotificationsOutline />
-        </Icon>
+        <IoMdNotificationsOutline fontSize='24px' color='gray.700' cursor='pointer' />
       </Box>
     </HStack>
   )

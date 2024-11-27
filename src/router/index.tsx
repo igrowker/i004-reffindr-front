@@ -1,3 +1,4 @@
+import { Flex } from '@chakra-ui/react'
 import { createBrowserRouter } from 'react-router-dom'
 
 import { HomePage } from '@/app/features/Home/pages/HomePage'
@@ -39,7 +40,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '*',
-        element: <div>404 not found</div>,
+        element: <Flex>404 not found</Flex>,
       },
     ],
   },

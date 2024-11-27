@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import { authLogin } from '@/services/authService'
 import { authRegister } from '@/services/authService'
 
 export const useLogin = () => {
   const [errorsMessage, setErrorsMessage] = useState<string[] | null>(null)
+  const navigate = useNavigate()
 
   const login = async (email: string, password: string) => {
     const response = await authLogin(email, password)
+    navigate('/home')
 
     if (response.hasErrors) {
       setErrorsMessage(response.errors)
@@ -45,7 +48,6 @@ export const useRegister = () => {
     }
     setErrorsMessage(null)
     sessionStorage.setItem('token', response.data?.token!)
-    console.log('Token:', response.data?.token)
   }
 
   useEffect(() => {

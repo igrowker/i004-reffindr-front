@@ -19,14 +19,10 @@ export const SearchWithFiltersAndNotification = () => {
           _hover={{ borderColor: 'black.400' }}
         />
 
-        
         <Box position='absolute' right='1px' top='50%' transform='translateY(-50%)' pointerEvents='none'>
-          <IoSearchCircleSharp color='#1E3A8A' size='38px' /> {/*cono search*/}
+          <IoSearchCircleSharp color='blue' size='38px' /> {/*cono search*/}
         </Box>
       </Box>
-
-
-
 
       {/* este es mi menu de filtros*/}
       <Box width={'50%'} display={'flex'} alignItems={'center'} justifyContent={'space-between'}>

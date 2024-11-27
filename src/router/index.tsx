@@ -4,19 +4,22 @@ import { createBrowserRouter } from 'react-router-dom'
 import { HomePage } from '@/app/features/Home/pages/HomePage'
 import { AnnouncementSection } from '@/app/UI/components/announcementView/AnnouncementSection'
 import { OutgoingTenantHelp } from '@/app/UI/components/OutgoingTenantHelps/OutgoingTenantHelp'
-import { MyRatingProfile } from '@/app/UI/components/profile/MyRatingProfile'
 import { TenantHomePage } from '@/app/UI/components/PropertyCard/TenantHome'
+import { ViewEditProfile } from '@/app/UI/components/ViewEditProfile/ViewEditProfile'
 import { ExpandedDetails } from '@/app/UI/components/ViewExpandedDetails/ExpandedDetails'
 import { HomeLayout } from '@/layouts/HomeLayout'
+
+import { PrivateRoute, PublicRoute } from './privateRoutes'
 
 export const router = createBrowserRouter([
   {
     path: '/inquilinos',
-    element: <HomePage />,
+    element: <PublicRoute element={<HomePage />} />,
   },
   {
     path: '/',
-    element: <HomeLayout />,
+    element: <PrivateRoute element={<HomeLayout />} />,
+
     children: [
       {
         path: 'home',
@@ -28,7 +31,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'perfil',
-        element: <MyRatingProfile />,
+        element: <ViewEditProfile />,
       },
       {
         path: 'favoritos',

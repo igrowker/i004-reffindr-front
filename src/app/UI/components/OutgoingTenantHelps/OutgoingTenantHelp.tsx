@@ -33,8 +33,8 @@ export const OutgoingTenantHelp = () => {
       </Fieldset.Content>
       <hr style={{ maxWidth: '450px', width: '100%', backgroundColor: '#d3d3d3', height: '3px', border: 'none' }} />
 
-      {data.map((item) => (
-        <Fieldset.Content>
+      {data.map((item, index) => (
+        <Fieldset.Content key={index}>
           <Field>
             <NativeSelectRoot
               h={'40px'}

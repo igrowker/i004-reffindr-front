@@ -60,3 +60,5 @@ export const authRegister = async (
     }
   }
 }
+
+export const authLogout = () => delete sessionStorage.token

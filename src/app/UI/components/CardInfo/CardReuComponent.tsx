@@ -2,6 +2,7 @@ import { Badge, Box, Button, Card, Flex, HStack, IconButton, Image, Text } from 
 import { CiHeart } from 'react-icons/ci'
 import { IoChevronForwardSharp } from 'react-icons/io5'
 import { RiMapPin2Line } from 'react-icons/ri'
+import { useNavigate } from 'react-router-dom'
 
 import { Rating } from '@/components/ui/rating'
 
@@ -28,8 +29,22 @@ export const CardReuComponent = ({
   showRating = false,
   setRating,
   rating,
-  maxW
+  maxW,
 }: CardReuProps) => {
+  const navigate = useNavigate()
+
+  const handleViewMore = () => {
+    navigate('/details', {
+      state: {
+        title,
+        description,
+        price,
+        location,
+        image,
+        features,
+      },
+    })
+  }
   return (
     <Card.Root
       maxW={maxW}
@@ -84,7 +99,7 @@ export const CardReuComponent = ({
         </Card.Description>
       </Card.Body>
       <Card.Footer>
-        <Button variant='ghost' ml='auto'>
+        <Button onClick={handleViewMore} variant='ghost' ml='auto'>
           Ver más <IoChevronForwardSharp />
         </Button>
       </Card.Footer>

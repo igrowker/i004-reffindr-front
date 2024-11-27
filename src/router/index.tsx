@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom'
 
 import { HomePage } from '@/app/features/Home/pages/HomePage'
 import { MyRatingProfile } from '@/app/UI/components/profile/MyRatingProfile'
-import { TenantHome } from '@/app/UI/components/PropertyCard/TenanHome'
+import { TenantHomePage } from '@/app/UI/components/PropertyCard/TenantHome'
 import { HomeLayout } from '@/layouts/HomeLayout'
 import { AnnouncementSection } from '@/app/UI/components/announcementView/AnnouncementSection'
 import { OutgoingTenantHelp } from '@/app/UI/components/OutgoingTenantHelps/OutgoingTenantHelp'
@@ -18,7 +18,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: 'home',
-        element: <TenantHome />,
+        element: <TenantHomePage />,
       },
       {
         path: 'perfil',

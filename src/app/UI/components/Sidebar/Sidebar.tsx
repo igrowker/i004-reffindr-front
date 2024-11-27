@@ -12,6 +12,7 @@ import { Avatar } from '@/components/ui/avatar'
 import { LogoComponent } from '../Logo/LogoComponent'
 import { ButtonIconComponent } from './ButtonIconComponent'
 import { SelectorTypeComponent } from './SelectorTypeComponent'
+import { Language } from '../ButtonLanguage/Language'
 
 const Sidebar = () => {
   const sidebarWidth = useBreakpointValue({ base: '277px' })
@@ -51,10 +52,17 @@ const Sidebar = () => {
           <Link to='perfil'>
             <ButtonIconComponent icon={<CgProfile />} text='Perfil' />
           </Link>
+          <Link to='favoritos'>
           <ButtonIconComponent icon={<FaRegHeart />} text='Favoritos' />
-          <ButtonIconComponent icon={<IoMdHelp />} text='Ayuda' />
+          </Link>
+          <Link to='help'>
+            <ButtonIconComponent icon={<IoMdHelp />} text='Ayuda' />
+          </Link>
           <ButtonIconComponent icon={<LuMessageSquare />} text='Mensajes' />
         </VStack>
+      </Box>
+      <Box display={'flex'} alignItems={'center'} justifyContent={'center'}>
+        <Language />
       </Box>
 
       <Box flexBasis='20%'>

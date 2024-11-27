@@ -15,7 +15,6 @@ export const MenuAnnouncement = () => {
 
   return (
     <>
-     
       <Flex justifyContent="start" mb={3} p={2}>
         {tabs.map((tab) => (
           <Box

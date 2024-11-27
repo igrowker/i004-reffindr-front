@@ -4,7 +4,7 @@ import { HeadSection, LastSection } from '@/app/features/Home/components/'
 import { CardStaticCarrusel } from '@/app/UI/components/CarruselLanding/CardStaticCarrusel'
 
 import { SectionGrid } from '../components/sections/SectionGrid'
-import Footer from '@/app/UI/components/footer/Footer'
+import Footer from '@/app/UI/components/Footer/Footer'
 
 export const TenantView = () => {
   const { t } = useTranslation()

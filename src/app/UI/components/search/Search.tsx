@@ -39,10 +39,7 @@ export const SearchWithFiltersAndNotification = () => {
           </MenuContent>
         </MenuRoot>
 
-        {/* Íeste es mi icono de  notificacion */}
-        <Icon fontSize='24px' color='gray.700' cursor='pointer'>
-          <IoMdNotificationsOutline />
-        </Icon>
+        <IoMdNotificationsOutline fontSize='24px' color='gray.700' cursor='pointer' />
       </Box>
     </HStack>
   )

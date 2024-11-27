@@ -18,9 +18,14 @@ export const useLogin = () => {
       return
     }
     setErrorsMessage(null)
-    sessionStorage.setItem('token', response.data?.token!)
-    console.log('Token:', response.data?.token)
-    navigate('/home')
+    const token = response.data?.token
+    if (token) {
+      sessionStorage.setItem('token', token)
+      console.log('Token:', token)
+      navigate('/home')
+    } else {
+      console.error('Token is undefined')
+    }
   }
 
   useEffect(() => {

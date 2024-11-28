@@ -12,3 +12,7 @@ export const PrivateRoute = ({ element }: { element: JSX.Element }) => {
 export const PublicRoute = ({ element }: { element: JSX.Element }) => {
   return isAuthenticated() ? <Navigate to='/home' /> : element
 }
+
+export const PublicRouteProfile = ({ element }: { element: JSX.Element }) => {
+  return isAuthenticated() ? <Navigate to='/profile' /> : element
+}

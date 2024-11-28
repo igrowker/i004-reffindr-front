@@ -8,7 +8,7 @@ import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from '@/components/ui/me
 
 export const SearchWithFiltersAndNotification = () => {
   return (
-    <HStack gap='6' width='full' align='center' bg={'white'} mb={2} py={2} px={2}>
+    <HStack gap='6' width='full' align='center' bg={'white'} mb={2} py={2} px={2} >
       {/* este es mi inputt de búsqueda */}
       <Box position='relative' width={'50%'}>
         <Input

@@ -34,15 +34,19 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
   )
 
   const handleRegisterSubmit = async () => {
-    const resp = await register(1, formState.name, formState.lastName, formState.email, formState.password);
+    const resp = await register({
+      roleId: 1,
+      name: formState.name,
+      lastName: formState.lastName,
+      email: formState.email,
+      password: formState.password,
+    })
     if (resp !== true) {
       if (onOpenChange) {
         onOpenChange({ open: false })
       }
       onShowLogin()
-    
     }
-
   }
   return (
     <DialogRoot

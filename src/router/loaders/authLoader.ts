@@ -12,6 +12,7 @@ export const requireAuth = () => {
 
 export const authenticated = () => {
   const token = sessionStorage.getItem(SESSION_STORAGE_AUTH_TOKEN)
+  console.log(token)
 
   if (token) return redirect('/home')
 

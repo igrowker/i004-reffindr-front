@@ -64,8 +64,6 @@ export const useRegister = () => {
     }
     setErrorsMessage(null)
 
-    const token = response.data?.token as string
-    sessionStorage.setItem('token', token)
     return null
   }
 

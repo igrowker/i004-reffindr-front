@@ -1,7 +1,7 @@
 import axios, { InternalAxiosRequestConfig } from 'axios'
 
 export const httpClient = axios.create({
-  baseURL: import.meta.env.VITE_BACKEND_URL,
+  baseURL: 'https://i004-reffindr-back-nodejs-dev.onrender.com',
   headers: {
     'Content-Type': 'application/json',
   },

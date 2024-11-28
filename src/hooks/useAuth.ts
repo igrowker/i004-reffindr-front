@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+import { SESSION_STORAGE_AUTH_TOKEN } from '@/constants/auth-constants'
 import { authLogin } from '@/services/authService'
 import { authRegister } from '@/services/authService'
 
@@ -20,7 +21,7 @@ export const useLogin = () => {
     setErrorsMessage(null)
     const token = response.data?.token
     if (token) {
-      sessionStorage.setItem('token', token)
+      sessionStorage.setItem(SESSION_STORAGE_AUTH_TOKEN, token)
       console.log('Token:', token)
       navigate('/home')
     } else {
@@ -43,23 +44,20 @@ export const useLogin = () => {
 
 export const useRegister = () => {
   const [errorsMessage, setErrorsMessage] = useState<string[] | null>(null)
-
+  
   const register = async (roleId: number, name: string, lastName: string, email: string, password: string) => {
     const response = await authRegister(roleId, name, lastName, email, password)
 
     if (response.hasErrors) {
       setErrorsMessage(response.errors)
       console.log('Errors:', response.errors)
-      return
+      return true
     }
     setErrorsMessage(null)
 
-    const token = response.data?.token
-    if (token) {
-      sessionStorage.setItem('token', token)
-    } else {
-      console.error('Token is undefined')
-    }
+    const token = response.data?.token as string
+    sessionStorage.setItem('token', token);
+    return null;
   }
 
   useEffect(() => {

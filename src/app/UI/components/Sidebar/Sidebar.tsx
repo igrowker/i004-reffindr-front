@@ -2,10 +2,10 @@ import { Box, Flex, Text, useBreakpointValue, VStack } from '@chakra-ui/react'
 import { CgProfile } from 'react-icons/cg'
 import { FaRegHeart } from 'react-icons/fa6'
 import { FiHome } from 'react-icons/fi'
-import { IoMdHelp } from 'react-icons/io'
+import { IoMdHelp, } from 'react-icons/io'
 import { LuMessageSquare } from 'react-icons/lu'
 import { RxExit } from 'react-icons/rx'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
 import { Avatar } from '@/components/ui/avatar'
@@ -16,6 +16,34 @@ import { LogoComponent } from '../Logo/LogoComponent'
 import { ButtonIconComponent } from './ButtonIconComponent'
 import { SelectorTypeComponent } from './SelectorTypeComponent'
 
+const links = [
+  {
+    path: 'home',
+    icon: <FiHome />,
+    title: 'Inicio',
+  },
+  {
+    path: 'perfil',
+    icon: <CgProfile />,
+    title: 'Perfil',
+  },
+  {
+    path: 'favoritos',
+    icon: <FaRegHeart />,
+    title: 'Favoritos',
+  },
+  {
+    path: 'help',
+    icon: <IoMdHelp />,
+    title: 'Ayuda',
+  },
+  {
+    path: 'messages',
+    icon: <LuMessageSquare />,
+    title: 'Mensajes',
+  },
+]
+
 const Sidebar = () => {
   const sidebarWidth = useBreakpointValue({ base: '277px' })
   const navigate = useNavigate()
@@ -24,7 +52,10 @@ const Sidebar = () => {
     authLogout()
     navigate('/inquilinos')
   }
-  // useLocation
+
+  const location = useLocation();
+
+  console.log(location)
   return (
     <Flex
       w={sidebarWidth}
@@ -54,19 +85,11 @@ const Sidebar = () => {
 
       <Box flexBasis='50%'>
         <VStack gap={2} align='stretch'>
-          <Link to='home'>
-            <ButtonIconComponent icon={<FiHome />} text='Inicio' />
-          </Link>
-          <Link to='perfil'>
-            <ButtonIconComponent icon={<CgProfile />} text='Perfil' />
-          </Link>
-          <Link to='favoritos'>
-            <ButtonIconComponent icon={<FaRegHeart />} text='Favoritos' />
-          </Link>
-          <Link to='help'>
-            <ButtonIconComponent icon={<IoMdHelp />} text='Ayuda' />
-          </Link>
-          <ButtonIconComponent icon={<LuMessageSquare />} text='Mensajes' />
+          {links.map((link) => (
+            <Link key={link.path} to={link.path}>
+              <ButtonIconComponent isActive={location.pathname.includes(link.path)}  icon={link.icon} text={link.title} />
+            </Link>
+          ))}
         </VStack>
       </Box>
       <Box display={'flex'} alignItems={'center'} justifyContent={'center'}>
@@ -75,7 +98,7 @@ const Sidebar = () => {
 
       <Box flexBasis='20%'>
         <VStack gap={6} align='stretch'>
-          <ButtonIconComponent onClick={handleLogout} icon={<RxExit />} text='Cerrar Sesión' />
+          <ButtonIconComponent isActive={false} onClick={handleLogout} icon={<RxExit />} text='Cerrar Sesión' />
         </VStack>
       </Box>
     </Flex>

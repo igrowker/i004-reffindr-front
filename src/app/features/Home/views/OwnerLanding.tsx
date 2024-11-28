@@ -1,13 +1,11 @@
-import { IoLogoInstagram } from 'react-icons/io5'
 import { useTranslation } from 'react-i18next'
+import { IoLogoInstagram } from 'react-icons/io5'
+
 import { HeadSection, LastSection } from '@/app/features/Home/components/'
 import { CardStaticCarrusel } from '@/app/UI/components/CarruselLanding/CardStaticCarrusel'
+import { Footer } from '@/app/UI/components/Footer/Footer'
 
 import { SectionGrid } from '../components/sections/SectionGrid'
-
-
-
-import Footer from '@/app/UI/components/footer/Footer'
 
 export const OwnerLanding = () => {
   const { t } = useTranslation()
@@ -15,14 +13,14 @@ export const OwnerLanding = () => {
   return (
     <>
       <HeadSection
-        headLink={{ 
+        headLink={{
           title: t('landing.tenant-view.HeadSection.owner'),
           path: '/owner',
         }}
         backgroundImage='/Iniciar_propietario.jpg'
         headIcon={<IoLogoInstagram size={32} />}
         title={t('landing.tenant-view.HeadSection.title')}
-      /> 
+      />
 
       <SectionGrid />
 
@@ -33,19 +31,25 @@ export const OwnerLanding = () => {
         items={[
           {
             title: t('Mira el catálogo de los inquilinos preseleccionados.'),
-            description: t('El inquilino saliente de tu propied habrá preseleccionado 3 candidatos que cumplan con los requisitos de la propiedad')
+            description: t(
+              'El inquilino saliente de tu propied habrá preseleccionado 3 candidatos que cumplan con los requisitos de la propiedad'
+            ),
           },
           {
             title: t('Seleccioná el próximo inquilino posible.'),
-            description: t('Vas a poder elegir uno de los candidatos a inquilinos que más convicciones tengan para tu propiedad.')
+            description: t(
+              'Vas a poder elegir uno de los candidatos a inquilinos que más convicciones tengan para tu propiedad.'
+            ),
           },
           {
             title: t('Contacta tu candidato.'),
-            description: t('Una vez que allas elegido a tu candidato preferido tendrás que contactarte con él para poder finalizar el proceso.')
+            description: t(
+              'Una vez que allas elegido a tu candidato preferido tendrás que contactarte con él para poder finalizar el proceso.'
+            ),
           },
         ]}
       />
-      <Footer/>
+      <Footer />
     </>
   )
 }

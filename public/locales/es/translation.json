@@ -86,6 +86,8 @@
   "registerWithGoogle": "Registrarse con Google",
   "surname": "Apellido",
   "ViewEditProfile": {
+    "button-edit": "Editar perfil",
+    "button-save": "Guardar Cambios",
     "role": "Inquilino",
     "name": "Nombre:",
     "last-name": "Apellido:",
@@ -106,6 +108,11 @@
     "address":{
       "label": "Dirección",
       "placeholder": "Escribe tu dirección"
+    },
+    "modal":{
+      "confirmation": "¿Seguro deseas guardar cambios?",
+      "yes": "Sí",
+      "cancel": "Cancelar"
     }
   },
   "TenantHelp":{

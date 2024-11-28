@@ -10,20 +10,6 @@ import { Requirements } from './Requirements '
 
 const images = ['assets/hogar1.png', 'assets/hogar2.png', 'assets/hogar3.png', 'assets/hogar4.png', 'assets/hogar5.png']
 
-/* const data = [
-  {
-    id: 1,
-    title: 'Living room Sofa 1',
-    image: 'assets/sillon.jpg',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-
-    price: 450,
-    location: 'Recoleta, C.A.B.A',
-    features: ['Wifi', 'TV', 'Parking'],
-  },
-] */
-
 export const ExpandedDetails = () => {
   const { state } = useLocation()
   const [isModalOpen, setIsModalOpen] = useState(false)

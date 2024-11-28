@@ -9,56 +9,61 @@ import { ViewEditProfile } from '@/app/UI/components/ViewEditProfile/ViewEditPro
 import { ExpandedDetails } from '@/app/UI/components/ViewExpandedDetails/ExpandedDetails'
 import { HomeLayout } from '@/layouts/HomeLayout'
 
-import { PrivateRoute, PublicRoute } from './privateRoutes'
+import { authenticated, requireAuth } from './loaders/authLoader'
 
-export const router = createBrowserRouter([
-  {
-    path: '/inquilinos',
-    element: <PublicRoute element={<HomePage />} />,
-  },
-  {
-    path: '/',
-    element: <PrivateRoute element={<HomeLayout />} />,
+export const router = createBrowserRouter(
+  [
+    {
+      path: '/inquilinos',
+      element: <HomePage />,
+      loader: authenticated,
+    },
+    {
+      path: '/',
+      element: <HomeLayout />,
+      loader: requireAuth,
 
-    children: [
-      {
-        path: 'home',
-        element: <TenantHomePage />,
-        children: [
-          {
-            path: ':propertyName',
-            element: <ExpandedDetails />
-          }
-        ]
-      },
-      {
-        path: 'details',
-        element: <ExpandedDetails />,
-      },
-      {
-        path: 'perfil',
-        element: <ViewEditProfile />,
-      },
-      {
-        path: 'favoritos',
-        element: <AnnouncementSection />,
-      },
-      {
-        path: 'help',
-        element: <OutgoingTenantHelp />,
-      },
-      {
-        path: '*',
-        element: <Flex>404 not found</Flex>,
-      },
-    ],
-  },
-], {
-  future: {
-    v7_fetcherPersist: true,
-    v7_normalizeFormMethod: true,
-    v7_partialHydration: true,
-    v7_relativeSplatPath:true,
-    v7_skipActionErrorRevalidation: true
+      children: [
+        {
+          path: 'home',
+          element: <TenantHomePage />,
+          children: [
+            {
+              path: ':propertyName',
+              element: <ExpandedDetails />,
+            },
+          ],
+        },
+        {
+          path: 'details',
+          element: <ExpandedDetails />,
+        },
+        {
+          path: 'perfil',
+          element: <ViewEditProfile />,
+        },
+        {
+          path: 'favoritos',
+          element: <AnnouncementSection />,
+        },
+        {
+          path: 'help',
+          element: <OutgoingTenantHelp />,
+        },
+        {
+          path: '*',
+          element: <Flex>404 not found</Flex>,
+        },
+      ],
+    },
+  ],
+  {
+    future: {
+      v7_fetcherPersist: true,
+      v7_normalizeFormMethod: true,
+      v7_partialHydration: true,
+      v7_relativeSplatPath: true,
+      v7_skipActionErrorRevalidation: true,
+    },
   }
-})
+)

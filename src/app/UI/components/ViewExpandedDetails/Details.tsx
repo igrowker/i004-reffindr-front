@@ -1,9 +1,9 @@
-import { Badge, Box, Flex, IconButton, Text } from '@chakra-ui/react'
+import { Badge, Box, Flex, HStack, IconButton, Text } from '@chakra-ui/react'
 import { useState } from 'react'
 import { FaHeart } from 'react-icons/fa6'
 import { RiMapPin2Line } from 'react-icons/ri'
 
-//import { Rating } from '@/components/ui/rating'
+import { Rating } from '@/components/ui/rating'
 
 interface DetailsProps {
   title: string
@@ -12,8 +12,8 @@ interface DetailsProps {
   features: string[]
   description: string
   showRating?: boolean
-  //setRating?: (value: number) => void
-  //rating?: number
+  setRating?: (value: number) => void
+  rating?: number
 }
 
 export const Details = ({
@@ -22,9 +22,9 @@ export const Details = ({
   location,
   features,
   description,
-  //showRating,
-  //setRating,
-  //rating,
+  showRating,
+  setRating,
+  rating,
 }: DetailsProps) => {
   const [isFavorited, setIsFavorited] = useState(false)
 
@@ -49,7 +49,7 @@ export const Details = ({
         </IconButton>
       </Flex>
 
-      {/* {showRating && rating !== undefined && (
+       {showRating && rating !== undefined && (
         <HStack gap={2}>
           <Rating allowHalf defaultValue={rating} onValueChange={({ value }) => setRating?.(value)} />
           <Flex alignItems='center' gap='1'>
@@ -59,7 +59,7 @@ export const Details = ({
             <Text>10 reviews</Text>
           </Flex>
         </HStack>
-      )} */}
+      )} 
 
       <Text textStyle='2xl' fontWeight='medium' letterSpacing='tight' mt='2'>
         ${price}

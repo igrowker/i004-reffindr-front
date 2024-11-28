@@ -40,7 +40,7 @@ export const Modal = ({
         <DialogFooter>
           {onCancel && (
             <DialogActionTrigger asChild>
-              <Button variant='outline' onClick={onCancel} >
+              <Button variant='outline' onClick={onCancel} _hover={{ bg: 'red.600', color: 'white' }}>
                 {cancelText}
               </Button>
             </DialogActionTrigger>

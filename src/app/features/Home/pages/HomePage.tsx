@@ -1,9 +1,10 @@
-import { TenantView } from '../views/TenantView'
+import { OwnerLanding } from '../views/OwnerLanding'
+
 
 export const HomePage = () => {
   return (
     <>
-      <TenantView />
+      <OwnerLanding />
     </>
   )
 }

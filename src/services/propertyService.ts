@@ -16,9 +16,12 @@ interface PropertyQueryParams {
 }
 
 export const getProperties = async (params?: PropertyQueryParams) => {
+
+
   try {
-    const response = await httpClient.get('/properties/get-properties', { params })
-    console.log('response', response)
+    const response = await httpClient.get('/properties/get-properties', {
+      params,
+    })
     return response
   } catch (error: unknown) {
     const err = error as AxiosError<IBaseResponse<void>>

@@ -10,6 +10,7 @@ export const useGetProperties = () => {
   const getAllProperties = async () => {
     try {
       const response = await getProperties()
+      console.log('respuesta:', response.data)
       setProperties(response.data)
     } catch (error: unknown) {
       const err = error as AxiosError<IBaseResponse<Property>>

@@ -1,3 +1,4 @@
+
 import { useTranslation } from 'react-i18next'
 import { IoLogoInstagram } from 'react-icons/io5'
 
@@ -9,6 +10,7 @@ import { SectionGrid } from '../components/sections/SectionGrid'
 
 export const TenantView = () => {
   const { t } = useTranslation()
+
 
   return (
     <>

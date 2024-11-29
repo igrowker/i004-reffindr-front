@@ -10,7 +10,6 @@ import { ExpandedDetails } from '@/app/UI/components/ViewExpandedDetails/Expande
 import { HomeLayout } from '@/layouts/HomeLayout'
 
 import { authenticated, requireAuth } from './loaders/authLoader'
-import { propertyLoader } from './loaders/propertiesLoader'
 
 export const router = createBrowserRouter(
   [
@@ -28,7 +27,6 @@ export const router = createBrowserRouter(
         {
           path: 'home',
           element: <TenantHomePage />,
-          loader: propertyLoader,
           children: [
             {
               path: ':propertyName',

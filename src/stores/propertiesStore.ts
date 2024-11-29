@@ -3,13 +3,13 @@ import { create } from 'zustand'
 import { Property } from '@/types'
 
 interface State {
-  propertie: Property
+  properties: Property[]
 
-  setPropertie: (propertie: Property) => void
+  setProperties: (propertie: Property[]) => void
 }
 
 export const propertiesStore = create<State>((set) => ({
-  propertie: {} as Property,
+  properties: [],
 
-  setPropertie: (propertie: Property) => set({ propertie }),
+  setProperties: (properties: Property[]) => set({ properties }),
 }))

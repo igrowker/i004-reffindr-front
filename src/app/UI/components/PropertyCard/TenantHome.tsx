@@ -1,7 +1,9 @@
 import { Box, Flex } from '@chakra-ui/react'
+import { useEffect, useState } from 'react'
+
 import { CardReuComponent } from '@/app/UI/components/CardInfo/CardReuComponent'
-
-
+import { useGetProperties } from '@/hooks/useGetProperties'
+import { Property } from '@/types'
 
 const data = [
   {
@@ -68,18 +70,33 @@ const data = [
 ]
 
 export const TenantHomePage = () => {
- 
+  const { getAllProperties } = useGetProperties()
+  const [properties, setProperties] = useState<Property[]>([])
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const fetchProperties = async () => {
+      try {
+        const data: any = await getAllProperties()
+        setProperties(data)
+      } catch (err: any) {
+        setError(err.message)
+      }
+    }
+
+    fetchProperties()
+  }, [getAllProperties])
+
+  console.log('properties', properties)
+  console.log('error', error)
 
   return (
-      
-        <Flex gap='4' flexWrap='wrap' >
-          {data.map((item) => (
-            <Box
-              key={item.id}
-            >
-              <CardReuComponent maxW="300px" {...item}  />
-            </Box>
-          ))}
-        </Flex>
+    <Flex gap='4' flexWrap='wrap'>
+      {data.map((item) => (
+        <Box key={item.id}>
+          <CardReuComponent maxW='300px' {...item} />
+        </Box>
+      ))}
+    </Flex>
   )
 }

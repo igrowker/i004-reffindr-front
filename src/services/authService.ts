@@ -2,13 +2,8 @@ import { AxiosError } from 'axios'
 
 import { httpClient } from '@/api/axios-config'
 import { SESSION_STORAGE_AUTH_TOKEN } from '@/constants/auth-constants'
+import { IBaseResponse } from '@/types'
 
-interface IBaseResponse<T> {
-  data?: T
-  errors: string[]
-  hasErrors: boolean
-  statusCode: number
-}
 interface LoginResponse {
   token: string
 }

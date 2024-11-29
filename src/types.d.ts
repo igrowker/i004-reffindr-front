@@ -6,10 +6,35 @@ export interface User {
 }
 
 export interface Property {
-  id: string
-  owner_id: string
+  id: number
+  countryId: number
+  stateId: number
+  title: string
   address: string
-  price: string
+  countryName: string
+  stateName: string
+  price: number
+  environments: number
+  bathrooms: number
+  bedrooms: number
+  seniority: number
+  water: boolean
+  gas: boolean
+  surveillance: boolean
+  electricity: boolean
+  internet: boolean
+  pool: boolean
+  garage: boolean
+  pets: boolean
+  grill: boolean
+  elevator: boolean
+  terrace: boolean
   description: string
-  requirenments: string
+}
+
+export interface IBaseResponse<T> {
+  data?: T
+  errors: string[]
+  hasErrors: boolean
+  statusCode: number
 }

@@ -1,4 +1,3 @@
-
 import { TenantView } from '../views/TenantView'
 
 

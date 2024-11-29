@@ -14,6 +14,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { Field } from '@/components/ui/field'
+import { PasswordInput } from '@/components/ui/password-input'
 import { useRegister } from '@/hooks/useAuth'
 import { useForm } from '@/hooks/useForm'
 import { validateRegister } from '@/utils/validate'
@@ -125,7 +126,7 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
 
               <Box>
                 <Field label={t('password')} required>
-                  <Input
+                  <PasswordInput
                     name='password'
                     fontSize={{ base: 'medium', '2xl': 'xl' }}
                     type='password'

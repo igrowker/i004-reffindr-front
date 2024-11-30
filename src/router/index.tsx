@@ -10,9 +10,14 @@ import { ExpandedDetails } from '@/app/UI/components/ViewExpandedDetails/Expande
 import { HomeLayout } from '@/layouts/HomeLayout'
 
 import { authenticated, requireAuth } from './loaders/authLoader'
+import { OwnerLanding } from '../app/features/Home/views/OwnerLanding';
 
 export const router = createBrowserRouter(
   [
+    {
+      path: '/owner',
+      element: <OwnerLanding />
+    },
     {
       path: '/inquilinos',
       element: <HomePage />,

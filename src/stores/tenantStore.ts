@@ -12,6 +12,8 @@ export const useTenantStore = create<State>((set, get) => ({
     toggleTenantRole: () => {
         const actualRole = get().tenantRole == TenantRoles.incomming ? TenantRoles.outgoing : TenantRoles.incomming
         set({tenantRole: actualRole })
-    }
+    },
+
+    
 
 }))

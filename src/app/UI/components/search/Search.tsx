@@ -5,10 +5,13 @@ import { IoSearch } from 'react-icons/io5'
 
 import { Button } from '@chakra-ui/react'
 import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from '@/components/ui/menu'
+import { useTenantStore } from '@/stores/tenantStore'
+import { TenantRoles } from '@/constants/tenant-constants'
+import { Link } from 'react-router-dom'
 
 export const SearchWithFiltersAndNotification = () => {
 
-
+  const tenantRole = useTenantStore(state => state.tenantRole);
 
   return (
     <HStack gap='6' width='full' align='center' bg={'white'} mb={2} py={2} px={2}>
@@ -21,10 +24,10 @@ export const SearchWithFiltersAndNotification = () => {
           _placeholder={{ color: 'black.500' }}
           _hover={{ borderColor: 'black.400' }}
         />
+
         <Button colorPalette={"blue"}>
           <Icon >
-
-          <IoSearch   /> 
+            <IoSearch />
           </Icon>
 
         </Button>
@@ -44,7 +47,17 @@ export const SearchWithFiltersAndNotification = () => {
             <MenuItem value='new-file'>Mayor precio</MenuItem>
           </MenuContent>
         </MenuRoot>
-        <Button colorPalette={"blue"}   >Crear anuncio</Button>
+        {
+          tenantRole == TenantRoles.outgoing
+          && (
+            <Button colorPalette={"blue"}   >
+              <Link to="create-property">
+              Crear anuncio
+              </Link>
+            </Button>
+          
+          )
+        }
         <IoMdNotificationsOutline fontSize='24px' color='gray.700' cursor='pointer' />
       </Box>
     </HStack>

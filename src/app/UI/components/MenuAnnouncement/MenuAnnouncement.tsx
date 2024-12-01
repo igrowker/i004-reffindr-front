@@ -1,10 +1,20 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { useState } from "react";
-import Demo from "../../../UI/components/ownerData/OwnerForm";
+import PropertyDetails from "../PropertyDetails/PropertyDetails";
+import { PropertyCharacteristic } from "../PropertyCharacteristic/PropertyCharacteristic";
+import Demo from "../ownerData/OwnerForm";
+import { PropertyConfirmation } from "../PropertyConfirmation/PropertyConfirmation";
 
+
+export const AnnoucementsTabs = {
+  PropertyDetails: "Detalles de propiedad",
+  features: "Características",
+  OwnerDetails: "Datos del propietario",
+  Confirmation: "Confirmación"
+}
 
 export const MenuAnnouncement = () => {
-  const [activeTab, setActiveTab] = useState("Caracteristicas");
+  const [activeTab, setActiveTab] = useState(AnnoucementsTabs.PropertyDetails);
 
   const tabs = [
     "Detalles de propiedad",
@@ -16,11 +26,11 @@ export const MenuAnnouncement = () => {
   return (
     <>
       <Flex justifyContent="start" mb={3} p={2}>
-        {tabs.map((tab) => (
+        {Object.values(AnnoucementsTabs).map((tab) => (
           <Box
             key={tab}
-            cursor="pointer" 
-            onClick={() => setActiveTab(tab)} 
+            cursor="pointer"
+            onClick={() => setActiveTab(tab)}
           >
             <Text p={2}>{tab}</Text>
             <Box
@@ -33,7 +43,10 @@ export const MenuAnnouncement = () => {
       </Flex>
 
       {/* Aqui renderizo los dtos del formulario solo si "Datos del propietario" está activo */}
-      {activeTab === "Datos del propietario" && <Demo />}
+      {activeTab === AnnoucementsTabs.PropertyDetails && <PropertyDetails />}
+      {activeTab === AnnoucementsTabs.features && <PropertyCharacteristic />}
+      {activeTab === AnnoucementsTabs.OwnerDetails && <Demo />}
+      {activeTab === AnnoucementsTabs.Confirmation && <PropertyConfirmation />}
     </>
   );
 };

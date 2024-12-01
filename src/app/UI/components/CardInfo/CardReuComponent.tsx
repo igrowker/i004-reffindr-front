@@ -53,6 +53,7 @@ export const CardReuComponent = ({
   }
   return (
     <Card.Root
+      minW={maxW}
       maxW={maxW}
       overflow='hidden'
       shadow='md'

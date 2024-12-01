@@ -9,12 +9,8 @@ export const Breadcrumb = () => {
                             .filter((pathname) => pathname != '')
                             .map(pathname => {
                               const cleanedValue = pathname.split('%20').filter(value => value != '%20');
-                              return cleanedValue.join(' ')
+                              return cleanedValue.join(' ');                              
                             })
-                            
-
-
-
 
   return (
     <BreadcrumbRoot>

@@ -18,6 +18,8 @@ import { PasswordInput } from '@/components/ui/password-input'
 import { useRegister } from '@/hooks/useAuth'
 import { useForm } from '@/hooks/useForm'
 import { validateRegister } from '@/utils/validate'
+import { useLocation } from 'react-router-dom'
+import { UserRoles } from '@/constants/auth-account-constants'
 
 interface Props {
   onShowLogin: () => void
@@ -28,15 +30,17 @@ interface Props {
 export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
   const { t } = useTranslation()
   const { register, errorsMessage } = useRegister()
-
+  const location = useLocation();
   const { formState, errors, handleInputChange, handleSubmit } = useForm(
     { name: '', lastName: '', email: '', password: '' },
     validateRegister
   )
 
   const handleRegisterSubmit = async () => {
+    const isTenant = location.pathname.includes('inquilinos');
+
     const resp = await register({
-      roleId: 1,
+      roleId: isTenant ? UserRoles.Tenant : UserRoles.Owner,
       name: formState.name,
       lastName: formState.lastName,
       email: formState.email,

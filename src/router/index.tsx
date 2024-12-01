@@ -11,12 +11,14 @@ import { HomeLayout } from '@/layouts/HomeLayout'
 
 import { authenticated, requireAuth } from './loaders/authLoader'
 import { OwnerLanding } from '../app/features/Home/views/OwnerLanding';
+import { CreatePropertyPage } from '@/app/features/Tenant/Outgoing/property/pages/CreatePropertyPage'
 
 export const router = createBrowserRouter(
   [
     {
       path: '/owner',
-      element: <OwnerLanding />
+      element: <OwnerLanding />,
+      loader: authenticated,
     },
     {
       path: '/inquilinos',
@@ -31,16 +33,16 @@ export const router = createBrowserRouter(
       children: [
         {
           path: 'home',
-          element: <TenantHomePage />,
+          element: <TenantHomePage />, 
+        },
+        {
+          path: 'create-property',
+          element: <CreatePropertyPage />
         },
         {
           path: 'home/:propertyName',
           element: <ExpandedDetails />,
         },
-        // {
-        //   path: 'details',
-        //   element: <ExpandedDetails />,
-        // },
         {
           path: 'perfil',
           element: <ViewEditProfile />,

@@ -1,3 +1,4 @@
+import { AUTH_TOKEN_KEY } from '@/constants/auth-account-constants'
 import axios, { InternalAxiosRequestConfig } from 'axios'
 
 export const httpClient = axios.create({
@@ -9,7 +10,7 @@ export const httpClient = axios.create({
 
 const requestInterceptor = (config: InternalAxiosRequestConfig) => {
   if (config.url === '/') return config
-  const tokenInfo = sessionStorage.getItem('token')
+  const tokenInfo = sessionStorage.getItem(AUTH_TOKEN_KEY)
 
   config.headers.Authorization = `Bearer ${tokenInfo}`
 

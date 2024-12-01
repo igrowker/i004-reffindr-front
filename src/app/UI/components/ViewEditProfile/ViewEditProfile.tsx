@@ -31,7 +31,7 @@ export const ViewEditProfile = () => {
   };
 
   return (
-    <Flex w={'full'} h={'full'} display={'flex'} flexDir={'column'} padding={'5'}>
+    <Flex  display={'flex'} flexDir={'column'} padding={'5'}>
       <IconButton onClick={handleEditClick} justifyContent={'start'} fontSize={'md'} p={2} bg={'transparent'} color={'black'} textDecoration={'underline'}>
         {t('ViewEditProfile.button-edit')}
       </IconButton>

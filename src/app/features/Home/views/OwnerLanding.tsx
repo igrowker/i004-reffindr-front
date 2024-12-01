@@ -14,8 +14,8 @@ export const OwnerLanding = () => {
     <>
       <HeadSection
         headLink={{
-          title: t('landing.tenant-view.HeadSection.owner'),
-          path: '/owner',
+          title: t('landing.owner-view.HeadSection.tenant'),
+          path: '/inquilinos',
         }}
         backgroundImage='/Iniciar_propietario.jpg'
         headIcon={<IoLogoInstagram size={32} />}

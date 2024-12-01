@@ -10,9 +10,16 @@ import { ExpandedDetails } from '@/app/UI/components/ViewExpandedDetails/Expande
 import { HomeLayout } from '@/layouts/HomeLayout'
 
 import { authenticated, requireAuth } from './loaders/authLoader'
+import { OwnerLanding } from '../app/features/Home/views/OwnerLanding';
+import { CreatePropertyPage } from '@/app/features/Tenant/Outgoing/property/pages/CreatePropertyPage'
 
 export const router = createBrowserRouter(
   [
+    {
+      path: '/owner',
+      element: <OwnerLanding />,
+      loader: authenticated,
+    },
     {
       path: '/inquilinos',
       element: <HomePage />,
@@ -26,16 +33,14 @@ export const router = createBrowserRouter(
       children: [
         {
           path: 'home',
-          element: <TenantHomePage />,
-          children: [
-            {
-              path: ':propertyName',
-              element: <ExpandedDetails />,
-            },
-          ],
+          element: <TenantHomePage />, 
         },
         {
-          path: 'details',
+          path: 'create-property',
+          element: <CreatePropertyPage />
+        },
+        {
+          path: 'home/:propertyName',
           element: <ExpandedDetails />,
         },
         {

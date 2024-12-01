@@ -1,15 +1,27 @@
 import { create } from 'zustand'
 
-import { Property } from '@/types'
+import { Property } from '@/interfaces/types'
+import { getProperties } from '@/services/propertiesService';
 
 interface State {
-  propertie: Property
-
+  propertie: Property;
+  properties: Property[];
+  getProperties: () => Promise<null>
   setPropertie: (propertie: Property) => void
 }
 
-export const propertiesStore = create<State>((set) => ({
+export const usePropertiesStore = create<State>((set) => ({
   propertie: {} as Property,
-
+  properties: [],
+  getProperties: async() => {
+    const resp = await getProperties();
+    console.log(resp)
+    if ( resp.hasErrors ) {
+      return null;
+    }  
+    set({properties: resp.data});
+    return null;
+    
+  },
   setPropertie: (propertie: Property) => set({ propertie }),
 }))

@@ -8,7 +8,7 @@ import { LookingFor } from './LookingFor'
 import { Modal } from './Modal'
 import { Requirements } from './Requirements '
 
-const images = ['assets/hogar1.png', 'assets/hogar2.png', 'assets/hogar3.png', 'assets/hogar4.png', 'assets/hogar5.png']
+const images = ['/assets/hogar1.png', '/assets/hogar2.png', '/assets/hogar3.png', '/assets/hogar4.png', '/assets/hogar5.png']
 
 export const ExpandedDetails = () => {
   const { state } = useLocation()
@@ -16,7 +16,7 @@ export const ExpandedDetails = () => {
 
   return (
     <>
-      <Flex bg='#EDF2F7' p='2' w='full' h='100vh' flexDirection='column'>
+      <Flex bg='#EDF2F7' p='2' w='full'  flexDirection='column'>
         <Flex
           direction='column'
           justifyContent='center'

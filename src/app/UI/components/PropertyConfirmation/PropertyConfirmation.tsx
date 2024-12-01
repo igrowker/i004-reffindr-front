@@ -2,7 +2,6 @@ import { Button, Flex, Text } from '@chakra-ui/react'
 import { useState } from 'react'
 
 import { CardReuComponent } from '@/app/UI/components/CardInfo/CardReuComponent'
-import { MenuAnnouncement } from '@/app/UI/components/MenuAnnouncement/MenuAnnouncement'
 
 import { ConfirmationDialog } from './ConfirmationDialog'
 import { OwnerDataCard } from './OwnerDataCard'
@@ -35,7 +34,6 @@ export const PropertyConfirmation = () => {
 
   return (
     <Flex bg='#EDF2F7' p='2' w='full' h='100vh' flexDirection='column'>
-      <MenuAnnouncement />
 
       <Flex
         direction='row'

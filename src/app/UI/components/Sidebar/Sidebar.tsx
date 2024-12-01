@@ -70,7 +70,7 @@ const Sidebar = () => {
       justifyContent='space-around'
     >
       <Box display='flex' justifyContent='center' mb={5} mt={5}>
-        <LogoComponent src='/assets/logos-svg/logoazul.svg' />
+        <LogoComponent size='96px' src='/assets/logos-svg/logoazul.svg' />
       </Box>
       <Box display='flex' justifyContent='center' alignItems='center' gap='2' mb={5}>
         <Avatar size='lg' name='Sage' src='https://bit.ly/sage-adebayo' />

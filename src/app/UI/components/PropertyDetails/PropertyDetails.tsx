@@ -11,7 +11,7 @@ import { Radio, RadioGroup } from '@/components/ui/radio'
 import CustomSelect from '../CustomSelect/CustomSelect'
 
 const PropertyDetails = () => {
-  return (
+  return (  
     <Flex direction={'column'} width='100%'>
       <Flex flexDirection={'row'} alignItems={'center'} gap={4}>
         <EmptyState

@@ -1,14 +1,9 @@
 import { AxiosError } from 'axios'
 
 import { httpClient } from '@/api/axios-config'
-import { SESSION_STORAGE_AUTH_TOKEN } from '@/constants/auth-constants'
+import { AUTH_TOKEN_KEY } from '@/constants/auth-account-constants'
+import { IBaseResponse } from '@/interfaces/api-response'
 
-interface IBaseResponse<T> {
-  data?: T
-  errors: string[]
-  hasErrors: boolean
-  statusCode: number
-}
 interface LoginResponse {
   token: string
 }
@@ -62,4 +57,4 @@ export const authRegister = async (
   }
 }
 
-export const authLogout = () => sessionStorage.removeItem(SESSION_STORAGE_AUTH_TOKEN)
+export const authLogout = () => sessionStorage.removeItem(AUTH_TOKEN_KEY)

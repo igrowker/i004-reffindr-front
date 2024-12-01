@@ -1,5 +1,11 @@
 {
   "landing": {
+    "owner-view": {
+      "HeadSection": {
+        "tenant": "I'm tenant",
+        "title": "Our platform connects tenants and owners, removing /n the need for intermediaries and high commissions."
+      }
+    },
     "tenant-view": {
       "HeadSection": {
         "owner": "I am an owner",

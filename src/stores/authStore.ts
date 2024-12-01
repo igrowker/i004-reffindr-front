@@ -5,9 +5,11 @@ interface State {
   setToken: (token: string) => void
 }
 
-export const authStore = create<State>((set) => ({
-  token: '',
+export const authStore = create<State>()((set) => ({
+  token: null,
   setToken: (token: string) => {
     set({ token })
   },
 }))
+
+

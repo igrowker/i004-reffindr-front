@@ -1,21 +1,24 @@
+import { TenantRoles } from '@/constants/tenant-constants'
+import { useTenantStore } from '@/stores/tenantStore';
 import { Box, Button, HStack } from '@chakra-ui/react'
-import { useState } from 'react'
+
+
 
 export const SelectorTypeComponent = () => {
-  const [selectedType, setSelectedType] = useState<'entrante' | 'saliente'>('entrante')
 
+  const { tenantRole, toggleTenantRole } = useTenantStore(state => state);
   return (
-    <HStack wrap='wrap' gap='6'>
-      <Box borderBottom={selectedType === 'entrante' ? '3px solid #1E3A8A' : undefined}>
-        <Button onClick={() => setSelectedType('entrante')} variant='plain'>
+    <HStack wrap='wrap' mb={2} gap='6'>
+      <Box borderBottom={tenantRole === TenantRoles.incomming ? '3px solid #1E3A8A' : undefined}>
+        <Button _disabled={{ cursor: 'pointer' }} disabled={tenantRole === TenantRoles.incomming} onClick={toggleTenantRole} variant='plain'>
           Entrante
         </Button>
       </Box>
-      <Box borderBottom={selectedType === 'saliente' ? '3px solid #1E3A8A' : undefined}>
-        <Button onClick={() => setSelectedType('saliente')} variant='plain'>
+      <Box borderBottom={tenantRole === TenantRoles.outgoing ? '3px solid #1E3A8A' : undefined}>
+        <Button _disabled={{ cursor: 'pointer' }} disabled={tenantRole === TenantRoles.outgoing} onClick={toggleTenantRole} variant='plain'>
           Saliente
         </Button>
       </Box>
-    </HStack>
+    </HStack >
   )
 }

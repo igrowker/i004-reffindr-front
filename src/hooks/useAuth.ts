@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { SESSION_STORAGE_AUTH_TOKEN } from '@/constants/auth-constants'
+import { AUTH_TOKEN_KEY } from '@/constants/auth-account-constants'
 import { authLogin } from '@/services/authService'
 import { authRegister } from '@/services/authService'
 import { authStore } from '@/stores/authStore'
@@ -30,7 +30,7 @@ export const useLogin = () => {
     setErrorsMessage(null)
     const token = response.data?.token
     if (token) {
-      sessionStorage.setItem(SESSION_STORAGE_AUTH_TOKEN, token)
+      sessionStorage.setItem(AUTH_TOKEN_KEY, token)
       setToken(token)
       navigate('/home')
     } else {

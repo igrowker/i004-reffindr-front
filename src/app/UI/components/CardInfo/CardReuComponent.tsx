@@ -40,7 +40,7 @@ export const CardReuComponent = ({
   const navigate = useNavigate()
 
   const handleViewMore = () => {
-    navigate('/details', {
+    navigate(title, {
       state: {
         title,
         description,
@@ -53,6 +53,7 @@ export const CardReuComponent = ({
   }
   return (
     <Card.Root
+      minW={maxW}
       maxW={maxW}
       overflow='hidden'
       shadow='md'

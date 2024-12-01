@@ -32,17 +32,15 @@ export const router = createBrowserRouter(
         {
           path: 'home',
           element: <TenantHomePage />,
-          children: [
-            {
-              path: ':propertyName',
-              element: <ExpandedDetails />,
-            },
-          ],
         },
         {
-          path: 'details',
+          path: 'home/:propertyName',
           element: <ExpandedDetails />,
         },
+        // {
+        //   path: 'details',
+        //   element: <ExpandedDetails />,
+        // },
         {
           path: 'perfil',
           element: <ViewEditProfile />,

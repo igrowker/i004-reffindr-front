@@ -40,7 +40,7 @@ export const CardReuComponent = ({
   const navigate = useNavigate()
 
   const handleViewMore = () => {
-    navigate('/details', {
+    navigate(title, {
       state: {
         title,
         description,

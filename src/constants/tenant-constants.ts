@@ -1,4 +1,4 @@
-export const TenantRoles = {
-    incomming: 'Entrante',
-    outgoing: 'Saliente'
+export enum TenantRoles  {
+    incomming = 'Entrante',
+    outgoing = 'Saliente'
 }

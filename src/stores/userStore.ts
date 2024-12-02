@@ -1,17 +1,16 @@
 import { create } from 'zustand'
 
-import { User } from '@/types'
-
+import { User } from '@/interfaces/types'
 interface State {
-  user: User
+  user: User;
 
   setUser: (user: User) => void
 }
 
 export const userStore = create<State>((set) => ({
   user: {} as User,
-
   setUser: (user: User) => {
     set({ user })
   },
+  
 }))

@@ -1,5 +1,6 @@
 import { Badge, Box, Button, Card, Flex, HStack, IconButton, Image, Text } from '@chakra-ui/react'
-import { CiHeart } from 'react-icons/ci'
+import { useState } from 'react'
+import { FaHeart } from 'react-icons/fa6'
 import { IoChevronForwardSharp } from 'react-icons/io5'
 import { RiMapPin2Line } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
@@ -31,10 +32,15 @@ export const CardReuComponent = ({
   rating,
   maxW,
 }: CardReuProps) => {
+  const [isFavorited, setIsFavorited] = useState(false)
+
+  const toggleFavorite = () => {
+    setIsFavorited(!isFavorited)
+  }
   const navigate = useNavigate()
 
   const handleViewMore = () => {
-    navigate('/details', {
+    navigate(title, {
       state: {
         title,
         description,
@@ -47,6 +53,7 @@ export const CardReuComponent = ({
   }
   return (
     <Card.Root
+      minW={maxW}
       maxW={maxW}
       overflow='hidden'
       shadow='md'
@@ -60,8 +67,15 @@ export const CardReuComponent = ({
         <Flex alignItems='center' gap='2'>
           <Card.Title>{title}</Card.Title>
 
-          <IconButton aria-label='Call support' ml='auto' rounded='full' bg='transparent' color='black'>
-            <CiHeart />
+          <IconButton
+            aria-label='Call support'
+            ml='auto'
+            rounded='full'
+            bg='transparent'
+            color={isFavorited ? 'red.500' : 'gray.500'}
+            onClick={toggleFavorite}
+          >
+            <FaHeart />
           </IconButton>
         </Flex>
 
@@ -78,7 +92,7 @@ export const CardReuComponent = ({
         )}
 
         <Text textStyle='2xl' fontWeight='medium' letterSpacing='tight' mt='2'>
-          {price}
+          ${price.toLocaleString('es-AR')}
         </Text>
         <Box letterSpacing='tight' mt='2'>
           <Flex alignItems='center' gap='2'>

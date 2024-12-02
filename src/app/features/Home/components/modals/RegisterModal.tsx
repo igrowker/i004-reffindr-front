@@ -14,9 +14,12 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { Field } from '@/components/ui/field'
+import { PasswordInput } from '@/components/ui/password-input'
 import { useRegister } from '@/hooks/useAuth'
 import { useForm } from '@/hooks/useForm'
 import { validateRegister } from '@/utils/validate'
+import { useLocation } from 'react-router-dom'
+import { UserRoles } from '@/constants/auth-account-constants'
 
 interface Props {
   onShowLogin: () => void
@@ -27,22 +30,28 @@ interface Props {
 export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
   const { t } = useTranslation()
   const { register, errorsMessage } = useRegister()
-
+  const location = useLocation();
   const { formState, errors, handleInputChange, handleSubmit } = useForm(
     { name: '', lastName: '', email: '', password: '' },
     validateRegister
   )
 
   const handleRegisterSubmit = async () => {
-    const resp = await register(1, formState.name, formState.lastName, formState.email, formState.password);
+    const isTenant = location.pathname.includes('inquilinos');
+
+    const resp = await register({
+      roleId: isTenant ? UserRoles.Tenant : UserRoles.Owner,
+      name: formState.name,
+      lastName: formState.lastName,
+      email: formState.email,
+      password: formState.password,
+    })
     if (resp !== true) {
       if (onOpenChange) {
         onOpenChange({ open: false })
       }
       onShowLogin()
-    
     }
-
   }
   return (
     <DialogRoot
@@ -121,7 +130,7 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
 
               <Box>
                 <Field label={t('password')} required>
-                  <Input
+                  <PasswordInput
                     name='password'
                     fontSize={{ base: 'medium', '2xl': 'xl' }}
                     type='password'

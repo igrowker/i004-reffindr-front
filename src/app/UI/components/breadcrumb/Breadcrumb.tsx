@@ -5,7 +5,12 @@ import { BreadcrumbCurrentLink, BreadcrumbLink, BreadcrumbRoot } from '@/compone
 
 export const Breadcrumb = () => {
   const location = useLocation()
-  const pathnames = location.pathname.split('/').filter((pathname) => pathname != '')
+  const pathnames = location.pathname.split('/')
+                            .filter((pathname) => pathname != '')
+                            .map(pathname => {
+                              const cleanedValue = pathname.split('%20').filter(value => value != '%20');
+                              return cleanedValue.join(' ');                              
+                            })
 
   return (
     <BreadcrumbRoot>

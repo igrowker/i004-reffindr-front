@@ -1,17 +1,26 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { SESSION_STORAGE_AUTH_TOKEN } from '@/constants/auth-constants'
+import { AUTH_TOKEN_KEY } from '@/constants/auth-account-constants'
 import { authLogin } from '@/services/authService'
 import { authRegister } from '@/services/authService'
+import { authStore } from '@/stores/authStore'
+
+interface RegisterData {
+  roleId: number
+  name: string
+  lastName: string
+  email: string
+  password: string
+}
 
 export const useLogin = () => {
   const [errorsMessage, setErrorsMessage] = useState<string[] | null>(null)
   const navigate = useNavigate()
+  const setToken = authStore((state) => state.setToken)
 
   const login = async (email: string, password: string) => {
     const response = await authLogin(email, password)
-    console.log('Response:', response)
 
     if (response.hasErrors) {
       setErrorsMessage(response.errors)
@@ -21,8 +30,8 @@ export const useLogin = () => {
     setErrorsMessage(null)
     const token = response.data?.token
     if (token) {
-      sessionStorage.setItem(SESSION_STORAGE_AUTH_TOKEN, token)
-      console.log('Token:', token)
+      sessionStorage.setItem(AUTH_TOKEN_KEY, token)
+      setToken(token)
       navigate('/home')
     } else {
       console.error('Token is undefined')
@@ -44,8 +53,8 @@ export const useLogin = () => {
 
 export const useRegister = () => {
   const [errorsMessage, setErrorsMessage] = useState<string[] | null>(null)
-  
-  const register = async (roleId: number, name: string, lastName: string, email: string, password: string) => {
+
+  const register = async ({ roleId, name, lastName, email, password }: RegisterData) => {
     const response = await authRegister(roleId, name, lastName, email, password)
 
     if (response.hasErrors) {
@@ -55,9 +64,7 @@ export const useRegister = () => {
     }
     setErrorsMessage(null)
 
-    const token = response.data?.token as string
-    sessionStorage.setItem('token', token);
-    return null;
+    return null
   }
 
   useEffect(() => {

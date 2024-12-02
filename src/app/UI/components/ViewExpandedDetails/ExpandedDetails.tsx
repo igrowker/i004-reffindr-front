@@ -8,21 +8,7 @@ import { LookingFor } from './LookingFor'
 import { Modal } from './Modal'
 import { Requirements } from './Requirements '
 
-const images = ['assets/hogar1.png', 'assets/hogar2.png', 'assets/hogar3.png', 'assets/hogar4.png', 'assets/hogar5.png']
-
-/* const data = [
-  {
-    id: 1,
-    title: 'Living room Sofa 1',
-    image: 'assets/sillon.jpg',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-
-    price: 450,
-    location: 'Recoleta, C.A.B.A',
-    features: ['Wifi', 'TV', 'Parking'],
-  },
-] */
+const images = ['/assets/hogar1.png', '/assets/hogar2.png', '/assets/hogar3.png', '/assets/hogar4.png', '/assets/hogar5.png']
 
 export const ExpandedDetails = () => {
   const { state } = useLocation()
@@ -30,7 +16,7 @@ export const ExpandedDetails = () => {
 
   return (
     <>
-      <Flex bg='#EDF2F7' p='2' w='full' h='100vh' flexDirection='column'>
+      <Flex bg='#EDF2F7' p='2' w='full'  flexDirection='column'>
         <Flex
           direction='column'
           justifyContent='center'

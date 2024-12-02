@@ -59,7 +59,7 @@ export const SearchWithFiltersAndNotification = () => {
           )
         }
         <IoMdNotificationsOutline fontSize='24px' color='gray.700' cursor='pointer' />
-      </Box>
+      </Box> 
     </HStack>
   )
 }

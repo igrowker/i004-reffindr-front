@@ -9,7 +9,7 @@ export const HomeLayout = () => {
   return (
     <Flex w={'full'} display={'flex'} >
       <Box w={'277px'}>
-        <Sidebar />
+        <Sidebar /> 
       </Box>
       <Box flexGrow={1} p={'20px'} bgColor={'#edf2f7'}>
         <Box mb={3}>

@@ -8,7 +8,7 @@ export const HomeLayout = () => {
 
   return (
     <Flex>
-      {isProfileRoute && <Profile />}
+      {isProfileRoute && <Profile />} 
       <Box flexGrow={1} p="20px" bgColor="#edf2f7">
         <Outlet />
       </Box>

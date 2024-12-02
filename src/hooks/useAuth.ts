@@ -55,7 +55,7 @@ export const useRegister = () => {
   const [errorsMessage, setErrorsMessage] = useState<string[] | null>(null)
 
   const register = async ({ roleId, name, lastName, email, password }: RegisterData) => {
-    const response = await authRegister(roleId, name, lastName, email, password)
+    const response = await authRegister({ roleId, name, lastName, email, password })
 
     if (response.hasErrors) {
       setErrorsMessage(response.errors)

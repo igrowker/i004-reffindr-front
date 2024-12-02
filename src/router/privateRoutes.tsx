@@ -1,8 +1,9 @@
-import { SESSION_STORAGE_AUTH_TOKEN } from '@/constants/auth-constants'
 import { Navigate } from 'react-router-dom'
 
+import { AUTH_TOKEN_KEY } from '@/constants/auth-account-constants'
+
 const isAuthenticated = () => {
-  return sessionStorage.getItem(SESSION_STORAGE_AUTH_TOKEN) !== null
+  return sessionStorage.getItem(AUTH_TOKEN_KEY) !== null
 }
 
 export const PrivateRoute = ({ element }: { element: JSX.Element }) => {

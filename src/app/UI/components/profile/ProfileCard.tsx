@@ -18,7 +18,7 @@ interface ProvisionalUser {
 
 export const ProfileCard = ({ description, user }: Props) => {
   return (
-    <Flex flexDirection={{base: "column", md: "row"}} maxW={'90%'} height={{base: "auto", md: "250px"}} mx={'auto'} rounded='xs' shadow={'md'} gapX={4}>
+    <Flex bg={'white'} flexDirection={{base: "column", md: "row"}} maxW={'90%'} height={{base: "auto", md: "250px"}} mx={'auto'} rounded='xs' shadow={'md'} gapX={4}>
       <Image  flexShrink={0} w={{base: "full", md: '1/4'}} h={{base: "300px", md: "250px"}} src={'/public/tamara-bellis-A3Gd2b-98_g-unsplash.jpg'} />
       <Box pt={2} pb={4} px={4} overflow='auto'>
         <Heading py={2}>

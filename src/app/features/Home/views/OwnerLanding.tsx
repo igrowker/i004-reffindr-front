@@ -3,9 +3,9 @@ import { IoLogoInstagram } from 'react-icons/io5'
 
 import { HeadSection, LastSection } from '@/app/features/Home/components/'
 import { CardStaticCarrusel } from '@/app/UI/components/CarruselLanding/CardStaticCarrusel'
-import { Footer } from '@/app/UI/components/Footer/Footer'
 
 import { SectionGrid } from '../components/sections/SectionGrid'
+import { Footer } from '@/app/UI/components/Footer/Footer'
 
 export const OwnerLanding = () => {
   const { t } = useTranslation()

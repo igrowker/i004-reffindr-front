@@ -32,14 +32,14 @@
       "box5-title": "+15.000",
       "box5-description": "usuarios registrados"
     },
-    "card-static-carrusel":{
+    "card-static-carrusel":{ 
       "title": "Más de 140 mil personas eligen ",
       "title-2": "Reffindr",
       "description": "Nuestros clientes nos eligen por la transparencia y simplicidad en el proceso de alquiler.",
       "array-user": {
         "name-1": "Lautaro Fazzito",
         "role-1": "Propietario",
-        "description-1": "stoy encantado con mi experiencia usando Reffindr. Necesitaba alquilar mi propiedad rápidamente, y gracias a la plataforma encontré al inquilino perfecto en pocos días.",
+        "description-1": "Estoy encantado con mi experiencia usando Reffindr. Necesitaba alquilar mi propiedad rápidamente, y gracias a la plataforma encontré al inquilino perfecto en pocos días.",
         "name-2": "María José López",
         "role-2": "Propietaria",
         "description-2": "Reffindr superó mis expectativas. Encontré un inquilino confiable y comprometido en menos de una semana.",

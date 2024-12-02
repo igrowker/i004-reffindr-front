@@ -1,20 +1,16 @@
 import { Box, Flex } from '@chakra-ui/react'
-
-import { CardReuComponent } from '../CardInfo/CardReuComponent'
-import { usePropertiesStore } from '@/stores/propertiesStore'
 import { useEffect } from 'react'
 
+import { usePropertiesStore } from '@/stores/propertiesStore'
 
 export const TenantHome = () => {
-
-  const getProperties = usePropertiesStore(state => state.getProperties)
-  const properties = usePropertiesStore(state => state.properties)
-
+  const getProperties = usePropertiesStore((state) => state.getProperties)
+  const properties = usePropertiesStore((state) => state.properties)
 
   useEffect(() => {
     getProperties()
     console.log(properties)
-  }, [] )
+  }, [])
   return (
     <Flex h='100vh'>
       <Box flex='1' bg='#EDF2F7' p='2' overflowY='auto'>

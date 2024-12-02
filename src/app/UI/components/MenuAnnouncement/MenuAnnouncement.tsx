@@ -1,42 +1,38 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
-import { useState } from "react";
-import PropertyDetails from "../PropertyDetails/PropertyDetails";
-import { PropertyCharacteristic } from "../PropertyCharacteristic/PropertyCharacteristic";
-import Demo from "../ownerData/OwnerForm";
-import { PropertyConfirmation } from "../PropertyConfirmation/PropertyConfirmation";
+import { Box, Flex, Text } from '@chakra-ui/react'
+import { useState } from 'react'
 
+import Demo from '../ownerData/OwnerForm'
+import { PropertyCharacteristic } from '../PropertyCharacteristic/PropertyCharacteristic'
+import { PropertyConfirmation } from '../PropertyConfirmation/PropertyConfirmation'
+import PropertyDetails from '../PropertyDetails/PropertyDetails'
 
 export const AnnoucementsTabs = {
-  PropertyDetails: "Detalles de propiedad",
-  features: "Características",
-  OwnerDetails: "Datos del propietario",
-  Confirmation: "Confirmación"
+  PropertyDetails: 'Detalles de propiedad',
+  features: 'Características',
+  OwnerDetails: 'Datos del propietario',
+  Confirmation: 'Confirmación',
 }
 
 export const MenuAnnouncement = () => {
-  const [activeTab, setActiveTab] = useState(AnnoucementsTabs.PropertyDetails);
+  const [activeTab, setActiveTab] = useState(AnnoucementsTabs.PropertyDetails)
 
-  const tabs = [
-    "Detalles de propiedad",
-    "Caracteristicas",
-    "Datos del propietario",
-    "Confirmación",
-  ];
+  // const tabs = [
+  //   "Detalles de propiedad",
+  //   "Caracteristicas",
+  //   "Datos del propietario",
+  //   "Confirmación",
+  // ];
 
   return (
     <>
-      <Flex justifyContent="start" mb={3} p={2}>
+      <Flex justifyContent='start' mb={3} p={2}>
         {Object.values(AnnoucementsTabs).map((tab) => (
-          <Box
-            key={tab}
-            cursor="pointer"
-            onClick={() => setActiveTab(tab)}
-          >
+          <Box key={tab} cursor='pointer' onClick={() => setActiveTab(tab)}>
             <Text p={2}>{tab}</Text>
             <Box
-              borderColor={activeTab === tab ? "blue.500" : "black"}
-              borderBottom="2px solid"
-              color={activeTab === tab ? "blue.500" : "black"}
+              borderColor={activeTab === tab ? 'blue.500' : 'black'}
+              borderBottom='2px solid'
+              color={activeTab === tab ? 'blue.500' : 'black'}
             />
           </Box>
         ))}
@@ -48,7 +44,5 @@ export const MenuAnnouncement = () => {
       {activeTab === AnnoucementsTabs.OwnerDetails && <Demo />}
       {activeTab === AnnoucementsTabs.Confirmation && <PropertyConfirmation />}
     </>
-  );
-};
-
-
+  )
+}

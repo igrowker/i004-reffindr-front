@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+import { toaster } from '@/components/ui/toaster'
 import { AUTH_TOKEN_KEY } from '@/constants/auth-account-constants'
 import { authLogin } from '@/services/authService'
 import { authRegister } from '@/services/authService'
@@ -25,8 +26,17 @@ export const useLogin = () => {
     if (response.hasErrors) {
       setErrorsMessage(response.errors)
       console.log('Errors:', response.errors)
+      toaster.create({
+        title: 'Error al iniciar sesión',
+        type: 'error',
+      })
       return
     }
+
+    toaster.create({
+      title: 'Inicio de sesión exitoso',
+      type: 'success',
+    })
     setErrorsMessage(null)
     const token = response.data?.token
     if (token) {
@@ -63,6 +73,7 @@ export const useRegister = () => {
       return true
     }
     setErrorsMessage(null)
+    
 
     return null
   }

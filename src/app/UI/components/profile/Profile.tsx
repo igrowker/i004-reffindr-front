@@ -12,10 +12,6 @@ const viewProfile = [
 export const Profile = () => {
   return (
     <Flex
-      w={'full'}
-      position="sticky"
-      top={0}
-      h="100vh"
       borderRight="1px solid #ddd"
       px={8}
       display={'flex'}

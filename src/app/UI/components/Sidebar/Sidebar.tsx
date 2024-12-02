@@ -60,7 +60,8 @@ const Sidebar = () => {
     <Flex
       w={sidebarWidth}
       flexShrink={0}
-      position={'fixed'}
+      position={'sticky'}
+      top={'0px'}
       h='100vh'
       borderRight={'1px solid #ddd'}
       px={8}

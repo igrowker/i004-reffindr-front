@@ -1,3 +1,4 @@
+import { Box } from '@chakra-ui/react'
 import { CardHorizontal } from './CardHorizontal'
 
 export const AnnouncementSection = () => {
@@ -40,7 +41,7 @@ export const AnnouncementSection = () => {
   ]
 
   return (
-    <>
+    <Box>
       {ads.map((ad, index) => (
         <CardHorizontal
           key={index}
@@ -51,6 +52,6 @@ export const AnnouncementSection = () => {
           description={ad.description}
         />
       ))}
-    </>
+    </Box>
   )
 }

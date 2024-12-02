@@ -1,8 +1,10 @@
-import { Box, Button, Fieldset, Input, Link, Stack, Text } from '@chakra-ui/react'
+import { Box, Fieldset, Input, Link, Stack, Text } from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next'
 import { FaFacebook, FaGoogle } from 'react-icons/fa'
+import { useLocation } from 'react-router-dom'
 
 import { ErrorPopover } from '@/app/UI/components/Popover/Popover'
+import { Button } from '@/components/ui/button'
 import {
   DialogBackdrop,
   DialogBody,
@@ -15,11 +17,10 @@ import {
 } from '@/components/ui/dialog'
 import { Field } from '@/components/ui/field'
 import { PasswordInput } from '@/components/ui/password-input'
+import { UserRoles } from '@/constants/auth-account-constants'
 import { useRegister } from '@/hooks/useAuth'
 import { useForm } from '@/hooks/useForm'
 import { validateRegister } from '@/utils/validate'
-import { useLocation } from 'react-router-dom'
-import { UserRoles } from '@/constants/auth-account-constants'
 
 interface Props {
   onShowLogin: () => void
@@ -30,14 +31,14 @@ interface Props {
 export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
   const { t } = useTranslation()
   const { register, errorsMessage } = useRegister()
-  const location = useLocation();
+  const location = useLocation()
   const { formState, errors, handleInputChange, handleSubmit } = useForm(
     { name: '', lastName: '', email: '', password: '' },
     validateRegister
   )
 
   const handleRegisterSubmit = async () => {
-    const isTenant = location.pathname.includes('inquilinos');
+    const isTenant = location.pathname.includes('inquilinos')
 
     const resp = await register({
       roleId: isTenant ? UserRoles.Tenant : UserRoles.Owner,
@@ -161,6 +162,11 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
               >
                 {t('register')}
               </Button>
+
+                <Button loading loadingText='Saving...'>
+                  Click me
+                </Button>
+
 
               <Button
                 fontSize={{ base: 'medium', '2xl': 'xl' }}

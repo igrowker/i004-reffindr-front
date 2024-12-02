@@ -1,4 +1,5 @@
 import { Box, Flex, Text, useBreakpointValue, VStack } from '@chakra-ui/react'
+import { useTranslation } from 'react-i18next'
 import { CgProfile } from 'react-icons/cg'
 import { FaRegHeart } from 'react-icons/fa6'
 import { FiHome } from 'react-icons/fi'
@@ -17,38 +18,39 @@ import { LogoComponent } from '../Logo/LogoComponent'
 import { ButtonIconComponent } from './ButtonIconComponent'
 import { SelectorTypeComponent } from './SelectorTypeComponent'
 
-const links = [
-  {
-    path: 'home',
-    icon: <FiHome />,
-    title: 'Inicio',
-  },
-  {
-    path: 'perfil',
-    icon: <CgProfile />,
-    title: 'Perfil',
-  },
-  {
-    path: 'favoritos',
-    icon: <FaRegHeart />,
-    title: 'Favoritos',
-  },
-  {
-    path: 'help',
-    icon: <IoMdHelp />,
-    title: 'Ayuda',
-  },
-  {
-    path: 'messages',
-    icon: <LuMessageSquare />,
-    title: 'Mensajes',
-  },
-]
-
 const Sidebar = () => {
+  const { t } = useTranslation()
   const sidebarWidth = useBreakpointValue({ base: '277px' })
   const navigate = useNavigate()
   const actualUser = userStore((state) => state.user)
+
+  const links = [
+    {
+      path: 'home',
+      icon: <FiHome />,
+      title: t('home'),
+    },
+    {
+      path: 'perfil',
+      icon: <CgProfile />,
+      title: t('profile'),
+    },
+    {
+      path: 'favoritos',
+      icon: <FaRegHeart />,
+      title: t('favorites'),
+    },
+    {
+      path: 'help',
+      icon: <IoMdHelp />,
+      title: t('help'),
+    },
+    {
+      path: 'messages',
+      icon: <LuMessageSquare />,
+      title: t('messages'),
+    },
+  ]
 
   const handleLogout = () => {
     authLogout()
@@ -104,7 +106,7 @@ const Sidebar = () => {
 
       <Box flexBasis='20%'>
         <VStack gap={6} align='stretch'>
-          <ButtonIconComponent isActive={false} onClick={handleLogout} icon={<RxExit />} text='Cerrar Sesión' />
+          <ButtonIconComponent isActive={false} onClick={handleLogout} icon={<RxExit />} text={t('logout')} />
         </VStack>
       </Box>
     </Flex>

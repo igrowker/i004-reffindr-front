@@ -9,8 +9,11 @@ interface LoginResponse {
 }
 
 interface RegisterResponse {
+  roleId: number
+  name: string
+  lastName: string
   email: string
-  token: string
+  password: string
 }
 
 export const authLogin = async (email: string, password: string): Promise<IBaseResponse<LoginResponse>> => {
@@ -32,13 +35,8 @@ export const authLogin = async (email: string, password: string): Promise<IBaseR
   }
 }
 
-export const authRegister = async (
-  roleId: number,
-  name: string,
-  lastName: string,
-  email: string,
-  password: string
-): Promise<IBaseResponse<RegisterResponse>> => {
+export const authRegister = async (credentials: RegisterResponse): Promise<IBaseResponse<RegisterResponse>> => {
+  const { roleId, name, lastName, email, password } = credentials
   const body = { roleId, name, lastName, email, password }
 
   try {

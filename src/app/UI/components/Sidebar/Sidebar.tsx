@@ -2,7 +2,7 @@ import { Box, Flex, Text, useBreakpointValue, VStack } from '@chakra-ui/react'
 import { CgProfile } from 'react-icons/cg'
 import { FaRegHeart } from 'react-icons/fa6'
 import { FiHome } from 'react-icons/fi'
-import { IoMdHelp, } from 'react-icons/io'
+import { IoMdHelp } from 'react-icons/io'
 import { LuMessageSquare } from 'react-icons/lu'
 import { RxExit } from 'react-icons/rx'
 import { Link, useLocation } from 'react-router-dom'
@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { Avatar } from '@/components/ui/avatar'
 import { authLogout } from '@/services/authService'
+import { userStore } from '@/stores/userStore'
 
 import { Language } from '../ButtonLanguage/Language'
 import { LogoComponent } from '../Logo/LogoComponent'
@@ -47,13 +48,14 @@ const links = [
 const Sidebar = () => {
   const sidebarWidth = useBreakpointValue({ base: '277px' })
   const navigate = useNavigate()
+  const actualUser = userStore((state) => state.user)
 
   const handleLogout = () => {
     authLogout()
     navigate('/inquilinos')
   }
 
-  const location = useLocation();
+  const location = useLocation()
 
   console.log(location)
   return (
@@ -75,7 +77,7 @@ const Sidebar = () => {
       <Box display='flex' justifyContent='center' alignItems='center' gap='2' mb={5}>
         <Avatar size='lg' name='Sage' src='https://bit.ly/sage-adebayo' />
         <Text fontSize='lg' fontWeight='bold'>
-          Paco Martínez
+          {actualUser?.name} {actualUser?.lastName}
         </Text>
       </Box>
 
@@ -87,7 +89,11 @@ const Sidebar = () => {
         <VStack gap={2} align='stretch'>
           {links.map((link) => (
             <Link key={link.path} to={link.path}>
-              <ButtonIconComponent isActive={location.pathname.includes(link.path)}  icon={link.icon} text={link.title} />
+              <ButtonIconComponent
+                isActive={location.pathname.includes(link.path)}
+                icon={link.icon}
+                text={link.title}
+              />
             </Link>
           ))}
         </VStack>

@@ -5,6 +5,10 @@ import { HomePage } from '@/app/features/Home/pages/HomePage'
 import { CreatePropertyPage } from '@/app/features/Tenant/Outgoing/property/pages/CreatePropertyPage'
 import { AnnouncementSection } from '@/app/UI/components/announcementView/AnnouncementSection'
 import { OutgoingTenantHelp } from '@/app/UI/components/OutgoingTenantHelps/OutgoingTenantHelp'
+import { MyRatingProfile } from '@/app/UI/components/profile/MyRatingProfile'
+import { Profile } from '@/app/UI/components/profile/Profile'
+import { ProfileCandidatesSend } from '@/app/UI/components/profile/ProfileCandidatesSend'
+import { ProfileNotifications } from '@/app/UI/components/profile/ProfileNotifications'
 import { TenantHomePage } from '@/app/UI/components/PropertyCard/TenantHome'
 import { ViewEditProfile } from '@/app/UI/components/ViewEditProfile/ViewEditProfile'
 import { ExpandedDetails } from '@/app/UI/components/ViewExpandedDetails/ExpandedDetails'
@@ -12,10 +16,6 @@ import { HomeLayout } from '@/layouts/HomeLayout'
 
 import { OwnerLanding } from '../app/features/Home/views/OwnerLanding'
 import { authenticated, requireAuth } from './loaders/authLoader'
-import { MyRatingProfile } from '@/app/UI/components/profile/MyRatingProfile'
-import { Profile } from '@/app/UI/components/profile/Profile'
-import { ProfileCandidatesSend } from '@/app/UI/components/profile/ProfileCandidatesSend'
-import { ProfileNotifications } from '@/app/UI/components/profile/ProfileNotifications'
 
 export const router = createBrowserRouter(
   [
@@ -33,7 +33,7 @@ export const router = createBrowserRouter(
       path: '/',
       element: <HomeLayout />,
       loader: requireAuth,
-
+      hydrateFallbackElement: <Flex>Loading...</Flex>,
       children: [
         {
           path: 'home',

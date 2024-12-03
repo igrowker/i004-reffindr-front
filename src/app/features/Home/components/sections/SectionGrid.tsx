@@ -1,12 +1,13 @@
 import { Box, Center, Image, SimpleGrid, Text } from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next'
+
 import { HeaderSectionGridComponent } from './HeaderSectionGridComponent'
 
 export const SectionGrid = () => {
   const { t } = useTranslation()
 
   return (
-    <Box bg='white' py={12} px={6}>
+    <Box bg='white' py={12} px={6} mb={10}>
       <HeaderSectionGridComponent
         title={t('landing.section-grid.header-title')}
         highlight='valorados'
@@ -74,10 +75,10 @@ export const SectionGrid = () => {
               <Box bg='#3182CE' rounded='lg' shadow='md' p={6} h={{ base: '200px', md: '200px' }}>
                 <Box display='flex' flexDirection='column' justifyContent='flex-end' alignItems='center' h='full'>
                   <Text fontSize={{ base: '3xl', md: '4xl' }} fontWeight='bold' color='white'>
-                  {t('landing.section-grid.box2-title')}
+                    {t('landing.section-grid.box2-title')}
                   </Text>
                   <Text color='white' textAlign='center'>
-                  {t('landing.section-grid.box2-description')}
+                    {t('landing.section-grid.box2-description')}
                   </Text>
                 </Box>
               </Box>
@@ -93,11 +94,9 @@ export const SectionGrid = () => {
               <Box bg='#3182CE' rounded='lg' shadow='md' p={6} color='white' h={{ base: '150px', md: '200px' }}>
                 <Box display='flex' flexDirection='column' justifyContent='flex-end' h='full'>
                   <Text fontSize='3xl' fontWeight='bold'>
-                  {t('landing.section-grid.box3-title')}
+                    {t('landing.section-grid.box3-title')}
                   </Text>
-                  <Text>
-                  {t('landing.section-grid.box3-description')}
-                  </Text>
+                  <Text>{t('landing.section-grid.box3-description')}</Text>
                 </Box>
               </Box>
             </Box>
@@ -124,11 +123,9 @@ export const SectionGrid = () => {
               <Box bg='gray.900' rounded='lg' shadow='md' p={6} color='white' h={{ base: '150px', md: '230px' }}>
                 <Box display='flex' flexDirection='column' justifyContent='flex-end' alignItems='center' h='full'>
                   <Text fontSize='3xl' fontWeight='bold'>
-                  {t('landing.section-grid.box4-title')}
+                    {t('landing.section-grid.box4-title')}
                   </Text>
-                  <Text textAlign='center'>
-                  {t('landing.section-grid.box4-description')}
-                  </Text>
+                  <Text textAlign='center'>{t('landing.section-grid.box4-description')}</Text>
                 </Box>
               </Box>
             </Box>
@@ -143,10 +140,10 @@ export const SectionGrid = () => {
               <Box bg='#EDF2F7' rounded='lg' shadow='md' p={6} h={{ base: '150px', md: '200px' }}>
                 <Box display='flex' flexDirection='column' justifyContent='flex-end' h='full'>
                   <Text fontSize='3xl' fontWeight='bold'>
-                  {t('landing.section-grid.box5-title')}
+                    {t('landing.section-grid.box5-title')}
                   </Text>
                   <Text color='gray.600' textAlign='left'>
-                  {t('landing.section-grid.box5-description')}
+                    {t('landing.section-grid.box5-description')}
                   </Text>
                 </Box>
               </Box>

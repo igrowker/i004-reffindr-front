@@ -1,7 +1,7 @@
 import { Box, Flex, Text } from '@chakra-ui/react'
 import { useState } from 'react'
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
 import { useTranslation } from 'react-i18next'
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
 
 import { Button } from '@/components/ui/button'
 
@@ -71,6 +71,7 @@ export const CardStaticCarrusel = () => {
       alignItems={'center'}
       flexDirection={{ base: 'column', md: 'column', xl: 'row' }}
       justifyContent={'space-around'}
+      mb={10}
     >
       <Flex gap='2' flexDir={'column'}>
         <Flex
@@ -83,11 +84,11 @@ export const CardStaticCarrusel = () => {
           <Text fontSize={{ base: '2xl', md: '3xl' }} fontWeight={'bold'} textAlign={{ base: 'center', md: 'left' }}>
             {t('landing.card-static-carrusel.title')}
             <Text as='span' color={'#146EB4'}>
-            {t('landing.card-static-carrusel.title-2')}
+              {t('landing.card-static-carrusel.title-2')}
             </Text>
           </Text>
           <Text fontSize={{ base: 'xl', md: '2xl' }} textAlign={{ base: 'center', md: 'left' }}>
-          {t('landing.card-static-carrusel.description')}
+            {t('landing.card-static-carrusel.description')}
           </Text>
         </Flex>
         <Flex justifyContent='flex-end' p={5} gap={5}>

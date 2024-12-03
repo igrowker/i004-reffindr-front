@@ -1,5 +1,11 @@
 {
   "landing": {
+    "owner-view": {
+      "HeadSection": {
+        "tenant": "Soy inquilino",
+        "title": "Nuestra plataforma conecta a inquilinos y propietarios, eliminando /n la necesidad de intermediarios y las comisiones elevadas."
+      }
+    },
     "tenant-view": {
       "HeadSection": {
         "owner": "Soy propietario",

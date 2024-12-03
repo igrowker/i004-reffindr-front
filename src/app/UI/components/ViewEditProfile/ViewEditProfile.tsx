@@ -46,12 +46,9 @@ export const ViewEditProfile = () => {
 
   return (
     <Flex display={'flex'} bgColor='white' py={4} flexDir={'column'}>
-      
       <Flex justifyContent='end'>
-        <Button variant="outline" onClick={handleEditClick} mr={4}>
-          {
-            isEditing ? t('ViewEditProfile.button-edit-active') : t('ViewEditProfile.button-edit')
-          }
+        <Button variant='outline' onClick={handleEditClick} mr={4}>
+          {isEditing ? t('ViewEditProfile.button-edit-active') : t('ViewEditProfile.button-edit')}
           <MdEdit />
         </Button>
       </Flex>
@@ -67,7 +64,7 @@ export const ViewEditProfile = () => {
       >
         <Flex flexDir='column' alignItems='center'>
           <Avatar.Root w={'7em'} h={'7em'}>
-            <Avatar.Image src='/public/AvatarImage1.png' />
+            <Avatar.Image src={actualUser.imageProfileUrl} />
             <Avatar.Fallback>LF</Avatar.Fallback>
             <Float placement={'bottom-end'} offset='4'>
               <IconButton rounded='full' size={'md'} bg='#efefef' color='black' outline='0.3em solid' outlineColor='bg'>

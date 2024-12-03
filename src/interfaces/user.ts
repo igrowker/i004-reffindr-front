@@ -10,4 +10,5 @@ export interface User {
   birthDate: Date
   email: string
   isProfileComplete: boolean
+  imageProfileUrl: string
 }

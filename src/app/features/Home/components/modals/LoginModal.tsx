@@ -54,7 +54,7 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
       <DialogBackdrop />
       <DialogTrigger asChild>
         <Button size={{ base: 'xs', sm: 'md' }} variant='solid' colorPalette={'blue'}>
-          Iniciar sesión
+          {t('login')}
         </Button>
       </DialogTrigger>
       <DialogContent rounded='sm'>

@@ -1,4 +1,6 @@
 [![Develop CI/CD Pipeline](https://github.com/igrowker/i004-reffindr-front/actions/workflows/ci-dev.yaml/badge.svg)](https://github.com/igrowker/i004-reffindr-front/actions/workflows/ci-dev.yaml)
+[![Production CI/CD Pipeline](https://github.com/igrowker/i004-reffindr-front/actions/workflows/ci-prod.yaml/badge.svg)](https://github.com/igrowker/i004-reffindr-front/actions/workflows/ci-prod.yaml)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e2741076-1f7f-4268-8dee-6ec88b8c535d/deploy-status)](https://app.netlify.com/sites/reffindr-dev/deploys)
 
 # Vite React Project Reffinder
 

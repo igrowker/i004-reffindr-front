@@ -52,7 +52,7 @@ export const router = createBrowserRouter(
           element: <Profile />,
           children: [
             {
-              path: 'mi-perfil',
+              index: true,
               element: <ViewEditProfile />,
             },
             {
@@ -68,7 +68,7 @@ export const router = createBrowserRouter(
               element: <ProfileNotifications />,
             },
             {
-              path: 'mi-valoracion',
+              path: 'mi-rating',
               element: <MyRatingProfile />,
             },
           ],

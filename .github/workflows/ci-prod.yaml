@@ -44,8 +44,6 @@ jobs:
 
       - name: Build Application
         run: npm run build
-        env:
-          REACT_APP_API_URL: ${{ secrets.APP_API_URL }}
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -56,4 +54,4 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          aws s3 sync ./build/ s3://reffindr-front --delete --acl public-read
+          aws s3 sync ./dist/ s3://reffindr-front --delete --acl public-read

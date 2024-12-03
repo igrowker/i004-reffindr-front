@@ -21,6 +21,7 @@ import { UserRoles } from '@/constants/auth-account-constants'
 import { useRegister } from '@/hooks/useAuth'
 import { useForm } from '@/hooks/useForm'
 import { validateRegister } from '@/utils/validate'
+import { useState } from 'react'
 
 interface Props {
   onShowLogin: () => void
@@ -30,6 +31,7 @@ interface Props {
 
 export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
   const { t } = useTranslation()
+  const [isLoading, setIsLoading] = useState(false)
   const { register, errorsMessage } = useRegister()
   const location = useLocation()
   const { formState, errors, handleInputChange, handleSubmit } = useForm(
@@ -38,6 +40,7 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
   )
 
   const handleRegisterSubmit = async () => {
+    setIsLoading(true)
     const isTenant = location.pathname.includes('inquilinos')
 
     const resp = await register({
@@ -47,6 +50,9 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
       email: formState.email,
       password: formState.password,
     })
+
+    setIsLoading(false)
+
     if (resp !== true) {
       if (onOpenChange) {
         onOpenChange({ open: false })
@@ -159,13 +165,11 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
                 colorPalette={'blue'}
                 rounded='xs'
                 onClick={() => handleSubmit(handleRegisterSubmit)}
+                loading={isLoading}
+                loadingText={t('registering')}
               >
                 {t('register')}
               </Button>
-
-                <Button loading loadingText='Saving...'>
-                  Click me
-                </Button>
 
 
               <Button

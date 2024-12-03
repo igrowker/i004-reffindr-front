@@ -8,6 +8,7 @@ import { Field } from '@/components/ui/field'
 import { FileUploadList, FileUploadRoot, FileUploadTrigger } from '@/components/ui/file-upload'
 import { Radio, RadioGroup } from '@/components/ui/radio'
 
+
 import CustomSelect from '../CustomSelect/CustomSelect'
 
 const PropertyDetails = () => {

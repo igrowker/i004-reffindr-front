@@ -26,9 +26,6 @@ FROM base as final
 # Configurar el entorno de producción
 ENV NODE_ENV production
 
-# Copiar `package.json` para que el contenedor pueda usar los comandos del gestor de paquetes
-COPY package.json .
-
 # Copiar las dependencias de producción desde la etapa de dependencias
 COPY --from=deps /usr/src/app/node_modules ./node_modules
 

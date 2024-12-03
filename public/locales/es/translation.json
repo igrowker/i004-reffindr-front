@@ -1,25 +1,25 @@
 {
-  "landing":{
-    "tenant-view":{
-      "HeadSection":{
+  "landing": {
+    "tenant-view": {
+      "HeadSection": {
         "owner": "Soy propietario",
         "title": "Encontrá tu hogar sin \n intermediarios"
       },
-      "last-section":{
-          "title-1": "Mirá el catalogo de las propiedades",
-          "description-1": "Una vez completado el formulario, se mostrarán los hogares a los que aplica tu perfil",
-          "title-2": "Postulate a las propiedades que más te gusten",
-          "description-2": "Si cumpliste los requisitos, te seleccionará el inquilino saliente entre los mejores candidatos",
-          "title-3": "Fuiste seleccionado por el inquilino",
-          "description-3": "Te podrás conectar con el propietario para concretar tu alquiler o venta de tu nuevo hogar."
-        }
+      "last-section": {
+        "title-1": "Mirá el catalogo de las propiedades",
+        "description-1": "Una vez completado el formulario, se mostrarán los hogares a los que aplica tu perfil",
+        "title-2": "Postulate a las propiedades que más te gusten",
+        "description-2": "Si cumpliste los requisitos, te seleccionará el inquilino saliente entre los mejores candidatos",
+        "title-3": "Fuiste seleccionado por el inquilino",
+        "description-3": "Te podrás conectar con el propietario para concretar tu alquiler o venta de tu nuevo hogar."
+      }
     },
-    "headSection":{
+    "headSection": {
       "button-login": "Iniciar sesión",
       "button-register": "Registrarse",
       "text": "Nuestra plataforma conecta a inquilinos y propietarios, eliminando \n la necesidad de intermediarios y las comisiones elevadas."
     },
-    "section-grid":{
+    "section-grid": {
       "header-title": "Los mejores valorados aplicarán a tu propiedad",
       "header-description": "Te mostraremos los mejores tres candidatos aplicados a tu propiedad, siendo pre-filtrados anteriormente.",
       "box1-description": "de satisfacción con nuestro servicio",
@@ -32,14 +32,14 @@
       "box5-title": "+15.000",
       "box5-description": "usuarios registrados"
     },
-    "card-static-carrusel":{
+    "card-static-carrusel": {
       "title": "Más de 140 mil personas eligen ",
       "title-2": "Reffindr",
       "description": "Nuestros clientes nos eligen por la transparencia y simplicidad en el proceso de alquiler.",
       "array-user": {
         "name-1": "Lautaro Fazzito",
         "role-1": "Propietario",
-        "description-1": "stoy encantado con mi experiencia usando Reffindr. Necesitaba alquilar mi propiedad rápidamente, y gracias a la plataforma encontré al inquilino perfecto en pocos días.",
+        "description-1": "Estoy encantado con mi experiencia usando Reffindr. Necesitaba alquilar mi propiedad rápidamente, y gracias a la plataforma encontré al inquilino perfecto en pocos días.",
         "name-2": "María José López",
         "role-2": "Propietaria",
         "description-2": "Reffindr superó mis expectativas. Encontré un inquilino confiable y comprometido en menos de una semana.",
@@ -54,7 +54,7 @@
         "description-5": "Nunca pensé que alquilar una propiedad podría ser tan sencillo. Gracias a Reffindr, tengo más tiempo para dedicar a otras actividades porque encontré al inquilino perfecto rápidamente."
       }
     },
-    "footer":{
+    "footer": {
       "Copyright": "Derechos de autor",
       "support": {
         "title": "Soporte",
@@ -64,7 +64,7 @@
         "link-4": "Política de privacidad"
       },
       "received-news": {
-        "title" : "Recibí las novedades de propiedades",
+        "title": "Recibí las novedades de propiedades",
         "input-placeholder": "Escribí tu email"
       }
     }
@@ -72,6 +72,13 @@
   "completeFields": "Completa los siguientes campos:",
   "dontHaveAccount": "¿No tienes una cuenta?",
   "email": "Email",
+  "incoming": "Entrante",
+  "outgoing": "Saliente",
+  "myProfile": "Mi Perfil",
+  "myAds": "Mis Anuncios",
+  "sendedCandidates": "Candidatos Enviados",
+  "notifications": "Notificaciones",
+  "myRating": "Mi Valoración",
   "emailPlaceholder": "Correo Electrónico",
   "forgotPassword": "¿Olvidaste tu contraseña?",
   "haveAccount": "¿Ya tienes una cuenta?",
@@ -85,27 +92,63 @@
   "registerWithFacebook": "Registrarse con Facebook",
   "registerWithGoogle": "Registrarse con Google",
   "surname": "Apellido",
+  "home": "Inicio",
+  "profile": "Perfil",
+  "favorites": "Favoritos",
+  "help": "Ayuda",
+  "messages": "Mensajes",
+  "logout": "Cerrar Sesión",
+  "filter": "Filtrar",
+  "createAd": "Crear Anuncio",
+  "minorPrice": "Precio Menor",
+  "majorPrice": "Precio Mayor",
+  "search": "Buscar",
   "ViewEditProfile": {
+    "button-edit": "Editar perfil",
+    "button-save": "Guardar Cambios",
     "role": "Inquilino",
     "name": "Nombre:",
     "last-name": "Apellido:",
     "document-number": "Número de documento:",
-    "salary-range":{
+    "salary-range": {
       "label": "Rango salarial:",
       "placeholder": "Selecciona una opción"
     },
-    "email":"Correo electrónico:",
-    "gender":{
+    "email": "Correo electrónico:",
+    "gender": {
       "label": "Genero:",
       "placeholder": "Selecciona una opción"
     },
-    "province":{
+    "province": {
       "label": "Provincia:",
       "placeholder": "Selecciona una opción"
     },
-    "address":{
+    "address": {
       "label": "Dirección",
       "placeholder": "Escribe tu dirección"
+    },
+    "modal": {
+      "confirmation": "¿Seguro deseas guardar cambios?",
+      "yes": "Sí",
+      "cancel": "Cancelar"
     }
+  },
+  "TenantHelp": {
+    "title": "Preguntas frecuentes",
+    "data": {
+      "ask-1": "¿Qué es Reffindr y cómo me beneficia como inquilino saliente?",
+      "answer-1": "Reffindr es una plataforma que te permite referir a nuevos candidatos para ocupar el departamento que estás dejando. Al hacer una recomendación, puedes ganar una comisión reducida, lo que puede ayudarte con los gastos de mudanza, y al mismo tiempo, el nuevo inquilino puede acceder a una comisión más baja que la de una agencia tradicional.",
+      "ask-2": "¿Cómo funciona el proceso de referencia de un nuevo inquilino?",
+      "answer-2": "Cuando decidas dejar tu departamento, podrás recomendar a un nuevo candidato que cumpla con los requisitos establecidos por el propietario o incluso alguien que tenga mejores condiciones, como mayor estabilidad laboral o ingresos. Al hacerlo, recibirás una comisión por la referencia.",
+      "ask-3": "¿Puedo recomendar a cualquier persona o tiene que cumplir con requisitos específicos?",
+      "answer-3": "Aunque puedes recomendar a cualquier persona que consideres adecuada, es importante que el candidato cumpla con los requisitos del propietario de la propiedad. Estos pueden incluir condiciones como estabilidad laboral, ingresos suficientes y otros factores relevantes para el alquiler del departamento.",
+      "ask-4": "¿Qué pasa si el propietario rechaza a la persona que recomendé?",
+      "answer-4": "Aunque puedes recomendar a cualquier persona que consideres adecuada, es importante que el candidato cumpla con los requisitos del propietario de la propiedad. Estos pueden incluir condiciones como estabilidad laboral, ingresos suficientes y otros factores relevantes para el alquiler del departamento"
+    }
+  },
+  "Language": {
+    "title": "Idioma",
+    "ingles-english": "Ingles",
+    "español-spanish": "Español"
   }
 }

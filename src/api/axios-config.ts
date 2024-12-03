@@ -1,7 +1,8 @@
+import { AUTH_TOKEN_KEY } from '@/constants/auth-account-constants'
 import axios, { InternalAxiosRequestConfig } from 'axios'
 
 export const httpClient = axios.create({
-  baseURL: import.meta.env.VITE_BACKEND_URL,
+  baseURL: 'https://i004-reffindr-back-nodejs-dev.onrender.com',
   headers: {
     'Content-Type': 'application/json',
   },
@@ -9,7 +10,7 @@ export const httpClient = axios.create({
 
 const requestInterceptor = (config: InternalAxiosRequestConfig) => {
   if (config.url === '/') return config
-  const tokenInfo = sessionStorage.getItem('token')
+  const tokenInfo = sessionStorage.getItem(AUTH_TOKEN_KEY)
 
   config.headers.Authorization = `Bearer ${tokenInfo}`
 

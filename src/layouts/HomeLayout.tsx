@@ -9,7 +9,6 @@ export const HomeLayout = () => {
   return (
     <Flex>
       <Sidebar />
-
       <Box flexGrow={1} p={'20px'} bgColor={'#edf2f7'}>
         <Box mb={3}>
           <SearchWithFiltersAndNotification />

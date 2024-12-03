@@ -14,6 +14,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { Field } from '@/components/ui/field'
+import { PasswordInput } from '@/components/ui/password-input'
 import { useLogin } from '@/hooks/useAuth'
 import { useForm } from '@/hooks/useForm'
 import { validateLogin } from '@/utils/validate'
@@ -32,7 +33,6 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
 
   const handleLogin = async () => {
     await login(formState.email, formState.password)
-    console.log('Login OK')
   }
 
   const handleShowRegister = () => {
@@ -88,7 +88,7 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
               </Box>
               <Box>
                 <Field label={t('password')} required>
-                  <Input
+                  <PasswordInput
                     type='password'
                     name='password'
                     value={formState.password}

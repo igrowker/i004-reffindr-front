@@ -1,10 +1,11 @@
-import { IoLogoInstagram } from 'react-icons/io5'
 import { useTranslation } from 'react-i18next'
+import { IoLogoInstagram } from 'react-icons/io5'
+
 import { HeadSection, LastSection } from '@/app/features/Home/components/'
 import { CardStaticCarrusel } from '@/app/UI/components/CarruselLanding/CardStaticCarrusel'
+import { Footer } from '@/app/UI/components/Footer/Footer'
 
 import { SectionGrid } from '../components/sections/SectionGrid'
-import Footer from '@/app/UI/components/footer/Footer'
 
 export const TenantView = () => {
   const { t } = useTranslation()
@@ -30,19 +31,19 @@ export const TenantView = () => {
         items={[
           {
             title: t('landing.tenant-view.last-section.title-1'),
-            description: t('landing.tenant-view.last-section.description-1')
+            description: t('landing.tenant-view.last-section.description-1'),
           },
           {
             title: t('landing.tenant-view.last-section.title-2'),
-            description: t('landing.tenant-view.last-section.description-2')
+            description: t('landing.tenant-view.last-section.description-2'),
           },
           {
             title: t('landing.tenant-view.last-section.title-3'),
-            description: t('landing.tenant-view.last-section.description-3')
+            description: t('landing.tenant-view.last-section.description-3'),
           },
         ]}
       />
-      <Footer/>
+      <Footer />
     </>
   )
 }

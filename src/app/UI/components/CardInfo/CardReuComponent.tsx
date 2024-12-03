@@ -1,7 +1,9 @@
 import { Badge, Box, Button, Card, Flex, HStack, IconButton, Image, Text } from '@chakra-ui/react'
-import { CiHeart } from 'react-icons/ci'
+import { useState } from 'react'
+import { FaHeart } from 'react-icons/fa6'
 import { IoChevronForwardSharp } from 'react-icons/io5'
 import { RiMapPin2Line } from 'react-icons/ri'
+import { useNavigate } from 'react-router-dom'
 
 import { Rating } from '@/components/ui/rating'
 
@@ -28,10 +30,30 @@ export const CardReuComponent = ({
   showRating = false,
   setRating,
   rating,
-  maxW
+  maxW,
 }: CardReuProps) => {
+  const [isFavorited, setIsFavorited] = useState(false)
+
+  const toggleFavorite = () => {
+    setIsFavorited(!isFavorited)
+  }
+  const navigate = useNavigate()
+
+  const handleViewMore = () => {
+    navigate(title, {
+      state: {
+        title,
+        description,
+        price,
+        location,
+        image,
+        features,
+      },
+    })
+  }
   return (
     <Card.Root
+      minW={maxW}
       maxW={maxW}
       overflow='hidden'
       shadow='md'
@@ -45,8 +67,15 @@ export const CardReuComponent = ({
         <Flex alignItems='center' gap='2'>
           <Card.Title>{title}</Card.Title>
 
-          <IconButton aria-label='Call support' ml='auto' rounded='full' bg='transparent' color='black'>
-            <CiHeart />
+          <IconButton
+            aria-label='Call support'
+            ml='auto'
+            rounded='full'
+            bg='transparent'
+            color={isFavorited ? 'red.500' : 'gray.500'}
+            onClick={toggleFavorite}
+          >
+            <FaHeart />
           </IconButton>
         </Flex>
 
@@ -55,36 +84,37 @@ export const CardReuComponent = ({
             <Rating allowHalf defaultValue={rating} onValueChange={({ value }) => setRating && setRating(value)} />
             <Flex alignItems='center' gap='1'>
               <Text>
-                {rating} <span>Star</span>
-              </Text>{' '}
-              <Text></Text>10 reviews
+                {rating} <Box as={'span'}>Star</Box>
+              </Text>
+              <Text>10 reviews</Text>
             </Flex>
           </HStack>
         )}
 
         <Text textStyle='2xl' fontWeight='medium' letterSpacing='tight' mt='2'>
-          {price}
+          ${price.toLocaleString('es-AR')}
         </Text>
-        <Text letterSpacing='tight' mt='2'>
+        <Box letterSpacing='tight' mt='2'>
           <Flex alignItems='center' gap='2'>
             <RiMapPin2Line />
             {location}
           </Flex>
-        </Text>
+        </Box>
         <Box display='flex' gap='2'>
-          {features.map((feature) => (
-            <Badge variant='solid' bg='#3182CE' size='md'>
+          {features.map((feature, index) => (
+            <Badge key={index} variant='solid' bg='#3182CE' size='md'>
               {feature}
             </Badge>
           ))}
         </Box>
 
-        <Card.Description>
+        <Card.Title as='h3'>{title}</Card.Title>
+        <Card.Description as='span'>
           <Text lineClamp='2'>{description}</Text>
         </Card.Description>
       </Card.Body>
       <Card.Footer>
-        <Button variant='ghost' ml='auto'>
+        <Button onClick={handleViewMore} variant='ghost' ml='auto'>
           Ver más <IoChevronForwardSharp />
         </Button>
       </Card.Footer>

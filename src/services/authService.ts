@@ -1,20 +1,19 @@
 import { AxiosError } from 'axios'
 
 import { httpClient } from '@/api/axios-config'
+import { AUTH_TOKEN_KEY } from '@/constants/auth-account-constants'
+import { IBaseResponse } from '@/interfaces/api-response'
 
-interface IBaseResponse<T> {
-  data?: T
-  errors: string[]
-  hasErrors: boolean
-  statusCode: number
-}
 interface LoginResponse {
   token: string
 }
 
 interface RegisterResponse {
+  roleId: number
+  name: string
+  lastName: string
   email: string
-  token: string
+  password: string
 }
 
 export const authLogin = async (email: string, password: string): Promise<IBaseResponse<LoginResponse>> => {
@@ -36,13 +35,8 @@ export const authLogin = async (email: string, password: string): Promise<IBaseR
   }
 }
 
-export const authRegister = async (
-  roleId: number,
-  name: string,
-  lastName: string,
-  email: string,
-  password: string
-): Promise<IBaseResponse<RegisterResponse>> => {
+export const authRegister = async (credentials: RegisterResponse): Promise<IBaseResponse<RegisterResponse>> => {
+  const { roleId, name, lastName, email, password } = credentials
   const body = { roleId, name, lastName, email, password }
 
   try {
@@ -60,3 +54,5 @@ export const authRegister = async (
     }
   }
 }
+
+export const authLogout = () => sessionStorage.removeItem(AUTH_TOKEN_KEY)

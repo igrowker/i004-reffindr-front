@@ -1,5 +1,11 @@
 {
   "landing": {
+    "owner-view": {
+      "HeadSection": {
+        "tenant": "I'm tenant",
+        "title": "Our platform connects tenants and owners, removing /n the need for intermediaries and high commissions."
+      }
+    },
     "tenant-view": {
       "HeadSection": {
         "owner": "I am an owner",
@@ -72,6 +78,18 @@
   "completeFields": "Complete the following fields:",
   "dontHaveAccount": "Don't have an account?",
   "email": "Email",
+  "incoming": "Incoming",
+  "outgoing": "Outgoing",
+  "pathMyProfile": "My-Profile",
+  "PathMyAds": "My Ads",
+  "PathSendedCandidates": "Sended Candidates",
+  "PathNotifications": "Notifications",
+  "PathMyRating": "My Rating",
+  "myProfile": "My Profile",
+  "myAds": "My Ads",
+  "sendedCandidates": "Sended Candidates",
+  "notifications": "Notifications",
+  "myRating": "My Rating",
   "emailPlaceholder": "Email",
   "forgotPassword": "Forgot your password?",
   "haveAccount": "Already have an account?",
@@ -85,7 +103,20 @@
   "registerWithFacebook": "Register with Facebook",
   "registerWithGoogle": "Register with Google",
   "surname": "Surname",
-  "ViewEditProfile": {
+  "home": "Home",
+  "profile": "Profile",
+  "favorites": "Favorites",
+  "help": "Help",
+  "messages": "Messages",
+  "logout": "Logout",
+  "filter": "Filter",
+  "createAd": "Create Ad",
+  "minorPrice": "Minor Price",
+  "majorPrice": "Max Price",
+  "search": "Search",
+    "ViewEditProfile": {
+    "button-edit": "Edit Profile",
+    "button-save": "Save Changes",
     "role": "Tenant",
     "name": "Name:",
     "last-name": "Last Name:",
@@ -106,6 +137,29 @@
     "address": {
       "label": "Address",
       "placeholder": "Enter your address"
+    },
+    "modal": {
+      "confirmation": "Are you sure you want to save changes?",
+      "yes": "Yes",
+      "cancel": "Cancel"
     }
+  },
+  "TenantHelp": {
+    "title": "Frequently Asked Questions",
+    "data": {
+      "ask-1": "What is Reffindr, and how does it benefit me as a departing tenant?",
+      "answer-1": "Reffindr is a platform that allows you to refer new candidates to occupy the apartment you are vacating. By making a recommendation, you can earn a reduced commission, which can help with moving expenses, while the new tenant benefits from a lower commission compared to a traditional agency.",
+      "ask-2": "How does the process of referring a new tenant work?",
+      "answer-2": "When you decide to leave your apartment, you can recommend a new candidate who meets the owner's requirements or even someone with better qualifications, such as greater job stability or higher income. By doing so, you will receive a commission for the referral.",
+      "ask-3": "Can I recommend anyone, or do they need to meet specific requirements?",
+      "answer-3": "Although you can recommend anyone you deem suitable, it is important that the candidate meets the requirements set by the property owner. These may include conditions such as job stability, sufficient income, and other relevant factors for renting the apartment.",
+      "ask-4": "What happens if the property owner rejects the person I recommended?",
+      "answer-4": "Although you can recommend anyone you deem suitable, it is important that the candidate meets the requirements set by the property owner. These may include conditions such as job stability, sufficient income, and other relevant factors for renting the apartment."
+    }
+  },
+  "Language": {
+    "title": "Language",
+    "ingles-english": "English",
+    "español-spanish": "Spanish"
   }
 }

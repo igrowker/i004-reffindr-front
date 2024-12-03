@@ -1,8 +1,10 @@
-import { Box, Button, Fieldset, Input, Link, Stack, Text } from '@chakra-ui/react'
+import { Box, Fieldset, Input, Link, Stack, Text } from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next'
 import { FaFacebook, FaGoogle } from 'react-icons/fa'
+import { useLocation } from 'react-router-dom'
 
 import { ErrorPopover } from '@/app/UI/components/Popover/Popover'
+import { Button } from '@/components/ui/button'
 import {
   DialogBackdrop,
   DialogBody,
@@ -14,6 +16,8 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { Field } from '@/components/ui/field'
+import { PasswordInput } from '@/components/ui/password-input'
+import { UserRoles } from '@/constants/auth-account-constants'
 import { useRegister } from '@/hooks/useAuth'
 import { useForm } from '@/hooks/useForm'
 import { validateRegister } from '@/utils/validate'
@@ -27,14 +31,28 @@ interface Props {
 export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
   const { t } = useTranslation()
   const { register, errorsMessage } = useRegister()
-
+  const location = useLocation()
   const { formState, errors, handleInputChange, handleSubmit } = useForm(
     { name: '', lastName: '', email: '', password: '' },
     validateRegister
   )
 
   const handleRegisterSubmit = async () => {
-    await register(1, formState.name, formState.lastName, formState.email, formState.password)
+    const isTenant = location.pathname.includes('inquilinos')
+
+    const resp = await register({
+      roleId: isTenant ? UserRoles.Tenant : UserRoles.Owner,
+      name: formState.name,
+      lastName: formState.lastName,
+      email: formState.email,
+      password: formState.password,
+    })
+    if (resp !== true) {
+      if (onOpenChange) {
+        onOpenChange({ open: false })
+      }
+      onShowLogin()
+    }
   }
   return (
     <DialogRoot
@@ -113,7 +131,7 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
 
               <Box>
                 <Field label={t('password')} required>
-                  <Input
+                  <PasswordInput
                     name='password'
                     fontSize={{ base: 'medium', '2xl': 'xl' }}
                     type='password'
@@ -144,6 +162,11 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
               >
                 {t('register')}
               </Button>
+
+                <Button loading loadingText='Saving...'>
+                  Click me
+                </Button>
+
 
               <Button
                 fontSize={{ base: 'medium', '2xl': 'xl' }}

@@ -33,25 +33,18 @@ export const PropertyConfirmation = () => {
   ]
 
   return (
-    <Flex bg='#EDF2F7' p='2' w='full' h='100vh' flexDirection='column'>
+    <Flex  p={8} flexDirection='column'>
 
       <Flex
         direction='row'
         justifyContent={showDialog ? 'center' : 'space-between'}
         alignItems={showDialog ? 'center' : 'flex-start'}
-        bg='white'
-        p='5'
-        gap='4'
-        border='1px solid'
-        borderColor='gray.300'
-        borderRadius='md'
-        h='650px'
       >
         {showDialog ? (
           <ConfirmationDialog setShowDialog={setShowDialog} />
         ) : (
           <>
-            <Flex direction={'column'} flex='1' ml={5} pt={5}>
+            <Flex direction={'column'} flex='1'>
               <Text mb={5} fontWeight={'bold'}>
                 Vista previa de propiedad
               </Text>
@@ -59,7 +52,7 @@ export const PropertyConfirmation = () => {
             </Flex>
 
             <Flex direction={'column'} flex='2' h='full'>
-              <Text my={5} fontWeight={'bold'}>
+              <Text mb={5}  fontWeight={'bold'}>
                 Datos del propietario
               </Text>
               <OwnerDataCard ownerData={ownerData[0]} />

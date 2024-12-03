@@ -1,4 +1,4 @@
-import { Box, Button, Fieldset, Flex, Float, Grid, GridItem, IconButton, Input, Text } from '@chakra-ui/react'
+import { Button, Fieldset, Flex, Float, Grid, GridItem, IconButton, Input, Text } from '@chakra-ui/react'
 import { Avatar } from '@chakra-ui/react'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'

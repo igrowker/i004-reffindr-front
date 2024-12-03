@@ -116,6 +116,7 @@
   "search": "Search",
     "ViewEditProfile": {
     "button-edit": "Edit Profile",
+    "button-edit-active": "Cancel",
     "button-save": "Save Changes",
     "role": "Tenant",
     "name": "Name:",

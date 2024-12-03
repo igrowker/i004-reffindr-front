@@ -105,6 +105,7 @@
   "search": "Buscar",
   "ViewEditProfile": {
     "button-edit": "Editar perfil",
+    "button-edit-active": "Cancelar",
     "button-save": "Guardar Cambios",
     "role": "Inquilino",
     "name": "Nombre:",

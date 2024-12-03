@@ -17,6 +17,7 @@ import { Language } from '../ButtonLanguage/Language'
 import { LogoComponent } from '../Logo/LogoComponent'
 import { ButtonIconComponent } from './ButtonIconComponent'
 import { SelectorTypeComponent } from './SelectorTypeComponent'
+import { UserRoles } from '@/constants/auth-account-constants'
 
 const Sidebar = () => {
   const { t } = useTranslation()
@@ -76,12 +77,13 @@ const Sidebar = () => {
       <Box display='flex' justifyContent='center' mb={5} mt={5}>
         <LogoComponent size='96px' src='/assets/logos-svg/logoazul.svg' />
       </Box>
-      <Box display='flex' justifyContent='center' alignItems='center' gap='2' mb={5}>
+      <Flex  justifyContent='center' alignItems='center' gap='2' mb={5}>
         <Avatar size='lg' name='Sage' src='https://bit.ly/sage-adebayo' />
         <Text fontSize='lg' fontWeight='bold'>
           {actualUser?.name} {actualUser?.lastName}
+        <Text fontWeight={"medium"} fontSize="md" color="blue" textDecoration="underline">{actualUser?.roleId == UserRoles.Owner ? 'Propietario' : 'Inquilino'}</Text>
         </Text>
-      </Box>
+      </Flex>
 
       <Box flexBasis='10%'>
         <SelectorTypeComponent />

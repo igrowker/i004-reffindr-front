@@ -15,9 +15,9 @@ export const SearchWithFiltersAndNotification = () => {
   const tenantRole = useTenantStore((state) => state.tenantRole)
 
   return (
-    <HStack gap='6' width='full' align='center' bg={'white'} mb={2} py={2} px={2} position={'sticky'} top={'0px'}>
+    <HStack gap='6' width='full' align='center' bg={'white'} mb={2} py={2} px={2} >
       {/* este es mi inputt de búsqueda */}
-      <Flex position='relative' width={'50%'}>
+      <Flex  width={'50%'}>
         <Input
           placeholder={t('search')}
           variant={'outline'}

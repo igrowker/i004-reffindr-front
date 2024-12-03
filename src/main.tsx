@@ -1,10 +1,19 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import { createRoot } from 'react-dom/client'
+import { RouterProvider } from 'react-router-dom'
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+import { Provider } from '@/components/ui/provider'
+import { Toaster } from '@/components/ui/toaster'
+import '@/i18n'
+import { router } from '@/router'
+
+const root = createRoot(document.getElementById('root')!)
+
+root.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <Provider forcedTheme='light'>
+      <RouterProvider router={router} future={{ v7_startTransition: true }} />
+      <Toaster />
+    </Provider>
+  </React.StrictMode>
 )

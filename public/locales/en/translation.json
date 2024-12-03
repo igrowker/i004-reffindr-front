@@ -1,0 +1,165 @@
+{
+  "landing": {
+    "owner-view": {
+      "HeadSection": {
+        "tenant": "I'm tenant",
+        "title": "Our platform connects tenants and owners, removing /n the need for intermediaries and high commissions."
+      }
+    },
+    "tenant-view": {
+      "HeadSection": {
+        "owner": "I am an owner",
+        "title": "Find your home without \n intermediaries"
+      },
+      "last-section": {
+        "title-1": "View the catalog of properties",
+        "description-1": "Once the form is completed, the homes that match your profile will be displayed",
+        "title-2": "Apply to the properties you like the most",
+        "description-2": "If you meet the requirements, the outgoing tenant will select you among the best candidates",
+        "title-3": "You were selected by the tenant",
+        "description-3": "You can connect with the owner to finalize the rental or sale of your new home."
+      }
+    },
+    "headSection": {
+      "button-login": "Log in",
+      "button-register": "Register",
+      "text": "Our platform connects tenants and owners, eliminating \n the need for intermediaries and high commissions."
+    },
+    "section-grid": {
+      "header-title": "The top-rated applicants will apply to your property",
+      "header-description": "We will show you the top three candidates who applied for your property, pre-screened beforehand.",
+      "box1-description": "of satisfaction with our service",
+      "box2-title": "23 Years",
+      "box2-description": "of experience in the market",
+      "box3-title": "+1000",
+      "box3-description": "Rented properties",
+      "box4-title": "24hr",
+      "box4-description": "Customer support available",
+      "box5-title": "+15,000",
+      "box5-description": "registered users"
+    },
+    "card-static-carrusel": {
+      "title": "More than 140,000 people choose ",
+      "title-2": "Reffindr",
+      "description": "Our clients choose us for the transparency and simplicity in the rental process.",
+      "array-user": {
+        "name-1": "Lautaro Fazzito",
+        "role-1": "Owner",
+        "description-1": "I am delighted with my experience using Reffindr. I needed to rent my property quickly, and thanks to the platform, I found the perfect tenant in a few days.",
+        "name-2": "María José López",
+        "role-2": "Owner",
+        "description-2": "Reffindr exceeded my expectations. I found a reliable and committed tenant in less than a week.",
+        "name-3": "Carlos Ramírez",
+        "role-3": "Tenant",
+        "description-3": "I own several properties, and Reffindr has become my number one ally for renting them. The customer support is exceptional, and the system is very intuitive. I highly recommend it.",
+        "name-4": "Andrea Núñez",
+        "role-4": "Owner",
+        "description-4": "The experience with Reffindr has been incredible. The platform helped me find the ideal tenant for my apartment in record time. It is easy to use and very efficient.",
+        "name-5": "Luis Mendoza",
+        "role-5": "Tenant",
+        "description-5": "I never thought renting a property could be so simple. Thanks to Reffindr, I have more time to dedicate to other activities because I quickly found the perfect tenant."
+      }
+    },
+    "footer": {
+      "Copyright": "Copyright",
+      "support": {
+        "title": "Support",
+        "link-1": "Help Center",
+        "link-2": "Terms of Service",
+        "link-3": "Legal",
+        "link-4": "Privacy Policy"
+      },
+      "received-news": {
+        "title": "Get property updates",
+        "input-placeholder": "Enter your email"
+      }
+    }
+  },
+  "completeFields": "Complete the following fields:",
+  "dontHaveAccount": "Don't have an account?",
+  "email": "Email",
+  "incoming": "Incoming",
+  "outgoing": "Outgoing",
+  "pathMyProfile": "My-Profile",
+  "PathMyAds": "My Ads",
+  "PathSendedCandidates": "Sended Candidates",
+  "PathNotifications": "Notifications",
+  "PathMyRating": "My Rating",
+  "myProfile": "My Profile",
+  "myAds": "My Ads",
+  "sendedCandidates": "Sended Candidates",
+  "notifications": "Notifications",
+  "myRating": "My Rating",
+  "emailPlaceholder": "Email",
+  "forgotPassword": "Forgot your password?",
+  "haveAccount": "Already have an account?",
+  "login": "Login",
+  "loginWithFacebook": "Login with Facebook",
+  "loginWithGoogle": "Login with Google",
+  "name": "Name",
+  "password": "Password",
+  "passwordPlaceholder": "Password",
+  "register": "Register",
+  "registerWithFacebook": "Register with Facebook",
+  "registerWithGoogle": "Register with Google",
+  "surname": "Surname",
+  "home": "Home",
+  "profile": "Profile",
+  "favorites": "Favorites",
+  "help": "Help",
+  "messages": "Messages",
+  "logout": "Logout",
+  "filter": "Filter",
+  "createAd": "Create Ad",
+  "minorPrice": "Minor Price",
+  "majorPrice": "Max Price",
+  "search": "Search",
+    "ViewEditProfile": {
+    "button-edit": "Edit Profile",
+    "button-save": "Save Changes",
+    "role": "Tenant",
+    "name": "Name:",
+    "last-name": "Last Name:",
+    "document-number": "Document Number:",
+    "salary-range": {
+      "label": "Salary Range:",
+      "placeholder": "Select an option"
+    },
+    "email": "Email:",
+    "gender": {
+      "label": "Gender:",
+      "placeholder": "Select an option"
+    },
+    "province": {
+      "label": "Province:",
+      "placeholder": "Select an option"
+    },
+    "address": {
+      "label": "Address",
+      "placeholder": "Enter your address"
+    },
+    "modal": {
+      "confirmation": "Are you sure you want to save changes?",
+      "yes": "Yes",
+      "cancel": "Cancel"
+    }
+  },
+  "TenantHelp": {
+    "title": "Frequently Asked Questions",
+    "data": {
+      "ask-1": "What is Reffindr, and how does it benefit me as a departing tenant?",
+      "answer-1": "Reffindr is a platform that allows you to refer new candidates to occupy the apartment you are vacating. By making a recommendation, you can earn a reduced commission, which can help with moving expenses, while the new tenant benefits from a lower commission compared to a traditional agency.",
+      "ask-2": "How does the process of referring a new tenant work?",
+      "answer-2": "When you decide to leave your apartment, you can recommend a new candidate who meets the owner's requirements or even someone with better qualifications, such as greater job stability or higher income. By doing so, you will receive a commission for the referral.",
+      "ask-3": "Can I recommend anyone, or do they need to meet specific requirements?",
+      "answer-3": "Although you can recommend anyone you deem suitable, it is important that the candidate meets the requirements set by the property owner. These may include conditions such as job stability, sufficient income, and other relevant factors for renting the apartment.",
+      "ask-4": "What happens if the property owner rejects the person I recommended?",
+      "answer-4": "Although you can recommend anyone you deem suitable, it is important that the candidate meets the requirements set by the property owner. These may include conditions such as job stability, sufficient income, and other relevant factors for renting the apartment."
+    }
+  },
+  "Language": {
+    "title": "Language",
+    "ingles-english": "English",
+    "español-spanish": "Spanish"
+  }
+}

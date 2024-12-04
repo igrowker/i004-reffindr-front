@@ -1,57 +1,39 @@
-import { Box } from '@chakra-ui/react'
-import { CardHorizontal } from './CardHorizontal'
+import { Box, Text } from '@chakra-ui/react';
+import { CardHorizontal } from './CardHorizontal';
+import { useAds } from '@/hooks/useAds';
+
+// Define el tipo Ad basado en la estructura real de los datos
+interface Ad {
+  id: string;
+  propertyTitle: string;
+  propertyDescription: string;
+  price: number;
+  location: string;
+  features?: string[];
+}
 
 export const AnnouncementSection = () => {
-  const ads = [
-    {
-      title: 'Casa corral',
-      price: '$55',
-      location: 'New York, NY',
-      badges: ['2 amb', 'Temporal', 'Amueblado'],
-      description: 'Mi querido hogar en Recoleta: El refugio perfecto para quien busca comodidad y calidez.',
-    },
-    {
-      title: 'Casa corral',
-      price: '$55',
-      location: 'New York, NY',
-      badges: ['2 amb', 'Temporal', 'Amueblado'],
-      description: 'Mi querido hogar en Recoleta: El refugio perfecto para quien busca comodidad y calidez.',
-    },
-    {
-      title: 'Casa corral',
-      price: '$55',
-      location: 'New York, NY',
-      badges: ['2 amb', 'Temporal', 'Amueblado'],
-      description: 'Mi querido hogar en Recoleta: El refugio perfecto para quien  busca comodidad y calidez.',
-    },
-    {
-      title: 'Casa corral',
-      price: '$55',
-      location: 'New York, NY',
-      badges: ['2 amb', 'Temporal', 'Amueblado'],
-      description: 'Mi querido hogar en Recoleta: El refugio perfecto para quien busca comodidad y calidez.',
-    },
-    {
-      title: 'Casa corral',
-      price: '$55',
-      location: 'New York, NY',
-      badges: ['2 amb', 'Temporal', 'Amueblado'],
-      description: 'Mi querido hogar en Recoleta: El refugio perfecto para quien busca comodidad y calidez.',
-    },
-  ]
+  const { ads, loading, error } = useAds();
+
+  if (loading) return <Box>Cargando anuncios...</Box>;
+
+  if (error) return <Box color="red.500">{error}</Box>;
+
+  if (ads.length === 0)
+    return <Text textAlign="center">No hay anuncios disponibles en este momento.</Text>;
 
   return (
     <Box>
-      {ads.map((ad, index) => (
+      {ads.map((ad: Ad) => (
         <CardHorizontal
-          key={index}
-          title={ad.title}
+          key={ad.id}
+          title={ad.propertyTitle}
           price={ad.price}
           location={ad.location}
-          badges={ad.badges}
-          description={ad.description}
+          badges={ad.features}
+          description={ad.propertyDescription}
         />
       ))}
     </Box>
-  )
-}
+  );
+};

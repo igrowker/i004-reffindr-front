@@ -67,7 +67,7 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
       <DialogBackdrop />
       <DialogTrigger asChild>
         <Button size={{ base: 'xs', sm: 'md' }} variant='outline' bg={'white'} colorPalette={'bg'}>
-          Registrarse
+          {t('landing.register')}
         </Button>
       </DialogTrigger>
       <DialogContent rounded='sm'>
@@ -164,7 +164,7 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
               </Button>
 
                 <Button loading loadingText='Saving...'>
-                  Click me
+                  {t('landing.register')}
                 </Button>
 
 

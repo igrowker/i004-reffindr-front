@@ -68,7 +68,7 @@ export const router = createBrowserRouter(
               element: <ProfileNotifications />,
             },
             {
-              path: 'mi-valoracion',
+              path: 'mi-rating',
               element: <MyRatingProfile />,
             },
           ],

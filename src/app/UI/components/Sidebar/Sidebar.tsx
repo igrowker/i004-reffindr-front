@@ -10,6 +10,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
 import { Avatar } from '@/components/ui/avatar'
+import { UserRoles } from '@/constants/auth-account-constants'
 import { authLogout } from '@/services/authService'
 import { userStore } from '@/stores/userStore'
 
@@ -76,12 +77,15 @@ const Sidebar = () => {
       <Box display='flex' justifyContent='center' mb={5} mt={5}>
         <LogoComponent size='96px' src='/assets/logos-svg/logoazul.svg' />
       </Box>
-      <Box display='flex' justifyContent='center' alignItems='center' gap='2' mb={5}>
-        <Avatar size='lg' name='Sage' src='https://bit.ly/sage-adebayo' />
+      <Flex justifyContent='center' alignItems='center' gap='2' mb={5}>
+        <Avatar size='lg' name='Sage' src={actualUser.imageProfileUrl} />
         <Text fontSize='lg' fontWeight='bold'>
           {actualUser?.name} {actualUser?.lastName}
+          <Text fontWeight={'medium'} fontSize='md' color='blue' textDecoration='underline'>
+            {actualUser?.roleId == UserRoles.Owner ? 'Propietario' : 'Inquilino'}
+          </Text>
         </Text>
-      </Box>
+      </Flex>
 
       <Box flexBasis='10%'>
         <SelectorTypeComponent />

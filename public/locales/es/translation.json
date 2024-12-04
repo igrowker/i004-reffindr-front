@@ -1,5 +1,12 @@
 {
   "landing": {
+    "register": "Registrarse",
+    "owner-view": {
+      "HeadSection": {
+        "tenant": "Soy inquilino",
+        "title": "Nuestra plataforma conecta a inquilinos y propietarios, eliminando /n la necesidad de intermediarios y las comisiones elevadas."
+      }
+    },
     "tenant-view": {
       "HeadSection": {
         "owner": "Soy propietario",
@@ -20,6 +27,7 @@
       "text": "Nuestra plataforma conecta a inquilinos y propietarios, eliminando \n la necesidad de intermediarios y las comisiones elevadas."
     },
     "section-grid": {
+      "valued": "valorados",
       "header-title": "Los mejores valorados aplicarán a tu propiedad",
       "header-description": "Te mostraremos los mejores tres candidatos aplicados a tu propiedad, siendo pre-filtrados anteriormente.",
       "box1-description": "de satisfacción con nuestro servicio",
@@ -89,6 +97,7 @@
   "password": "Contraseña",
   "passwordPlaceholder": "Contraseña",
   "register": "Regístrate",
+  "registering": "registrando...",
   "registerWithFacebook": "Registrarse con Facebook",
   "registerWithGoogle": "Registrarse con Google",
   "surname": "Apellido",
@@ -105,6 +114,7 @@
   "search": "Buscar",
   "ViewEditProfile": {
     "button-edit": "Editar perfil",
+    "button-edit-active": "Cancelar",
     "button-save": "Guardar Cambios",
     "role": "Inquilino",
     "name": "Nombre:",

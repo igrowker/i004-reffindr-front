@@ -52,7 +52,7 @@ export const router = createBrowserRouter(
           element: <Profile />,
           children: [
             {
-              path: 'mi-perfil',
+              index: true,
               element: <ViewEditProfile />,
             },
             {

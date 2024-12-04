@@ -1,11 +1,11 @@
 import { create } from 'zustand'
 
 import { Property } from '@/interfaces/types'
-import { getProperties } from '@/services/propertiesService';
+import { getProperties } from '@/services/propertiesService'
 
 interface State {
-  propertie: Property;
-  properties: Property[];
+  propertie: Property
+  properties: Property[]
   getProperties: () => Promise<null>
   setPropertie: (propertie: Property) => void
 }
@@ -13,15 +13,14 @@ interface State {
 export const usePropertiesStore = create<State>((set) => ({
   propertie: {} as Property,
   properties: [],
-  getProperties: async() => {
-    const resp = await getProperties();
+  getProperties: async () => {
+    const resp = await getProperties()
     console.log(resp)
-    if ( resp.hasErrors ) {
-      return null;
-    }  
-    set({properties: resp.data});
-    return null;
-    
+    if (resp.hasErrors) {
+      return null
+    }
+    set({ properties: resp.data })
+    return null
   },
   setPropertie: (propertie: Property) => set({ propertie }),
 }))

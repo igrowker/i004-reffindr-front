@@ -1,40 +1,38 @@
-import { Box, Button, Flex, VStack } from '@chakra-ui/react'
+import { Box, Button, Flex, Stack } from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next'
-import { NavLink, Outlet } from 'react-router-dom'
+import { Link, Outlet, useLocation } from 'react-router-dom'
 
 export const Profile = () => {
   const { t } = useTranslation()
 
   const viewProfile = [
-    { path: "mi-perfil", title: t('myProfile') },
-    { path: "mis-anuncios", title: t('myAds') },
-    { path: "candidatos-enviados", title: t('sendedCandidates') },
-    { path: "notificaciones", title: t('notifications') },
-    { path: "mi-rating", title: t('myRating') },
+    { path: '', title: t('myProfile') },
+    { path: 'mis-anuncios', title: t('myAds') },
+    { path: 'candidatos-enviados', title: t('sendedCandidates') },
+    { path: 'notificaciones', title: t('notifications') },
+    { path: 'mi-rating', title: t('myRating') },
   ]
-
+  const location = useLocation()
+  const partialPathname = location.pathname.split('/').slice(2) 
+  const pathname = partialPathname.length == 0 ? '' : partialPathname[0]
   return (
-    <Flex borderRight='1px solid #ddd' px={8} display={'flex'} flexDirection='column'>
-      <Box w={'60%'} display={'flex'} mx={'auto'}>
-        <VStack align='stretch' display={'flex'} flexDirection={'row'} justifyContent={'space-around'}>
-          {viewProfile.map((item) => (
-            <NavLink
+    <Flex flexDirection='column'>
+      <Stack  wrap={'wrap'} justifyContent={'center'} direction={'row'}>
+        {viewProfile.map((item) => (
+          <Link to={`${item.path}`}>
+            <Button
               key={item.path}
-              to={`/perfil/${item.path}`} // Ruta completa para navegación
-              style={({ isActive }) => ({
-                textDecoration: 'none',
-                fontWeight: isActive ? 'bold' : 'normal',
-                color: isActive ? 'blue' : 'black',
-              })}
+              size={{ base: 'sm', lg: 'md' }}
+              colorPalette={'border'}
+              variant='outline'
+              borderColor={pathname == item.path ? 'blue' : '#ccc'}
             >
-              <Button w='full' fontSize={'xl'} color={'black'} bg='transparent' border='1px solid gray'>
-                {item.title}
-              </Button>
-            </NavLink>
-          ))}
-        </VStack>
-      </Box>
-      <Box flex='1' p={4}>
+              {item.title}
+            </Button>
+          </Link>
+        ))}
+      </Stack>
+      <Box mt={4}>
         <Outlet />
       </Box>
     </Flex>

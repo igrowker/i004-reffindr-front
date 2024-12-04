@@ -8,7 +8,6 @@ import { Field } from '@/components/ui/field'
 import { FileUploadList, FileUploadRoot, FileUploadTrigger } from '@/components/ui/file-upload'
 import { Radio, RadioGroup } from '@/components/ui/radio'
 
-
 import CustomSelect from '../CustomSelect/CustomSelect'
 
 const PropertyDetails = () => {
@@ -49,20 +48,35 @@ const PropertyDetails = () => {
           </Field>
         </GridItem>
         <GridItem>
-          <CustomSelect
-            label='País:'
-            options={[
-              { value: '1', label: '1' },
-              { value: '2', label: '2' },
-            ]}
-          />
+          <CustomSelect label='País:' options={[{ value: 'Argentina', label: 'Argentina' }]} />
         </GridItem>
         <GridItem>
           <CustomSelect
             label='Provincia:'
             options={[
-              { value: '1', label: '1' },
-              { value: '2', label: '2' },
+              { value: 'Buenos Aires', label: 'Buenos Aires' },
+              { value: 'Catamarca', label: 'Catamarca' },
+              { value: 'Chaco', label: 'Chaco' },
+              { value: 'Chubut', label: 'Chubut' },
+              { value: 'Córdoba', label: 'Córdoba' },
+              { value: 'Corrientes', label: 'Corrientes' },
+              { value: 'Entre Ríos', label: 'Entre Ríos' },
+              { value: 'Formosa', label: 'Formosa' },
+              { value: 'Jujuy', label: 'Jujuy' },
+              { value: 'La Pampa', label: 'La Pampa' },
+              { value: 'La Rioja', label: 'La Rioja' },
+              { value: 'Mendoza', label: 'Mendoza' },
+              { value: 'Misiones', label: 'Misiones' },
+              { value: 'Neuquén', label: 'Neuquén' },
+              { value: 'Río Negro', label: 'Río Negro' },
+              { value: 'Salta', label: 'Salta' },
+              { value: 'San Juan', label: 'San Juan' },
+              { value: 'San Luis', label: 'San Luis' },
+              { value: 'Santa Cruz', label: 'Santa Cruz' },
+              { value: 'Santa Fe', label: 'Santa Fe' },
+              { value: 'Santiago del Estero', label: 'Santiago del Estero' },
+              { value: 'Tierra del Fuego', label: 'Tierra del Fuego' },
+              { value: 'Tucumán', label: 'Tucumán' },
             ]}
           />
         </GridItem>
@@ -75,8 +89,21 @@ const PropertyDetails = () => {
           <CustomSelect
             label='Tipo de propiedad:'
             options={[
-              { value: '1', label: '1' },
-              { value: '2', label: '2' },
+              { value: 'casa', label: 'Casa' },
+              { value: 'departamento', label: 'Departamento' },
+              { value: 'monoambiente', label: 'Monoambiente' },
+              { value: 'piso', label: 'Piso' },
+              { value: 'duplex', label: 'Dúplex' },
+              { value: 'loft', label: 'Loft' },
+              { value: 'cabaña', label: 'Cabaña' },
+              { value: 'chalet', label: 'Chalet' },
+              { value: 'ph', label: 'PH (Propiedad Horizontal)' },
+              { value: 'terreno', label: 'Terreno' },
+              { value: 'quinta', label: 'Quinta' },
+              { value: 'finca', label: 'Finca' },
+              { value: 'local_comercial', label: 'Local Comercial' },
+              { value: 'oficina', label: 'Oficina' },
+              { value: 'galpón', label: 'Galpón' },
             ]}
           />
         </GridItem>

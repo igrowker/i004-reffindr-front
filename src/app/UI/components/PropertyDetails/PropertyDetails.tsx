@@ -37,14 +37,9 @@ const PropertyDetails = () => {
             <Input placeholder='Escribe el nombre' type='string' name='nombrePropiedad' />
           </Field>
         </GridItem>
-        <GridItem>
-          <Field label='Barrio:' labelStyles={{ marginBottom: '2', fontWeight: 'bold', fontSize: '16px' }}>
-            <Input placeholder='Escribe el barrio' type='string' name='nombreBarrio' />
-          </Field>
-        </GridItem>
         <GridItem colSpan={2}>
-          <Field label='Calle:' labelStyles={{ marginBottom: '2', fontWeight: 'bold', fontSize: '16px' }}>
-            <Input placeholder='Escribe la calle' type='string' name='nombreCalle' />
+          <Field label='Dirección:' labelStyles={{ marginBottom: '2', fontWeight: 'bold', fontSize: '16px' }}>
+            <Input placeholder='Escribe la dirección' type='string' name='dirección' />
           </Field>
         </GridItem>
         <GridItem>

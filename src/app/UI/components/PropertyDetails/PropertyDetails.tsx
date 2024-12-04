@@ -34,7 +34,7 @@ const PropertyDetails = () => {
             label='Nombre o título de propiedad:'
             labelStyles={{ marginBottom: '2', fontWeight: 'bold', fontSize: '16px' }}
           >
-            <Input placeholder='Escribe el nombre:' type='string' name='nombrePropiedad' />
+            <Input placeholder='Escribe el nombre' type='string' name='nombrePropiedad' />
           </Field>
         </GridItem>
         <GridItem>

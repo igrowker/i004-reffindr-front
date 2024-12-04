@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { LogoComponent } from '@/app/UI/components/Logo/LogoComponent'
 
 import { LoginModal, RegisterModal } from '../'
+import { Language } from '@/app/UI/components/ButtonLanguage/Language'
 
 interface Props {
   title: string
@@ -61,6 +62,17 @@ export const HeadSection = ({ title, backgroundImage, headLink }: Props) => {
                 onShowLogin={handleShowLogin}
                 isOpen={showRegister}
                 onOpenChange={() => setShowRegister((prev) => !prev)}
+              />
+              <Language
+              _icon={{ display: 'none' }}
+              gap={0}
+              justifyContent={'space-between'}
+              buttonStyles={{
+                color: 'white',
+                bg: "rgba(0, 0, 0, 0.2)",
+                _hover: {bg: 'rgba(0, 0, 0, 0.3)'},
+                fontSize: 'xs',
+              }}
               />
             </Flex>
           </Flex>

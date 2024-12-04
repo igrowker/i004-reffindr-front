@@ -10,7 +10,7 @@ export const SectionGrid = () => {
     <Box bg='white' py={12} px={6} mb={10}>
       <HeaderSectionGridComponent
         title={t('landing.section-grid.header-title')}
-        highlight='valorados'
+        highlight={t('landing.section-grid.valued')}
         description={t('landing.section-grid.header-description')}
       />
       <Center>

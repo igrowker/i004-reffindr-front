@@ -1,4 +1,5 @@
 import { Box, Fieldset, Input, Link, Stack, Text } from '@chakra-ui/react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FaFacebook, FaGoogle } from 'react-icons/fa'
 import { useLocation } from 'react-router-dom'
@@ -21,7 +22,6 @@ import { UserRoles } from '@/constants/auth-account-constants'
 import { useRegister } from '@/hooks/useAuth'
 import { useForm } from '@/hooks/useForm'
 import { validateRegister } from '@/utils/validate'
-import { useState } from 'react'
 
 interface Props {
   onShowLogin: () => void
@@ -73,7 +73,7 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
       <DialogBackdrop />
       <DialogTrigger asChild>
         <Button size={{ base: 'xs', sm: 'md' }} variant='outline' bg={'white'} colorPalette={'bg'}>
-          Registrarse
+          {t('landing.register')}
         </Button>
       </DialogTrigger>
       <DialogContent rounded='sm'>
@@ -170,7 +170,6 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
               >
                 {t('register')}
               </Button>
-
 
               <Button
                 fontSize={{ base: 'medium', '2xl': 'xl' }}

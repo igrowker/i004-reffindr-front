@@ -1,5 +1,6 @@
 {
   "landing": {
+    "register": "Register",
     "owner-view": {
       "HeadSection": {
         "tenant": "I'm tenant",
@@ -26,6 +27,7 @@
       "text": "Our platform connects tenants and owners, eliminating \n the need for intermediaries and high commissions."
     },
     "section-grid": {
+      "valued": " valued",
       "header-title": "The top-rated applicants will apply to your property",
       "header-description": "We will show you the top three candidates who applied for your property, pre-screened beforehand.",
       "box1-description": "of satisfaction with our service",

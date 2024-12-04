@@ -13,7 +13,7 @@ const CustomSelect = ({ label, options, width = '100%' }: CustomSelectProps) => 
       <Text mb={2} fontWeight="bold">
         {label}
       </Text>
-      <NativeSelectRoot size="sm" width="100%">
+      <NativeSelectRoot  size="sm" width="100%">
         <NativeSelectField placeholder="Seleccionar una opción" width="100%">
           {options.map((option, index) => (
             <option key={index} value={option.value}>

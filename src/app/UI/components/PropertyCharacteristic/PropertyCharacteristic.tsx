@@ -21,7 +21,7 @@ export const PropertyCharacteristic = () => {
       <Flex px={8} py={8} direction={'column'}>
         <Grid gridTemplateColumns={'repeat(2,1fr)'} gapX={14} gapY={4}>
           <GridItem>
-            <CustomSelect label='Ambientes:' options={options} />
+            <CustomSelect  label='Ambientes:' options={options} />
           </GridItem>
           <GridItem>
             <CustomSelect label='Dormitorios:' options={options2} />

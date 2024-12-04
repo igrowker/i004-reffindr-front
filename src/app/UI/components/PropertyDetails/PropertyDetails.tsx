@@ -1,4 +1,4 @@
-import { Flex, Grid, GridItem, HStack, Input, Text } from '@chakra-ui/react'
+import { Flex, Grid, GridItem, Input,  } from '@chakra-ui/react'
 import { HiUpload } from 'react-icons/hi'
 import { ImFilePicture } from 'react-icons/im'
 
@@ -6,12 +6,18 @@ import { Button } from '@/components/ui/button'
 import { EmptyState } from '@/components/ui/empty-state'
 import { Field } from '@/components/ui/field'
 import { FileUploadList, FileUploadRoot, FileUploadTrigger } from '@/components/ui/file-upload'
-import { Radio, RadioGroup } from '@/components/ui/radio'
 
 
 import CustomSelect from '../CustomSelect/CustomSelect'
+import { InitialFormState } from '../MenuAnnouncement/MenuAnnouncement'
+import { ChangeEvent } from 'react'
 
-const PropertyDetails = () => {
+interface Props {
+  formState: InitialFormState,
+  handleInputChange: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
+}
+
+const PropertyDetails = ({ formState, handleInputChange }: Props) => {
   return (
     <Flex direction={'column'} py={4} px={8}>
       <Flex flexDirection={'row'} alignItems={'center'} gap={4}>
@@ -20,7 +26,7 @@ const PropertyDetails = () => {
           title='No tienes multimedia cargada'
           description='Aceptamos archivos de imagen o video .jpg y .png'
         />
-        <FileUploadRoot>
+        <FileUploadRoot name='image'>
           <FileUploadTrigger asChild>
             <Button variant='outline' size='sm'>
               <HiUpload /> Seleccionar imagenes o videos
@@ -39,13 +45,8 @@ const PropertyDetails = () => {
           </Field>
         </GridItem>
         <GridItem>
-          <Field label='Barrio:' labelStyles={{ marginBottom: '2', fontWeight: 'bold', fontSize: '16px' }}>
-            <Input placeholder='Escribe el barrio' type='string' name='nombreBarrio' />
-          </Field>
-        </GridItem>
-        <GridItem colSpan={2}>
-          <Field label='Calle:' labelStyles={{ marginBottom: '2', fontWeight: 'bold', fontSize: '16px' }}>
-            <Input placeholder='Escribe la calle' type='string' name='nombreCalle' />
+          <Field label='Dirección:' labelStyles={{ marginBottom: '2', fontWeight: 'bold', fontSize: '16px' }}>
+            <Input placeholder='Escribe la direccion' type='string' value={formState.address} onChange={handleInputChange} name='address' />
           </Field>
         </GridItem>
         <GridItem>
@@ -80,17 +81,7 @@ const PropertyDetails = () => {
             ]}
           />
         </GridItem>
-        <GridItem>
-          <Text fontWeight={'bold'} fontSize={'16px'} mb={3}>
-            Operación:
-          </Text>
-          <RadioGroup defaultValue='1'>
-            <HStack gap='6'>
-              <Radio value='1'>Alquiler</Radio>
-              <Radio value='2'>Venta</Radio>
-            </HStack>
-          </RadioGroup>
-        </GridItem>
+       
       </Grid>
 
       <Flex margin={4} gap={4}></Flex>

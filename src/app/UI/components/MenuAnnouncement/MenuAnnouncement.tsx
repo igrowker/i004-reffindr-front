@@ -1,10 +1,12 @@
-import { Box, Flex, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, Text } from '@chakra-ui/react'
 import { useState } from 'react'
 
 import { OwnerData } from '../ownerData/OwnerForm'
 import { PropertyCharacteristic } from '../PropertyCharacteristic/PropertyCharacteristic'
 import { PropertyConfirmation } from '../PropertyConfirmation/PropertyConfirmation'
 import PropertyDetails from '../PropertyDetails/PropertyDetails'
+import { useForm } from '@/hooks/useForm'
+import { createProperty } from '@/services/propertiesService'
 
 export const AnnoucementsTabs = {
   PropertyDetails: 'Detalles de propiedad',
@@ -12,10 +14,19 @@ export const AnnoucementsTabs = {
   OwnerDetails: 'Datos del propietario',
   Confirmation: 'Confirmación',
 }
+export interface InitialFormState {
+  address: string;
+}
 
 export const MenuAnnouncement = () => {
   const [activeTab, setActiveTab] = useState(AnnoucementsTabs.PropertyDetails)
+  const {formState, handleInputChange, handleSubmit} = useForm<InitialFormState>({
+    address: '',
+  }, (values) => values);
 
+  const onSubmitForm = () => {
+    createProperty(formState)
+  }
   return (
     <>
       <Flex justifyContent='start' mb={3} p={2}>
@@ -33,11 +44,12 @@ export const MenuAnnouncement = () => {
 
       <Box bgColor='white'  rounded='sm' border='1px solid #ddd'>
 
-        {activeTab === AnnoucementsTabs.PropertyDetails && <PropertyDetails />}
+        {activeTab === AnnoucementsTabs.PropertyDetails && <PropertyDetails formState={formState} handleInputChange={handleInputChange} />}
         {activeTab === AnnoucementsTabs.features && <PropertyCharacteristic />}
         {activeTab === AnnoucementsTabs.OwnerDetails && <OwnerData />}
         {activeTab === AnnoucementsTabs.Confirmation && <PropertyConfirmation />}
       </Box>
+      <Button onClick={onSubmitForm}></Button>
     </>
   )
 }

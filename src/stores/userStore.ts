@@ -9,7 +9,7 @@ interface State {
   user: User
 
   getActualUser: () => Promise<null>
-  updateUser: (data: User) => Promise<IBaseResponse<User> | null>
+  updateUser: (data: User) => Promise<IBaseResponse<User | undefined>>
 }
 
 export const userStore = create<State>((set) => ({
@@ -25,11 +25,9 @@ export const userStore = create<State>((set) => ({
   },
   updateUser: async (data: User) => {
     const resp = await updateUserCredentials(data)
-    console.log(resp)
-    if (resp.hasErrors) {
-      return null
+    if (!resp.hasErrors) {
+      set({ user: resp.data })
     }
-    set({ user: resp.data })
     return resp
   },
 }))

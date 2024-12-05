@@ -9,6 +9,11 @@ export interface User {
   address: string
   birthDate: Date
   email: string
+  GenreId: number;
+  SalaryId: number;
   isProfileComplete: boolean
   imageProfileUrl: string
 }
+
+
+

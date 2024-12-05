@@ -140,7 +140,7 @@
     },
     "modal": {
       "confirmation": "¿Seguro deseas guardar cambios?",
-      "yes": "Sí",
+      "yes": "Aceptar",
       "cancel": "Cancelar"
     }
   },

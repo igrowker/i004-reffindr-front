@@ -80,7 +80,7 @@ const Sidebar = () => {
         <Avatar size='lg' name='Sage' src={actualUser.imageProfileUrl} />
         <Text fontSize='lg' fontWeight='bold'>
           {actualUser?.name} {actualUser?.lastName}
-          <Text fontWeight={'medium'} fontSize='md' color='blue' textDecoration='underline'>
+          <Text fontWeight={'medium'} fontSize='md' color='#1e3a8a' textDecoration='underline'>
             {actualUser?.roleId == UserRoles.Owner ? 'Propietario' : 'Inquilino'}
           </Text>
         </Text>
@@ -105,7 +105,7 @@ const Sidebar = () => {
       </Box>
 
       <Box flexBasis='20%'>
-        <VStack gap={6} align='stretch' >
+        <VStack gap={6} align='stretch' mt={10}>
           <ButtonIconComponent isActive={false} onClick={handleLogout} icon={<RxExit />} text={t('logout')} />
         </VStack>
       </Box>

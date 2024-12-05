@@ -77,6 +77,10 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
           </DialogTitle>
         </DialogHeader>
         <DialogBody>
+          <form onSubmit={(e) => {
+            e.preventDefault();
+            handleSubmit(handleRegisterSubmit)
+          }}></form>
           <Fieldset.Root>
             <Stack textAlign={'center'} mt={-7}>
               <Fieldset.HelperText fontSize={'md'} fontWeight={'medium'}>
@@ -158,7 +162,6 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
                 variant='solid'
                 colorPalette={'blue'}
                 rounded='xs'
-                onClick={() => handleSubmit(handleRegisterSubmit)}
               >
                 {t('register')}
               </Button>

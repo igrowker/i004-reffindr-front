@@ -3,21 +3,14 @@ import { Button, Flex, Grid, GridItem, SimpleGrid, Text, Textarea } from '@chakr
 import CustomSelect from '@/app/UI/components/CustomSelect/CustomSelect'
 import { Checkbox } from '@/components/ui/checkbox'
 
+import { InitialFormState } from '../MenuAnnouncement/MenuAnnouncement'
+
 interface PropertyCharacteristicProps {
-  formState: {
-    ambients: string
-    bedrooms: string
-    bathrooms: string
-    seniority: string
-    services: { [key: string]: boolean }
-    aditionals: { [key: string]: boolean }
-    description: string
-  }
+  formState: InitialFormState
   handleInputChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void
-  handleCheckBoxChange: (event: React.ChangeEvent<HTMLInputElement>) => void
   onNextCharacteristic: () => void
   onChange?: React.ChangeEventHandler<HTMLInputElement>
-  assingNewValues: (values: Partial<PropertyCharacteristicProps>) => void
+  assingNewValues: (values: Partial<InitialFormState>) => void
 }
 
 const generateOptions = (max: number) => {
@@ -31,7 +24,6 @@ export const PropertyCharacteristic: React.FC<PropertyCharacteristicProps> = ({
   onNextCharacteristic,
   formState,
   handleInputChange,
-  handleCheckBoxChange,
   assingNewValues,
 }) => {
   const ambientOptions = generateOptions(5)
@@ -83,13 +75,47 @@ export const PropertyCharacteristic: React.FC<PropertyCharacteristicProps> = ({
             Servicies:
           </Text>
           <SimpleGrid columns={{ base: 2, md: 6 }} gap={3}>
-            <Checkbox name='water' checked={formState.services.water} onCheckedChange={handleCheckBoxChange}>
+            <Checkbox
+              name='water'
+              checked={formState.services.water}
+              onCheckedChange={() =>
+                assingNewValues({ services: { ...formState.services, water: !formState.services.water } })
+              }
+            >
               Agua
             </Checkbox>
-            <Checkbox>Vigilancia</Checkbox>
-            <Checkbox>Internet</Checkbox>
-            <Checkbox>Gas</Checkbox>
-            <Checkbox>Luz</Checkbox>
+            <Checkbox
+              checked={formState.services.vigilance}
+              onCheckedChange={() =>
+                assingNewValues({ services: { ...formState.services, vigilance: !formState.services.vigilance } })
+              }
+            >
+              Vigilancia
+            </Checkbox>
+            <Checkbox
+              checked={formState.services.internet}
+              onCheckedChange={() =>
+                assingNewValues({ services: { ...formState.services, internet: !formState.services.internet } })
+              }
+            >
+              Internet
+            </Checkbox>
+            <Checkbox
+              checked={formState.services.gas}
+              onCheckedChange={() =>
+                assingNewValues({ services: { ...formState.services, gas: !formState.services.gas } })
+              }
+            >
+              Gas
+            </Checkbox>
+            <Checkbox
+              checked={formState.services.electricty}
+              onCheckedChange={() =>
+                assingNewValues({ services: { ...formState.services, electricty: !formState.services.electricty } })
+              }
+            >
+              Electricidad
+            </Checkbox>
           </SimpleGrid>
         </Flex>
 

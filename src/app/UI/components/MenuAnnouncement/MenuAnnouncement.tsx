@@ -30,7 +30,7 @@ export interface InitialFormState {
     vigilance: boolean
     internet: boolean
     gas: boolean
-    light: boolean
+    electricty: boolean
   }
   aditionals: {
     pool: boolean
@@ -65,7 +65,7 @@ export const MenuAnnouncement = () => {
           vigilance: false,
           internet: false,
           gas: false,
-          light: false,
+          electricty: false,
         },
         aditionals: {
           pool: false,
@@ -123,21 +123,20 @@ export const MenuAnnouncement = () => {
             formState={formState}
             handleInputChange={handleInputChange}
             onNextDetails={handleNextDetails}
-            assignAllNewValues={assignAllNewValues}
           />
         )}
         {activeTab === AnnoucementsTabs.features && (
           <PropertyCharacteristic
+            assingNewValues={assignAllNewValues}
             formState={formState}
             handleInputChange={handleInputChange}
-            handleCheckBoxChange={handleCheckBoxChange}
             onNextCharacteristic={handleNextCharacteristic}
           />
         )}
         {activeTab === AnnoucementsTabs.OwnerDetails && (
           <OwnerData formState={formState} handleInputChange={handleInputChange} onNextOwner={handleNextOwner} />
         )}
-        {activeTab === AnnoucementsTabs.Confirmation && <PropertyConfirmation formState={formState} />}
+        {activeTab === AnnoucementsTabs.Confirmation && <PropertyConfirmation />}
       </Box>
       <Button onClick={onSubmitForm}></Button>
     </>

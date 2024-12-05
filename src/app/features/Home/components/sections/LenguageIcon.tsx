@@ -1,4 +1,3 @@
-import {  IconButton } from '@chakra-ui/react'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { TfiWorld } from 'react-icons/tfi'
@@ -16,9 +15,7 @@ export const LenguageIcon = () => {
   return (
     <MenuRoot>
       <MenuTrigger>
-        <IconButton variant='ghost' rounded='full' _hover={{ bg: 'transparent' }} boxSize="40px">
-          <TfiWorld color='white'  />
-        </IconButton>
+        <TfiWorld color='white' size='25px' />
       </MenuTrigger>
 
       <MenuContent>

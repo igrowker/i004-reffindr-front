@@ -19,7 +19,10 @@ export const Language: React.FC<LanguageProps> = ({ buttonStyles, ...flexProps }
 
   return (
     <Flex
+      h={'40rem'}
+      bg={'white'}
       display="flex"
+      flexDirection={'column'}
       alignItems="center"
       justifyContent="center"
 
@@ -30,7 +33,7 @@ export const Language: React.FC<LanguageProps> = ({ buttonStyles, ...flexProps }
         alignItems="center"
         justifyContent="start"
         borderRadius="0px"
-        gap={2}
+        gap={4}
         variant="ghost"
         bg={selectedLanguage === "en" ? "gray.100" : "transparent"}
         color="black"
@@ -39,7 +42,7 @@ export const Language: React.FC<LanguageProps> = ({ buttonStyles, ...flexProps }
         {...buttonStyles}
       >
         <FaFlagUsa />
-        <Text fontSize="md" fontWeight="semibold" cursor="pointer">
+        <Text fontSize="xl" fontWeight="semibold" cursor="pointer">
           {t("Language.ingles-english")}
         </Text>
       </Button>
@@ -49,7 +52,7 @@ export const Language: React.FC<LanguageProps> = ({ buttonStyles, ...flexProps }
         alignItems="center"
         justifyContent="start"
         borderRadius="0px"
-        gap={2}
+        gap={4}
         variant="ghost"
         bg={selectedLanguage === "es" ? "gray.100" : "transparent"}
         color="black"
@@ -58,7 +61,7 @@ export const Language: React.FC<LanguageProps> = ({ buttonStyles, ...flexProps }
         {...buttonStyles}
       >
         <FaFontAwesomeFlag size="20px" />
-        <Text fontSize="md" fontWeight="semibold" cursor="pointer">
+        <Text fontSize="xl" fontWeight="semibold" cursor="pointer">
           {t("Language.español-spanish")}
         </Text>
       </Button>

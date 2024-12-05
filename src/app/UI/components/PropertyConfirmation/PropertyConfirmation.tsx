@@ -58,7 +58,7 @@ export const PropertyConfirmation = () => {
               <OwnerDataCard ownerData={ownerData[0]} />
 
               <Flex alignSelf={'flex-end'} mt={'auto'} p={4}>
-                <Button onClick={() => setShowDialog(true)} bg={'#1E3A8A'}>
+                <Button onClick={() => setShowDialog(true)} bg={'#1E3A8A'} width={'auto'}>
                   Confirmar
                 </Button>
               </Flex>

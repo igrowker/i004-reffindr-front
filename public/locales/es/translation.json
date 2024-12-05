@@ -91,12 +91,14 @@
   "forgotPassword": "¿Olvidaste tu contraseña?",
   "haveAccount": "¿Ya tienes una cuenta?",
   "login": "Iniciar Sesión",
+  "loggingIn": "iniciando sesión...",
   "loginWithFacebook": "Iniciar Sesión con Facebook",
   "loginWithGoogle": "Iniciar Sesión con Google",
   "name": "Nombre",
   "password": "Contraseña",
   "passwordPlaceholder": "Contraseña",
   "register": "Regístrate",
+  "registering": "registrando...",
   "registerWithFacebook": "Registrarse con Facebook",
   "registerWithGoogle": "Registrarse con Google",
   "surname": "Apellido",
@@ -104,7 +106,7 @@
   "profile": "Perfil",
   "favorites": "Favoritos",
   "help": "Ayuda",
-  "messages": "Mensajes",
+  "configuration": "Configuración",
   "logout": "Cerrar Sesión",
   "filter": "Filtrar",
   "createAd": "Crear Anuncio",
@@ -138,7 +140,7 @@
     },
     "modal": {
       "confirmation": "¿Seguro deseas guardar cambios?",
-      "yes": "Sí",
+      "yes": "Aceptar",
       "cancel": "Cancelar"
     }
   },

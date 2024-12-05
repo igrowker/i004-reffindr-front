@@ -96,7 +96,7 @@ const PropertyDetails = () => {
       <Flex margin={4} gap={4}></Flex>
 
       <Flex justifyContent={'flex-end'} margin={4} gap={4}>
-        <Button width={'40'} background={'#1E3A8A'}>
+        <Button width='auto' background={'#1E3A8A'}>
           Siguiente
         </Button>
       </Flex>

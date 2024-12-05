@@ -96,6 +96,7 @@
   "forgotPassword": "Forgot your password?",
   "haveAccount": "Already have an account?",
   "login": "Login",
+  "loggingIn": "logging in...",
   "loginWithFacebook": "Login with Facebook",
   "loginWithGoogle": "Login with Google",
   "name": "Name",

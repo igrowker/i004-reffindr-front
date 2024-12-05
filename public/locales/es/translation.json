@@ -91,6 +91,7 @@
   "forgotPassword": "¿Olvidaste tu contraseña?",
   "haveAccount": "¿Ya tienes una cuenta?",
   "login": "Iniciar Sesión",
+  "loggingIn": "iniciando sesión...",
   "loginWithFacebook": "Iniciar Sesión con Facebook",
   "loginWithGoogle": "Iniciar Sesión con Google",
   "name": "Nombre",

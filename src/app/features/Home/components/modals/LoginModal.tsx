@@ -64,13 +64,17 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
           </DialogTitle>
         </DialogHeader>
         <DialogBody>
-          <Fieldset.Root>
+        <form action="" onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit(handleLogin)
+        }}>
+
+          <Fieldset.Root >
             <Stack textAlign={'center'} mt={-7}>
               <Fieldset.HelperText fontSize={'md'} fontWeight={'medium'}>
                 {t('completeFields')}
               </Fieldset.HelperText>
             </Stack>
-
             <Fieldset.Content gap={2}>
               <Box>
                 <Field label={t('email')} required>
@@ -112,7 +116,6 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
                 variant='solid'
                 colorPalette={'blue'}
                 rounded='xs'
-                onClick={() => handleSubmit(handleLogin)}
               >
                 {t('login')}
               </Button>
@@ -122,6 +125,7 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
                 size={{ base: 'md', '2xl': 'md' }}
                 variant='outline'
                 rounded='xs'
+                type="button"
                 colorPalette={'black'}
                 onClick={handleLogin}
               >
@@ -130,6 +134,7 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
               </Button>
 
               <Button
+                type="button"
                 fontSize={{ base: 'medium', '2xl': 'xl' }}
                 size={{ base: 'md', '2xl': 'md' }}
                 variant='outline'
@@ -155,6 +160,7 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
               </Stack>
             </Stack>
           </Fieldset.Root>
+          </form>
         </DialogBody>
         <DialogCloseTrigger top='2' insetEnd='2' bg='gray.900' color='white' />
       </DialogContent>

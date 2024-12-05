@@ -16,6 +16,8 @@ import { HomeLayout } from '@/layouts/HomeLayout'
 
 import { OwnerLanding } from '../app/features/Home/views/OwnerLanding'
 import { authenticated, requireAuth } from './loaders/authLoader'
+import { Configuration } from '@/app/UI/components/Configure/Configuration'
+import { Language } from '@/app/UI/components/ButtonLanguage/Language'
 
 export const router = createBrowserRouter(
   [
@@ -82,8 +84,12 @@ export const router = createBrowserRouter(
           element: <OutgoingTenantHelp />,
         },
         {
-          path: '*',
-          element: <Flex>404 not found</Flex>,
+          path: 'configuration',
+          element: <Configuration />
+        },
+        {
+          path: 'language',
+          element: <Language />
         },
       ],
     },

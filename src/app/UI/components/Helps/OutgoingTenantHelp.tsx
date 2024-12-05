@@ -25,7 +25,7 @@ const data = [
 
 export const OutgoingTenantHelp = () => {
   return (
-    <Fieldset.Root size="lg" invalid p={3} gapY={3}>
+    <Fieldset.Root size="lg" invalid p={3} gapY={3} h={'30rem'}>
       <Fieldset.Legend fontSize={24} p={5}>Preguntas frecuentes</Fieldset.Legend>
       
       {data.map((item) => (

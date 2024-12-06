@@ -21,7 +21,7 @@ export const TenantHomePage = () => {
             <Box
               key={item.id}
             >
-              <CardReuComponent image='' description={item.description} features={[]}  location={""} price={200} title={item.title}  maxW="300px"   />
+              <CardReuComponent image='' description={item.description} features={[]}  location={""} price={item.price} title={item.title}  maxW="300px"   />
             </Box>
           ))}
         </Flex>

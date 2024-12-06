@@ -3,13 +3,14 @@ import { useTranslation } from 'react-i18next'
 import { CgProfile } from 'react-icons/cg'
 import { FaRegHeart } from 'react-icons/fa6'
 import { FiHome } from 'react-icons/fi'
+import { GrConfigure } from 'react-icons/gr'
 import { IoMdHelp } from 'react-icons/io'
-import { GrConfigure } from "react-icons/gr";
 import { RxExit } from 'react-icons/rx'
 import { Link, useLocation } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
 import { Avatar } from '@/components/ui/avatar'
+import { SkeletonCircle, SkeletonText } from '@/components/ui/skeleton'
 import { UserRoles } from '@/constants/auth-account-constants'
 import { authLogout } from '@/services/authService'
 import { userStore } from '@/stores/userStore'
@@ -23,7 +24,7 @@ const Sidebar = () => {
   const sidebarWidth = useBreakpointValue({ base: '277px' })
   const navigate = useNavigate()
   const actualUser = userStore((state) => state.user)
-
+  const isUserDataPending = userStore((state) => state.isUserDataPending)
   const links = [
     {
       path: 'home',
@@ -77,13 +78,21 @@ const Sidebar = () => {
         <LogoComponent size='96px' src='/assets/logos-svg/logoazul.svg' />
       </Box>
       <Flex justifyContent='center' alignItems='center' gap='2' mb={5}>
-        <Avatar size='lg' name='Sage' src={actualUser.imageProfileUrl} />
-        <Text fontSize='lg' fontWeight='bold'>
-          {actualUser?.name} {actualUser?.lastName}
-          <Text fontWeight={'medium'} fontSize='md' color='#1e3a8a' textDecoration='underline'>
-            {actualUser?.roleId == UserRoles.Owner ? 'Propietario' : 'Inquilino'}
-          </Text>
-        </Text>
+        <SkeletonCircle loading={isUserDataPending}>
+          <Avatar size='lg' name='Sage' src={""} />
+        </SkeletonCircle>
+        <Flex flexGrow={1} flexDir='column' gapY={1}>
+          <SkeletonText noOfLines={1} loading={isUserDataPending}>
+            <Text fontSize='lg' w={'full'} fontWeight='bold'>
+              {actualUser?.name ?? 'ricardo'} {actualUser?.lastName ?? 'menendez'}
+            </Text>
+          </SkeletonText>
+          <SkeletonText noOfLines={1} loading={isUserDataPending}>
+            <Text fontWeight={'medium'} fontSize='md' color='#1e3a8a' textDecoration='underline'>
+              {actualUser?.roleId == UserRoles.Owner ? 'Propietario' : 'Inquilino'}
+            </Text>
+          </SkeletonText>
+        </Flex>
       </Flex>
 
       <Box flexBasis='10%'>

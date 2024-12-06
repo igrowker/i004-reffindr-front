@@ -11,6 +11,7 @@ export const useForm = <T>(initialState: FormState<T>, validate: (values: FormSt
   const [formState, setFormState] = useState<FormState<T>>(initialState)
   const [errors, setErrors] = useState<FormErrors<T>>({})
 
+
   const handleInputChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = event.currentTarget
 
@@ -25,15 +26,23 @@ export const useForm = <T>(initialState: FormState<T>, validate: (values: FormSt
     }))
   }
 
-  const handleCheckBoxChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, checked } = event.currentTarget
+  const resetForm = () => {
+    setFormState(initialState)
+  }
+  // const handleCheckBoxChange = (event: ChangeEvent<HTMLInputElement>) => {
+  //   const { name, checked } = event.currentTarget
 
-    setFormState((prevState) => ({
-      ...prevState,
-      [name]: checked,
+  //   setFormState((prevState) => ({
+  //     ...prevState,
+  //     [name]: checked,
+  //   }))
+  // }
+  const onCheckboxChange = ({ name, checked }: {name: string, checked: boolean}) => {
+    setFormState(prev => ({
+      ...prev,
+      [name]: checked
     }))
   }
-
   const assignAllNewValues = (values: Partial<T>) => {
     setFormState({ ...formState, ...(values as T) })
   }
@@ -51,8 +60,9 @@ export const useForm = <T>(initialState: FormState<T>, validate: (values: FormSt
     formState,
     errors,
     handleInputChange,
-    handleCheckBoxChange,
+    onCheckboxChange,
     handleSubmit,
     assignAllNewValues,
+    resetForm
   }
 }

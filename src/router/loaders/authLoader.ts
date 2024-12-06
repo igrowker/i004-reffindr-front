@@ -11,7 +11,7 @@ export const requireAuth = async () => {
 
   const getActualUser = userStore.getState().getActualUser
   authStore.setState({ token: token })
-  await getActualUser()
+  getActualUser()
 
   return null
 }

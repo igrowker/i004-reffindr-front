@@ -1,5 +1,5 @@
 import { Box, Button, Flex, Text } from '@chakra-ui/react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { useForm } from '@/hooks/useForm'
 import { createProperty } from '@/services/propertiesService'
@@ -21,25 +21,21 @@ export interface InitialFormState {
   address: string
   countryId: number
   stateId: number
-  ambients: number
+  enviromments: number
   bedrooms: number
   bathrooms: number
   seniority: number
-  services: {
-    water: boolean
-    vigilance: boolean
-    internet: boolean
-    gas: boolean
-    electricty: boolean
-  }
-  aditionals: {
-    pool: boolean
-    pets: boolean
-    elevator: boolean
-    garage: boolean
-    grill: boolean
-    terrace: boolean
-  }
+  water: boolean
+  vigilance: boolean
+  internet: boolean
+  gas: boolean
+  electricty: boolean
+  pool: boolean
+  pets: boolean
+  elevator: boolean
+  garage: boolean
+  grill: boolean
+  terrace: boolean
   description: string
   ownerName: string
   ownerPhone: string
@@ -49,42 +45,35 @@ export interface InitialFormState {
 
 export const MenuAnnouncement = () => {
   const [activeTab, setActiveTab] = useState(AnnoucementsTabs.PropertyDetails)
-  const { formState, handleInputChange, handleCheckBoxChange, handleSubmit, assignAllNewValues } =
-    useForm<InitialFormState>(
-      {
-        title: '',
-        address: '',
-        countryId: 0,
-        stateId: 0,
-        ambients: 0,
-        bedrooms: 0,
-        bathrooms: 0,
-        seniority: 0,
-        services: {
-          water: false,
-          vigilance: false,
-          internet: false,
-          gas: false,
-          electricty: false,
-        },
-        aditionals: {
-          pool: false,
-          pets: false,
-          elevator: false,
-          garage: false,
-          grill: false,
-          terrace: false,
-        },
-        description: '',
-        ownerName: '',
-        ownerPhone: '',
-        ownerEmail: '',
-        ownerAddress: '',
-      },
-      validateProperty
-    )
-
-  console.log(formState)
+  const { formState, handleInputChange, assignAllNewValues, onCheckboxChange } = useForm<InitialFormState>(
+    {
+      title: '',
+      address: '',
+      countryId: 0,
+      stateId: 0,
+      enviromments: 0,
+      bedrooms: 0,
+      bathrooms: 0,
+      seniority: 0,
+      water: false,
+      vigilance: false,
+      internet: false,
+      gas: false,
+      electricty: false,
+      pool: false,
+      pets: false,
+      elevator: false,
+      garage: false,
+      grill: false,
+      terrace: false,
+      description: '',
+      ownerName: '',
+      ownerPhone: '',
+      ownerEmail: '',
+      ownerAddress: '',
+    },
+    validateProperty
+  )
 
   const onSubmitForm = () => {
     createProperty(formState)
@@ -101,6 +90,10 @@ export const MenuAnnouncement = () => {
   const handleNextOwner = () => {
     setActiveTab(AnnoucementsTabs.Confirmation)
   }
+
+  useEffect(() => {
+    console.log(formState.water)
+  }, [formState])
 
   return (
     <>
@@ -127,6 +120,7 @@ export const MenuAnnouncement = () => {
         )}
         {activeTab === AnnoucementsTabs.features && (
           <PropertyCharacteristic
+            onCheckboxChange={onCheckboxChange}
             assingNewValues={assignAllNewValues}
             formState={formState}
             handleInputChange={handleInputChange}

@@ -2,7 +2,7 @@ import { AxiosError } from 'axios'
 
 import { httpClient } from '@/api/axios-config'
 import { IBaseResponse } from '@/interfaces/api-response'
-import { User } from '@/interfaces/user'
+import { EditUserRequest, User } from '@/interfaces/user'
 
 export const getUserCredentials = async (): Promise<IBaseResponse<User>> => {
   try {
@@ -22,7 +22,7 @@ export const getUserCredentials = async (): Promise<IBaseResponse<User>> => {
   }
 }
 
-export const updateUserCredentials = async (data: User): Promise<IBaseResponse<User>> => {
+export const updateUserCredentials = async (data: EditUserRequest): Promise<IBaseResponse<User>> => {
   try {
     const response = await httpClient.put<IBaseResponse<User>>('/users/profile/update', data)
     return response.data

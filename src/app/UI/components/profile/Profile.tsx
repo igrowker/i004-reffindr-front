@@ -19,7 +19,7 @@ export const Profile = () => {
     <Flex flexDirection='column'>
       <Stack  wrap={'wrap'} justifyContent={'center'} direction={'row'}>
         {viewProfile.map((item) => (
-          <Link to={`${item.path}`}>
+          <Link key={item.path} to={`${item.path}`}>
             <Button
               key={item.path}
               size={{ base: 'sm', lg: 'md' }}

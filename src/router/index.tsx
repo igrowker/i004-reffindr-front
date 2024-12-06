@@ -19,6 +19,7 @@ import { authenticated, requireAuth } from './loaders/authLoader'
 import { Configuration } from '@/app/UI/components/Configure/Configuration'
 import { Language } from '@/app/UI/components/ButtonLanguage/Language'
 
+
 export const router = createBrowserRouter(
   [
     {

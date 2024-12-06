@@ -1,4 +1,5 @@
 import { Button, Flex, Grid, GridItem, SimpleGrid, Text, Textarea } from '@chakra-ui/react'
+import React from 'react'
 
 import CustomSelect from '@/app/UI/components/CustomSelect/CustomSelect'
 import { Checkbox } from '@/components/ui/checkbox'
@@ -9,6 +10,7 @@ interface PropertyCharacteristicProps {
   formState: InitialFormState
   handleInputChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void
   onNextCharacteristic: () => void
+  onCheckboxChange: ({ name, checked }: { name: string; checked: boolean }) => void
   onChange?: React.ChangeEventHandler<HTMLInputElement>
   assingNewValues: (values: Partial<InitialFormState>) => void
 }
@@ -20,13 +22,14 @@ const generateOptions = (max: number) => {
   }))
 }
 
-export const PropertyCharacteristic: React.FC<PropertyCharacteristicProps> = ({
+export const PropertyCharacteristic = ({
   onNextCharacteristic,
   formState,
   handleInputChange,
   assingNewValues,
-}) => {
-  const ambientOptions = generateOptions(5)
+  onCheckboxChange,
+}: PropertyCharacteristicProps) => {
+  const ambientOptions = generateOptions(7)
   const bedroomOptions = generateOptions(5)
   const bathOptions = generateOptions(5)
   const seniorityOptions = generateOptions(50)
@@ -43,9 +46,9 @@ export const PropertyCharacteristic: React.FC<PropertyCharacteristicProps> = ({
             <CustomSelect
               label='Ambientes:'
               options={ambientOptions}
-              value={formState.ambients}
+              value={formState.enviromments}
               onChange={handleInputChange}
-              name='ambients'
+              name='enviromments'
             />
           </GridItem>
           <GridItem>
@@ -66,7 +69,7 @@ export const PropertyCharacteristic: React.FC<PropertyCharacteristicProps> = ({
               options={seniorityOptions}
               value={formState.seniority}
               onChange={handleInputChange}
-              name=''
+              name='seniority'
             />
           </GridItem>
         </Grid>
@@ -76,43 +79,32 @@ export const PropertyCharacteristic: React.FC<PropertyCharacteristicProps> = ({
           </Text>
           <SimpleGrid columns={{ base: 2, md: 6 }} gap={3}>
             <Checkbox
-              name='water'
-              checked={formState.services.water}
-              onCheckedChange={() =>
-                assingNewValues({ services: { ...formState.services, water: !formState.services.water } })
-              }
+              checked={formState.water}
+              onCheckedChange={({ checked }) => onCheckboxChange({ name: 'water', checked: !!checked })}
             >
               Agua
             </Checkbox>
             <Checkbox
-              checked={formState.services.vigilance}
-              onCheckedChange={() =>
-                assingNewValues({ services: { ...formState.services, vigilance: !formState.services.vigilance } })
-              }
+              checked={formState.vigilance}
+              onCheckedChange={({ checked }) => onCheckboxChange({ name: 'vigilance', checked: !!checked })}
             >
               Vigilancia
             </Checkbox>
             <Checkbox
-              checked={formState.services.internet}
-              onCheckedChange={() =>
-                assingNewValues({ services: { ...formState.services, internet: !formState.services.internet } })
-              }
+              checked={formState.internet}
+              onCheckedChange={({ checked }) => onCheckboxChange({ name: 'internet', checked: !!checked })}
             >
               Internet
             </Checkbox>
             <Checkbox
-              checked={formState.services.gas}
-              onCheckedChange={() =>
-                assingNewValues({ services: { ...formState.services, gas: !formState.services.gas } })
-              }
+              checked={formState.gas}
+              onCheckedChange={({ checked }) => onCheckboxChange({ name: 'gas', checked: !!checked })}
             >
               Gas
             </Checkbox>
             <Checkbox
-              checked={formState.services.electricty}
-              onCheckedChange={() =>
-                assingNewValues({ services: { ...formState.services, electricty: !formState.services.electricty } })
-              }
+              checked={formState.electricty}
+              onCheckedChange={({ checked }) => onCheckboxChange({ name: 'electricty', checked: !!checked })}
             >
               Electricidad
             </Checkbox>
@@ -124,7 +116,9 @@ export const PropertyCharacteristic: React.FC<PropertyCharacteristicProps> = ({
             Aditionals:
           </Text>
           <SimpleGrid columns={{ base: 2, md: 6 }} gap={3}>
-            <Checkbox>Pileta</Checkbox>
+            <Checkbox onCheckedChange={({ checked }) => onCheckboxChange({ name: 'pool', checked: !!checked })}>
+              Pileta
+            </Checkbox>
             <Checkbox>Mascotas</Checkbox>
             <Checkbox>Ascensor</Checkbox>
             <Checkbox>Cochera</Checkbox>

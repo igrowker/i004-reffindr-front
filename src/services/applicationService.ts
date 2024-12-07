@@ -19,3 +19,10 @@ export const createApplication = async (propertyId: number) => {
     };
   }
 };
+
+
+export const getApplications = async () => {
+  
+
+
+}

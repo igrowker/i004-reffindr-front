@@ -48,27 +48,8 @@ export const OwnerData: React.FC<OwnerFormProps> = ({ onNextOwner, formState, ha
       <Fieldset.Root size='lg'>
         <Fieldset.Content>
           <Grid gridTemplateColumns='repeat(2,1fr)' gap={4}>
-            <GridItem>
-              <Field label='Nombre'>
-                <Input
-                  name='ownerName'
-                  placeholder='Escribe el nombre'
-                  value={formState.ownerName}
-                  onChange={handleInputChange}
-                />
-              </Field>
-            </GridItem>
-            <GridItem>
-              <Field label='Celular'>
-                <Input
-                  name='ownerPhone'
-                  type='tel'
-                  placeholder='Escribe el número de celular'
-                  value={formState.ownerPhone}
-                  onChange={handleInputChange}
-                />
-              </Field>
-            </GridItem>
+            
+           
           </Grid>
           <Stack direction='row' gap='4'>
             <Field label='Email'>
@@ -82,27 +63,12 @@ export const OwnerData: React.FC<OwnerFormProps> = ({ onNextOwner, formState, ha
             </Field>
           </Stack>
 
-          <GridItem colSpan={1}>
-            <Field label='Dirección'>
-              <Input
-                name='ownerAddress'
-                type='tel'
-                placeholder='Escribe la dirección'
-                value={formState.ownerAddress}
-                onChange={handleInputChange}
-              />
-            </Field>
-          </GridItem>
-          <GridItem colSpan={2}>
-            <Message />
-          </GridItem>
+          
+         
         </Fieldset.Content>
       </Fieldset.Root>
 
-      <Stack direction='row' gap='4' mb='4' mt='6' justify='flex-start'>
-        <Checkbox> Acepto </Checkbox>
-        <Checkbox> No lo acepto </Checkbox>
-      </Stack>
+      
 
       <Box textAlign='right' mt='4'>
         <Button onClick={handleNextOwner} colorScheme='blue' width='auto'>

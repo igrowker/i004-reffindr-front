@@ -12,7 +12,7 @@ interface PropertyCharacteristicProps {
   onNextCharacteristic: () => void
   onCheckboxChange: ({ name, checked }: { name: string; checked: boolean }) => void
   onChange?: React.ChangeEventHandler<HTMLInputElement>
-  assingNewValues: (values: Partial<InitialFormState>) => void
+  
 }
 
 const generateOptions = (max: number) => {
@@ -22,7 +22,7 @@ const generateOptions = (max: number) => {
   }))
 }
 
-export const PropertyCharacteristic = ({
+export const PropertyCharacteristic = React.memo(({
   onNextCharacteristic,
   formState,
   handleInputChange,
@@ -45,9 +45,9 @@ export const PropertyCharacteristic = ({
             <CustomSelect
               label='Ambientes:'
               options={ambientOptions}
-              value={formState.enviromments}
+              value={formState.environments}
               onChange={handleInputChange}
-              name='enviromments'
+              name='environments'
             />
           </GridItem>
           <GridItem>
@@ -84,8 +84,8 @@ export const PropertyCharacteristic = ({
               Agua
             </Checkbox>
             <Checkbox
-              checked={formState.vigilance}
-              onCheckedChange={({ checked }) => onCheckboxChange({ name: 'vigilance', checked: !!checked })}
+              checked={formState.surveillance}
+              onCheckedChange={({ checked }) => onCheckboxChange({ name: 'surveillance', checked: !!checked })}
             >
               Vigilancia
             </Checkbox>
@@ -102,8 +102,8 @@ export const PropertyCharacteristic = ({
               Gas
             </Checkbox>
             <Checkbox
-              checked={formState.electricty}
-              onCheckedChange={({ checked }) => onCheckboxChange({ name: 'electricty', checked: !!checked })}
+              checked={formState.electricity}
+              onCheckedChange={({ checked }) => onCheckboxChange({ name: 'electricity', checked: !!checked })}
             >
               Electricidad
             </Checkbox>
@@ -147,4 +147,4 @@ export const PropertyCharacteristic = ({
       </Flex>
     </>
   )
-}
+})

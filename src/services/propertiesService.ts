@@ -4,6 +4,7 @@ import { httpClient } from '@/api/axios-config'
 import { IBaseResponse } from '@/interfaces/api-response'
 import { Property } from '@/interfaces/types'
 import { InitialFormState } from '@/app/UI/components/MenuAnnouncement/MenuAnnouncement'
+import { toCapitalize } from '@/utils/capitalize'
 
 export const getProperties = async (): Promise<IBaseResponse<Property[]>> => {
   try {
@@ -38,16 +39,17 @@ export const getPropertyById = async (id: string): Promise<IBaseResponse<Propert
   }
 }
 export const createProperty = async (formState: InitialFormState) => {
-  // Crear un objeto FormData
   const formData = new FormData()
 
-  // Agregar las propiedades al FormData
 
-  const FormData2 = Object.entries(formState)
-
-  FormData2.forEach((item) => {
-    formData.append(item[0], item[1].toString())
+  const formDataEntries = Object.entries(formState)
+  
+  formDataEntries.forEach((item) => {
+    formData.append(toCapitalize(item[0]), `${item[1]}`)
   })
-
-  console.log(FormData2)
+  await httpClient.post('/Properties/PostProperty', formData, {
+    headers: {
+      "Content-Type": "multipart/form-data"
+    }
+  });
 }

@@ -1,32 +1,39 @@
-import { Flex, Grid, GridItem, Input } from '@chakra-ui/react'
-import React from 'react'
-import { HiUpload } from 'react-icons/hi'
-import { ImFilePicture } from 'react-icons/im'
+import { Flex, Grid, GridItem, Input } from '@chakra-ui/react';
+import React, { ChangeEvent } from 'react';
+import { HiUpload } from 'react-icons/hi';
+import { ImFilePicture } from 'react-icons/im';
 
-import { Button } from '@/components/ui/button'
-import { EmptyState } from '@/components/ui/empty-state'
-import { Field } from '@/components/ui/field'
-import { FileUploadList, FileUploadRoot, FileUploadTrigger } from '@/components/ui/file-upload'
+import { Button } from '@/components/ui/button';
+import { EmptyState } from '@/components/ui/empty-state';
+import { Field } from '@/components/ui/field';
+import { FileUploadList, FileUploadRoot, FileUploadTrigger } from '@/components/ui/file-upload';
+import { STATES } from '@/constants/form-data-constants';
 
-import CustomSelect from '../CustomSelect/CustomSelect'
-import { STATES } from '@/constants/form-data-constants'
+import CustomSelect from '../CustomSelect/CustomSelect';
+import { InitialFormState } from '../MenuAnnouncement/MenuAnnouncement';
 
 interface PropertyDetailsProps {
-  onNextDetails: () => void
-  formState: {
-    title: string
-    address: string
-    countryId: number
-    stateId: number
-  }
-  handleInputChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void
+  onNextDetails: () => void;
+  formState: InitialFormState
+  assingNewValues: (values: Partial<InitialFormState>) => void
+  handleInputChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
 }
 
-const PropertyDetails: React.FC<PropertyDetailsProps> = ({ onNextDetails, formState, handleInputChange }) => {
+export const PropertyDetails: React.FC<PropertyDetailsProps> = ({ onNextDetails, formState, handleInputChange, assingNewValues }) => {
   const handleNextDetails = () => {
-    onNextDetails()
-  }
+    onNextDetails();
+  };
+  const readImages = (e: ChangeEvent<HTMLInputElement>) => {
+    
+    if ( e.target.files !== null && e.target.files.length > 0 ) {
+      const files = e.target.files as FileList;
+        assingNewValues({images: files})
 
+
+      
+      
+    }
+  }
   return (
     <Flex direction={'column'} py={4} px={8}>
       <Flex flexDirection={'row'} alignItems={'center'} gap={4}>
@@ -35,13 +42,13 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ onNextDetails, formSt
           title='No tienes multimedia cargada'
           description='Aceptamos archivos de imagen o video .jpg y .png'
         />
-        <FileUploadRoot>
+        <FileUploadRoot  onChange={readImages} accept={['image/*']} maxFiles={20}>
           <FileUploadTrigger asChild>
             <Button variant='outline' size='sm'>
               <HiUpload /> Seleccionar imagenes o videos
             </Button>
           </FileUploadTrigger>
-          <FileUploadList />
+          <FileUploadList  clearable />
         </FileUploadRoot>
       </Flex>
       <Grid templateColumns={'repeat(2, 1fr)'} gap={4}>
@@ -98,7 +105,6 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ onNextDetails, formSt
         </Button>
       </Flex>
     </Flex>
-  )
-}
+  );
+};
 
-export default PropertyDetails

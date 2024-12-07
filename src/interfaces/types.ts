@@ -1,7 +1,7 @@
 export interface RequirementPostRequestDto {
-  isWorking: boolean
-  hasWarranty: boolean
-  rangeSalary: number
+  IsWorking: boolean
+  HasWarranty: boolean
+  RangeSalary: number
 }
 export interface Property {
   id: number

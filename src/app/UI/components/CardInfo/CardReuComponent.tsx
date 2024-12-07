@@ -1,4 +1,14 @@
-import {/*  Badge, */ Box, Button, Card, Flex, /* HStack, */ IconButton, Image, Text } from '@chakra-ui/react';
+import {
+  /*  Badge, */
+  Box,
+  Button,
+  Card,
+  Flex,
+  /* HStack, */
+  IconButton,
+  Image,
+  Text,
+} from '@chakra-ui/react';
 import { useState } from 'react';
 import { FaHeart } from 'react-icons/fa6';
 import { IoChevronForwardSharp } from 'react-icons/io5';
@@ -23,9 +33,9 @@ export const CardReuComponent = ({ maxW, isSkeletonLoading, ...property }: CardR
   const navigate = useNavigate();
 
   const handleViewMore = () => {
-    navigate(`${property.title}?pid=${property.id}`);
-   
+    navigate(`${property.title}?pid=${property.id}`, { state: { property } });
   };
+  
   const fallbackImageUrl =
     'https://images.adsttc.com/media/images/5d34/e507/284d/d109/5600/0240/newsletter/_FI.jpg?1563747560';
 

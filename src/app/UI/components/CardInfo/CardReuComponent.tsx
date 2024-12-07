@@ -1,19 +1,18 @@
 import { Badge, Box, Button, Card, Flex, HStack, IconButton, Image, Text } from '@chakra-ui/react';
+import { title } from 'process';
 import { useState } from 'react';
 import { FaHeart } from 'react-icons/fa6';
 import { IoChevronForwardSharp } from 'react-icons/io5';
 import { RiMapPin2Line } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
 
-import { Rating } from '@/components/ui/rating';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Property } from '@/interfaces/types';
-import { usePropertiesStore } from '@/stores/propertiesStore';
 
 interface CardReuProps extends Partial<Property> {
   isSkeletonLoading?: boolean;
   maxW?: string;
-  images: string[]
+  images: string[];
 }
 
 export const CardReuComponent = ({ maxW, isSkeletonLoading, ...property }: CardReuProps) => {
@@ -23,25 +22,16 @@ export const CardReuComponent = ({ maxW, isSkeletonLoading, ...property }: CardR
     setIsFavorited(!isFavorited);
   };
   const navigate = useNavigate();
- 
+
   const handleViewMore = () => {
-    // navigate(title, {
-    //   state: {
-    //     title,
-    //     description,
-    //     price,
-    //     location,
-    //     image,
-    //     features,
-    //   },
-    // })
+    navigate(`${property.title}?pid=${property.id}`);
+   
   };
   const fallbackImageUrl =
     'https://images.adsttc.com/media/images/5d34/e507/284d/d109/5600/0240/newsletter/_FI.jpg?1563747560';
 
   return (
-    <Skeleton loading={isSkeletonLoading}   >
-      
+    <Skeleton loading={isSkeletonLoading}>
       <Card.Root
         minW={maxW}
         maxW={maxW}
@@ -53,7 +43,7 @@ export const CardReuComponent = ({ maxW, isSkeletonLoading, ...property }: CardR
         _hover={{ boxShadow: '0px 10px 20px rgba(38, 80, 204, 0.4)' }}
       >
         <Image
-          src={property.images[0] ?? fallbackImageUrl }
+          src={property.images[0] ?? fallbackImageUrl}
           alt={property.title}
           h='200px'
           objectFit='cover'

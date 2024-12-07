@@ -10,8 +10,9 @@ export const requireAuth = async () => {
   if (!token) return redirect('/inquilinos')
 
   const getActualUser = userStore.getState().getActualUser
+  const actualUser = userStore.getState().user
+  if ( actualUser == null ) getActualUser();
   authStore.setState({ token: token })
-  getActualUser()
 
   return null
 }

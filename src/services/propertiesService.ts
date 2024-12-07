@@ -22,7 +22,21 @@ export const getProperties = async (): Promise<IBaseResponse<Property[]>> => {
     }
   }
 }
-
+export const getPropertyById = async (id: string): Promise<IBaseResponse<Property>> => {
+  try {
+    const resp = await httpClient.get<IBaseResponse<Property>>(`/properties/get-property/${id}`);
+  
+    return resp.data
+  } 
+  catch (error) {
+    const err = error as AxiosError<IBaseResponse<Property>>
+    return {
+      errors: err.response?.data.errors ?? [],
+      hasErrors: true,
+      statusCode: err.response?.data.statusCode ?? 404,
+    }
+  }
+}
 export const createProperty = async (formState: InitialFormState) => {
   // Crear un objeto FormData
   const formData = new FormData()

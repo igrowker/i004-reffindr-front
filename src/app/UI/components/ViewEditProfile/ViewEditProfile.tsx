@@ -20,7 +20,7 @@ export const ViewEditProfile = () => {
   const { t } = useTranslation();
   const actualUser = userStore((state) => state.user);
   const updateUser = userStore((state) => state.updateUser);
-  const isUserDataPending = userStore((state) => state.isUserDataPending);
+  // const isUserDataPending = userStore((state) => state.isUserDataPending);
 
   const { formState, handleInputChange, assignAllNewValues } = useForm<EditUserRequest>(
     {
@@ -38,12 +38,13 @@ export const ViewEditProfile = () => {
   );
 
   const readImage = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files !== null) {
+    if (e.target.files !== null && e.target.files.length > 0) {
       const fileReader = new FileReader();
+      const file = e.target.files.item(0) as File;
 
       fileReader.onload = (ev) => {
         if (ev.target !== null) {
-          assignAllNewValues({ profileImageUrl: ev.target.result as string, profileImage: e.target.files[0] });
+          assignAllNewValues({ profileImageUrl: ev.target.result as string, profileImage: file });
         }
       };
       fileReader.readAsDataURL(e.target.files[0]);
@@ -59,7 +60,6 @@ export const ViewEditProfile = () => {
       });
     }
   }, [actualUser]);
-  
 
   const [isEditing, setIsEditing] = useState(false); // Controla edición
   const [showModal, setShowModal] = useState(false); // Controla el modal

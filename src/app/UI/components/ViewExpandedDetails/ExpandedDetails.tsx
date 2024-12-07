@@ -6,14 +6,14 @@ import { ImgGrid } from './ImgGrid'
 import { LookingFor } from './LookingFor'
 import { Modal } from './Modal'
 import { Requirements } from './Requirements '
-import { useLoaderData } from 'react-router-dom'
-import { Property } from '@/interfaces/types'
+// import { useLoaderData } from 'react-router-dom'
+// import type{ Property } from '@/interfaces/types'
 
 const images = ['/assets/hogar1.png', '/assets/hogar2.png', '/assets/hogar3.png', '/assets/hogar4.png', '/assets/hogar5.png']
 
 export const ExpandedDetails = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const property = useLoaderData() as Property;
+  // const property = useLoaderData() as Property;
   return (
     <>
       <Flex bg='#EDF2F7' p='2' w='full'  flexDirection='column'>

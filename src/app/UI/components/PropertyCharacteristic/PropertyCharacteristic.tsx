@@ -26,7 +26,6 @@ export const PropertyCharacteristic = ({
   onNextCharacteristic,
   formState,
   handleInputChange,
-  assingNewValues,
   onCheckboxChange,
 }: PropertyCharacteristicProps) => {
   const ambientOptions = generateOptions(7)

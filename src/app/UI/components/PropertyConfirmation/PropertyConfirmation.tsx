@@ -48,7 +48,7 @@ export const PropertyConfirmation = () => {
               <Text mb={5} fontWeight={'bold'}>
                 Vista previa de propiedad
               </Text>
-              <CardReuComponent {...data[0]} maxW={'300px'} />
+              <CardReuComponent images={[]} {...data[0]} maxW={'300px'} />
             </Flex>
 
             <Flex direction={'column'} flex='2' h='full'>

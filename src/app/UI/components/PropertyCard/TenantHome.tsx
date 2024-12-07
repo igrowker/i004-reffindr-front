@@ -1,4 +1,4 @@
-import { Box, Flex } from '@chakra-ui/react';
+import { /* Box, */ Flex } from '@chakra-ui/react';
 import { useEffect } from 'react';
 
 import { CardReuComponent } from '@/app/UI/components/CardInfo/CardReuComponent';

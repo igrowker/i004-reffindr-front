@@ -1,4 +1,4 @@
-import { Box, Flex, HStack, Icon, Input } from '@chakra-ui/react'
+import { Box, Flex, HStack, Input } from '@chakra-ui/react'
 import { Button } from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next'
 import { FaSortAmountDownAlt } from 'react-icons/fa'

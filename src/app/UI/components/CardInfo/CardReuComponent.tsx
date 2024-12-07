@@ -1,5 +1,4 @@
-import { Badge, Box, Button, Card, Flex, HStack, IconButton, Image, Text } from '@chakra-ui/react';
-import { title } from 'process';
+import {/*  Badge, */ Box, Button, Card, Flex, /* HStack, */ IconButton, Image, Text } from '@chakra-ui/react';
 import { useState } from 'react';
 import { FaHeart } from 'react-icons/fa6';
 import { IoChevronForwardSharp } from 'react-icons/io5';

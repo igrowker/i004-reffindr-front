@@ -1,4 +1,5 @@
-import { Flex, Grid, GridItem, HStack, Input, Text } from '@chakra-ui/react'
+import { Flex, Grid, GridItem, Input } from '@chakra-ui/react'
+import React from 'react'
 import { HiUpload } from 'react-icons/hi'
 import { ImFilePicture } from 'react-icons/im'
 
@@ -6,12 +7,26 @@ import { Button } from '@/components/ui/button'
 import { EmptyState } from '@/components/ui/empty-state'
 import { Field } from '@/components/ui/field'
 import { FileUploadList, FileUploadRoot, FileUploadTrigger } from '@/components/ui/file-upload'
-import { Radio, RadioGroup } from '@/components/ui/radio'
-
 
 import CustomSelect from '../CustomSelect/CustomSelect'
+import { STATES } from '@/constants/form-data-constants'
 
-const PropertyDetails = () => {
+interface PropertyDetailsProps {
+  onNextDetails: () => void
+  formState: {
+    title: string
+    address: string
+    countryId: number
+    stateId: number
+  }
+  handleInputChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void
+}
+
+const PropertyDetails: React.FC<PropertyDetailsProps> = ({ onNextDetails, formState, handleInputChange }) => {
+  const handleNextDetails = () => {
+    onNextDetails()
+  }
+
   return (
     <Flex direction={'column'} py={4} px={8}>
       <Flex flexDirection={'row'} alignItems={'center'} gap={4}>
@@ -35,68 +50,50 @@ const PropertyDetails = () => {
             label='Nombre o título de propiedad:'
             labelStyles={{ marginBottom: '2', fontWeight: 'bold', fontSize: '16px' }}
           >
-            <Input placeholder='Escribe el nombre:' type='string' name='nombrePropiedad' />
-          </Field>
-        </GridItem>
-        <GridItem>
-          <Field label='Barrio:' labelStyles={{ marginBottom: '2', fontWeight: 'bold', fontSize: '16px' }}>
-            <Input placeholder='Escribe el barrio' type='string' name='nombreBarrio' />
+            <Input
+              value={formState.title}
+              onChange={handleInputChange}
+              placeholder='Escribe el nombre'
+              type='string'
+              name='title'
+            />
           </Field>
         </GridItem>
         <GridItem colSpan={2}>
-          <Field label='Calle:' labelStyles={{ marginBottom: '2', fontWeight: 'bold', fontSize: '16px' }}>
-            <Input placeholder='Escribe la calle' type='string' name='nombreCalle' />
+          <Field label='Dirección:' labelStyles={{ marginBottom: '2', fontWeight: 'bold', fontSize: '16px' }}>
+            <Input
+              value={formState.address}
+              onChange={handleInputChange}
+              placeholder='Escribe la dirección'
+              type='string'
+              name='address'
+            />
           </Field>
         </GridItem>
         <GridItem>
           <CustomSelect
             label='País:'
-            options={[
-              { value: '1', label: '1' },
-              { value: '2', label: '2' },
-            ]}
+            options={[{ value: 1, label: 'Argentina' }]}
+            value={formState.countryId}
+            onChange={handleInputChange}
+            name='countryId'
           />
         </GridItem>
         <GridItem>
           <CustomSelect
             label='Provincia:'
-            options={[
-              { value: '1', label: '1' },
-              { value: '2', label: '2' },
-            ]}
+            options={STATES}
+            value={formState.stateId}
+            onChange={handleInputChange}
+            name='stateId'
           />
-        </GridItem>
-        <GridItem>
-          <Field label='Código Postal:' labelStyles={{ marginBottom: '2', fontWeight: 'bold', fontSize: '16px' }}>
-            <Input placeholder='Escribe el código postal' type='string' name='codigoPostal' />
-          </Field>
-        </GridItem>
-        <GridItem>
-          <CustomSelect
-            label='Tipo de propiedad:'
-            options={[
-              { value: '1', label: '1' },
-              { value: '2', label: '2' },
-            ]}
-          />
-        </GridItem>
-        <GridItem>
-          <Text fontWeight={'bold'} fontSize={'16px'} mb={3}>
-            Operación:
-          </Text>
-          <RadioGroup defaultValue='1'>
-            <HStack gap='6'>
-              <Radio value='1'>Alquiler</Radio>
-              <Radio value='2'>Venta</Radio>
-            </HStack>
-          </RadioGroup>
         </GridItem>
       </Grid>
 
       <Flex margin={4} gap={4}></Flex>
 
       <Flex justifyContent={'flex-end'} margin={4} gap={4}>
-        <Button width='auto' background={'#1E3A8A'}>
+        <Button onClick={handleNextDetails} width={'40'} background={'#1E3A8A'}>
           Siguiente
         </Button>
       </Flex>

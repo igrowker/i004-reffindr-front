@@ -26,6 +26,7 @@ export interface Property {
   elevator: boolean
   terrace: boolean
   description: string
+  price: number;
   images: string[]
   requirementPostRequestDto: {
     isWorking: boolean

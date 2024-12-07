@@ -3,6 +3,17 @@ import { Box, Button, Fieldset, Grid, GridItem, Input, Stack } from '@chakra-ui/
 import { Checkbox } from '@/components/ui/checkbox'
 import { Field } from '@/components/ui/field'
 
+interface OwnerFormProps {
+  formState: {
+    ownerName: string
+    ownerPhone: string
+    ownerEmail: string
+    ownerAddress: string
+  }
+  handleInputChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void
+  onNextOwner: () => void
+}
+
 const Message = () => {
   return (
     <Box
@@ -26,8 +37,11 @@ const Message = () => {
   )
 }
 
-// este es mi compomente principal Demo
-export const OwnerData = () => {
+export const OwnerData: React.FC<OwnerFormProps> = ({ onNextOwner, formState, handleInputChange }) => {
+  const handleNextOwner = () => {
+    onNextOwner()
+  }
+
   return (
     <Box px={8} py={8}>
       {/* Formulariodel propietario */}
@@ -35,25 +49,48 @@ export const OwnerData = () => {
         <Fieldset.Content>
           <Grid gridTemplateColumns='repeat(2,1fr)' gap={4}>
             <GridItem>
-              <Field label='Nombre del propietario'>
-                <Input name='name' placeholder='Escribe el nombre' />
+              <Field label='Nombre'>
+                <Input
+                  name='ownerName'
+                  placeholder='Escribe el nombre'
+                  value={formState.ownerName}
+                  onChange={handleInputChange}
+                />
               </Field>
             </GridItem>
             <GridItem>
               <Field label='Celular'>
-                <Input name='phone' type='tel' placeholder='Escribe tu número de celular' />
+                <Input
+                  name='ownerPhone'
+                  type='tel'
+                  placeholder='Escribe el número de celular'
+                  value={formState.ownerPhone}
+                  onChange={handleInputChange}
+                />
               </Field>
             </GridItem>
           </Grid>
-          {/* <Stack direction='row' gap='4'>
+          <Stack direction='row' gap='4'>
             <Field label='Email'>
-              <Input name='email' type='email' placeholder='Escribe el email' />
+              <Input
+                name='ownerEmail'
+                type='email'
+                placeholder='Escribe el email'
+                value={formState.ownerEmail}
+                onChange={handleInputChange}
+              />
             </Field>
-          </Stack> */}
+          </Stack>
 
           <GridItem colSpan={1}>
-            <Field label='Celular'>
-              <Input name='phone' type='tel' placeholder='Escribe tu número de celular' />
+            <Field label='Dirección'>
+              <Input
+                name='ownerAddress'
+                type='tel'
+                placeholder='Escribe la dirección'
+                value={formState.ownerAddress}
+                onChange={handleInputChange}
+              />
             </Field>
           </GridItem>
           <GridItem colSpan={2}>
@@ -68,7 +105,7 @@ export const OwnerData = () => {
       </Stack>
 
       <Box textAlign='right' mt='4'>
-        <Button bg='#1e3a8a' width='auto'>
+        <Button onClick={handleNextOwner} colorScheme='blue' width='auto'>
           Siguiente
         </Button>
       </Box>

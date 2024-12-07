@@ -1,19 +1,19 @@
 import { Button, Flex } from '@chakra-ui/react'
 import { useState } from 'react'
-import { useLocation } from 'react-router-dom'
 
 import { Details } from './Details'
 import { ImgGrid } from './ImgGrid'
 import { LookingFor } from './LookingFor'
 import { Modal } from './Modal'
 import { Requirements } from './Requirements '
+// import { useLoaderData } from 'react-router-dom'
+// import type{ Property } from '@/interfaces/types'
 
 const images = ['/assets/hogar1.png', '/assets/hogar2.png', '/assets/hogar3.png', '/assets/hogar4.png', '/assets/hogar5.png']
 
 export const ExpandedDetails = () => {
-  const { state } = useLocation()
   const [isModalOpen, setIsModalOpen] = useState(false)
-
+  // const property = useLoaderData() as Property;
   return (
     <>
       <Flex bg='#EDF2F7' p='2' w='full'  flexDirection='column'>
@@ -30,11 +30,12 @@ export const ExpandedDetails = () => {
         >
           <ImgGrid images={images} />
           <Details
-            title={state.title}
-            description={state.description}
-            price={state.price}
-            location={state.location}
-            features={state.features}
+            title={""}
+            description={''}
+            price={200}
+            location={''}
+            features={[]}
+
           />
           <LookingFor />
           <Requirements />

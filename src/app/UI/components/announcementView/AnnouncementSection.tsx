@@ -1,57 +1,38 @@
-import { Box } from '@chakra-ui/react'
-import { CardHorizontal } from './CardHorizontal'
+import { Box } from '@chakra-ui/react';
+import { useEffect, useState } from 'react';
+
+import { Property } from '@/interfaces/types';
+import { getProperiestUser } from '@/services/userService';
+
+import { CardHorizontal } from './CardHorizontal';
 
 export const AnnouncementSection = () => {
-  const ads = [
-    {
-      title: 'Casa corral',
-      price: '$55',
-      location: 'New York, NY',
-      badges: ['2 amb', 'Temporal', 'Amueblado'],
-      description: 'Mi querido hogar en Recoleta: El refugio perfecto para quien busca comodidad y calidez.',
-    },
-    {
-      title: 'Casa corral',
-      price: '$55',
-      location: 'New York, NY',
-      badges: ['2 amb', 'Temporal', 'Amueblado'],
-      description: 'Mi querido hogar en Recoleta: El refugio perfecto para quien busca comodidad y calidez.',
-    },
-    {
-      title: 'Casa corral',
-      price: '$55',
-      location: 'New York, NY',
-      badges: ['2 amb', 'Temporal', 'Amueblado'],
-      description: 'Mi querido hogar en Recoleta: El refugio perfecto para quien  busca comodidad y calidez.',
-    },
-    {
-      title: 'Casa corral',
-      price: '$55',
-      location: 'New York, NY',
-      badges: ['2 amb', 'Temporal', 'Amueblado'],
-      description: 'Mi querido hogar en Recoleta: El refugio perfecto para quien busca comodidad y calidez.',
-    },
-    {
-      title: 'Casa corral',
-      price: '$55',
-      location: 'New York, NY',
-      badges: ['2 amb', 'Temporal', 'Amueblado'],
-      description: 'Mi querido hogar en Recoleta: El refugio perfecto para quien busca comodidad y calidez.',
-    },
-  ]
+  const [properties, setProperties] = useState<Property[]>([]);
+
+  useEffect(() => {
+    const fetchProperties = async () => {
+      const response = await getProperiestUser();
+      if (response) {
+        if (response?.data) {
+          setProperties(response.data);
+        }
+      }
+    };
+
+    fetchProperties();
+  }, []);
 
   return (
     <Box>
-      {ads.map((ad, index) => (
+      {properties.map((property, index) => (
         <CardHorizontal
           key={index}
-          title={ad.title}
-          price={ad.price}
-          location={ad.location}
-          badges={ad.badges}
-          description={ad.description}
+          title={property?.title}
+          price={property?.price}
+          location={property?.address}
+          description={property?.description}
         />
       ))}
     </Box>
-  )
-}
+  );
+};

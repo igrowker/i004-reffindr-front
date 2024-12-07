@@ -125,6 +125,7 @@
     "button-save": "Save Changes",
     "role": "Tenant",
     "name": "Name:",
+    "phone": "Phone",
     "last-name": "Last Name:",
     "document-number": "Document Number:",
     "salary-range": {

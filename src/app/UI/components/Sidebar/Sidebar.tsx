@@ -10,7 +10,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
 import { Avatar } from '@/components/ui/avatar'
-import { SkeletonCircle, SkeletonText } from '@/components/ui/skeleton'
+import { SkeletonCircle, Skeleton } from '@/components/ui/skeleton'
 import { UserRoles } from '@/constants/auth-account-constants'
 import { authLogout } from '@/services/authService'
 import { userStore } from '@/stores/userStore'
@@ -79,19 +79,19 @@ const Sidebar = () => {
       </Box>
       <Flex justifyContent='center' alignItems='center' gap='2' mb={5}>
         <SkeletonCircle loading={isUserDataPending}>
-          <Avatar size='lg' name='Sage' src={""} />
+          <Avatar size='lg' name='Sage' src={actualUser?.imageProfileUrl ?? ''} />
         </SkeletonCircle>
         <Flex flexGrow={1} flexDir='column' gapY={1}>
-          <SkeletonText noOfLines={1} loading={isUserDataPending}>
-            <Text fontSize='lg' w={'full'} fontWeight='bold'>
+          <Skeleton  loading={isUserDataPending}>
+            <Text fontSize='md' lineClamp={2} fontWeight='bold'>
               {actualUser?.name ?? 'ricardo'} {actualUser?.lastName ?? 'menendez'}
             </Text>
-          </SkeletonText>
-          <SkeletonText noOfLines={1} loading={isUserDataPending}>
-            <Text fontWeight={'medium'} fontSize='md' color='#1e3a8a' textDecoration='underline'>
+          </Skeleton>
+          <Skeleton  loading={isUserDataPending}>
+            <Text fontWeight={'medium'} fontSize='sm' color='#1e3a8a' textDecoration='underline'>
               {actualUser?.roleId == UserRoles.Owner ? 'Propietario' : 'Inquilino'}
             </Text>
-          </SkeletonText>
+          </Skeleton>
         </Flex>
       </Flex>
 

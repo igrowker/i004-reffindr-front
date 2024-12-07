@@ -21,6 +21,7 @@ export interface EditUserRequest {
   phone: string;
   address: string;
   birthDate: string;
-  profileImage: string;
+  profileImage: File | null;
+  profileImageUrl: string | null;
 
 }

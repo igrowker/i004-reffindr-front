@@ -39,8 +39,9 @@ export const CardReuComponent = ({
   const toggleFavorite = async () => {
     const updatedState = !isFavorited;
     setIsFavorited(updatedState);
-
+  
     try {
+      // Enviar solicitud al endpoint `/properties/add-favorite` solo cuando se da "like"
       if (updatedState) {
         await fetch('/properties/add-favorite', {
           method: 'POST',
@@ -56,17 +57,9 @@ export const CardReuComponent = ({
             features,
           }),
         });
-      } else {
-        await fetch('/properties/remove-favorite', {
-          method: 'DELETE',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ title }),
-        });
       }
     } catch (error) {
-      console.error('Error al actualizar el estado del favorito:', error);
+      console.error('Error al agregar a favoritos:', error);
       setIsFavorited(!updatedState); // Revertir el estado si ocurre un error
     }
   };

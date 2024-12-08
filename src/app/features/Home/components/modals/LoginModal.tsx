@@ -1,8 +1,9 @@
-import { Box, Button, Fieldset, Input, Link, Stack, Text } from '@chakra-ui/react'
+import { Box, Fieldset, Input, Link, Stack, Text } from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next'
 import { FaFacebook, FaGoogle } from 'react-icons/fa'
 
 import { ErrorPopover } from '@/app/UI/components/Popover/Popover'
+import { Button } from '@/components/ui/button'
 import {
   DialogBackdrop,
   DialogBody,
@@ -18,6 +19,7 @@ import { PasswordInput } from '@/components/ui/password-input'
 import { useLogin } from '@/hooks/useAuth'
 import { useForm } from '@/hooks/useForm'
 import { validateLogin } from '@/utils/validate'
+import { useState } from 'react'
 
 interface Props {
   onShowRegister: () => void
@@ -27,19 +29,27 @@ interface Props {
 
 export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
   const { t } = useTranslation()
+  const [isLoading, setIsLoading] = useState(false)
   const { login, errorsMessage } = useLogin()
 
   const { formState, errors, handleInputChange, handleSubmit } = useForm({ email: '', password: '' }, validateLogin)
 
   const handleLogin = async () => {
-    await login(formState.email, formState.password)
+    setIsLoading(true);
+    try {
+      await login(formState.email, formState.password);
+    } finally {
+      setIsLoading(false);
+    }
   }
+  
 
   const handleShowRegister = () => {
     if (onShowRegister) {
       onShowRegister()
     }
   }
+
 
   return (
     <DialogRoot
@@ -113,6 +123,8 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
                 colorPalette={'blue'}
                 rounded='xs'
                 onClick={() => handleSubmit(handleLogin)}
+                loading={isLoading}
+                loadingText={t('loggingIn')}
               >
                 {t('login')}
               </Button>

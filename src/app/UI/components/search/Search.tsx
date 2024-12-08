@@ -26,7 +26,7 @@ export const SearchWithFiltersAndNotification = () => {
           _hover={{ borderColor: 'black.400' }}
         />
 
-        <Button colorPalette={'blue'}>
+        <Button bg={'#1e3a8a'}>
           <Icon>
             <IoSearch />
           </Icon>
@@ -48,7 +48,7 @@ export const SearchWithFiltersAndNotification = () => {
           </MenuContent>
         </MenuRoot>
         {tenantRole == TenantRoles.outgoing && (
-          <Button colorPalette={'blue'}>
+          <Button  bg={'#1e3a8a'}>
             <Link to='create-property'>{t('createAd')}</Link>
           </Button>
         )}

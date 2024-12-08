@@ -1,4 +1,5 @@
 import { Box, Fieldset, Input, Link, Stack, Text } from '@chakra-ui/react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FaFacebook, FaGoogle } from 'react-icons/fa'
 import { useLocation } from 'react-router-dom'
@@ -30,6 +31,7 @@ interface Props {
 
 export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
   const { t } = useTranslation()
+  const [isLoading, setIsLoading] = useState(false)
   const { register, errorsMessage } = useRegister()
   const location = useLocation()
   const { formState, errors, handleInputChange, handleSubmit } = useForm(
@@ -38,6 +40,7 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
   )
 
   const handleRegisterSubmit = async () => {
+    setIsLoading(true)
     const isTenant = location.pathname.includes('inquilinos')
 
     const resp = await register({
@@ -47,6 +50,9 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
       email: formState.email,
       password: formState.password,
     })
+
+    setIsLoading(false)
+
     if (resp !== true) {
       if (onOpenChange) {
         onOpenChange({ open: false })
@@ -159,14 +165,11 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
                 colorPalette={'blue'}
                 rounded='xs'
                 onClick={() => handleSubmit(handleRegisterSubmit)}
+                loading={isLoading}
+                loadingText={t('registering')}
               >
                 {t('register')}
               </Button>
-
-                <Button loading loadingText='Saving...'>
-                  {t('landing.register')}
-                </Button>
-
 
               <Button
                 fontSize={{ base: 'medium', '2xl': 'xl' }}

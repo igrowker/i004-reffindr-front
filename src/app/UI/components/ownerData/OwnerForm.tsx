@@ -68,7 +68,7 @@ export const OwnerData = () => {
       </Stack>
 
       <Box textAlign='right' mt='4'>
-        <Button colorScheme='blue' width='auto'>
+        <Button bg='#1e3a8a' width='auto'>
           Siguiente
         </Button>
       </Box>

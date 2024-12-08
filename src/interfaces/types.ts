@@ -25,7 +25,7 @@ export interface Property {
   grill: boolean
   elevator: boolean
   terrace: boolean
-  description: null
+  description: string
   images: string[]
   requirementPostRequestDto: {
     isWorking: boolean

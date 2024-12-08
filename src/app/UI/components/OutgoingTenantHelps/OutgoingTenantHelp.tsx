@@ -27,7 +27,7 @@ export const OutgoingTenantHelp = () => {
   const { t } = useTranslation()
 
   return (
-    <Fieldset.Root size='lg' invalid gapY={1} bg={'white'} padding={5} border={'solid 1px #d3d3d3'}>
+    <Fieldset.Root size='lg' invalid gapY={1} bg={'white'} padding={5} border={'solid 1px #d3d3d3'} >
       <Fieldset.Content fontSize={24} fontWeight={'bold'}>
         {t('TenantHelp.title')}
       </Fieldset.Content>

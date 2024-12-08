@@ -1,26 +1,26 @@
-import { Flex } from '@chakra-ui/react'
-import { createBrowserRouter } from 'react-router-dom'
+import { Flex } from '@chakra-ui/react';
+import { createBrowserRouter } from 'react-router-dom';
 
-import { HomePage } from '@/app/features/Home/pages/HomePage'
-import { CreatePropertyPage } from '@/app/features/Tenant/Outgoing/property/pages/CreatePropertyPage'
-import { AnnouncementSection } from '@/app/UI/components/announcementView/AnnouncementSection'
-import { OutgoingTenantHelp } from '@/app/UI/components/OutgoingTenantHelps/OutgoingTenantHelp'
-import { MyRatingProfile } from '@/app/UI/components/profile/MyRatingProfile'
-import { Profile } from '@/app/UI/components/profile/Profile'
-import { ProfileCandidatesSend } from '@/app/UI/components/profile/ProfileCandidatesSend'
-import { ProfileNotifications } from '@/app/UI/components/profile/ProfileNotifications'
-import { TenantHomePage } from '@/app/UI/components/PropertyCard/TenantHome'
-import { ViewEditProfile } from '@/app/UI/components/ViewEditProfile/ViewEditProfile'
-import { ExpandedDetails } from '@/app/UI/components/ViewExpandedDetails/ExpandedDetails'
-import { HomeLayout } from '@/layouts/HomeLayout'
+import { ErrorBoundary } from '@/app/features/Error/ErrorBoundary';
+import { HomePage } from '@/app/features/Home/pages/HomePage';
+import { CreatePropertyPage } from '@/app/features/Tenant/Outgoing/property/pages/CreatePropertyPage';
+import { AnnouncementSection } from '@/app/UI/components/announcementView/AnnouncementSection';
+import { FavoritesSection } from '@/app/UI/components/announcementView/FavoritesSection';
+import { Language } from '@/app/UI/components/ButtonLanguage/Language';
+import { Configuration } from '@/app/UI/components/Configure/Configuration';
+import { OutgoingTenantHelp } from '@/app/UI/components/OutgoingTenantHelps/OutgoingTenantHelp';
+import { MyRatingProfile } from '@/app/UI/components/profile/MyRatingProfile';
+import { Profile } from '@/app/UI/components/profile/Profile';
+import { ProfileCandidatesSend } from '@/app/UI/components/profile/ProfileCandidatesSend';
+import { ProfileNotifications } from '@/app/UI/components/profile/ProfileNotifications';
+import { TenantHomePage } from '@/app/UI/components/PropertyCard/TenantHome';
+import { ViewEditProfile } from '@/app/UI/components/ViewEditProfile/ViewEditProfile';
+import { ExpandedDetails } from '@/app/UI/components/ViewExpandedDetails/ExpandedDetails';
+import { HomeLayout } from '@/layouts/HomeLayout';
 
-import { OwnerLanding } from '../app/features/Home/views/OwnerLanding'
-import { authenticated, requireAuth } from './loaders/authLoader'
-import { Configuration } from '@/app/UI/components/Configure/Configuration'
-import { Language } from '@/app/UI/components/ButtonLanguage/Language'
-import { getPropertyByIdLoader } from './loaders/propertiesLoader'
-import { ErrorBoundary } from '@/app/features/Error/ErrorBoundary'
-
+import { OwnerLanding } from '../app/features/Home/views/OwnerLanding';
+import { authenticated, requireAuth } from './loaders/authLoader';
+import { getPropertyByIdLoader } from './loaders/propertiesLoader';
 
 export const router = createBrowserRouter(
   [
@@ -51,7 +51,7 @@ export const router = createBrowserRouter(
         {
           path: 'home/:propertyName',
           loader: getPropertyByIdLoader,
-          errorElement: <ErrorBoundary/>,
+          errorElement: <ErrorBoundary />,
           element: <ExpandedDetails />,
         },
         {
@@ -82,7 +82,7 @@ export const router = createBrowserRouter(
         },
         {
           path: 'favoritos',
-          element: <AnnouncementSection />,
+          element: <FavoritesSection />,
         },
         {
           path: 'help',
@@ -90,11 +90,11 @@ export const router = createBrowserRouter(
         },
         {
           path: 'configuration',
-          element: <Configuration />
+          element: <Configuration />,
         },
         {
           path: 'language',
-          element: <Language />
+          element: <Language />,
         },
       ],
     },
@@ -108,4 +108,4 @@ export const router = createBrowserRouter(
       v7_skipActionErrorRevalidation: true,
     },
   }
-)
+);

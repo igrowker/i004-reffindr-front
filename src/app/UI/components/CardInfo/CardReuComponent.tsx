@@ -76,22 +76,15 @@ export const CardReuComponent = ({ maxW, isSkeletonLoading, ...property }: CardR
               <FaHeart />
             </IconButton>
           </Flex>
-          {/* 
-        {showRating && (
-          <HStack>
-            <Rating allowHalf defaultValue={rating} onValueChange={({ value }) => setRating && setRating(value)} />
-            <Flex alignItems='center' gap='1'>
-              <Text>
-                {rating} <Box as={'span'}>Star</Box>
-              </Text>
-              <Text>10 reviews</Text>
-            </Flex>
-          </HStack>
-        )} */}
 
           <Text textStyle='2xl' fontWeight='medium' letterSpacing='tight' mt='2'>
             ${property?.price?.toLocaleString('es-AR')}
           </Text>
+          <Box letterSpacing='tight' mt='2'>
+            <Flex fontWeight={'semibold'} alignItems='center' gap='2'>
+              {property.countryName}, {property.stateName}
+            </Flex>
+          </Box>
           <Box letterSpacing='tight' mt='2'>
             <Flex alignItems='center' gap='2'>
               <RiMapPin2Line />

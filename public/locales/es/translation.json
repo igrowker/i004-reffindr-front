@@ -116,8 +116,10 @@
   "ViewEditProfile": {
     "button-edit": "Editar perfil",
     "button-edit-active": "Cancelar",
+    "birthdate": "Fecha de nacimiento",
     "button-save": "Guardar Cambios",
     "role": "Inquilino",
+    "phone": "Teléfono",
     "name": "Nombre:",
     "last-name": "Apellido:",
     "document-number": "Número de documento:",

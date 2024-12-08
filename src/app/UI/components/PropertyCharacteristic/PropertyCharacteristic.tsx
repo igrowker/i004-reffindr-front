@@ -1,72 +1,123 @@
 import { Button, Flex, Grid, GridItem, SimpleGrid, Text, Textarea } from '@chakra-ui/react'
+import React from 'react'
 
 import CustomSelect from '@/app/UI/components/CustomSelect/CustomSelect'
 import { Checkbox } from '@/components/ui/checkbox'
 
-export const PropertyCharacteristic = () => {
-  const options = [
-    { value: '1', label: '1' },
-    { value: '2', label: '2' },
-    { value: '3', label: '3' },
-  ]
+import { InitialFormState } from '../MenuAnnouncement/MenuAnnouncement'
 
-  const options2 = [
-    { value: '4', label: '4' },
-    { value: '5', label: '5' },
-    { value: '6', label: '6' },
-  ]
+interface PropertyCharacteristicProps {
+  formState: InitialFormState
+  handleInputChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void
+  onNextCharacteristic: () => void
+  onCheckboxChange: ({ name, checked }: { name: string; checked: boolean }) => void
+  onChange?: React.ChangeEventHandler<HTMLInputElement>
+  assingNewValues: (values: Partial<InitialFormState>) => void
+}
+
+const generateOptions = (max: number) => {
+  return Array.from({ length: max }, (_, index) => ({
+    value: (index + 1).toString(),
+    label: (index + 1).toString(),
+  }))
+}
+
+export const PropertyCharacteristic = ({
+  onNextCharacteristic,
+  formState,
+  handleInputChange,
+  onCheckboxChange,
+}: PropertyCharacteristicProps) => {
+  const ambientOptions = generateOptions(7)
+  const bedroomOptions = generateOptions(5)
+  const bathOptions = generateOptions(5)
+  const seniorityOptions = generateOptions(50)
+
+  const handleNextCharacteristic = () => {
+    onNextCharacteristic()
+  }
 
   return (
     <>
       <Flex px={8} py={8} direction={'column'}>
         <Grid gridTemplateColumns={'repeat(2,1fr)'} gapX={14} gapY={4}>
           <GridItem>
-            <CustomSelect label='Ambientes:' options={options} />
+            <CustomSelect
+              label='Ambientes:'
+              options={ambientOptions}
+              value={formState.enviromments}
+              onChange={handleInputChange}
+              name='enviromments'
+            />
           </GridItem>
           <GridItem>
-            <CustomSelect label='Dormitorios:' options={options2} />
+            <CustomSelect
+              label='Dormitorios:'
+              options={bedroomOptions}
+              value={formState.bedrooms}
+              onChange={handleInputChange}
+              name='bedrooms'
+            />
           </GridItem>
           <GridItem>
-            <CustomSelect label='Baños:' options={options} />
+            <CustomSelect label='Baños:' options={bathOptions} />
           </GridItem>
           <GridItem>
-            <CustomSelect label='Antigüedad:' options={options} />
+            <CustomSelect
+              label='Antigüedad:'
+              options={seniorityOptions}
+              value={formState.seniority}
+              onChange={handleInputChange}
+              name='seniority'
+            />
           </GridItem>
         </Grid>
-        <Flex direction={{ base: 'column', md: 'row' }} wrap='wrap' justifyContent='space-between' gap={4}>
-          {/* <Flex direction='column' width={{ base: '100%', md: '48%' }} mb={4}>
-            <CustomSelect label='Ambientes:' options={options} />
-          </Flex> */}
-          {/* <Flex direction='column' width={{ base: '100%', md: '48%' }} mb={4}>
-            <CustomSelect label='Dormitorios:' options={options2} />
-          </Flex> */}
-          {/* <Flex direction='column' width={{ base: '100%', md: '48%' }} mb={4}>
-            <CustomSelect label='Baños:' options={options} />
-          </Flex>
-          <Flex direction='column' width={{ base: '100%', md: '48%' }} mb={4}> */}
-          {/* <CustomSelect label='Antigüedad:' options={options} /> */}
-          {/* </Flex> */}
-        </Flex>
-
         <Flex direction='column'>
           <Text mb={5} fontWeight={'bold'}>
-            Servicios:
+            Servicies:
           </Text>
           <SimpleGrid columns={{ base: 2, md: 6 }} gap={3}>
-            <Checkbox>Agua</Checkbox>
-            <Checkbox>Vigilancia</Checkbox>
-            <Checkbox>Internet</Checkbox>
-            <Checkbox>Gas</Checkbox>
-            <Checkbox>Luz</Checkbox>
+            <Checkbox
+              checked={formState.water}
+              onCheckedChange={({ checked }) => onCheckboxChange({ name: 'water', checked: !!checked })}
+            >
+              Agua
+            </Checkbox>
+            <Checkbox
+              checked={formState.vigilance}
+              onCheckedChange={({ checked }) => onCheckboxChange({ name: 'vigilance', checked: !!checked })}
+            >
+              Vigilancia
+            </Checkbox>
+            <Checkbox
+              checked={formState.internet}
+              onCheckedChange={({ checked }) => onCheckboxChange({ name: 'internet', checked: !!checked })}
+            >
+              Internet
+            </Checkbox>
+            <Checkbox
+              checked={formState.gas}
+              onCheckedChange={({ checked }) => onCheckboxChange({ name: 'gas', checked: !!checked })}
+            >
+              Gas
+            </Checkbox>
+            <Checkbox
+              checked={formState.electricty}
+              onCheckedChange={({ checked }) => onCheckboxChange({ name: 'electricty', checked: !!checked })}
+            >
+              Electricidad
+            </Checkbox>
           </SimpleGrid>
         </Flex>
 
         <Flex direction='column'>
           <Text my={5} fontWeight={'bold'}>
-            Adicionales:
+            Aditionals:
           </Text>
           <SimpleGrid columns={{ base: 2, md: 6 }} gap={3}>
-            <Checkbox>Pileta</Checkbox>
+            <Checkbox onCheckedChange={({ checked }) => onCheckboxChange({ name: 'pool', checked: !!checked })}>
+              Pileta
+            </Checkbox>
             <Checkbox>Mascotas</Checkbox>
             <Checkbox>Ascensor</Checkbox>
             <Checkbox>Cochera</Checkbox>
@@ -83,10 +134,15 @@ export const PropertyCharacteristic = () => {
             placeholder='Descripción general de la propiedad...'
             borderRadius={'xl'}
             boxShadow={'md'}
+            value={formState.description}
+            onChange={handleInputChange}
+            name='description'
           ></Textarea>
         </Flex>
         <Flex justifyContent='flex-end' p={5}>
-          <Button bg={'#1E3A8A'}>Siguiente</Button>
+          <Button onClick={handleNextCharacteristic} bg={'#1E3A8A'}>
+            Siguiente
+          </Button>
         </Flex>
       </Flex>
     </>

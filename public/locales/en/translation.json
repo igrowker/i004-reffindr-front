@@ -120,10 +120,12 @@
   "search": "Search",
     "ViewEditProfile": {
     "button-edit": "Edit Profile",
+    "birthdate": "Birthdate",
     "button-edit-active": "Cancel",
     "button-save": "Save Changes",
     "role": "Tenant",
     "name": "Name:",
+    "phone": "Phone",
     "last-name": "Last Name:",
     "document-number": "Document Number:",
     "salary-range": {

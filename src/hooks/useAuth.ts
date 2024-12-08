@@ -30,22 +30,19 @@ export const useLogin = () => {
         title: 'Error al iniciar sesión',
         type: 'error',
       })
-      return
+      return true
     }
+    navigate('/home')
+    setErrorsMessage(null)
 
     toaster.create({
       title: 'Inicio de sesión exitoso',
       type: 'success',
     })
-    setErrorsMessage(null)
-    const token = response.data?.token
-    if (token) {
-      sessionStorage.setItem(AUTH_TOKEN_KEY, token)
-      setToken(token)
-      navigate('/home')
-    } else {
-      console.error('Token is undefined')
-    }
+    const token = response.data?.token as string
+    sessionStorage.setItem(AUTH_TOKEN_KEY, token)
+    setToken(token)
+    return null;
   }
 
   useEffect(() => {
@@ -73,7 +70,6 @@ export const useRegister = () => {
       return true
     }
     setErrorsMessage(null)
-    
 
     return null
   }

@@ -20,9 +20,19 @@ export const createApplication = async (propertyId: number) => {
   }
 };
 
-
-export const getApplications = async () => {
-  
-
-
-}
+export const getMyAplications = async () => {
+  try {
+    const response = await httpClient.get('/application/user');
+    return response.data;
+  } catch (error: unknown) {
+    const err = error as AxiosError;
+    if (err.response?.data) {
+      return err.response?.data;
+    }
+    return {
+      hasErrors: true,
+      errors: ['Error interno del servidor'],
+      statusCode: 500,
+    };
+  }
+};

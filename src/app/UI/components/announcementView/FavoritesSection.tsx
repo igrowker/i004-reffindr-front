@@ -33,7 +33,7 @@ export const FavoritesSection = () => {
           image={property?.images[0]}
           title='Favorites'
           price={property?.price}
-          location={property?.stateId}
+          location={property?.stateName}
           address={property?.address}
           description={property?.description}
         />

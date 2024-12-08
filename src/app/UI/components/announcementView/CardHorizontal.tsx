@@ -1,14 +1,24 @@
 import { Box, Card, HStack, Image, Text } from '@chakra-ui/react';
 import { FaMapMarkerAlt } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 import { Button } from '@/components/ui/button';
 
-type CardHorizontalProps = {
+interface Property {
+  id: number;
   title: string;
-  price: number;
+  image: string;
+  price: string;
+  countryName: string;
+  stateName: string;
   location: string;
+  address: string;
   description: string;
-};
+}
+
+interface CardHorizontalProps {
+  property: Property;
+}
 
 export const CardHorizontal: React.FC<CardHorizontalProps> = ({ title, price, location, description }) => (
   <Box mx={8} my={4}>
@@ -37,12 +47,15 @@ export const CardHorizontal: React.FC<CardHorizontalProps> = ({ title, price, lo
             <Text>{location}</Text>
           </HStack>
 
-          <Card.Description>{description}</Card.Description>
-        </Card.Body>
-        <Card.Footer display='flex' justifyContent='flex-end' width='100%' mt='auto'>
-          <Button variant='ghost'>Ver más &gt;</Button>
-        </Card.Footer>
-      </Box>
-    </Card.Root>
-  </Box>
-);
+            <Card.Description>{property.description}</Card.Description>
+          </Card.Body>
+          <Card.Footer display='flex' justifyContent='flex-end' width='100%' mt='auto'>
+            <Button onClick={handleViewMore} variant='ghost'>
+              Ver más &gt;
+            </Button>
+          </Card.Footer>
+        </Box>
+      </Card.Root>
+    </Box>
+  );
+};

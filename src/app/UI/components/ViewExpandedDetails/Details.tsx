@@ -1,24 +1,29 @@
-import { Badge, Box, Flex, HStack, IconButton, Text } from '@chakra-ui/react'
-import { useState } from 'react'
-import { FaHeart } from 'react-icons/fa6'
-import { RiMapPin2Line } from 'react-icons/ri'
+import { Badge, Box, Flex, HStack, IconButton, Text } from '@chakra-ui/react';
+import { useState } from 'react';
+import { FaHeart } from 'react-icons/fa6';
+import { RiMapPin2Line } from 'react-icons/ri';
 
-import { Rating } from '@/components/ui/rating'
+import { Rating } from '@/components/ui/rating';
+import { StatHelpText } from '@/components/ui/stat';
 
 interface DetailsProps {
-  title: string
-  price: number
-  location: string
-  features: string[]
-  description: string
-  showRating?: boolean
-  setRating?: (value: number) => void
-  rating?: number
+  title: string;
+  price: number;
+  country: string;
+  state: string;
+  location: string;
+  features: string[];
+  description: string;
+  showRating?: boolean;
+  setRating?: (value: number) => void;
+  rating?: number;
 }
 
 export const Details = ({
   title,
   price,
+  country,
+  state,
   location,
   features,
   description,
@@ -26,11 +31,11 @@ export const Details = ({
   setRating,
   rating,
 }: DetailsProps) => {
-  const [isFavorited, setIsFavorited] = useState(false)
+  const [isFavorited, setIsFavorited] = useState(false);
 
   const toggleFavorite = () => {
-    setIsFavorited(!isFavorited)
-  }
+    setIsFavorited(!isFavorited);
+  };
   return (
     <Box>
       <Flex alignItems='center' gap='2'>
@@ -49,7 +54,7 @@ export const Details = ({
         </IconButton>
       </Flex>
 
-       {showRating && rating !== undefined && (
+      {showRating && rating !== undefined && (
         <HStack gap={2}>
           <Rating allowHalf defaultValue={rating} onValueChange={({ value }) => setRating?.(value)} />
           <Flex alignItems='center' gap='1'>
@@ -59,11 +64,17 @@ export const Details = ({
             <Text>10 reviews</Text>
           </Flex>
         </HStack>
-      )} 
+      )}
 
       <Text textStyle='2xl' fontWeight='medium' letterSpacing='tight' mt='2'>
         ${price}
       </Text>
+
+      <Box letterSpacing='tight' mt='2'>
+        <Flex fontWeight={'semibold'} alignItems='center' gap='2'>
+          {country}, {state}
+        </Flex>
+      </Box>
 
       <Text letterSpacing='tight' mt='2' mb='2'>
         <Flex alignItems='center' gap='1'>
@@ -84,5 +95,5 @@ export const Details = ({
         <Text>{description}</Text>
       </Box>
     </Box>
-  )
-}
+  );
+};

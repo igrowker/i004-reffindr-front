@@ -6,6 +6,8 @@ import { getProperiestUser } from '@/services/userService';
 
 import { CardHorizontal } from './CardHorizontal';
 
+// Removed duplicate Property interface
+
 export const AnnouncementSection = () => {
   const [properties, setProperties] = useState<Property[]>([]);
   const [loading, setLoading] = useState(true);
@@ -24,6 +26,9 @@ export const AnnouncementSection = () => {
 
     fetchProperties();
   }, []);
+
+  console.log(properties);
+  console.log(properties[0]?.images[0]);
 
   return (
     <Box>

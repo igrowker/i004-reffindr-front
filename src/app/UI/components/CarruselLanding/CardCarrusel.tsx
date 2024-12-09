@@ -22,7 +22,7 @@ export const CardCarrusel = ({
       <Card.Body gap='2'>
         <Card.Title mt='2'>
           <Box ml={2}>
-            <Image src='public/Quotation_Marks.svg' />
+            <Image src='/Quotation_Marks.svg' />
           </Box>
         </Card.Title>
         <Card.Description p={3} fontWeight={'medium'} fontSize={'1rem'}>

@@ -23,10 +23,7 @@ import { ErrorBoundary } from '@/app/features/Error/ErrorBoundary'
 import { NotificationSetting } from '@/app/UI/components/Configure/NotificationSettings'
 import { PasswordManagement } from '@/app/UI/components/Configure/PasswordManagement'
 import { DeleteAccount } from '@/app/UI/components/Configure/DeleteAccount'
-
-import { OwnerLanding } from '../app/features/Home/views/OwnerLanding';
-import { authenticated, requireAuth } from './loaders/authLoader';
-import { getPropertyByIdLoader } from './loaders/propertiesLoader';
+import { FavoritesSection } from '@/app/UI/components/announcementView/FavoritesSection';
 
 export const router = createBrowserRouter(
   [

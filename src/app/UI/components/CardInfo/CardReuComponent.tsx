@@ -33,7 +33,7 @@ export const CardReuComponent = ({ maxW, isSkeletonLoading, ...property }: CardR
   const navigate = useNavigate();
 
   const handleViewMore = () => {
-    navigate(`${property?.title}?pid=${property?.id}`, { state: { property } });
+    navigate(`/home/${property?.title}?pid=${property?.id}`, { state: { property } });
   };
 
   const fallbackImageUrl =
@@ -65,7 +65,6 @@ export const CardReuComponent = ({ maxW, isSkeletonLoading, ...property }: CardR
           <Flex alignItems='center' gap='2'>
             <Card.Title lineClamp={1}>{property.title}</Card.Title>
 
-
             <IconButton
               aria-label='Call support'
               ml='auto'
@@ -89,7 +88,7 @@ export const CardReuComponent = ({ maxW, isSkeletonLoading, ...property }: CardR
           <Box letterSpacing='tight' mt='2'>
             <Flex alignItems='center' gap='2'>
               <RiMapPin2Line />
-              {property?.address}
+              <Text lineClamp='1'>{property?.address}</Text>
             </Flex>
           </Box>
           <Box display='flex' gap='2'>
@@ -100,7 +99,6 @@ export const CardReuComponent = ({ maxW, isSkeletonLoading, ...property }: CardR
           ))} */}
           </Box>
 
-          <Card.Title as='h3'>{property?.title}</Card.Title>
           <Card.Description as='span'>
             <Text lineClamp='2'>{property?.description}</Text>
           </Card.Description>

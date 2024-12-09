@@ -27,9 +27,6 @@ export const AnnouncementSection = () => {
     fetchProperties();
   }, []);
 
-  console.log(properties);
-  console.log(properties[0]?.images[0]);
-
   return (
     <Box>
       {loading ? (
@@ -41,6 +38,7 @@ export const AnnouncementSection = () => {
       ) : (
         properties.map((property, index) => (
           <CardHorizontal
+            images={property.images[0]}
             key={index}
             title={property?.title}
             price={property?.price}

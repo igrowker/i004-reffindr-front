@@ -8,9 +8,10 @@ type CardHorizontalProps = {
   price: number;
   location: string;
   description: string;
+  images: string;
 };
 
-export const CardHorizontal: React.FC<CardHorizontalProps> = ({ title, price, location, description }) => (
+export const CardHorizontal: React.FC<CardHorizontalProps> = ({ title, price, location, description, images }) => (
   <Box mx={8} my={4}>
     <Card.Root
       flexDirection={{ base: 'column', sm: 'row' }}
@@ -20,12 +21,9 @@ export const CardHorizontal: React.FC<CardHorizontalProps> = ({ title, price, lo
         border: '1px solid #2175D9',
       }}
     >
-      <Image
-        objectFit='cover'
-        maxW={{ base: '100%', sm: '200px' }}
-        src='/public/Announcement_Image.svg'
-        alt='Caffe Latte'
-      />
+      <Image objectFit='cover' maxW={{ base: '100%', sm: '200px' }} src={images} alt='Caffe Latte' />
+     
+      
       <Box display='flex' flexDirection='column' justifyContent='space-between' alignItems='center' width='100%'>
         <Card.Body flex='1' width='100%'>
           <Card.Title fontSize={20} fontWeight='bold' mb='2'>

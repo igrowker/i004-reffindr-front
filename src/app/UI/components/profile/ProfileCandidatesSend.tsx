@@ -4,25 +4,20 @@ import { useEffect, useState } from 'react';
 
 import { Property } from '@/interfaces/types';
 import { getMyAplications } from '@/services/applicationService';
+import { getPropertyById } from '@/services/propertiesService';
 
 import { CardReuComponent } from '../CardInfo/CardReuComponent';
 
 export const ProfileCandidatesSend = () => {
   const [myProperties, setMyProperties] = useState<Property[]>([]);
 
-  const mapperProperties = (properties: any): Property[] => {
-    return properties?.map((property: any) => ({
-      id: property?.propertyId,
-      title: property?.propertyTitle,
-      address: property?.propertyAddress,
-      images: property?.images?.map((image: any) => image.url) ?? [],
-    }));
-  };
-
   useEffect(() => {
     getMyAplications().then((res) => {
-      const mappedProperties = mapperProperties(res.data);
-      setMyProperties(mappedProperties);
+      const propertyPromises = res.data.map((property: any) => getPropertyById(property.propertyId));
+
+      Promise.all(propertyPromises).then((properties: any) => {
+        setMyProperties(properties.map((property: any) => property.data));
+      });
     });
   }, []);
 
@@ -31,7 +26,7 @@ export const ProfileCandidatesSend = () => {
   }
 
   return (
-    <Flex flexDirection='row' gap='4'>
+    <Flex flexDirection='row' gap='4' flexWrap='wrap'>
       {myProperties?.map((property: Property) => (
         <CardReuComponent key={property.id} maxW={'300px'} isSkeletonLoading={false} {...property} />
       ))}

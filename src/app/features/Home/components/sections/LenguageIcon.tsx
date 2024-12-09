@@ -25,7 +25,7 @@ export const LenguageIcon = () => {
           bg={selectedLanguage === 'en' ? 'gray.50' : 'transparent'}
           _hover={{ color: 'blue.500' }}
         >
-          {t('Language.ingles-english')}
+          {t('configure.language.ingles-english')}
         </MenuItem>
         <MenuItem
           value='new-txt'
@@ -33,7 +33,7 @@ export const LenguageIcon = () => {
           bg={selectedLanguage === 'es' ? 'gray.50' : 'transparent'}
           _hover={{ color: 'blue.500' }}
         >
-          {t('Language.español-spanish')}
+          {t('configure.language.español-spanish')}
         </MenuItem>
       </MenuContent>
     </MenuRoot>

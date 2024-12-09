@@ -22,8 +22,6 @@ export const ExpandedDetails = () => {
     }
   };
 
-  console.log(property);
-
   return (
     <>
       <Flex bg='#EDF2F7' p='2' w='full' flexDirection='column'>

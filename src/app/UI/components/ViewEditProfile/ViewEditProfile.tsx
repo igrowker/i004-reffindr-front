@@ -41,7 +41,7 @@ export const ViewEditProfile = () => {
   const readImage = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files !== null && e.target.files.length > 0) {
       const fileReader = new FileReader();
-      const file = e.target.files.item(0) as File;
+      const file = Array.from(e.target.files)[0];
 
       fileReader.onload = (ev) => {
         if (ev.target !== null) {
@@ -55,7 +55,12 @@ export const ViewEditProfile = () => {
   useEffect(() => {
     if (actualUser !== null) {
       assignAllNewValues({
-        ...actualUser,
+        address: actualUser.address,
+        dni: actualUser.dni,
+        email: actualUser.email,
+        lastName: actualUser.lastName,
+        name: actualUser.name,
+        phone: actualUser.phone,
         profileImageUrl: actualUser.imageProfileUrl,
         birthDate: moment(actualUser.birthDate).format('yyyy-MM-DD'),
       });

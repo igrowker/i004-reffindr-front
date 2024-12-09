@@ -38,7 +38,7 @@ export const ProfileCard = ({ description, user }: Props) => {
         flexShrink={0}
         w={{ base: 'full', md: '1/4' }}
         h={{ base: '300px', md: '250px' }}
-        src={'/public/tamara-bellis-A3Gd2b-98_g-unsplash.jpg'}
+        src={'/tamara-bellis-A3Gd2b-98_g-unsplash.jpg'}
       />
       <Box pt={2} pb={4} px={4} overflow='auto'>
         <Heading py={2}>

@@ -2,7 +2,7 @@ import { AUTH_TOKEN_KEY } from '@/constants/auth-account-constants'
 import axios, { InternalAxiosRequestConfig } from 'axios'
 
 export const httpClient = axios.create({
-  baseURL: 'https://i004-reffindr-back-nodejs-dev.onrender.com/' ,
+  baseURL: /* 'https://i004-reffindr-back-nodejs-dev.onrender.com/' */'http://localhost:3001' ,
   // headers: {
   //   'Content-Type': 'application/json',
   // },

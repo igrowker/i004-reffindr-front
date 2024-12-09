@@ -16,7 +16,7 @@ export const CardStaticCarrusel = () => {
     {
       description: t('landing.card-static-carrusel.array-user.description-1'),
       avatar: {
-        image: 'public/AvatarImage1.png',
+        image: '/AvatarImage1.png',
       },
       userName: t('landing.card-static-carrusel.array-user.name-1'),
       userRole: t('landing.card-static-carrusel.array-user.role-1'),
@@ -24,7 +24,7 @@ export const CardStaticCarrusel = () => {
     {
       description: t('landing.card-static-carrusel.array-user.description-2'),
       avatar: {
-        image: 'public/AvatarImage2.png',
+        image: '/AvatarImage2.png',
       },
       userName: t('landing.card-static-carrusel.array-user.name-2'),
       userRole: t('landing.card-static-carrusel.array-user.role-2'),
@@ -32,7 +32,7 @@ export const CardStaticCarrusel = () => {
     {
       description: t('landing.card-static-carrusel.array-user.description-3'),
       avatar: {
-        image: 'public/AvatarImage1.png',
+        image: '/AvatarImage1.png',
       },
       userName: t('landing.card-static-carrusel.array-user.name-3'),
       userRole: t('landing.card-static-carrusel.array-user.role-3'),
@@ -40,7 +40,7 @@ export const CardStaticCarrusel = () => {
     {
       description: t('landing.card-static-carrusel.array-user.description-4'),
       avatar: {
-        image: 'public/AvatarImage4.png',
+        image: '/AvatarImage4.png',
       },
       userName: t('landing.card-static-carrusel.array-user.name-4'),
       userRole: t('landing.card-static-carrusel.array-user.role-4'),
@@ -48,7 +48,7 @@ export const CardStaticCarrusel = () => {
     {
       description: t('landing.card-static-carrusel.array-user.description-5'),
       avatar: {
-        image: 'public/AvatarImage1.png',
+        image: '/AvatarImage1.png',
       },
       userName: t('landing.card-static-carrusel.array-user.name-5'),
       userRole: t('landing.card-static-carrusel.array-user.role-5'),

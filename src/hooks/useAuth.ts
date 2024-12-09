@@ -25,7 +25,6 @@ export const useLogin = () => {
 
     if (response.hasErrors) {
       setErrorsMessage(response.errors)
-      console.log('Errors:', response.errors)
       toaster.create({
         title: 'Error al iniciar sesión',
         type: 'error',
@@ -66,7 +65,6 @@ export const useRegister = () => {
 
     if (response.hasErrors) {
       setErrorsMessage(response.errors)
-      console.log('Errors:', response.errors)
       return true
     }
     setErrorsMessage(null)

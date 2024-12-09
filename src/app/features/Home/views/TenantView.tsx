@@ -6,12 +6,9 @@ import { CardStaticCarrusel } from '@/app/UI/components/CarruselLanding/CardStat
 import { Footer } from '@/app/UI/components/Footer/Footer'
 
 import { SectionGrid } from '../components/sections/SectionGrid'
-import { userStore } from '@/stores/userStore'
 
 export const TenantView = () => {
   const { t } = useTranslation()
-  const d = userStore(state => state.user);
-  console.log(d)
   return (
     <>
       <HeadSection

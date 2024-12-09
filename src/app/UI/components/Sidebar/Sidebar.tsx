@@ -17,7 +17,6 @@ import { userStore } from '@/stores/userStore';
 import { LogoComponent } from '../Logo/LogoComponent';
 import { ButtonIconComponent } from './ButtonIconComponent';
 import { SelectorTypeComponent } from './SelectorTypeComponent';
-import { useEffect } from 'react';
 
 const Sidebar = () => {
   const { t } = useTranslation();
@@ -59,9 +58,7 @@ const Sidebar = () => {
     navigate("/inquilinos")
   };
 
-  useEffect(() => {
-    console.log(isUserDataPending)
-  }, [isUserDataPending])
+
   const location = useLocation();
 
   return (

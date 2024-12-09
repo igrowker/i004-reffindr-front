@@ -12,7 +12,7 @@ interface PropertyCharacteristicProps {
   onNextCharacteristic: () => void
   onCheckboxChange: ({ name, checked }: { name: string; checked: boolean }) => void
   onChange?: React.ChangeEventHandler<HTMLInputElement>
-  assingNewValues: (values: Partial<InitialFormState>) => void
+  
 }
 
 const generateOptions = (max: number) => {
@@ -22,7 +22,7 @@ const generateOptions = (max: number) => {
   }))
 }
 
-export const PropertyCharacteristic = ({
+export const PropertyCharacteristic = React.memo(({
   onNextCharacteristic,
   formState,
   handleInputChange,
@@ -45,9 +45,9 @@ export const PropertyCharacteristic = ({
             <CustomSelect
               label='Ambientes:'
               options={ambientOptions}
-              value={formState.enviromments}
+              value={formState.environments}
               onChange={handleInputChange}
-              name='enviromments'
+              name='environments'
             />
           </GridItem>
           <GridItem>
@@ -84,8 +84,8 @@ export const PropertyCharacteristic = ({
               Agua
             </Checkbox>
             <Checkbox
-              checked={formState.vigilance}
-              onCheckedChange={({ checked }) => onCheckboxChange({ name: 'vigilance', checked: !!checked })}
+              checked={formState.surveillance}
+              onCheckedChange={({ checked }) => onCheckboxChange({ name: 'surveillance', checked: !!checked })}
             >
               Vigilancia
             </Checkbox>
@@ -102,8 +102,8 @@ export const PropertyCharacteristic = ({
               Gas
             </Checkbox>
             <Checkbox
-              checked={formState.electricty}
-              onCheckedChange={({ checked }) => onCheckboxChange({ name: 'electricty', checked: !!checked })}
+              checked={formState.electricity}
+              onCheckedChange={({ checked }) => onCheckboxChange({ name: 'electricity', checked: !!checked })}
             >
               Electricidad
             </Checkbox>
@@ -118,11 +118,11 @@ export const PropertyCharacteristic = ({
             <Checkbox onCheckedChange={({ checked }) => onCheckboxChange({ name: 'pool', checked: !!checked })}>
               Pileta
             </Checkbox>
-            <Checkbox>Mascotas</Checkbox>
-            <Checkbox>Ascensor</Checkbox>
-            <Checkbox>Cochera</Checkbox>
-            <Checkbox>Parrilla</Checkbox>
-            <Checkbox>Terraza</Checkbox>
+            <Checkbox onCheckedChange={({ checked }) => onCheckboxChange({ name: 'pets', checked: !!checked })}>Mascotas</Checkbox>
+            <Checkbox onCheckedChange={({ checked }) => onCheckboxChange({ name: 'elevator', checked: !!checked })}>Ascensor</Checkbox>
+            <Checkbox onCheckedChange={({ checked }) => onCheckboxChange({ name: 'garage', checked: !!checked })}>Cochera</Checkbox>
+            <Checkbox onCheckedChange={({ checked }) => onCheckboxChange({ name: 'grill', checked: !!checked })}>Parrilla</Checkbox>
+            <Checkbox onCheckedChange={({ checked }) => onCheckboxChange({ name: 'terrace', checked: !!checked })}>Terraza</Checkbox>
           </SimpleGrid>
         </Flex>
 
@@ -147,4 +147,4 @@ export const PropertyCharacteristic = ({
       </Flex>
     </>
   )
-}
+})

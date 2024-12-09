@@ -31,6 +31,7 @@ export const Configuration = () => {
             </Button>
           </Link>
         ))}
+
       </Stack>
       <Box mt={4}>
         <Outlet />

@@ -4,7 +4,7 @@
     "owner-view": {
       "HeadSection": {
         "tenant": "Soy inquilino",
-        "title": "Nuestra plataforma conecta a inquilinos y propietarios, eliminando /n la necesidad de intermediarios y las comisiones elevadas."
+        "title": "Encontrá tu siguiente \n inquilino con nosotros"
       }
     },
     "tenant-view": {
@@ -21,6 +21,7 @@
         "description-3": "Te podrás conectar con el propietario para concretar tu alquiler o venta de tu nuevo hogar."
       }
     },
+    
     "headSection": {
       "button-login": "Iniciar sesión",
       "button-register": "Registrarse",
@@ -84,7 +85,7 @@
   "outgoing": "Saliente",
   "myProfile": "Mi Perfil",
   "myAds": "Mis Anuncios",
-  "sendedCandidates": "Candidatos Enviados",
+  "sendedCandidates": "Mis Postulaciones",
   "notifications": "Notificaciones",
   "myRating": "Mi Valoración",
   "emailPlaceholder": "Correo Electrónico",

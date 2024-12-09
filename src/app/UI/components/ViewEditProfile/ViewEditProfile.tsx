@@ -9,6 +9,7 @@ import { MdEdit } from 'react-icons/md';
 import { Field } from '@/components/ui/field';
 import { FileUploadRoot, FileUploadTrigger } from '@/components/ui/file-upload';
 import { NativeSelectField, NativeSelectRoot } from '@/components/ui/native-select';
+import { toaster } from '@/components/ui/toaster';
 import { GENRES, STATES } from '@/constants/form-data-constants';
 import { useForm } from '@/hooks/useForm';
 import type { EditUserRequest } from '@/interfaces/user';
@@ -74,6 +75,10 @@ export const ViewEditProfile = () => {
 
   const handleConfirmSave = async () => {
     await updateUser(formState);
+    toaster.create({
+      title: 'Perfil actualizado exitosamente',
+      type: 'success',
+    });
     setIsEditing(false); // Deshabilita los campos
     setShowModal(false); // Oculta el modal
   };

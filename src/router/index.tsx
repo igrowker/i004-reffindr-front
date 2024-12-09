@@ -1,5 +1,5 @@
-import { Flex } from '@chakra-ui/react'
-import { createBrowserRouter } from 'react-router-dom'
+import { Flex } from '@chakra-ui/react';
+import { createBrowserRouter } from 'react-router-dom';
 
 import { HomePage } from '@/app/features/Home/pages/HomePage'
 import { CreatePropertyPage } from '@/app/features/Tenant/Outgoing/property/pages/CreatePropertyPage'
@@ -24,6 +24,9 @@ import { NotificationSetting } from '@/app/UI/components/Configure/NotificationS
 import { PasswordManagement } from '@/app/UI/components/Configure/PasswordManagement'
 import { DeleteAccount } from '@/app/UI/components/Configure/DeleteAccount'
 
+import { OwnerLanding } from '../app/features/Home/views/OwnerLanding';
+import { authenticated, requireAuth } from './loaders/authLoader';
+import { getPropertyByIdLoader } from './loaders/propertiesLoader';
 
 export const router = createBrowserRouter(
   [
@@ -54,7 +57,7 @@ export const router = createBrowserRouter(
         {
           path: 'home/:propertyName',
           loader: getPropertyByIdLoader,
-          errorElement: <ErrorBoundary/>,
+          errorElement: <ErrorBoundary />,
           element: <ExpandedDetails />,
         },
         {
@@ -85,7 +88,7 @@ export const router = createBrowserRouter(
         },
         {
           path: 'favoritos',
-          element: <AnnouncementSection />,
+          element: <FavoritesSection />,
         },
         {
           path: 'help',
@@ -125,4 +128,4 @@ export const router = createBrowserRouter(
       v7_skipActionErrorRevalidation: true,
     },
   }
-)
+);

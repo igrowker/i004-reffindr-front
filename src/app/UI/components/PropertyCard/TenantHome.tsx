@@ -1,4 +1,8 @@
-import { /* Box, */ Flex } from '@chakra-ui/react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import {
+  /* Box, */
+  Flex,
+} from '@chakra-ui/react';
 import { useEffect } from 'react';
 
 import { CardReuComponent } from '@/app/UI/components/CardInfo/CardReuComponent';
@@ -12,12 +16,16 @@ export const TenantHomePage = () => {
   useEffect(() => {
     getProperties();
   }, []);
-  console.log(isGettingProperties, properties)
+
   return (
     <Flex gap='4' flexWrap='wrap'>
       {isGettingProperties == true
-        ? [0, 1, 2, 3].map((item) => <CardReuComponent images={[]} maxW={'300px'}  key={item} isSkeletonLoading={isGettingProperties} />)
-        : properties?.map((item) => <CardReuComponent isSkeletonLoading={false} key={item.id} {...item} maxW='300px' />)}
+        ? [0, 1, 2, 3].map((item) => (
+            <CardReuComponent images={[]} maxW={'300px'} key={item} isSkeletonLoading={isGettingProperties} />
+          ))
+        : properties?.map((item) => (
+            <CardReuComponent isSkeletonLoading={false} key={item.id} {...item} maxW='300px' />
+          ))}
     </Flex>
   );
 };

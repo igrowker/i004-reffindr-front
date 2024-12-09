@@ -33,9 +33,9 @@ export const CardReuComponent = ({ maxW, isSkeletonLoading, ...property }: CardR
   const navigate = useNavigate();
 
   const handleViewMore = () => {
-    navigate(`${property.title}?pid=${property.id}`, { state: { property } });
+    navigate(`${property?.title}?pid=${property?.id}`, { state: { property } });
   };
-  
+
   const fallbackImageUrl =
     'https://images.adsttc.com/media/images/5d34/e507/284d/d109/5600/0240/newsletter/_FI.jpg?1563747560';
 
@@ -45,22 +45,25 @@ export const CardReuComponent = ({ maxW, isSkeletonLoading, ...property }: CardR
         minW={maxW}
         maxW={maxW}
         overflow='hidden'
-        shadow='md'
         borderRadius='lg'
+        border='1px solid transparent'
+        _hover={{
+          border: '1px solid #2175D9',
+          boxShadow: '0px 10px 20px rgba(38, 80, 204, 0.1)',
+        }}
         boxShadow='0px 4px 8px rgba(0, 0, 0, 0.1)'
         transition='box-shadow 0.3s ease-in-out'
-        _hover={{ boxShadow: '0px 10px 20px rgba(38, 80, 204, 0.4)' }}
       >
         <Image
-          src={property.images[0] ?? fallbackImageUrl}
-          alt={property.title}
+          src={property?.images[0] ?? fallbackImageUrl}
+          alt={property?.title}
           h='200px'
           objectFit='cover'
           borderRadius='0'
         />
         <Card.Body gap='1'>
           <Flex alignItems='center' gap='2'>
-            <Card.Title>{property.title}</Card.Title>
+            <Card.Title>{property?.title}</Card.Title>
 
             <IconButton
               aria-label='Call support'
@@ -73,26 +76,19 @@ export const CardReuComponent = ({ maxW, isSkeletonLoading, ...property }: CardR
               <FaHeart />
             </IconButton>
           </Flex>
-          {/* 
-        {showRating && (
-          <HStack>
-            <Rating allowHalf defaultValue={rating} onValueChange={({ value }) => setRating && setRating(value)} />
-            <Flex alignItems='center' gap='1'>
-              <Text>
-                {rating} <Box as={'span'}>Star</Box>
-              </Text>
-              <Text>10 reviews</Text>
-            </Flex>
-          </HStack>
-        )} */}
 
           <Text textStyle='2xl' fontWeight='medium' letterSpacing='tight' mt='2'>
-            ${property.price?.toLocaleString('es-AR')}
+            ${property?.price?.toLocaleString('es-AR')}
           </Text>
+          <Box letterSpacing='tight' mt='2'>
+            <Flex fontWeight={'semibold'} alignItems='center' gap='2'>
+              {property.countryName}, {property.stateName}
+            </Flex>
+          </Box>
           <Box letterSpacing='tight' mt='2'>
             <Flex alignItems='center' gap='2'>
               <RiMapPin2Line />
-              {property.address}
+              {property?.address}
             </Flex>
           </Box>
           <Box display='flex' gap='2'>
@@ -103,9 +99,9 @@ export const CardReuComponent = ({ maxW, isSkeletonLoading, ...property }: CardR
           ))} */}
           </Box>
 
-          <Card.Title as='h3'>{property.title}</Card.Title>
+          <Card.Title as='h3'>{property?.title}</Card.Title>
           <Card.Description as='span'>
-            <Text lineClamp='2'>{property.description}</Text>
+            <Text lineClamp='2'>{property?.description}</Text>
           </Card.Description>
         </Card.Body>
         <Card.Footer>

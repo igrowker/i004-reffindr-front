@@ -10,14 +10,6 @@ import { LookingFor } from './LookingFor';
 import { Modal } from './Modal';
 import { Requirements } from './Requirements ';
 
-const images = [
-  '/assets/hogar1.png',
-  '/assets/hogar2.png',
-  '/assets/hogar3.png',
-  '/assets/hogar4.png',
-  '/assets/hogar5.png',
-];
-
 export const ExpandedDetails = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { applicationProperty } = useApplication();
@@ -29,6 +21,8 @@ export const ExpandedDetails = () => {
       await applicationProperty(property.id);
     }
   };
+
+  console.log(property);
 
   return (
     <>
@@ -44,8 +38,16 @@ export const ExpandedDetails = () => {
           borderColor='gray.300'
           borderRadius='md'
         >
-          <ImgGrid images={images} />
-          <Details title={''} description={''} price={200} location={''} features={[]} />
+          <ImgGrid images={property.images} />
+          <Details
+            title={property.title}
+            description={property.description}
+            price={property.price}
+            country={property.countryName}
+            state={property.stateName}
+            location={property.address}
+            features={[]}
+          />
           <LookingFor />
           <Requirements />
           <Flex justifyContent='center' alignItems='center' mt='4' w='full'>

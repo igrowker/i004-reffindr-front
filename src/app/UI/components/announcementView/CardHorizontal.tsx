@@ -12,7 +12,14 @@ type CardHorizontalProps = {
 
 export const CardHorizontal: React.FC<CardHorizontalProps> = ({ title, price, location, description }) => (
   <Box mx={8} my={4}>
-    <Card.Root flexDirection={{ base: 'column', sm: 'row' }} overflow='hidden' width='100%'>
+    <Card.Root
+      flexDirection={{ base: 'column', sm: 'row' }}
+      overflow='hidden'
+      width='100%'
+      _hover={{
+        border: '1px solid #2175D9',
+      }}
+    >
       <Image
         objectFit='cover'
         maxW={{ base: '100%', sm: '200px' }}

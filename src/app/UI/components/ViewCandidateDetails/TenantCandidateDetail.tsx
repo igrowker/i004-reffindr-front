@@ -51,6 +51,8 @@ export const TenantCandidateDetail = () => {
             title={currentItem.title}
             description={currentItem.description}
             price={currentItem.budget}
+            country='Argentina'
+            state=''
             location={currentItem.location}
             features={currentItem.features}
             rating={currentItem.rating}

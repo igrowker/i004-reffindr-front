@@ -28,11 +28,7 @@ export const getUserCredentials = async (): Promise<IBaseResponse<User>> => {
 
 export const updateUserCredentials = async (data: FormData): Promise<IBaseResponse<User>> => {
   try {
-    const response = await httpClient.put<IBaseResponse<User>>('/users/profile/update', data, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
+    const response = await httpClient.put<IBaseResponse<User>>('/users/profile/update', data);
     return response.data;
   } catch (error: unknown) {
     const err = error as AxiosError<IBaseResponse<User>>;

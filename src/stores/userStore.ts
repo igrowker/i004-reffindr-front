@@ -33,13 +33,16 @@ export const userStore = create<State>((set) => ({
   },
   updateUser: async (data) => {
     const formData = new FormData();
+    console.log(data.profileImage)
     Object.entries(data).forEach(element => {
       if ( element[0] == 'birthDate') {
         formData.append(element[0], moment(element[1]).format("yyyy-MM-DD") + 'T23:26:08.151Z')
         return;
       }
+     
       formData.append(element[0], element[1] );
     })
+    
     const resp = await updateUserCredentials(formData);
     if (resp.hasErrors) {
       return null;

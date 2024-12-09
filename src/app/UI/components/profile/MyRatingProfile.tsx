@@ -13,7 +13,7 @@ export const MyRatingProfile = () => {
     <Box>
       <Flex alignItems="center" py={4} flexDirection='column' gap={2}>
         <Avatar.Root w={32} h={32}>
-          <Avatar.Image src='/public/AvatarImage1.png' />
+          <Avatar.Image src='/AvatarImage1.png' />
           <Avatar.Fallback>LF</Avatar.Fallback>
           <Float placement={'bottom-end'} offset="4">
             <IconButton rounded='full' size={'md'} bg='#efefef' color='black' outline='0.3em solid' outlineColor='bg'>

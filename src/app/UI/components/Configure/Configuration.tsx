@@ -1,24 +1,24 @@
-import { Box, Button, Flex, Stack } from '@chakra-ui/react'
-import { useTranslation } from 'react-i18next'
-import { Link, Outlet, useLocation } from 'react-router-dom'
+import { Flex, Stack, Box, Button } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
+import { Outlet, Link, useLocation} from "react-router-dom";
 
-export const Profile = () => {
+export const Configuration = () => {
   const { t } = useTranslation()
 
-  const viewProfile = [
-    { path: '', title: t('myProfile') },
-    { path: 'mis-anuncios', title: t('myAds') },
-    { path: 'candidatos-enviados', title: t('sendedCandidates') },
-    { path: 'notificaciones', title: t('notifications') },
-    { path: 'mi-rating', title: t('myRating') },
-  ]
+  const viewConfigure = [
+    { path: '', title: t('configure.language.title')},
+    { path: 'notificationSetting', title: t('configure.notificationSetting.title')},
+    { path: 'passwordManagement', title: t('configure.passwordManagement.title')},
+    { path: 'deleteAccount', title: t('configure.delete-account.title')}
+  ];
   const location = useLocation()
   const partialPathname = location.pathname.split('/').slice(2) 
   const pathname = partialPathname.length == 0 ? '' : partialPathname[0]
+
   return (
     <Flex flexDirection='column'>
       <Stack  wrap={'wrap'} justifyContent={'center'} direction={'row'}>
-        {viewProfile.map((item) => (
+        {viewConfigure.map((item) => (
           <Link key={item.path} to={`${item.path}`}>
             <Button
               key={item.path}
@@ -31,10 +31,11 @@ export const Profile = () => {
             </Button>
           </Link>
         ))}
+
       </Stack>
       <Box mt={4}>
         <Outlet />
       </Box>
     </Flex>
-  )
-}
+  );
+};

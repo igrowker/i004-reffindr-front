@@ -9,7 +9,6 @@ import { SectionGrid } from '../components/sections/SectionGrid'
 
 export const TenantView = () => {
   const { t } = useTranslation()
-
   return (
     <>
       <HeadSection

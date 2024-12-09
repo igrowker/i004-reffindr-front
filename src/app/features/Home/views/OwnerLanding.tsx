@@ -19,7 +19,7 @@ export const OwnerLanding = () => {
         }}
         backgroundImage='/Iniciar_propietario.jpg'
         headIcon={<IoLogoInstagram size={32} />}
-        title={t('landing.tenant-view.HeadSection.title')}
+        title={t('landing.owner-view.HeadSection.title')}
       />
 
       <SectionGrid />

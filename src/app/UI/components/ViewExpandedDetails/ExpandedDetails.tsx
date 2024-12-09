@@ -1,22 +1,30 @@
-import { Button, Flex } from '@chakra-ui/react'
-import { useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { Button, Flex } from '@chakra-ui/react';
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
-import { Details } from './Details'
-import { ImgGrid } from './ImgGrid'
-import { LookingFor } from './LookingFor'
-import { Modal } from './Modal'
-import { Requirements } from './Requirements '
+import { useApplication } from '@/hooks/useApplication';
 
-const images = ['/assets/hogar1.png', '/assets/hogar2.png', '/assets/hogar3.png', '/assets/hogar4.png', '/assets/hogar5.png']
+import { Details } from './Details';
+import { ImgGrid } from './ImgGrid';
+import { LookingFor } from './LookingFor';
+import { Modal } from './Modal';
+import { Requirements } from './Requirements ';
 
 export const ExpandedDetails = () => {
-  const { state } = useLocation()
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { applicationProperty } = useApplication();
+  const location = useLocation();
+  const property = location.state?.property;
+
+  const handleApplicationProperty = async () => {
+    if (property?.id) {
+      await applicationProperty(property.id);
+    }
+  };
 
   return (
     <>
-      <Flex bg='#EDF2F7' p='2' w='full'  flexDirection='column'>
+      <Flex bg='#EDF2F7' p='2' w='full' flexDirection='column'>
         <Flex
           direction='column'
           justifyContent='center'
@@ -28,20 +36,22 @@ export const ExpandedDetails = () => {
           borderColor='gray.300'
           borderRadius='md'
         >
-          <ImgGrid images={images} />
+          <ImgGrid images={property.images} />
           <Details
-            title={state.title}
-            description={state.description}
-            price={state.price}
-            location={state.location}
-            features={state.features}
+            title={property.title}
+            description={property.description}
+            price={property.price}
+            country={property.countryName}
+            state={property.stateName}
+            location={property.address}
+            features={[]}
           />
           <LookingFor />
           <Requirements />
           <Flex justifyContent='center' alignItems='center' mt='4' w='full'>
             <Button
               onClick={() => {
-                setIsModalOpen(true)
+                setIsModalOpen(true);
               }}
               size='lg'
               bg='#1E3A8A'
@@ -57,17 +67,17 @@ export const ExpandedDetails = () => {
         title='Aplicar a propiedad'
         body='¿Confirmas que deseas aplicar a esta propiedad?'
         onConfirm={() => {
-          alert('Aplicado')
-          setIsModalOpen(false)
+          setIsModalOpen(false);
+          handleApplicationProperty();
         }}
         onCancel={() => {
-          setIsModalOpen(false)
+          setIsModalOpen(false);
         }}
         onClose={() => {
-          setIsModalOpen(false)
+          setIsModalOpen(false);
         }}
         open={isModalOpen}
       />
     </>
-  )
-}
+  );
+};

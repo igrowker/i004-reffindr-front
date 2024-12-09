@@ -17,3 +17,8 @@ export const PublicRoute = ({ element }: { element: JSX.Element }) => {
 export const PublicRouteProfile = ({ element }: { element: JSX.Element }) => {
   return isAuthenticated() ? <Navigate to='/profile' /> : element
 }
+
+export const PublicRouteConfiguration = ({ element }: { element: JSX.Element }) => {
+  return isAuthenticated() ? <Navigate to='/configuration' /> : element
+}
+

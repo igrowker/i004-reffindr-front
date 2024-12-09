@@ -1,16 +1,21 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 import { BreadcrumbCurrentLink, BreadcrumbLink, BreadcrumbRoot } from '@/components/ui/breadcrumb'
 
 export const Breadcrumb = () => {
   const location = useLocation()
-  const pathnames = location.pathname.split('/')
-                            .filter((pathname) => pathname != '')
-                            .map(pathname => {
-                              const cleanedValue = pathname.split('%20').filter(value => value != '%20');
-                              return cleanedValue.join(' ');                              
-                            })
+  const pathnames = useMemo(
+    () =>
+      location.pathname
+        .split('/')
+        .filter((pathname) => pathname != '')
+        .map((pathname) => {
+          const cleanedValue = pathname.split('%20').filter((value) => value != '%20')
+          return cleanedValue.join(' ')
+        }),
+    [location.pathname]
+  )
 
   return (
     <BreadcrumbRoot>

@@ -1,8 +1,9 @@
-import { Box, Button, Fieldset, Input, Link, Stack, Text } from '@chakra-ui/react'
+import { Box, Fieldset, Input, Link, Stack, Text } from '@chakra-ui/react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FaFacebook, FaGoogle } from 'react-icons/fa'
-
 import { ErrorPopover } from '@/app/UI/components/Popover/Popover'
+import { Button } from '@/components/ui/button'
 import {
   DialogBackdrop,
   DialogBody,
@@ -27,13 +28,24 @@ interface Props {
 
 export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
   const { t } = useTranslation()
+  const [isLoading, setIsLoading] = useState(false)
   const { login, errorsMessage } = useLogin()
 
-  const { formState, errors, handleInputChange, handleSubmit } = useForm({ email: '', password: '' }, validateLogin)
+  const { formState, errors, handleInputChange, handleSubmit, resetForm } = useForm(
+    { email: '', password: '' },
+    validateLogin
+  )
 
   const handleLogin = async () => {
-    await login(formState.email, formState.password)
+    setIsLoading(true)
+    const resp = await login(formState.email, formState.password)
+    setIsLoading(false)
+    if (resp !== null) return
+    resetForm()
+    
   }
+
+  
 
   const handleShowRegister = () => {
     if (onShowRegister) {
@@ -54,7 +66,7 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
       <DialogBackdrop />
       <DialogTrigger asChild>
         <Button size={{ base: 'xs', sm: 'md' }} variant='solid' colorPalette={'blue'}>
-          Iniciar sesión
+          {t('login')}
         </Button>
       </DialogTrigger>
       <DialogContent rounded='sm'>
@@ -64,97 +76,105 @@ export const LoginModal = ({ onShowRegister, isOpen, onOpenChange }: Props) => {
           </DialogTitle>
         </DialogHeader>
         <DialogBody>
-          <Fieldset.Root>
-            <Stack textAlign={'center'} mt={-7}>
-              <Fieldset.HelperText fontSize={'md'} fontWeight={'medium'}>
-                {t('completeFields')}
-              </Fieldset.HelperText>
-            </Stack>
-
-            <Fieldset.Content gap={2}>
-              <Box>
-                <Field label={t('email')} required>
-                  <Input
-                    type='email'
-                    name='email'
-                    value={formState.email}
-                    onChange={handleInputChange}
-                    size={{ base: 'md', '2xl': 'md' }}
-                    placeholder={t('emailPlaceholder')}
-                    fontSize={{ base: 'medium', '2xl': 'xl' }}
-                  />
-                  {errors.email && <Text color='red.500'>{errors.email}</Text>}
-                </Field>
-              </Box>
-              <Box>
-                <Field label={t('password')} required>
-                  <PasswordInput
-                    type='password'
-                    name='password'
-                    value={formState.password}
-                    onChange={handleInputChange}
-                    size={{ base: 'md', '2xl': 'md' }}
-                    placeholder={t('passwordPlaceholder')}
-                    fontSize={{ base: 'medium', '2xl': 'xl' }}
-                  />
-                  {errors.password && <Text color='red.500'>{errors.password}</Text>}
-                </Field>
-              </Box>
-            </Fieldset.Content>
-
-            {errorsMessage && <ErrorPopover errorsMessage={errorsMessage} />}
-
-            <Stack gap={4} mb={4}>
-              <Button
-                fontSize={{ base: 'medium', '2xl': 'xl' }}
-                size={{ base: 'md', '2xl': 'md' }}
-                type='submit'
-                variant='solid'
-                colorPalette={'blue'}
-                rounded='xs'
-                onClick={() => handleSubmit(handleLogin)}
-              >
-                {t('login')}
-              </Button>
-
-              <Button
-                fontSize={{ base: 'medium', '2xl': 'xl' }}
-                size={{ base: 'md', '2xl': 'md' }}
-                variant='outline'
-                rounded='xs'
-                colorPalette={'black'}
-                onClick={handleLogin}
-              >
-                <FaGoogle />
-                {t('loginWithGoogle')}
-              </Button>
-
-              <Button
-                fontSize={{ base: 'medium', '2xl': 'xl' }}
-                size={{ base: 'md', '2xl': 'md' }}
-                variant='outline'
-                rounded='xs'
-                colorPalette={'black'}
-                onClick={handleLogin}
-              >
-                <FaFacebook />
-                {t('loginWithFacebook')}
-              </Button>
-            </Stack>
-
-            <Stack fontSize={{ base: 'medium', '2xl': 'xl' }} direction='column' align='center' gap={3} mt={3}>
-              <Link href='#' textDecoration={'underline'}>
-                {t('forgotPassword')}
-              </Link>
-
-              <Stack flexDirection={'row'}>
-                <Text>{t('dontHaveAccount')}</Text>
-                <Link fontWeight={'bold'} textDecoration={'underline'} href='#' onClick={handleShowRegister}>
-                  {t('register')}
-                </Link>
+          <form
+            action=''
+            onSubmit={(e) => {
+              e.preventDefault()
+              handleSubmit(handleLogin)
+            }}
+          >
+            <Fieldset.Root>
+              <Stack textAlign={'center'} mt={-7}>
+                <Fieldset.HelperText fontSize={'md'} fontWeight={'medium'}>
+                  {t('completeFields')}
+                </Fieldset.HelperText>
               </Stack>
-            </Stack>
-          </Fieldset.Root>
+              <Fieldset.Content gap={2}>
+                <Box>
+                  <Field label={t('email')} required>
+                    <Input
+                      type='email'
+                      name='email'
+                      value={formState.email}
+                      onChange={handleInputChange}
+                      size={{ base: 'md', '2xl': 'md' }}
+                      placeholder={t('emailPlaceholder')}
+                      fontSize={{ base: 'medium', '2xl': 'xl' }}
+                    />
+                    {errors.email && <Text color='red.500'>{errors.email}</Text>}
+                  </Field>
+                </Box>
+                <Box>
+                  <Field label={t('password')} required>
+                    <PasswordInput
+                      type='password'
+                      name='password'
+                      value={formState.password}
+                      onChange={handleInputChange}
+                      size={{ base: 'md', '2xl': 'md' }}
+                      placeholder={t('passwordPlaceholder')}
+                      fontSize={{ base: 'medium', '2xl': 'xl' }}
+                    />
+                    {errors.password && <Text color='red.500'>{errors.password}</Text>}
+                  </Field>
+                </Box>
+              </Fieldset.Content>
+
+              {errorsMessage && <ErrorPopover errorsMessage={errorsMessage} />}
+
+              <Stack gap={4} mb={4}>
+                <Button
+                  fontSize={{ base: 'medium', '2xl': 'xl' }}
+                  size={{ base: 'md', '2xl': 'md' }}
+                  type='submit'
+                  variant='solid'
+                  colorPalette={'blue'}
+                  rounded='xs'
+                  loading={isLoading}
+                  loadingText={t('loggingIn')}
+                >
+                  {t('login')}
+                </Button>
+
+                <Button
+                  fontSize={{ base: 'medium', '2xl': 'xl' }}
+                  size={{ base: 'md', '2xl': 'md' }}
+                  variant='outline'
+                  rounded='xs'
+                  type='button'
+                  colorPalette={'black'}
+                >
+                  <FaGoogle />
+                  {t('loginWithGoogle')}
+                </Button>
+
+                <Button
+                  type='button'
+                  fontSize={{ base: 'medium', '2xl': 'xl' }}
+                  size={{ base: 'md', '2xl': 'md' }}
+                  variant='outline'
+                  rounded='xs'
+                  colorPalette={'black'}
+                >
+                  <FaFacebook />
+                  {t('loginWithFacebook')}
+                </Button>
+              </Stack>
+
+              <Stack fontSize={{ base: 'medium', '2xl': 'xl' }} direction='column' align='center' gap={3} mt={3}>
+                <Link href='#' textDecoration={'underline'}>
+                  {t('forgotPassword')}
+                </Link>
+
+                <Stack flexDirection={'row'}>
+                  <Text>{t('dontHaveAccount')}</Text>
+                  <Link fontWeight={'bold'} textDecoration={'underline'} href='#' onClick={handleShowRegister}>
+                    {t('register')}
+                  </Link>
+                </Stack>
+              </Stack>
+            </Fieldset.Root>
+          </form>
         </DialogBody>
         <DialogCloseTrigger top='2' insetEnd='2' bg='gray.900' color='white' />
       </DialogContent>

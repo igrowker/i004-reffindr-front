@@ -51,6 +51,8 @@ export const TenantCandidateDetail = () => {
             title={currentItem.title}
             description={currentItem.description}
             price={currentItem.budget}
+            country='Argentina'
+            state=''
             location={currentItem.location}
             features={currentItem.features}
             rating={currentItem.rating}
@@ -60,9 +62,7 @@ export const TenantCandidateDetail = () => {
           <Requirements />
           <Flex justifyContent='center' alignItems='center' mt='4' w='full' gap='8'>
             <Button
-              onClick={() => {
-                console.log('Rechazar')
-              }}
+              
               size='lg'
               bg='white'
               color='black'

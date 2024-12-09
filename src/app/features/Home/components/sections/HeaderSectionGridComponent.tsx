@@ -15,7 +15,7 @@ export const HeaderSectionGridComponent = ({
 }: ReusableHeaderProps) => {
   const [leftTitle, rightTitle] = title.split(highlight)
   return (
-    <Box textAlign='center' mb={12}>
+    <Box textAlign='center' mb={10}>
       <Heading as='h2' fontSize='3xl' fontWeight='bold'>
         {leftTitle}
         <Text as='span' color={highlightColor}>

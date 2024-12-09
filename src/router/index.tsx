@@ -1,5 +1,5 @@
-import { Flex } from '@chakra-ui/react'
-import { createBrowserRouter } from 'react-router-dom'
+import { Flex } from '@chakra-ui/react';
+import { createBrowserRouter } from 'react-router-dom';
 
 import { HomePage } from '@/app/features/Home/pages/HomePage'
 import { CreatePropertyPage } from '@/app/features/Tenant/Outgoing/property/pages/CreatePropertyPage'
@@ -16,6 +16,14 @@ import { HomeLayout } from '@/layouts/HomeLayout'
 
 import { OwnerLanding } from '../app/features/Home/views/OwnerLanding'
 import { authenticated, requireAuth } from './loaders/authLoader'
+import { Configuration } from '@/app/UI/components/Configure/Configuration'
+import { Language } from '@/app/UI/components/ButtonLanguage/Language'
+import { getPropertyByIdLoader } from './loaders/propertiesLoader'
+import { ErrorBoundary } from '@/app/features/Error/ErrorBoundary'
+import { NotificationSetting } from '@/app/UI/components/Configure/NotificationSettings'
+import { PasswordManagement } from '@/app/UI/components/Configure/PasswordManagement'
+import { DeleteAccount } from '@/app/UI/components/Configure/DeleteAccount'
+import { FavoritesSection } from '@/app/UI/components/announcementView/FavoritesSection';
 
 export const router = createBrowserRouter(
   [
@@ -45,6 +53,8 @@ export const router = createBrowserRouter(
         },
         {
           path: 'home/:propertyName',
+          loader: getPropertyByIdLoader,
+          errorElement: <ErrorBoundary />,
           element: <ExpandedDetails />,
         },
         {
@@ -52,7 +62,7 @@ export const router = createBrowserRouter(
           element: <Profile />,
           children: [
             {
-              path: 'mi-perfil',
+              index: true,
               element: <ViewEditProfile />,
             },
             {
@@ -68,22 +78,40 @@ export const router = createBrowserRouter(
               element: <ProfileNotifications />,
             },
             {
-              path: 'mi-valoracion',
+              path: 'mi-rating',
               element: <MyRatingProfile />,
             },
           ],
         },
         {
           path: 'favoritos',
-          element: <AnnouncementSection />,
+          element: <FavoritesSection />,
         },
         {
           path: 'help',
           element: <OutgoingTenantHelp />,
         },
         {
-          path: '*',
-          element: <Flex>404 not found</Flex>,
+          path: 'configuration',
+          element: <Configuration />,
+          children: [
+            {
+              index: true,
+              element: <Language />
+            },
+            {
+              path: 'notificationSetting',
+              element: <NotificationSetting />
+            },
+            {
+              path: 'passwordManagement',
+              element: <PasswordManagement />
+            },
+            {
+              path: 'deleteAccount',
+              element: <DeleteAccount />
+            }
+          ]
         },
       ],
     },
@@ -97,4 +125,4 @@ export const router = createBrowserRouter(
       v7_skipActionErrorRevalidation: true,
     },
   }
-)
+);

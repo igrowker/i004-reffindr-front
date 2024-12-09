@@ -1,29 +1,30 @@
-import { Box, Flex, Text, useBreakpointValue, VStack } from '@chakra-ui/react'
-import { useTranslation } from 'react-i18next'
-import { CgProfile } from 'react-icons/cg'
-import { FaRegHeart } from 'react-icons/fa6'
-import { FiHome } from 'react-icons/fi'
-import { IoMdHelp } from 'react-icons/io'
-import { LuMessageSquare } from 'react-icons/lu'
-import { RxExit } from 'react-icons/rx'
-import { Link, useLocation } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+import { Box, Flex, Text, useBreakpointValue, VStack } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
+import { CgProfile } from 'react-icons/cg';
+import { FaRegHeart } from 'react-icons/fa6';
+import { FiHome } from 'react-icons/fi';
+import { GrConfigure } from 'react-icons/gr';
+import { IoMdHelp } from 'react-icons/io';
+import { RxExit } from 'react-icons/rx';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-import { Avatar } from '@/components/ui/avatar'
-import { authLogout } from '@/services/authService'
-import { userStore } from '@/stores/userStore'
+import { Avatar } from '@/components/ui/avatar';
+import { Skeleton, SkeletonCircle } from '@/components/ui/skeleton';
+import { UserRoles } from '@/constants/auth-account-constants';
+import { authStore } from '@/stores/authStore';
+import { userStore } from '@/stores/userStore';
 
-import { Language } from '../ButtonLanguage/Language'
-import { LogoComponent } from '../Logo/LogoComponent'
-import { ButtonIconComponent } from './ButtonIconComponent'
-import { SelectorTypeComponent } from './SelectorTypeComponent'
+import { LogoComponent } from '../Logo/LogoComponent';
+import { ButtonIconComponent } from './ButtonIconComponent';
+import { SelectorTypeComponent } from './SelectorTypeComponent';
 
 const Sidebar = () => {
-  const { t } = useTranslation()
-  const sidebarWidth = useBreakpointValue({ base: '277px' })
-  const navigate = useNavigate()
-  const actualUser = userStore((state) => state.user)
-
+  const { t } = useTranslation();
+  const sidebarWidth = useBreakpointValue({ base: '277px' });
+  const navigate = useNavigate();
+  const actualUser = userStore((state) => state.user);
+  const logout = authStore((state) => state.logout);
+  const isUserDataPending = userStore((state) => state.isUserDataPending);
   const links = [
     {
       path: 'home',
@@ -46,20 +47,20 @@ const Sidebar = () => {
       title: t('help'),
     },
     {
-      path: 'messages',
-      icon: <LuMessageSquare />,
-      title: t('messages'),
+      path: 'configuration',
+      icon: <GrConfigure />,
+      title: t('configuration'),
     },
-  ]
+  ];
 
   const handleLogout = () => {
-    authLogout()
-    navigate('/inquilinos')
-  }
+    logout();
+    navigate("/inquilinos")
+  };
 
-  const location = useLocation()
 
-  console.log(location)
+  const location = useLocation();
+
   return (
     <Flex
       w={sidebarWidth}
@@ -76,12 +77,23 @@ const Sidebar = () => {
       <Box display='flex' justifyContent='center' mb={5} mt={5}>
         <LogoComponent size='96px' src='/assets/logos-svg/logoazul.svg' />
       </Box>
-      <Box display='flex' justifyContent='center' alignItems='center' gap='2' mb={5}>
-        <Avatar size='lg' name='Sage' src='https://bit.ly/sage-adebayo' />
-        <Text fontSize='lg' fontWeight='bold'>
-          {actualUser?.name} {actualUser?.lastName}
-        </Text>
-      </Box>
+      <Flex justifyContent='center' alignItems='center' gap='2' mb={5}>
+        <SkeletonCircle loading={isUserDataPending}>
+          <Avatar size='lg' name='Sage' src={actualUser?.imageProfileUrl ?? ''} />
+        </SkeletonCircle>
+        <Flex flexGrow={1} flexDir='column' gapY={1}>
+          <Skeleton loading={isUserDataPending}>
+            <Text fontSize='md' lineClamp={2} fontWeight='bold'>
+              {actualUser?.name ?? 'ricardo'} {actualUser?.lastName ?? 'menendez'}
+            </Text>
+          </Skeleton>
+          <Skeleton loading={isUserDataPending}>
+            <Text fontWeight={'medium'} fontSize='sm' color='#1e3a8a' textDecoration='underline'>
+              {actualUser?.roleId == UserRoles.Owner ? 'Propietario' : 'Inquilino'}
+            </Text>
+          </Skeleton>
+        </Flex>
+      </Flex>
 
       <Box flexBasis='10%'>
         <SelectorTypeComponent />
@@ -100,17 +112,14 @@ const Sidebar = () => {
           ))}
         </VStack>
       </Box>
-      <Box display={'flex'} alignItems={'center'} justifyContent={'center'}>
-        <Language />
-      </Box>
 
       <Box flexBasis='20%'>
-        <VStack gap={6} align='stretch'>
+        <VStack gap={6} align='stretch' mt={10}>
           <ButtonIconComponent isActive={false} onClick={handleLogout} icon={<RxExit />} text={t('logout')} />
         </VStack>
       </Box>
     </Flex>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;

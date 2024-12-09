@@ -1,4 +1,4 @@
-import { Box, Flex, HStack, Icon, Input } from '@chakra-ui/react'
+import { Box, Flex, HStack, Input } from '@chakra-ui/react'
 import { Button } from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next'
 import { FaSortAmountDownAlt } from 'react-icons/fa'
@@ -15,9 +15,9 @@ export const SearchWithFiltersAndNotification = () => {
   const tenantRole = useTenantStore((state) => state.tenantRole)
 
   return (
-    <HStack gap='6' width='full' align='center' bg={'white'} mb={2} py={2} px={2} position={'sticky'} top={'0px'}>
+    <HStack gap='6' width='full' align='center' bg={'white'} mb={2} py={2} px={2}>
       {/* este es mi inputt de búsqueda */}
-      <Flex position='relative' width={'50%'}>
+      <Flex width={'50%'}>
         <Input
           placeholder={t('search')}
           variant={'outline'}
@@ -26,10 +26,8 @@ export const SearchWithFiltersAndNotification = () => {
           _hover={{ borderColor: 'black.400' }}
         />
 
-        <Button colorPalette={'blue'}>
-          <Icon>
-            <IoSearch />
-          </Icon>
+        <Button bg={'#1e3a8a'}>
+          <IoSearch />
         </Button>
       </Flex>
 
@@ -48,7 +46,7 @@ export const SearchWithFiltersAndNotification = () => {
           </MenuContent>
         </MenuRoot>
         {tenantRole == TenantRoles.outgoing && (
-          <Button colorPalette={'blue'}>
+          <Button asChild bg={'#1e3a8a'}>
             <Link to='create-property'>{t('createAd')}</Link>
           </Button>
         )}

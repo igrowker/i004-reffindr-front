@@ -1,25 +1,29 @@
-import { Badge, Box, Card, HStack, Image, Text } from '@chakra-ui/react'
-import { FaMapMarkerAlt } from 'react-icons/fa'
+import { Box, Card, HStack, Image, Text } from '@chakra-ui/react';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/button';
 
 type CardHorizontalProps = {
-  title: string
-  price: string
-  location: string
-  badges: string[]
-  description: string
-}
+  title: string;
+  price: number;
+  location: string;
+  description: string;
+  images: string;
+};
 
-export const CardHorizontal: React.FC<CardHorizontalProps> = ({ title, price, location, badges, description }) => (
+export const CardHorizontal: React.FC<CardHorizontalProps> = ({ title, price, location, description, images }) => (
   <Box mx={8} my={4}>
-    <Card.Root flexDirection={{ base: 'column', sm: 'row' }} overflow='hidden' width='100%'>
-      <Image
-        objectFit='cover'
-        maxW={{ base: '100%', sm: '200px' }}
-        src='/public/Announcement_Image.svg'
-        alt='Caffe Latte'
-      />
+    <Card.Root
+      flexDirection={{ base: 'column', sm: 'row' }}
+      overflow='hidden'
+      width='100%'
+      _hover={{
+        border: '1px solid #2175D9',
+      }}
+    >
+      <Image objectFit='cover' maxW={{ base: '100%', sm: '200px' }} src={images} alt='Caffe Latte' />
+     
+      
       <Box display='flex' flexDirection='column' justifyContent='space-between' alignItems='center' width='100%'>
         <Card.Body flex='1' width='100%'>
           <Card.Title fontSize={20} fontWeight='bold' mb='2'>
@@ -30,13 +34,7 @@ export const CardHorizontal: React.FC<CardHorizontalProps> = ({ title, price, lo
             <FaMapMarkerAlt />
             <Text>{location}</Text>
           </HStack>
-          <HStack flexWrap={'wrap'} my='2'>
-            {badges.map((badge, index) => (
-              <Badge key={index} bgColor={'blue.400'} mr={2}>
-                {badge}
-              </Badge>
-            ))}
-          </HStack>
+
           <Card.Description>{description}</Card.Description>
         </Card.Body>
         <Card.Footer display='flex' justifyContent='flex-end' width='100%' mt='auto'>
@@ -45,4 +43,4 @@ export const CardHorizontal: React.FC<CardHorizontalProps> = ({ title, price, lo
       </Box>
     </Card.Root>
   </Box>
-)
+);

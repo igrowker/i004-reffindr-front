@@ -1,5 +1,12 @@
 {
   "landing": {
+    "register": "Registrarse",
+    "owner-view": {
+      "HeadSection": {
+        "tenant": "Soy inquilino",
+        "title": "Encontrá tu siguiente \n inquilino con nosotros"
+      }
+    },
     "tenant-view": {
       "HeadSection": {
         "owner": "Soy propietario",
@@ -14,12 +21,14 @@
         "description-3": "Te podrás conectar con el propietario para concretar tu alquiler o venta de tu nuevo hogar."
       }
     },
+    
     "headSection": {
       "button-login": "Iniciar sesión",
       "button-register": "Registrarse",
       "text": "Nuestra plataforma conecta a inquilinos y propietarios, eliminando \n la necesidad de intermediarios y las comisiones elevadas."
     },
     "section-grid": {
+      "valued": "valorados",
       "header-title": "Los mejores valorados aplicarán a tu propiedad",
       "header-description": "Te mostraremos los mejores tres candidatos aplicados a tu propiedad, siendo pre-filtrados anteriormente.",
       "box1-description": "de satisfacción con nuestro servicio",
@@ -76,19 +85,21 @@
   "outgoing": "Saliente",
   "myProfile": "Mi Perfil",
   "myAds": "Mis Anuncios",
-  "sendedCandidates": "Candidatos Enviados",
+  "sendedCandidates": "Mis Postulaciones",
   "notifications": "Notificaciones",
   "myRating": "Mi Valoración",
   "emailPlaceholder": "Correo Electrónico",
   "forgotPassword": "¿Olvidaste tu contraseña?",
   "haveAccount": "¿Ya tienes una cuenta?",
   "login": "Iniciar Sesión",
+  "loggingIn": "iniciando sesión...",
   "loginWithFacebook": "Iniciar Sesión con Facebook",
   "loginWithGoogle": "Iniciar Sesión con Google",
   "name": "Nombre",
   "password": "Contraseña",
   "passwordPlaceholder": "Contraseña",
   "register": "Regístrate",
+  "registering": "registrando...",
   "registerWithFacebook": "Registrarse con Facebook",
   "registerWithGoogle": "Registrarse con Google",
   "surname": "Apellido",
@@ -96,7 +107,7 @@
   "profile": "Perfil",
   "favorites": "Favoritos",
   "help": "Ayuda",
-  "messages": "Mensajes",
+  "configuration": "Configuración",
   "logout": "Cerrar Sesión",
   "filter": "Filtrar",
   "createAd": "Crear Anuncio",
@@ -105,8 +116,11 @@
   "search": "Buscar",
   "ViewEditProfile": {
     "button-edit": "Editar perfil",
+    "button-edit-active": "Cancelar",
+    "birthdate": "Fecha de nacimiento",
     "button-save": "Guardar Cambios",
     "role": "Inquilino",
+    "phone": "Teléfono",
     "name": "Nombre:",
     "last-name": "Apellido:",
     "document-number": "Número de documento:",
@@ -129,7 +143,7 @@
     },
     "modal": {
       "confirmation": "¿Seguro deseas guardar cambios?",
-      "yes": "Sí",
+      "yes": "Aceptar",
       "cancel": "Cancelar"
     }
   },
@@ -146,9 +160,30 @@
       "answer-4": "Aunque puedes recomendar a cualquier persona que consideres adecuada, es importante que el candidato cumpla con los requisitos del propietario de la propiedad. Estos pueden incluir condiciones como estabilidad laboral, ingresos suficientes y otros factores relevantes para el alquiler del departamento"
     }
   },
-  "Language": {
-    "title": "Idioma",
-    "ingles-english": "Ingles",
-    "español-spanish": "Español"
+  "configure": {
+    "language": {
+      "title": "Idioma",
+      "ingles-english": "Ingles",
+      "español-spanish": "Español"
+    },
+    "notificationSetting": {
+      "title": "Configuración de Notificaciones",
+      "sort-notifications": "Ordenar Notificaciones",
+      "lock-screen": "Notificaciones de pantalla de Bloqueo",
+      "delete-notifications": "Eliminar Historial de Notificaciones"
+    },
+    "passwordManagement": {
+      "title": "Administración de Contraseña",
+      "two-step-verification": "Verificación en dos Pasos",
+      "change-password": "Cambiar Contraseña",
+      "password-vulnerability": "Vulnerabilidad de la contraseña."
+    },
+    "delete-account": {
+      "title": "Eliminar Cuenta",
+      "text-1": "¿Estás seguro de eliminar la cuenta?",
+      "text-2": "Si eliminas la cuenta, se borraron todos tus mensajes, y otros datos que tengas en la aplicación",
+      "button-cancel": "Cancelar",
+      "button-delete": "Eliminar Cuenta"
+    }
   }
 }

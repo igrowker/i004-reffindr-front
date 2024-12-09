@@ -1,5 +1,6 @@
 {
   "landing": {
+    "register": "Register",
     "owner-view": {
       "HeadSection": {
         "tenant": "I'm tenant",
@@ -26,6 +27,7 @@
       "text": "Our platform connects tenants and owners, eliminating \n the need for intermediaries and high commissions."
     },
     "section-grid": {
+      "valued": " valued",
       "header-title": "The top-rated applicants will apply to your property",
       "header-description": "We will show you the top three candidates who applied for your property, pre-screened beforehand.",
       "box1-description": "of satisfaction with our service",
@@ -94,12 +96,14 @@
   "forgotPassword": "Forgot your password?",
   "haveAccount": "Already have an account?",
   "login": "Login",
+  "loggingIn": "logging in...",
   "loginWithFacebook": "Login with Facebook",
   "loginWithGoogle": "Login with Google",
   "name": "Name",
   "password": "Password",
   "passwordPlaceholder": "Password",
   "register": "Register",
+  "registering": "registering...",
   "registerWithFacebook": "Register with Facebook",
   "registerWithGoogle": "Register with Google",
   "surname": "Surname",
@@ -107,7 +111,7 @@
   "profile": "Profile",
   "favorites": "Favorites",
   "help": "Help",
-  "messages": "Messages",
+  "configuration": "Configuration",
   "logout": "Logout",
   "filter": "Filter",
   "createAd": "Create Ad",
@@ -116,9 +120,12 @@
   "search": "Search",
     "ViewEditProfile": {
     "button-edit": "Edit Profile",
+    "birthdate": "Birthdate",
+    "button-edit-active": "Cancel",
     "button-save": "Save Changes",
     "role": "Tenant",
     "name": "Name:",
+    "phone": "Phone",
     "last-name": "Last Name:",
     "document-number": "Document Number:",
     "salary-range": {
@@ -157,9 +164,31 @@
       "answer-4": "Although you can recommend anyone you deem suitable, it is important that the candidate meets the requirements set by the property owner. These may include conditions such as job stability, sufficient income, and other relevant factors for renting the apartment."
     }
   },
-  "Language": {
+  "configure": {
+  "language": {
     "title": "Language",
     "ingles-english": "English",
     "español-spanish": "Spanish"
+  },
+  "notificationSetting": {
+    "title": "Notification Settings",
+    "sort-notifications": "Sort Notifications",
+    "lock-screen": "Lock Screen Notifications",
+    "delete-notifications": "Delete Notification History"
+  },
+  "passwordManagement": {
+    "title": "Password Management",
+    "two-step-verification": "Two-Step Verification",
+    "change-password": "Change Password",
+    "password-vulnerability": "Password Vulnerability"
+  },
+  "delete-account": {
+    "title": "Delete Account",
+    "text-1": "Are you sure you want to delete the account?",
+    "text-2": "If you delete the account, all your messages and other data in the app will be erased.",
+    "button-cancel": "Cancel",
+    "button-delete": "Delete Account"
   }
+}
+
 }

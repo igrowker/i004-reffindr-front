@@ -31,7 +31,9 @@
     "react-slick": "^0.30.2",
     "slick-carousel": "^1.8.1",
     "sweetalert2": "^11.6.13",
-    "zustand": "^5.0.2"
+    "zustand": "^5.0.2",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-image-optimizer": "^1.1.8"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",

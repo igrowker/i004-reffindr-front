@@ -6,10 +6,9 @@ WORKDIR /usr/src/app
 FROM base as deps
 
 # Instalar todas las dependencias (producción y desarrollo) para construir el proyecto
-RUN --mount=type=bind,source=package.json,target=package.json \
-    --mount=type=bind,source=package-lock.json,target=package-lock.json \
-    --mount=type=cache,target=/root/.npm \
-    npm install
+COPY package.json package-lock.json ./
+
+RUN npm install
 
 # Etapa de construcción
 FROM deps as build

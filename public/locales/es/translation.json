@@ -159,9 +159,30 @@
       "answer-4": "Aunque puedes recomendar a cualquier persona que consideres adecuada, es importante que el candidato cumpla con los requisitos del propietario de la propiedad. Estos pueden incluir condiciones como estabilidad laboral, ingresos suficientes y otros factores relevantes para el alquiler del departamento"
     }
   },
-  "Language": {
-    "title": "Idioma",
-    "ingles-english": "Ingles",
-    "español-spanish": "Español"
+  "configure": {
+    "language": {
+      "title": "Idioma",
+      "ingles-english": "Ingles",
+      "español-spanish": "Español"
+    },
+    "notificationSetting": {
+      "title": "Configuración de Notificaciones",
+      "sort-notifications": "Ordenar Notificaciones",
+      "lock-screen": "Notificaciones de pantalla de Bloqueo",
+      "delete-notifications": "Eliminar Historial de Notificaciones"
+    },
+    "passwordManagement": {
+      "title": "Administración de Contraseña",
+      "two-step-verification": "Verificación en dos Pasos",
+      "change-password": "Cambiar Contraseña",
+      "password-vulnerability": "Vulnerabilidad de la contraseña."
+    },
+    "delete-account": {
+      "title": "Eliminar Cuenta",
+      "text-1": "¿Estás seguro de eliminar la cuenta?",
+      "text-2": "Si eliminas la cuenta, se borraron todos tus mensajes, y otros datos que tengas en la aplicación",
+      "button-cancel": "Cancelar",
+      "button-delete": "Eliminar Cuenta"
+    }
   }
 }

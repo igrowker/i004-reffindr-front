@@ -20,6 +20,9 @@ import { Configuration } from '@/app/UI/components/Configure/Configuration'
 import { Language } from '@/app/UI/components/ButtonLanguage/Language'
 import { getPropertyByIdLoader } from './loaders/propertiesLoader'
 import { ErrorBoundary } from '@/app/features/Error/ErrorBoundary'
+import { NotificationSetting } from '@/app/UI/components/Configure/NotificationSettings'
+import { PasswordManagement } from '@/app/UI/components/Configure/PasswordManagement'
+import { DeleteAccount } from '@/app/UI/components/Configure/DeleteAccount'
 
 
 export const router = createBrowserRouter(
@@ -90,11 +93,25 @@ export const router = createBrowserRouter(
         },
         {
           path: 'configuration',
-          element: <Configuration />
-        },
-        {
-          path: 'language',
-          element: <Language />
+          element: <Configuration />,
+          children: [
+            {
+              index: true,
+              element: <Language />
+            },
+            {
+              path: 'notificationSetting',
+              element: <NotificationSetting />
+            },
+            {
+              path: 'passwordManagement',
+              element: <PasswordManagement />
+            },
+            {
+              path: 'deleteAccount',
+              element: <DeleteAccount />
+            }
+          ]
         },
       ],
     },

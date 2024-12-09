@@ -43,7 +43,7 @@ export const Language: React.FC<LanguageProps> = ({ buttonStyles, ...flexProps }
       >
         <FaFlagUsa />
         <Text fontSize="xl" fontWeight="semibold" cursor="pointer">
-          {t("Language.ingles-english")}
+          {t("configure.language.ingles-english")}
         </Text>
       </Button>
 
@@ -62,7 +62,7 @@ export const Language: React.FC<LanguageProps> = ({ buttonStyles, ...flexProps }
       >
         <FaFontAwesomeFlag size="20px" />
         <Text fontSize="xl" fontWeight="semibold" cursor="pointer">
-          {t("Language.español-spanish")}
+          {t("configure.language.español-spanish")}
         </Text>
       </Button>
     </Flex>

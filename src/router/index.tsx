@@ -1,22 +1,28 @@
 import { Flex } from '@chakra-ui/react';
 import { createBrowserRouter } from 'react-router-dom';
 
-import { ErrorBoundary } from '@/app/features/Error/ErrorBoundary';
-import { HomePage } from '@/app/features/Home/pages/HomePage';
-import { CreatePropertyPage } from '@/app/features/Tenant/Outgoing/property/pages/CreatePropertyPage';
-import { AnnouncementSection } from '@/app/UI/components/announcementView/AnnouncementSection';
-import { FavoritesSection } from '@/app/UI/components/announcementView/FavoritesSection';
-import { Language } from '@/app/UI/components/ButtonLanguage/Language';
-import { Configuration } from '@/app/UI/components/Configure/Configuration';
-import { OutgoingTenantHelp } from '@/app/UI/components/OutgoingTenantHelps/OutgoingTenantHelp';
-import { MyRatingProfile } from '@/app/UI/components/profile/MyRatingProfile';
-import { Profile } from '@/app/UI/components/profile/Profile';
-import { ProfileCandidatesSend } from '@/app/UI/components/profile/ProfileCandidatesSend';
-import { ProfileNotifications } from '@/app/UI/components/profile/ProfileNotifications';
-import { TenantHomePage } from '@/app/UI/components/PropertyCard/TenantHome';
-import { ViewEditProfile } from '@/app/UI/components/ViewEditProfile/ViewEditProfile';
-import { ExpandedDetails } from '@/app/UI/components/ViewExpandedDetails/ExpandedDetails';
-import { HomeLayout } from '@/layouts/HomeLayout';
+import { HomePage } from '@/app/features/Home/pages/HomePage'
+import { CreatePropertyPage } from '@/app/features/Tenant/Outgoing/property/pages/CreatePropertyPage'
+import { AnnouncementSection } from '@/app/UI/components/announcementView/AnnouncementSection'
+import { OutgoingTenantHelp } from '@/app/UI/components/OutgoingTenantHelps/OutgoingTenantHelp'
+import { MyRatingProfile } from '@/app/UI/components/profile/MyRatingProfile'
+import { Profile } from '@/app/UI/components/profile/Profile'
+import { ProfileCandidatesSend } from '@/app/UI/components/profile/ProfileCandidatesSend'
+import { ProfileNotifications } from '@/app/UI/components/profile/ProfileNotifications'
+import { TenantHomePage } from '@/app/UI/components/PropertyCard/TenantHome'
+import { ViewEditProfile } from '@/app/UI/components/ViewEditProfile/ViewEditProfile'
+import { ExpandedDetails } from '@/app/UI/components/ViewExpandedDetails/ExpandedDetails'
+import { HomeLayout } from '@/layouts/HomeLayout'
+
+import { OwnerLanding } from '../app/features/Home/views/OwnerLanding'
+import { authenticated, requireAuth } from './loaders/authLoader'
+import { Configuration } from '@/app/UI/components/Configure/Configuration'
+import { Language } from '@/app/UI/components/ButtonLanguage/Language'
+import { getPropertyByIdLoader } from './loaders/propertiesLoader'
+import { ErrorBoundary } from '@/app/features/Error/ErrorBoundary'
+import { NotificationSetting } from '@/app/UI/components/Configure/NotificationSettings'
+import { PasswordManagement } from '@/app/UI/components/Configure/PasswordManagement'
+import { DeleteAccount } from '@/app/UI/components/Configure/DeleteAccount'
 
 import { OwnerLanding } from '../app/features/Home/views/OwnerLanding';
 import { authenticated, requireAuth } from './loaders/authLoader';
@@ -91,10 +97,24 @@ export const router = createBrowserRouter(
         {
           path: 'configuration',
           element: <Configuration />,
-        },
-        {
-          path: 'language',
-          element: <Language />,
+          children: [
+            {
+              index: true,
+              element: <Language />
+            },
+            {
+              path: 'notificationSetting',
+              element: <NotificationSetting />
+            },
+            {
+              path: 'passwordManagement',
+              element: <PasswordManagement />
+            },
+            {
+              path: 'deleteAccount',
+              element: <DeleteAccount />
+            }
+          ]
         },
       ],
     },

@@ -1,10 +1,8 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import React, { FormEvent, useState } from 'react';
-
 import { useForm } from '@/hooks/useForm';
 import { createProperty } from '@/services/propertiesService';
 import { validateProperty } from '@/utils/validate';
-
 import { PropertyCharacteristic } from '../PropertyCharacteristic/PropertyCharacteristic';
 import { PropertyConfirmation } from '../PropertyConfirmation/PropertyConfirmation';
 import { PropertyDetails } from '../PropertyDetails/PropertyDetails';
@@ -35,42 +33,45 @@ export interface InitialFormState {
   grill: boolean;
   terrace: boolean;
   description: string;
-  "RequirementPostRequestDto[IsWorking]": boolean;
-  "RequirementPostRequestDto[HasWarranty]": boolean;
-  "RequirementPostRequestDto[RangeSalary]": number;
+  'RequirementPostRequestDto[IsWorking]': boolean;
+  'RequirementPostRequestDto[HasWarranty]': boolean;
+  'RequirementPostRequestDto[RangeSalary]': number;
   ownerEmail: string;
   price: number;
-  images: FileList | null;
+  images: File[];
 }
+
 const initialFormState: InitialFormState = {
-  title: 'prueba',
-  address: 'no lo se pero de prueba',
-  countryId: 1,
-  stateId: 1,
-  environments: 1,
-  bedrooms: 1,
-  bathrooms: 1,
-  seniority: 4,
+  countryId: 0,
+  stateId: 0,
+  title: '',
+  address: '',
+  environments: 0,
+  bathrooms: 0,
+  bedrooms: 0,
+  seniority: 0,
   water: false,
-  surveillance: false,
-  internet: false,
   gas: false,
+  surveillance: false,
   electricity: false,
+  internet: false,
   pool: false,
-  pets: false,
-  elevator: false,
   garage: false,
+  pets: false,
   grill: false,
+  elevator: false,
   terrace: false,
-  description: 'alamfdj udhawh ',
-  ownerEmail: 'fernandez@gmail.com',
-  images: null,
-  price: 2000,
-  "RequirementPostRequestDto[IsWorking]": false,
-  "RequirementPostRequestDto[HasWarranty]": false,
-  "RequirementPostRequestDto[RangeSalary]": 0,
+  description: '',
+  ownerEmail: '',
+  price: 0,
+  "RequirementPostRequestDto[IsWorking]": true,
+  "RequirementPostRequestDto[HasWarranty]": true,
+  "RequirementPostRequestDto[RangeSalary]": 20, 
+  images: []
+
 
 };
+
 
 export const MenuAnnouncement = React.memo(() => {
   const [activeTab, setActiveTab] = useState(AnnoucementsTabs.PropertyDetails);
@@ -126,7 +127,7 @@ export const MenuAnnouncement = React.memo(() => {
             />
           )}
 
-          {activeTab === AnnoucementsTabs.Confirmation && <PropertyConfirmation />}
+          {activeTab === AnnoucementsTabs.Confirmation && <PropertyConfirmation handleInputChange={handleInputChange} formState={formState} />}
         </form>
       </Box>
     </>

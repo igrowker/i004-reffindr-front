@@ -118,11 +118,11 @@ export const PropertyCharacteristic = React.memo(({
             <Checkbox onCheckedChange={({ checked }) => onCheckboxChange({ name: 'pool', checked: !!checked })}>
               Pileta
             </Checkbox>
-            <Checkbox>Mascotas</Checkbox>
-            <Checkbox>Ascensor</Checkbox>
-            <Checkbox>Cochera</Checkbox>
-            <Checkbox>Parrilla</Checkbox>
-            <Checkbox>Terraza</Checkbox>
+            <Checkbox onCheckedChange={({ checked }) => onCheckboxChange({ name: 'pets', checked: !!checked })}>Mascotas</Checkbox>
+            <Checkbox onCheckedChange={({ checked }) => onCheckboxChange({ name: 'elevator', checked: !!checked })}>Ascensor</Checkbox>
+            <Checkbox onCheckedChange={({ checked }) => onCheckboxChange({ name: 'garage', checked: !!checked })}>Cochera</Checkbox>
+            <Checkbox onCheckedChange={({ checked }) => onCheckboxChange({ name: 'grill', checked: !!checked })}>Parrilla</Checkbox>
+            <Checkbox onCheckedChange={({ checked }) => onCheckboxChange({ name: 'terrace', checked: !!checked })}>Terraza</Checkbox>
           </SimpleGrid>
         </Flex>
 

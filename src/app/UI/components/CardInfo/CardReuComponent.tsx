@@ -50,7 +50,7 @@ export const CardReuComponent = ({ maxW, isSkeletonLoading, ...property }: CardR
         />
         <Card.Body gap='1'>
           <Flex alignItems='center' gap='2'>
-            <Card.Title>{property.title}</Card.Title>
+            <Card.Title lineClamp={1}>{property.title}</Card.Title>
 
             <IconButton
               aria-label='Call support'

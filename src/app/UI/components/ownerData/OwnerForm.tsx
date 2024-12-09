@@ -1,6 +1,5 @@
-import { Box, Button, Fieldset, Grid, GridItem, Input, Stack } from '@chakra-ui/react'
+import { Box, Button, Fieldset, Grid, Input, Stack } from '@chakra-ui/react'
 
-import { Checkbox } from '@/components/ui/checkbox'
 import { Field } from '@/components/ui/field'
 
 interface OwnerFormProps {
@@ -14,28 +13,6 @@ interface OwnerFormProps {
   onNextOwner: () => void
 }
 
-const Message = () => {
-  return (
-    <Box
-      background='white'
-      width='100%'
-      padding='4'
-      color='black'
-      mt='4'
-      boxShadow='xl'
-      borderRadius='lg'
-      opacity='0.95'
-      border='1px solid #ccc'
-      maxWidth='800px'
-    >
-      {/* Texto del mensaje */}
-      <Box mb='6'>
-        Le llegará un email de confirmación con cuatro números al propietario para que el mismo pueda ingresar a su
-        cuenta y confirmar su propiedad.
-      </Box>
-    </Box>
-  )
-}
 
 export const OwnerData: React.FC<OwnerFormProps> = ({ onNextOwner, formState, handleInputChange }) => {
   const handleNextOwner = () => {

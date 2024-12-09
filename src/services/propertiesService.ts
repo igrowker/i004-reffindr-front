@@ -44,12 +44,14 @@ export const createProperty = async (formState: InitialFormState) => {
 
   const formDataEntries = Object.entries(formState)
   
-  formDataEntries.forEach((item) => {
-    formData.append(toCapitalize(item[0]), `${item[1]}`)
-  })
-  await httpClient.post('/Properties/PostProperty', formData, {
-    headers: {
-      "Content-Type": "multipart/form-data"
+  formDataEntries.forEach(([key, value]) => {
+    if (key === 'images' ) {
+      Array.from(value).forEach((file) => {
+        formData.append(`${toCapitalize(key)}`, file as Blob);
+      });
+      return;
     }
-  });
+    formData.append(toCapitalize(key), value)
+  })
+  await httpClient.post('/properties/create-property' , formData);
 }

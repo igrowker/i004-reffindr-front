@@ -41,7 +41,6 @@ export const userStore = create<State>((set) => ({
       formData.append(element[0], element[1] );
     })
     const resp = await updateUserCredentials(formData);
-    console.log(resp);
     if (resp.hasErrors) {
       return null;
     }

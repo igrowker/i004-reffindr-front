@@ -86,7 +86,6 @@ export const RegisterModal = ({ isOpen, onShowLogin, onOpenChange }: Props) => {
           <form
             onSubmit={(e) => {
               e.preventDefault()
-              console.log('hol')
               handleSubmit(handleRegisterSubmit)
             }}
           >

@@ -1,4 +1,5 @@
 import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react'
+import { useNavigate } from 'react-router-dom'
 
 interface ConfirmationDialogProps {
   setShowDialog: (show: boolean) => void
@@ -15,6 +16,12 @@ export const ConfirmationDialog = ({
   subMessage = 'Te enviaremos una notificación en cuanto el propietario corrobore la información.',
   buttonText = 'Volver a Home',
 }: ConfirmationDialogProps) => {
+  const navigate = useNavigate();
+
+  const goHome = () => {
+    navigate('/home');
+    setShowDialog(false)
+  }
   return (
     <Flex
       direction={'column'}
@@ -43,7 +50,7 @@ export const ConfirmationDialog = ({
         <Text textAlign={'center'}>{subMessage}</Text>
       </Flex>
       <Box pt={'65px'} w={'full'} display='flex' justifyContent='flex-end'>
-        <Button onClick={() => setShowDialog(false)} bg={'#1E3A8A'}>
+        <Button onClick={goHome} bg={'#1E3A8A'}>
           {buttonText}
         </Button>
       </Box>

@@ -12,7 +12,6 @@ export const TenantHomePage = () => {
   useEffect(() => {
     getProperties();
   }, []);
-  console.log(isGettingProperties, properties)
   return (
     <Flex gap='4' flexWrap='wrap'>
       {isGettingProperties == true

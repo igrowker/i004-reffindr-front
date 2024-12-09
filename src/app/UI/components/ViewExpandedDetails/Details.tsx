@@ -4,7 +4,6 @@ import { FaHeart } from 'react-icons/fa6';
 import { RiMapPin2Line } from 'react-icons/ri';
 
 import { Rating } from '@/components/ui/rating';
-import { StatHelpText } from '@/components/ui/stat';
 
 interface DetailsProps {
   title: string;

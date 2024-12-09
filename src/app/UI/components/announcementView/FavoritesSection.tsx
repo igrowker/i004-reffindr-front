@@ -30,11 +30,10 @@ export const FavoritesSection = () => {
       {properties.map((property, index) => (
         <CardHorizontal
           key={index}
-          image={property?.images[0]}
+          
           title='Favorites'
           price={property?.price}
           location={property?.stateName}
-          address={property?.address}
           description={property?.description}
         />
       ))}
